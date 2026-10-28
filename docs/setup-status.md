@@ -14,8 +14,13 @@ on this private repository until it moves to a GitHub Team organization account.
 No ineffective ruleset was saved and no account/plan change was made. Enforcement
 and an independent second-developer review remain readiness blockers.
 
-The local documentation validator passes. Publishing this bootstrap and its CI
-run are verified separately after commit; application checks await MVP-01.
+The local documentation validator passes. Bootstrap commit 547f5ba was pushed
+to chore/project-bootstrap. Pull request #1 is open for independent review:
+https://github.com/AE22589/educational-gaming-platform/pull/1
+GitHub reported Repository checks / repository-check (pull_request) successful
+in 6 seconds (run 40769345816). Application checks await MVP-01. The PR is not
+merged, and the feature branches for implementation should start only after
+the bootstrap and foundation reviews. This status update is a follow-up commit.
 No tool is exposed for creating a saved Codex sidebar project, and Windows
 Computer Use instructions prohibit automating the Codex desktop UI. The local
 Git workspace is ready, but sidebar project registration requires the user to
