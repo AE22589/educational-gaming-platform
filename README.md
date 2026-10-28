@@ -2,6 +2,10 @@
 
 Planning and collaboration bootstrap. The application is not implemented yet.
 
+All project documentation must always be written and maintained in English,
+regardless of the language used in conversation. This includes plans, guides,
+architecture decisions, issues and pull requests. The product UI remains Spanish.
+
 - [MVP Development Plan 1.1](docs/mvp-development-plan-1.1.md): complete English plan, concrete Codex prompts and acceptance tests.
 - [Master plan](docs/master-plan.md): broader platform boundary and textbook backlog.
 - [Contracts](docs/contracts.md): implementation contract authority.

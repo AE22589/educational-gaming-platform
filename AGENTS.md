@@ -1,5 +1,12 @@
 # Project rules
 
+## Documentation language
+- Always write all project documentation in English, including plans, README files,
+  architecture decisions, setup guides, task descriptions, issues and pull requests.
+- Write new documentation and updates in English regardless of the conversation language.
+- Preserve original source quotations and textbook titles when needed, with English explanation.
+- This rule does not change the Spanish product UI or English learning vocabulary/audio.
+
 ## Product
 - Implement only docs/mvp.md and docs/mvp-development-plan-1.1.md.
 - Master-plan features are deferred unless explicitly commissioned.

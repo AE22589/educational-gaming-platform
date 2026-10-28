@@ -4,6 +4,12 @@
 
 ## 1. Purpose and document boundaries
 
+All project documentation must always be written and maintained in English,
+including future plans, guides, architecture decisions, issues and pull requests,
+regardless of the conversation language. Original textbook titles and necessary
+source quotations may retain their original language with English explanation.
+This documentation rule does not change the specified product UI or learning languages.
+
 Build one complete small loop: **meet animals → solve tasks → earn stars on every new playthrough → buy items → dress an avatar**. Do not ask Codex to build the whole platform at once.
 
 This is the implementation plan for the MVP. `master-plan.md` records the broader educational gaming platform and future textbook coverage. Future architecture support does not authorize implementing future worlds. The supplied German guide is the scope baseline; the safeguards, mastery rules and reliability requirements below are explicit 1.1 additions. No images are embedded in this plan.
