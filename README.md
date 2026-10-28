@@ -9,6 +9,7 @@ architecture decisions, issues and pull requests. The product UI remains Spanish
 - [MVP Development Plan 1.1](docs/mvp-development-plan-1.1.md): complete English plan, concrete Codex prompts and acceptance tests.
 - [Master plan](docs/master-plan.md): broader platform boundary and textbook backlog.
 - [Contracts](docs/contracts.md): implementation contract authority.
+- [Decision log](docs/decisions.md): accepted decisions, deferred setup and open prerequisites.
 - [Setup status](docs/setup-status.md): verified state and remaining setup.
 
 Run the current documentation check with `node scripts/validate-repository.mjs`.

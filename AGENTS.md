@@ -15,6 +15,12 @@
 - Errors never deduct stars; mastery is independent of stars.
 - No runtime AI, accounts, backend, analytics or microphone recording.
 
+## Decision continuity
+- Read docs/decisions.md at the start of continued project work.
+- Record confirmed decisions and unresolved prerequisites in English in the repository.
+- Keep proposals, accepted decisions, implementation and verification distinct.
+- Update affected specifications when approved decisions change them.
+
 ## Collaboration
 - Check branch and working tree before edits; never implement on main.
 - Never overwrite/revert another developer's changes.
