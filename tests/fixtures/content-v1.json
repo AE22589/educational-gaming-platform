@@ -1,0 +1,70 @@
+{
+  "contractVersion": 1,
+  "subjects": [
+    {
+      "id": "mathematics",
+      "title": { "es": "Matemáticas" },
+      "supportedLocales": ["es"]
+    }
+  ],
+  "textbooks": [],
+  "units": [],
+  "skills": [
+    {
+      "id": "counting",
+      "subjectId": "mathematics",
+      "title": { "es": "Contar" },
+      "prerequisiteSkillIds": []
+    }
+  ],
+  "assets": [],
+  "learningItems": [
+    {
+      "id": "one",
+      "contentVersion": "fixture-v1",
+      "subjectId": "mathematics",
+      "skillIds": ["counting"],
+      "grade": 2,
+      "instructionLocale": "es",
+      "kind": "number",
+      "payload": { "value": 1, "representation": "1" }
+    },
+    {
+      "id": "two",
+      "contentVersion": "fixture-v1",
+      "subjectId": "mathematics",
+      "skillIds": ["counting"],
+      "grade": 2,
+      "instructionLocale": "es",
+      "kind": "number",
+      "payload": { "value": 2, "representation": "2" }
+    }
+  ],
+  "missions": [
+    {
+      "id": "fixture-counting",
+      "version": "1",
+      "subjectId": "mathematics",
+      "title": { "es": "Ejemplo técnico" },
+      "itemIds": ["one", "two"],
+      "questions": [
+        {
+          "id": "q1",
+          "learningItemId": "one",
+          "skillIds": ["counting"],
+          "gameType": "picture-selection",
+          "prompt": {
+            "kind": "text",
+            "text": "Selecciona uno",
+            "locale": "es"
+          },
+          "optionIds": ["one", "two"],
+          "correctOptionId": "one",
+          "difficulty": "introductory"
+        }
+      ],
+      "rewardPolicyVersion": "stars-v1"
+    }
+  ],
+  "shopItems": []
+}

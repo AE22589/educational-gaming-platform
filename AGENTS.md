@@ -47,3 +47,13 @@
 - Finish with changed files, results and remaining risks.
 
 Repository instructions complement effective GitHub rules and cannot enable them.
+
+## Foundation implementation guidance
+- Use Node 24.21.0 LTS, npm 11.19.0 and the checked-in package-lock.json.
+- Shared schema authority: src/types/contracts.ts; review fixtures: tests/fixtures/.
+- Profile ports and pure decoder exist; no storage adapter/provider is wired yet.
+- Keep fixture imports out of production routes. Media directories contain no approved assets.
+- Run npm ci, npm run check:docs, npm run lint, npm run typecheck, npm test,
+  npm run build and npm run test:e2e (after Playwright Chromium installation).
+- The owner authorized local MVP-01 before bootstrap review/merge only; see decisions.md.
+  Independent review and authorized merge remain required before parallel development.
