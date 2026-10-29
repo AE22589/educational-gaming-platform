@@ -49,7 +49,9 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Mi avatar",
     );
-    expect(await page.evaluate(() => localStorage.length)).toBe(0);
+    expect(
+      await page.evaluate(() => localStorage.getItem("tier-abenteuer.profile.v1")),
+    ).not.toBeNull();
     expect(errors).toEqual([]);
   });
 }
