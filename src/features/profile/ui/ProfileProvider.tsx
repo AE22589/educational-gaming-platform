@@ -36,20 +36,30 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     loading,
   );
   useEffect(() => {
+    let active = true;
+    let next: ProfileService | null = null;
     try {
       // Storage and browser locking APIs are accessed only after hydration.
       const storage = window.localStorage;
-      const next = new ProfileService(
+      next = new ProfileService(
         new BrowserSnapshotStore(storage),
         new BrowserWriterCoordinator(storage),
         new ValidatedProfileCatalog(EMPTY_CONTENT_BUNDLE),
       );
-      setService(next);
-      void next.initialize();
-      return () => next.dispose();
+      void Promise.resolve().then(() => {
+        if (!active) return;
+        setService(next);
+        return next?.initialize();
+      });
     } catch {
-      setBootstrapFailed(true);
+      void Promise.resolve().then(() => {
+        if (active) setBootstrapFailed(true);
+      });
     }
+    return () => {
+      active = false;
+      next?.dispose();
+    };
   }, []);
   const value = useMemo(() => ({ service, state }), [service, state]);
   return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>;
