@@ -84,7 +84,10 @@ flows, writer coordination, trusted attempt processing, star ledger and mastery
 derivation are now wired. No curriculum content is included, so gameplay cannot
 start until MVP-03 supplies a trusted mission catalog. No schema migration is
 needed before the first profile schema ships; unknown and invalid data enter
-recovery with the raw copy retained. The source changes and this documentation
-remain local and uncommitted. No tests, typecheck, build or browser checks were
-run for MVP-02 in this turn. Independent review, runtime verification, PR
-publication and merge remain outstanding and unauthorized.
+recovery with the raw copy retained. The complete source and English docs have
+been pushed to `codex/mvp-02-profile`; the separate saved-project checkout and
+`main` were not changed. The production build and static export pass locally.
+The GitHub Pages workflow is configured for this branch, pending its first
+hosted run and the account's private-repository Pages entitlement. No test suite
+was run for MVP-02. Independent review and merge remain outstanding; no merge
+was performed.
