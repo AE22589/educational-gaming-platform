@@ -1,4 +1,4 @@
-# Educational Gaming Platform — Tier-Abenteuer
+# Educational Gaming Platform — Animal Adventure
 
 MVP-01 implements the local application foundation, not a playable game.
 The Spanish routes `/`, `/learn`, `/learn/[missionId]`, `/shop` and `/avatar`

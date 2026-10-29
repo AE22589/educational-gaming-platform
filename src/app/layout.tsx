@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { ProfileProvider } from "@/features/profile/ui/ProfileProvider";
 export const metadata: Metadata = {
-  title: "Tier-Abenteuer · Aprende y explora",
+  title: "Aventura Animal · Aprende y explora",
   description: "Un espacio para aprender, paso a paso. Versión de desarrollo.",
 };
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
           <header className="border-b border-teal-900/10 bg-white">
             <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4">
               <Link href="/" className="brand">
-                Tier-Abenteuer
+                Aventura Animal
               </Link>
               <nav
                 aria-label="Navegación principal"

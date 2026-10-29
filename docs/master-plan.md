@@ -4,7 +4,7 @@ This is a boundary and backlog, not a reconstructed full original master plan.
 The referenced conversation exposed the German MVP guide and schoolbook image;
 its earlier assistant documents were unavailable as readable text.
 
-Vision: an extensible educational gaming platform, with Tier-Abenteuer as the
+Vision: an extensible educational gaming platform, with Animal Adventure as the
 first English-learning vertical slice. Preserve the five-subject pathway:
 mathematics, Spanish, English, natural science and social science.
 

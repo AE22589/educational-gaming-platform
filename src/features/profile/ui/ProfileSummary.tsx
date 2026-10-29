@@ -10,7 +10,7 @@ function download(raw: string): void {
     new Blob([raw], { type: "application/json;charset=utf-8" }),
   );
   link.href = url;
-  link.download = "tier-abenteuer-copia.json";
+  link.download = "aventura-animal-copia.json";
   link.click();
   URL.revokeObjectURL(url);
 }

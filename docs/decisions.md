@@ -1,5 +1,14 @@
 # Project decision log
 
+## 2026-10-29 — Spanish product name
+
+Status: accepted and implemented.
+
+- The Spanish product name shown in the application is **Aventura Animal**.
+- English project documentation and package metadata use **Animal Adventure**.
+- Existing browser storage keys retain their original identifiers so saved
+  profiles and cross-tab coordination remain compatible with earlier builds.
+
 Record confirmed project decisions here in English so future Codex sessions and
 both developers can recover the agreed context from the repository. Chat history
 alone is not the project source of truth. Update affected specifications when a
