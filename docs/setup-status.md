@@ -91,5 +91,7 @@ The GitHub Pages workflow is configured for this branch and the static export
 build passes locally. Repository Settings currently says, "Upgrade or make this
 repository public to enable Pages." No upgrade or source visibility change has
 been made, so GitHub Pages cannot publish this private repository on its current
-plan. No test suite was run for MVP-02. Independent review and merge remain
-outstanding; no merge was performed.
+plan. The Pages workflow is set to publish on `main`, as in the Lara project;
+it will deploy after the source is merged and Pages is enabled. No test suite was
+run for MVP-02. Independent review and merge remain outstanding; no merge was
+performed.

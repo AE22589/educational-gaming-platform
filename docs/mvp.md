@@ -37,7 +37,8 @@ Pending unsaved snapshots remain exportable. Storage is never accessed during
 server rendering. The provider currently receives an empty validated content
 catalog, so no mission can be started and no curriculum has been authored.
 The app builds as a static export for GitHub Pages; a Pages Actions workflow is
-configured on the current feature branch. GitHub currently blocks Pages for
+configured to publish on pushes to `main`, matching the existing Lara project.
+GitHub currently blocks Pages for
 this private repository and requests an upgrade or public repository visibility.
 No upgrade or source visibility change has been made.
 
