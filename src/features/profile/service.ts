@@ -477,7 +477,9 @@ export class ProfileService implements ProfilePort, RecoveryPort {
   }
 
   private async acquire(): Promise<void> {
-    this.ownership?.status === "exclusive" && this.ownership.lease.release();
+    if (this.ownership?.status === "exclusive") {
+      this.ownership.lease.release();
+    }
     this.ownership = await this.writer.acquire();
   }
 
