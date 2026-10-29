@@ -87,7 +87,9 @@ needed before the first profile schema ships; unknown and invalid data enter
 recovery with the raw copy retained. The complete source and English docs have
 been pushed to `codex/mvp-02-profile`; the separate saved-project checkout and
 `main` were not changed. The production build and static export pass locally.
-The GitHub Pages workflow is configured for this branch, pending its first
-hosted run and the account's private-repository Pages entitlement. No test suite
-was run for MVP-02. Independent review and merge remain outstanding; no merge
-was performed.
+The GitHub Pages workflow is configured for this branch and the static export
+build passes locally. Repository Settings currently says, "Upgrade or make this
+repository public to enable Pages." No upgrade or source visibility change has
+been made, so GitHub Pages cannot publish this private repository on its current
+plan. No test suite was run for MVP-02. Independent review and merge remain
+outstanding; no merge was performed.
