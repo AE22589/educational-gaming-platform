@@ -28,7 +28,7 @@ for (const width of [360, 768, 1280]) {
       ),
     ).toBe(true);
     await page.getByRole("link", { name: "Explorar misiones" }).click();
-    await expect(page).toHaveURL(/\/learn$/);
+    await expect(page).toHaveURL(/\/learn\/?$/);
     await page
       .getByRole("link", { name: "Ver la vista previa de la misión" })
       .click();
