@@ -12,10 +12,10 @@ locations. Preserve the five-subject pathway: mathematics, Spanish, English,
 natural science and social science.
 
 Current design work: define and review the small animal world and its map
-navigation before placing missions or games. The image in
-`concepts/animal-valley-map-concept.png` is a working visual reference, not an
-approved final map, region layout or production asset. Its provenance and usage
-rights must be verified before product use.
+navigation before placing missions or games. The alternatives in
+`concepts/animal-valley-map-concept.md` are working visual references, not an
+approved final map, region layout or production asset. Verify their provenance
+and usage rights before product use.
 
 Backlog after the first loop: 12 animals, three missions, matching, six shop items;
 publisher-verified textbook/unit/skill mapping; additional game adapters; broader

@@ -10,9 +10,10 @@ not final.
 - Define and review the world first; decide which missions or games belong in
   its locations afterward. This navigation decision does not expand the MVP's
   current game or content count.
-- `docs/concepts/animal-valley-map-concept.png` is a working visual reference.
-  It does not establish final locations, labels, interaction design or approved
-  production art. Verify its origin and usage rights before product use.
+- The alternatives in `docs/concepts/animal-valley-map-concept.md` are working
+  visual references. They do not establish final locations, labels, interaction
+  design or approved production art. Verify provenance and usage rights before
+  product use.
 - Continue revising the existing MVP development plan and master plan as this
   direction becomes more specific; do not treat the concept image as a locked
   design.
