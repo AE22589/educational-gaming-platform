@@ -1,4 +1,4 @@
-# Tier-Abenteuer — MVP Development Plan 1.1
+# Animal Adventure — MVP Development Plan 1.1
 
 28 October 2026 · English revision of the supplied German two-developer start guide
 
@@ -149,7 +149,7 @@ Verify an unreviewed PR cannot merge and a deliberately failing check blocks mer
 ## 9. Copy-ready foundation Codex prompt
 
 ```text
-We are developing Tier-Abenteuer, a web learning application for Spanish-speaking
+We are developing Animal Adventure (Spanish product name: Aventura Animal), a web learning application for Spanish-speaking
 children aged 6–8 learning English animal words. Implement only the foundation.
 Do not build complete games, the shop or a backend yet.
 

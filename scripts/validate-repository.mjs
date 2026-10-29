@@ -16,4 +16,4 @@ for (const marker of ['mastery-v1', '9788414407639', '9788414407622', '978138004
   '9788414408087', '9788414408254', 'MVP-02-profile-rewards', 'MVP-03-picture-selection']) {
   assert(plan.includes(marker), `Missing plan requirement ${marker}`);
 }
-console.log('Repository documents and local Markdown links validated. Application checks are not implemented.');
+console.log('Repository documents and local Markdown links validated. This documentation check does not validate application behavior.');

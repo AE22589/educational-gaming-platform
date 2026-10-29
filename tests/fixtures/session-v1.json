@@ -1,0 +1,11 @@
+{
+  "runId": "run-fixture-1",
+  "missionId": "fixture-counting",
+  "missionVersion": "1",
+  "seed": "fixture-seed",
+  "questionOrder": ["q1"],
+  "optionsByQuestion": { "q1": ["two", "one"] },
+  "questionStates": { "q1": "available" },
+  "results": [],
+  "status": "active"
+}
