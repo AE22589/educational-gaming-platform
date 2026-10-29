@@ -1,5 +1,23 @@
 # Project decision log
 
+## 2026-10-29 — World map as the mission entry point
+
+Status: accepted direction; map design is in progress and the concept art is
+not final.
+
+- The Spanish home-page mission entry opens a small animal world map before a
+  learner enters a mission.
+- Define and review the world first; decide which missions or games belong in
+  its locations afterward. This navigation decision does not expand the MVP's
+  current game or content count.
+- The alternatives in `docs/concepts/animal-valley-map-concept.md` are working
+  visual references. They do not establish final locations, labels, interaction
+  design or approved production art. Verify provenance and usage rights before
+  product use.
+- Continue revising the existing MVP development plan and master plan as this
+  direction becomes more specific; do not treat the concept image as a locked
+  design.
+
 ## 2026-10-29 — Spanish product name
 
 Status: accepted and implemented.

@@ -10,7 +10,12 @@ regardless of the conversation language. Original textbook titles and necessary
 source quotations may retain their original language with English explanation.
 This documentation rule does not change the specified product UI or learning languages.
 
-Build one complete small loop: **meet animals → solve tasks → earn stars on every new playthrough → buy items → dress an avatar**. Do not ask Codex to build the whole platform at once.
+Build one complete small loop: **enter the animal world → choose a mission →
+meet animals → solve tasks → earn stars on every new playthrough → buy items →
+dress an avatar**. The home-page mission entry leads to a small world map. Design
+that map before deciding where missions and games belong; treat the current
+concept image as exploratory only. Do not ask Codex to build the whole platform
+at once.
 
 This is the implementation plan for the MVP. `master-plan.md` records the broader educational gaming platform and future textbook coverage. Future architecture support does not authorize implementing future worlds. The supplied German guide is the scope baseline; the safeguards, mastery rules and reliability requirements below are explicit 1.1 additions. No images are embedded in this plan.
 
@@ -24,6 +29,12 @@ This is the implementation plan for the MVP. `master-plan.md` records the broade
 - Replay with full new rewards.
 
 Only after this loop passes acceptance may the scope expand to **12 animals, three missions, a matching game and six shop items**.
+
+The world map is a navigation and presentation layer for this loop, not a
+commitment to additional game content. The immediate design task is to define a
+small, child-friendly world and review its locations and navigation. Decide how
+the existing mission fits only after that world is defined. Do not add new
+missions or subjects as a consequence of the map concept.
 
 Excluded: registration, backend, Science World, speech recognition, rooms, pets, full offline operation, runtime AI, analytics and microphone recording. One local profile and one active browser tab are supported. No cross-device synchronization.
 
