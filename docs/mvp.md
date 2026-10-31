@@ -38,9 +38,10 @@ server rendering. The provider currently receives an empty validated content
 catalog, so no mission can be started and no curriculum has been authored.
 The app builds as a static export for GitHub Pages; a Pages Actions workflow is
 configured to publish on pushes to `main`, matching the existing Lara project.
-GitHub currently blocks Pages for
-this private repository and requests an upgrade or public repository visibility.
-No upgrade or source visibility change has been made.
+The repository is now public and GitHub Pages is enabled (build type: workflow,
+source: `main`), so the site is published at
+https://ae22589.github.io/educational-gaming-platform/ (verified through the
+GitHub API on 2026-10-31). It currently serves development previews only.
 
 Not yet implemented: migration of an earlier shipped schema (none exists),
 approved animal content/media, shop purchases, avatar rendering, gameplay and
