@@ -14,6 +14,21 @@ both developers can recover the agreed context from the repository. Chat history
 alone is not the project source of truth. Update affected specifications when a
 decision changes them; do not treat an assistant proposal as an approved decision.
 
+## 2026-10-31 — Repository is public; GitHub Pages is live
+
+Status: observed and verified through the GitHub API; documentation corrected.
+
+- The repository visibility is `PUBLIC` and GitHub Pages publishes from `main`
+  via the Pages workflow at https://ae22589.github.io/educational-gaming-platform/.
+- Earlier entries describing a private repository and blocked Pages are historical.
+  Whether and when visibility changed was not recorded in the repository; the owner
+  should confirm that this is intended.
+- Plan section 8 still lists "private repository" as a GitHub configuration item.
+  This is open for an explicit owner decision. Effective branch-protection and
+  ruleset enforcement have not been re-read and are not claimed.
+- Public visibility makes the media-rights, asset-licence and child-data rules
+  more important: no unapproved assets, credentials or real children's data.
+
 ## 2026-10-28 — Repository documentation is the durable handover
 
 Status: accepted by the project owner.
