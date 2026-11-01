@@ -27,7 +27,10 @@
 - Keep to task ownership; coordinate shared contracts/dependencies first.
 - Never commit, push or merge without explicit authorization.
 - No force push or destructive Git operations without authorization.
-- Each developer uses a separate clone and session; other developer reviews PR.
+- Each developer uses a separate clone and session. Independent review is the
+  default before merging, but the owner may explicitly waive it for a named
+  release. A direct owner instruction to bring that release live is sufficient
+  authorization to merge and deploy it without waiting for independent review.
 
 ## Architecture
 - Games emit results; profile alone controls rewards, inventory and persistence.

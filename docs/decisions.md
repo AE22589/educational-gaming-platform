@@ -1,5 +1,17 @@
 # Project decision log
 
+## 2026-11-01 — Owner-authorized release may bypass independent review
+
+Status: accepted by the owner; applied to the CHISPITAS homepage release.
+
+- Independent review remains the default before merge.
+- For a named live release, the owner's explicit instruction to bring it live
+  authorizes merging and deploying without waiting for independent review.
+- This authorization is limited to that release. All other project rules,
+  including successful required checks and GitHub-enforced protections, remain
+  in force.
+- The CHISPITAS homepage release is the first release covered by this exception.
+
 ## 2026-11-01 — CHISPITAS homepage branding
 
 Status: accepted and implemented locally for DEV-02.
@@ -14,8 +26,8 @@ Status: accepted and implemented locally for DEV-02.
   persistent learner data, avatar customization or rewards functionality.
 - This supersedes the Aventura Animal homepage branding decision below for the
   homepage. Existing MVP content, language and economy scope remains unchanged.
-- The requested feature branch has not been independently reviewed; no commit,
-  push or merge is implied.
+- At the time this homepage decision was recorded, no commit, push or merge was
+  implied. The later owner-authorized release decision governs publication.
 
 ## 2026-10-29 — World map as the mission entry point
 
