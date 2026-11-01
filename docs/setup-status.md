@@ -95,3 +95,16 @@ plan. The Pages workflow is set to publish on `main`, as in the Lara project;
 it will deploy after the source is merged and Pages is enabled. No test suite was
 run for MVP-02. Independent review and merge remain outstanding; no merge was
 performed.
+
+## 2026-10-31 — Repository is public and GitHub Pages is live
+
+This correction supersedes the earlier statements in this file that the repository
+is private and that GitHub Pages is blocked (setup notes of 28 and 29 October).
+Verified through the GitHub API on 2026-10-31: repository visibility is `PUBLIC`
+and Pages is enabled with build type `workflow` from `main`. The public site is
+https://ae22589.github.io/educational-gaming-platform/ and serves development
+previews only. The earlier notes remain as historical observations.
+
+Because the repository is public, the "private repository ruleset" limitation
+recorded earlier may no longer apply. Effective branch protection has not been
+re-read, so no enforcement is claimed; verify and record it before relying on it.
