@@ -43,7 +43,6 @@ for (const width of [360, 768, 1280]) {
       "La tienda de la aventura",
     );
     await page
-      .getByRole("navigation")
       .getByRole("link", { name: "Mi avatar: Ver avatar", exact: true })
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
