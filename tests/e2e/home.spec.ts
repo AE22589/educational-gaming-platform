@@ -10,7 +10,7 @@ for (const width of [360, 768, 1280]) {
     await page.goto("/");
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "¡Vamos a aprender juntos!",
+      "¡Hola, explorador!",
     );
     await page.screenshot({
       path: `test-results/home-${width}.png`,
@@ -37,14 +37,14 @@ for (const width of [360, 768, 1280]) {
     );
     await page
       .getByRole("navigation")
-      .getByRole("link", { name: "Tienda", exact: true })
+      .getByRole("link", { name: "Tienda de estrellas", exact: true })
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "La tienda de la aventura",
     );
+    await page.goto("/");
     await page
-      .getByRole("navigation")
-      .getByRole("link", { name: "Mi avatar", exact: true })
+      .getByRole("link", { name: "Mi avatar: Ver avatar", exact: true })
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Mi avatar",

@@ -18,13 +18,15 @@ function download(raw: string): void {
 export function ProfileSummary() {
   const { service, state } = useProfile();
   const [message, setMessage] = useState<string | null>(null);
-  if (state.status === "loading") return <p role="status">Preparando tu perfil…</p>;
+  if (state.status === "loading")
+    return <p id="profile-summary" className="home-star-pill" role="status">Preparando tu perfil…</p>;
   if (state.status === "ready")
     return (
-      <div aria-live="polite" className="mt-5 rounded-2xl bg-white/80 p-4">
-        <p className="font-bold">Estrellas: {state.snapshot.stars}</p>
+      <div id="profile-summary" aria-live="polite" className="home-star-pill">
+        <svg aria-hidden="true" viewBox="0 0 32 32"><path d="m16 2 4.2 8.5 9.4 1.4-6.8 6.6 1.6 9.3L16 23.4l-8.4 4.4 1.6-9.3-6.8-6.6 9.4-1.4z" /></svg>
+        <p><strong>{state.snapshot.stars}</strong><span> estrellas</span></p>
         {state.ownership === "read-only" && (
-          <p className="mt-2 text-sm">Otra pestaña puede estar usando tu perfil. Aquí no se guardarán cambios.</p>
+          <span className="home-star-note">Otra pestaña puede estar usando tu perfil. Aquí no se guardarán cambios.</span>
         )}
       </div>
     );
@@ -76,7 +78,7 @@ export function ProfileSummary() {
     );
   };
   return (
-    <section aria-labelledby="profile-recovery-title" className="mt-5 rounded-2xl border border-amber-700 bg-white p-5" role="alert">
+    <section id="profile-summary" aria-labelledby="profile-recovery-title" className="home-profile-recovery" role="alert">
       <h2 id="profile-recovery-title" className="text-lg font-bold">No pudimos guardar tu progreso</h2>
       <p className="mt-2">{recoveryMessages[reason]}</p>
       <div className="mt-4 flex flex-wrap gap-3">

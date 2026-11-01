@@ -15,20 +15,22 @@ Status: accepted by the owner; applied to the CHISPITAS release and its rollback
 
 ## 2026-11-01 — CHISPITAS homepage branding
 
-Status: withdrawn by the owner after deployment because the visual design was
-not acceptable. The preceding Aventura Animal homepage has been restored.
+Status: the first implementation was withdrawn by the owner; the supplied
+reference image reconfirmed CHISPITAS, and the owner authorized the current
+visual release for deployment on 2026-11-01.
 
-- The proposed homepage brand was **CHISPITAS**, with the descriptor “Learning Platform
-  for Bilingual Schools” and both specified Spanish and English taglines.
-- The implementation used the shared root header for this brand and bilingual navigation
-  on routes using the App Router layout; homepage metadata uses the specified
-  CHISPITAS title and description.
-- The homepage presents bilingual navigation and static sample previews. This
-  presentation does not authorize Science World, games, student profiles,
-  persistent learner data, avatar customization or rewards functionality.
-- The implementation was reverted on 2026-11-01. The Aventura Animal homepage
-  branding is again current; existing MVP content, language and economy scope
-  remain unchanged.
+- Use CHISPITAS branding, a bright illustrated storybook landscape, rounded
+  pastel tiles and five icon-led navigation items based on the owner's supplied
+  reference image.
+- Product UI remains Spanish. English appears only for the learning subject and
+  animal vocabulary; do not add bilingual UI copy.
+- Science and map tiles are static previews labelled as coming soon. The
+  homepage must use the real profile star balance and must not invent progress,
+  daily limits, or reward state.
+- The initial implementation was reverted on 2026-11-01 after the owner rejected
+  its appearance. The current visual redesign is approved for live deployment;
+  no new game, account, science curriculum, map interaction or economy behavior
+  is implied.
 ## 2026-10-29 — World map as the mission entry point
 
 Status: accepted direction; map design is in progress and the concept art is
