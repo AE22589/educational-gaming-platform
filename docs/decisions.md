@@ -1,5 +1,22 @@
 # Project decision log
 
+## 2026-11-01 — CHISPITAS homepage branding
+
+Status: accepted and implemented locally for DEV-02.
+
+- The homepage brand is **CHISPITAS**, with the descriptor “Learning Platform
+  for Bilingual Schools” and both specified Spanish and English taglines.
+- The existing shared root header displays this brand and bilingual navigation
+  on routes using the App Router layout; homepage metadata uses the specified
+  CHISPITAS title and description.
+- The homepage presents bilingual navigation and static sample previews. This
+  presentation does not authorize Science World, games, student profiles,
+  persistent learner data, avatar customization or rewards functionality.
+- This supersedes the Aventura Animal homepage branding decision below for the
+  homepage. Existing MVP content, language and economy scope remains unchanged.
+- The requested feature branch has not been independently reviewed; no commit,
+  push or merge is implied.
+
 ## 2026-10-29 — World map as the mission entry point
 
 Status: accepted direction; map design is in progress and the concept art is
