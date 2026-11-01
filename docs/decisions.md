@@ -2,7 +2,7 @@
 
 ## 2026-11-01 — Owner-authorized release may bypass independent review
 
-Status: accepted by the owner; applied to the CHISPITAS homepage release.
+Status: accepted by the owner; applied to the CHISPITAS release and its rollback.
 
 - Independent review remains the default before merge.
 - For a named live release, the owner's explicit instruction to bring it live
@@ -10,25 +10,25 @@ Status: accepted by the owner; applied to the CHISPITAS homepage release.
 - This authorization is limited to that release. All other project rules,
   including successful required checks and GitHub-enforced protections, remain
   in force.
-- The CHISPITAS homepage release is the first release covered by this exception.
+- The CHISPITAS homepage release was the first release covered by this exception;
+  it was deployed and then rolled back at the owner's request.
 
 ## 2026-11-01 — CHISPITAS homepage branding
 
-Status: accepted and implemented locally for DEV-02.
+Status: withdrawn by the owner after deployment because the visual design was
+not acceptable. The preceding Aventura Animal homepage has been restored.
 
-- The homepage brand is **CHISPITAS**, with the descriptor “Learning Platform
+- The proposed homepage brand was **CHISPITAS**, with the descriptor “Learning Platform
   for Bilingual Schools” and both specified Spanish and English taglines.
-- The existing shared root header displays this brand and bilingual navigation
+- The implementation used the shared root header for this brand and bilingual navigation
   on routes using the App Router layout; homepage metadata uses the specified
   CHISPITAS title and description.
 - The homepage presents bilingual navigation and static sample previews. This
   presentation does not authorize Science World, games, student profiles,
   persistent learner data, avatar customization or rewards functionality.
-- This supersedes the Aventura Animal homepage branding decision below for the
-  homepage. Existing MVP content, language and economy scope remains unchanged.
-- At the time this homepage decision was recorded, no commit, push or merge was
-  implied. The later owner-authorized release decision governs publication.
-
+- The implementation was reverted on 2026-11-01. The Aventura Animal homepage
+  branding is again current; existing MVP content, language and economy scope
+  remain unchanged.
 ## 2026-10-29 — World map as the mission entry point
 
 Status: accepted direction; map design is in progress and the concept art is
