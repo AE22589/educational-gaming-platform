@@ -63,6 +63,7 @@ function WorldTile({
 
 export function HomepageContent() {
   const basePath = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
+  const assetPath = (path: string) => `${basePath}${path}`;
   const pageStyle = {
     "--home-background": `url("${basePath}/homepage/enchanted-valley-panorama-v2.webp")`,
     "--home-mobile-background": `url("${basePath}/homepage/enchanted-valley-mobile.webp")`,
@@ -83,14 +84,14 @@ export function HomepageContent() {
         <WorldTile
           title="Mundo de ciencias"
           description="Descubre la naturaleza y sus maravillas."
-          image="/homepage/science-garden.webp"
+          image={assetPath("/homepage/science-garden.webp")}
           tone="lime"
           comingSoon
         />
         <WorldTile
           title="Mundo del inglés"
           description="Practica palabras nuevas mientras juegas."
-          image="/homepage/english-book.webp"
+          image={assetPath("/homepage/english-book.webp")}
           tone="lilac"
           href="/learn"
           action="Explorar"
@@ -98,7 +99,7 @@ export function HomepageContent() {
         <WorldTile
           title="Mi avatar"
           description="Prepara tu personaje para la aventura."
-          image="/homepage/avatar-girl.webp"
+          image={assetPath("/homepage/avatar-girl.webp")}
           tone="orange"
           href="/avatar"
           action="Ver avatar"
@@ -106,7 +107,7 @@ export function HomepageContent() {
         <WorldTile
           title="Mapa de aventuras"
           description="Elige un camino y descubre nuevos lugares."
-          image="/homepage/adventure-map.webp"
+          image={assetPath("/homepage/adventure-map.webp")}
           tone="cyan"
           comingSoon
         />
@@ -120,7 +121,7 @@ export function HomepageContent() {
             <p>La primera aventura de animales está en preparación.</p>
             <Link href="/learn" className="home-text-link">Explorar misiones <Arrow /></Link>
           </div>
-          <Image src="/homepage/daily-missions.webp" alt="" width={152} height={152} unoptimized />
+          <Image src={assetPath("/homepage/daily-missions.webp")} alt="" width={152} height={152} unoptimized />
         </article>
 
         <article className="home-support-card support-stars">
@@ -130,7 +131,7 @@ export function HomepageContent() {
             <p>Más adelante podrás canjearlas por sorpresas.</p>
             <Link href="/shop" className="home-text-link">Visitar tienda <Arrow /></Link>
           </div>
-          <Image src="/homepage/star-chest.webp" alt="" width={164} height={142} unoptimized />
+          <Image src={assetPath("/homepage/star-chest.webp")} alt="" width={164} height={142} unoptimized />
         </article>
 
         <article className="home-support-card support-encourage">
@@ -139,7 +140,7 @@ export function HomepageContent() {
             <h2>¡Sigue explorando!</h2>
             <p>Cada pequeño descubrimiento cuenta.</p>
           </div>
-          <Image src="/homepage/turtle-companion.webp" alt="" width={146} height={146} unoptimized />
+          <Image src={assetPath("/homepage/turtle-companion.webp")} alt="" width={146} height={146} unoptimized />
         </article>
       </section>
     </div>
