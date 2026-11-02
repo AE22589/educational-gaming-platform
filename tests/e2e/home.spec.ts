@@ -59,6 +59,36 @@ for (const width of [360, 768, 1280]) {
   });
 }
 
+for (const viewport of [
+  { width: 1440, height: 900 },
+  { width: 390, height: 844 },
+  { width: 844, height: 390 },
+]) {
+  test(`companion cave fits ${viewport.width}×${viewport.height} without scrolling`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/avatar");
+
+    const caveImage = page.getByRole("img", { name: /Interior vacío de la cueva/ });
+    await expect(caveImage).toBeVisible();
+    await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+
+    const layout = await page.evaluate(() => {
+      const image = document.querySelector<HTMLImageElement>(".cave-art");
+      const footer = document.querySelector<HTMLElement>(".chispitas-footer");
+      return {
+        scrollHeight: document.documentElement.scrollHeight,
+        viewportHeight: window.innerHeight,
+        imageBottom: image?.getBoundingClientRect().bottom ?? Infinity,
+        footerBottom: footer?.getBoundingClientRect().bottom ?? Infinity,
+      };
+    });
+
+    expect(layout.scrollHeight).toBeLessThanOrEqual(layout.viewportHeight);
+    expect(layout.imageBottom).toBeLessThanOrEqual(layout.viewportHeight);
+    expect(layout.footerBottom).toBeLessThanOrEqual(layout.viewportHeight);
+  });
+}
+
 test("the companion cave follows the 06:00 and 18:00 local-time changes", async ({ page }) => {
   await page.clock.install({ time: new Date(2026, 0, 1, 5, 59, 0) });
   await page.goto("/avatar");
