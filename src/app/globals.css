@@ -321,3 +321,88 @@ p { line-height: 1.45; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Keep the companion cave visible as one viewport-sized scene. */
+body:has(.cave-page) {
+  display: flex;
+  height: 100dvh;
+  flex-direction: column;
+  overflow: hidden;
+}
+body:has(.cave-page) .chispitas-header { flex: 0 0 auto; }
+body:has(.cave-page) .chispitas-main {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+body:has(.cave-page) .chispitas-footer {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  line-height: 1.2;
+}
+body:has(.cave-page) .cave-page {
+  display: grid;
+  height: 100%;
+  min-height: 0;
+  grid-template-rows: auto minmax(0, 1fr);
+  justify-items: center;
+  padding: clamp(8px, 2vh, 22px) clamp(4px, 2vw, 20px);
+}
+body:has(.cave-page) .cave-heading-row {
+  width: 100%;
+  margin-bottom: clamp(8px, 1.5vh, 16px);
+}
+body:has(.cave-page) .cave-frame {
+  display: grid;
+  min-height: 0;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+}
+body:has(.cave-page) .cave-art-window {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-height: 620px) {
+  body:has(.cave-page) .cave-page { padding-block: 6px; }
+  body:has(.cave-page) .cave-heading-row { margin-bottom: 6px; }
+  body:has(.cave-page) .cave-eyebrow { font-size: .68rem; }
+  body:has(.cave-page) .cave-heading-row h1 { font-size: clamp(1.2rem, 4vh, 1.8rem); }
+  body:has(.cave-page) .cave-intro { margin-top: 3px; font-size: .8rem; }
+  body:has(.cave-page) .cave-back-link { min-height: 38px; padding: 5px 12px; }
+}
+
+@media (max-height: 620px) and (min-width: 681px) {
+  body:has(.cave-page) .chispitas-header-inner {
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    padding: 5px 10px;
+  }
+  body:has(.cave-page) .chispitas-brand { min-width: 0; gap: 5px; }
+  body:has(.cave-page) .chispitas-mark { width: 44px; height: 44px; }
+  body:has(.cave-page) .chispitas-wordmark { font-size: clamp(1.35rem, 3vw, 1.8rem); }
+  body:has(.cave-page) .chispitas-tagline { font-size: .43rem; }
+  body:has(.cave-page) .chispitas-nav {
+    min-width: 0;
+    flex: 1 1 auto;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+  }
+  body:has(.cave-page) .chispitas-nav-item {
+    min-width: 0;
+    min-height: 52px;
+    gap: 2px;
+    padding: 3px 2px;
+    border-radius: 12px;
+    font-size: .62rem;
+  }
+  body:has(.cave-page) .chispitas-nav-art { width: 28px; height: 28px; }
+  body:has(.cave-page) .chispitas-nav-item small { font-size: .52rem; }
+}

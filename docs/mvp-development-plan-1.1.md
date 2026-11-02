@@ -42,8 +42,10 @@ recording. The owner commissioned a single empty companion-cave preview as a
 visual extension of `/avatar`: show the local-time day image from 06:00 through
 17:59 and the night image from 18:00 through 05:59. Keep the room background
 separate from future character and decor assets; this preview adds no placement,
-inventory or customization behavior. One local profile and one active browser
-tab are supported. No cross-device synchronization.
+inventory or customization behavior. Keep the navigation, cave image and footer
+within the browser viewport without page scrolling on supported desktop and
+mobile sizes. One local profile and one active browser tab are supported. No
+cross-device synchronization.
 
 UI and brief instructions are **Spanish**; vocabulary and learning audio are **English**. Code, filenames and technical identifiers are English. Use large identifiable animal pictures, large buttons, friendly feedback and no time limit. Audio has a visible play/replay button. Development placeholders must be labelled; child testing requires reviewed, licensed local images and audio.
 

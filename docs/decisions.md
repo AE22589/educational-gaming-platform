@@ -19,7 +19,9 @@ shows an empty framed cave. The browser's local time selects day from 06:00 to
 17:59 and night from 18:00 to 05:59. The cave backgrounds remain separate from
 future dragon, furniture and decor overlays; no placement or customization is
 included. PR #12 and Pages workflow #39 passed repository, quality, build and
-Playwright checks; workflow #39 deployed the tested static artifact.
+Playwright checks; workflow #39 deployed the tested static artifact. The cave
+view must fit the browser viewport without page scrolling; responsive behavior
+has been checked locally in desktop, portrait and landscape browser sizes.
 
 ## Pages release workflow — 2026-11-01
 
