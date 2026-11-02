@@ -13,7 +13,8 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
-    "test:e2e": "playwright test",
+    "playwright": "node scripts/playwright.mjs",
+    "test:e2e": "npm run playwright -- test",
     "build": "next build",
     "check:docs": "node scripts/validate-repository.mjs"
   },

@@ -17,6 +17,14 @@ not been verified; check them before relying on them or changing them.
 The owner removed the local instruction to run Playwright E2E tests for routine
 implementation work. The E2E tests and CI checks remain unchanged.
 
+## Dependency security and updates — 2026-11-02
+
+GitHub's dependency graph, Dependabot alerts and Dependabot security updates are
+enabled. `.github/dependabot.yml` schedules weekly version updates for npm and
+GitHub Actions, with at most five open update pull requests per ecosystem.
+Review update pull requests and require the repository's normal checks before
+merging them.
+
 ## Companion cave — 2026-11-02
 
 Implemented and deployed. The "Mi pequeño amigo" tile opens `/avatar`, which
