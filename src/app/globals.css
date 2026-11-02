@@ -237,6 +237,17 @@ p { line-height: 1.45; }
 .cave-frame { overflow: hidden; padding: clamp(7px, 1.4vw, 14px); border: 2px solid rgba(255,255,255,.94); border-radius: clamp(20px, 3.6vw, 38px); background: linear-gradient(145deg, var(--cave-frame-light), #fff 42%, var(--cave-frame-dark)); box-shadow: 0 12px 24px rgba(27,53,100,.2), inset 0 0 0 2px rgba(255,255,255,.45); }
 .cave-art-window { position: relative; width: 100%; overflow: hidden; aspect-ratio: 1 / 1; border: 3px solid rgba(255,255,255,.87); border-radius: clamp(14px, 2.8vw, 28px); background: #7364ab; box-shadow: inset 0 0 22px rgba(29,31,82,.14); }
 .cave-art { object-fit: cover; }
+.cave-dragon {
+  position: absolute;
+  z-index: 1;
+  top: 68.8%;
+  left: 51.4%;
+  width: clamp(96px, 34%, 210px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+}
 .cave-art-loading { position: absolute; inset: 0; background: linear-gradient(135deg, #5d5b9c, #a889cd 48%, #425d94); }
 
 @media (min-width: 1351px) {

@@ -38,11 +38,12 @@ missions or subjects as a consequence of the map concept.
 
 Excluded: registration, backend, Science World, speech recognition, customizable
 rooms, pets, full offline operation, runtime AI, analytics and microphone
-recording. The owner commissioned a single empty companion-cave preview as a
+recording. The owner commissioned a narrowly scoped companion-cave view as a
 visual extension of `/avatar`: show the local-time day image from 06:00 through
-17:59 and the night image from 18:00 through 05:59. Keep the room background
-separate from future character and decor assets; this preview adds no placement,
-inventory or customization behavior. Keep the navigation, cave image and footer
+17:59 and the night image from 18:00 through 05:59, with one locally generated
+sleeping-dragon GIF overlay fixed at the owner-marked position. Keep the room
+background separate from character and decor assets; the overlay has no controls
+for repositioning, inventory or room customization. Keep the navigation, cave image and footer
 within the browser viewport without page scrolling on supported desktop and
 mobile sizes. One local profile and one active browser tab are supported. No
 cross-device synchronization.

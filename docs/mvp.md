@@ -9,11 +9,12 @@ completion gives 10 once, totaling 26 per complete run. Prices: 10/15/20.
 
 No accounts, backend, Science World, speech recognition, customizable rooms,
 pets, full offline support, runtime AI or analytics. A narrowly scoped companion
-cave preview is commissioned: it shows the empty cave background and switches
-between its day and night illustrations using the browser's local time (day
-06:00–17:59, night 18:00–05:59). The cave view fits the browser viewport
-without page scrolling on supported desktop and mobile sizes. It has no placed
-objects or room customization.
+cave preview is commissioned: it switches between its day and night illustrations
+using the browser's local time (day 06:00–17:59, night 18:00–05:59) and shows one
+locally generated sleeping-dragon overlay at the position marked by the owner.
+The cave view fits the browser viewport without page scrolling on supported
+desktop and mobile sizes. It has no movable objects, inventory or room
+customization.
 Only after acceptance: 12 animals, three
 missions, matching game and six items. Five-subject content architecture is
 prepared now; five-subject game content is deferred.

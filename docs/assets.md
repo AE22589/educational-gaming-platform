@@ -9,8 +9,9 @@ overlays. Rights and visual review remain pending before any child pilot.
 
 | Asset | Local path | Type | Locale | Accessible description | Review status |
 |---|---|---|---|---|---|
-| Companion cave day | `public/dragon-cave/cave-day.png` | Empty room background | None | Empty violet crystal cave interior in bright daylight, with blue sky visible through the cave opening. | Owner requested; owner visual and rights review pending. |
-| Companion cave night | `public/dragon-cave/cave-night.png` | Empty room background | None | Empty violet crystal cave interior at night, with a crescent moon and stars visible through the cave opening. | Owner requested; owner visual and rights review pending. |
+| Companion cave day | `public/dragon-cave/cave-day.png` | Room background | None | Violet crystal cave interior in bright daylight, with blue sky visible through the cave opening. | Owner requested; owner visual and rights review pending. |
+| Companion cave night | `public/dragon-cave/cave-night.png` | Room background | None | Violet crystal cave interior at night, with a crescent moon and stars visible through the cave opening. | Owner requested; owner visual and rights review pending. |
+| Sleeping dragon overlay | `public/dragon-cave/dragon-sleep.gif` | Transparent animated character overlay | None | Purple dragon curled up asleep on the cave floor; the adjacent cave scene supplies its setting. | Generated locally from the owner's character reference; owner visual and rights review pending before any child pilot. |
 
 The owner reviewed the rendered homepage at 390, 630, 800 and 1440 pixels and
 authorized this visual release for deployment on 2026-11-01. Owner visual review
