@@ -26,7 +26,7 @@ function ShopBranch({ side }: { side: "left" | "right" }) {
 }
 
 function ProductArt({ id }: { id: ShopProductId }) {
-  const basePath = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const sources: Record<ShopProductId, string> = {
     apple: "/shop/apple.webp",
     water: "/shop/water.webp",
