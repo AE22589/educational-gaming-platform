@@ -2,7 +2,7 @@
 
 ## 2026-11-01 — Reuse the tested build for Pages deployment
 
-Status: accepted by the owner; workflow and documentation updated locally.
+Status: accepted by the owner; implemented and verified on 2026-11-02.
 
 - Keep repository/documentation validation and application checks as required
   gates for a Pages release.
@@ -11,8 +11,11 @@ Status: accepted by the owner; workflow and documentation updated locally.
 - The deploy job must not check out source, install npm dependencies or rebuild.
 - Keep Pages write and OIDC permissions scoped to the deploy job. Manual
   dispatch may deploy only from `main`.
-- GitHub Actions has not yet run this local workflow change; successful artifact
-  handoff and required-check names remain to be verified on GitHub.
+- PR #8 passed both repository and application checks, including Playwright.
+  Main run #31 passed the same checks, uploaded the tested static artifact and
+  deployed it successfully to GitHub Pages.
+- Manual workflow dispatch and the effective required-check settings remain
+  unverified.
 
 ## 2026-11-01 — Owner-authorized release may bypass independent review
 
