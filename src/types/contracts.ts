@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // Runtime schemas are the only source of shared TypeScript contract types.
 export const CONTRACT_VERSION = 1 as const;
-export const PROFILE_SCHEMA_VERSION = 1 as const;
+export const PROFILE_SCHEMA_VERSION = 2 as const;
 const id = z.string().min(1).max(160);
 const version = z.string().min(1).max(80);
 const locale = z.string().regex(/^[a-z]{2}(?:-[A-Z]{2})?$/);
@@ -216,6 +216,7 @@ export const profileStateSchema = z
     schemaVersion: z.literal(PROFILE_SCHEMA_VERSION),
     revision: integer,
     stars: integer,
+    inventory: z.record(id, integer),
     ownedItemIds: ids,
     equipment: z.strictObject({
       eyewear: id.optional(),

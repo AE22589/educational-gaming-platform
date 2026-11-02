@@ -107,6 +107,10 @@ export type StartRunResult =
   | { status: "started"; session: DeepReadonly<SessionState> }
   | { status: "confirmation-required" }
   | { status: "unavailable" | "read-only" | "unsaved" };
+export type PurchaseResult =
+  | { status: "purchased"; stars: number; appleCount: number }
+  | { status: "insufficient-stars" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
 /** Games submit events; profile derives correctness, completion and rewards from persisted content. */
 export interface ProfilePort {
   getState(): ProfileStatus;

@@ -39,9 +39,20 @@ for (const width of [360, 768, 1280]) {
       .getByRole("navigation")
       .getByRole("link", { name: "Tienda de estrellas", exact: true })
       .click();
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "La tienda de la aventura",
-    );
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tienda de estrellas");
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("100");
+    await page.screenshot({ path: `test-results/shop-${width}.png`, fullPage: true });
+    await page.getByRole("button", { name: "Cueva" }).click();
+    await expect(page.getByRole("heading", { name: "Manzana" })).toBeHidden();
+    await expect(page.getByRole("heading", { name: "Cama de hojas" })).toBeVisible();
+    await page.getByRole("button", { name: "Todo" }).click();
+    await page.getByRole("button", { name: "Comprar" }).click();
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
+    await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+    await page.reload();
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
+    await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.goto("/");
     await page
       .getByRole("link", { name: "Mi pequeño amigo: Ver amigo", exact: true })

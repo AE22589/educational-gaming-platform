@@ -8,8 +8,8 @@
 - This rule does not change the Spanish product UI or English learning vocabulary/audio.
 
 ## Product
-- Implement only docs/mvp.md and docs/mvp-development-plan-1.1.md.
-- Master-plan features are deferred unless explicitly commissioned.
+- Treat docs/mvp.md and docs/mvp-development-plan-1.1.md as the recommended starting scope, not a binding product boundary.
+- Master-plan features and other expansions may be implemented when selected by the owner; clarify scope only when the requested outcome is genuinely ambiguous.
 - UI Spanish; animal vocabulary/audio English; code English.
 - Full stars on each explicit new run; no replay discounts or daily cap.
 - Errors never deduct stars; mastery is independent of stars.
