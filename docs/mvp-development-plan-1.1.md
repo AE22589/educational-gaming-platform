@@ -36,7 +36,14 @@ small, child-friendly world and review its locations and navigation. Decide how
 the existing mission fits only after that world is defined. Do not add new
 missions or subjects as a consequence of the map concept.
 
-Excluded: registration, backend, Science World, speech recognition, rooms, pets, full offline operation, runtime AI, analytics and microphone recording. One local profile and one active browser tab are supported. No cross-device synchronization.
+Excluded: registration, backend, Science World, speech recognition, customizable
+rooms, pets, full offline operation, runtime AI, analytics and microphone
+recording. The owner commissioned a single empty companion-cave preview as a
+visual extension of `/avatar`: show the local-time day image from 06:00 through
+17:59 and the night image from 18:00 through 05:59. Keep the room background
+separate from future character and decor assets; this preview adds no placement,
+inventory or customization behavior. One local profile and one active browser
+tab are supported. No cross-device synchronization.
 
 UI and brief instructions are **Spanish**; vocabulary and learning audio are **English**. Code, filenames and technical identifiers are English. Use large identifiable animal pictures, large buttons, friendly feedback and no time limit. Audio has a visible play/replay button. Development placeholders must be labelled; child testing requires reviewed, licensed local images and audio.
 

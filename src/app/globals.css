@@ -212,6 +212,33 @@ p { line-height: 1.45; }
 .home-text-link { display: inline-flex; min-height: 36px; align-items: center; gap: 5px; margin-top: 5px; color: #183c84; font-size: .79rem; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
 .chispitas-footer { width: min(1760px, 100%); margin: 0 auto; padding: 14px 20px 22px; color: #365887; font-size: .9rem; text-align: center; }
 
+.cave-page {
+  --cave-frame-light: #fff5d4;
+  --cave-frame-dark: #a97529;
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: clamp(14px, 3vw, 34px) clamp(4px, 2vw, 20px) 32px;
+  border-radius: 30px;
+  background: radial-gradient(ellipse at 50% 12%, rgba(255,255,255,.94), rgba(255,248,221,.82) 54%, rgba(227,237,255,.84));
+  box-shadow: 0 14px 34px rgba(36, 70, 121, .17);
+}
+.cave-page.is-night {
+  --cave-frame-light: #d7e5ff;
+  --cave-frame-dark: #5067a8;
+  background: radial-gradient(ellipse at 50% 12%, rgba(242,246,255,.97), rgba(218,229,255,.9) 55%, rgba(177,194,235,.88));
+}
+.cave-heading-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 auto 18px; padding: 0 clamp(4px, 1.4vw, 16px); }
+.cave-eyebrow { margin: 0 0 3px; color: #8a5b20; font-size: .82rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.cave-page.is-night .cave-eyebrow { color: #445a99; }
+.cave-heading-row h1 { margin: 0; color: #183b79; font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.1; }
+.cave-intro { margin: 6px 0 0; color: #3d5278; font-size: clamp(.9rem, 1.7vw, 1.05rem); }
+.cave-back-link { display: inline-flex; min-height: 48px; flex: 0 0 auto; align-items: center; justify-content: center; padding: 9px 17px; border: 2px solid rgba(255,255,255,.95); border-radius: 999px; background: #fff; box-shadow: 0 4px 0 rgba(47,70,112,.15); color: #24477e; font-weight: 900; text-decoration: none; }
+.cave-back-link:hover { background: #f4f8ff; }
+.cave-frame { overflow: hidden; padding: clamp(7px, 1.4vw, 14px); border: 2px solid rgba(255,255,255,.94); border-radius: clamp(20px, 3.6vw, 38px); background: linear-gradient(145deg, var(--cave-frame-light), #fff 42%, var(--cave-frame-dark)); box-shadow: 0 12px 24px rgba(27,53,100,.2), inset 0 0 0 2px rgba(255,255,255,.45); }
+.cave-art-window { position: relative; width: 100%; overflow: hidden; aspect-ratio: 1 / 1; border: 3px solid rgba(255,255,255,.87); border-radius: clamp(14px, 2.8vw, 28px); background: #7364ab; box-shadow: inset 0 0 22px rgba(29,31,82,.14); }
+.cave-art { object-fit: cover; }
+.cave-art-loading { position: absolute; inset: 0; background: linear-gradient(135deg, #5d5b9c, #a889cd 48%, #425d94); }
+
 @media (min-width: 1351px) {
   .home-support-card img { width: clamp(88px, 6vw, 104px); height: clamp(88px, 6vw, 104px); }
   .home-support-card h2 { font-size: clamp(1.1rem, 1.5vw, 1.4rem); }
@@ -247,6 +274,10 @@ p { line-height: 1.45; }
   .home-support-grid { width: auto; margin-right: clamp(8px, 2vw, 25px); margin-left: clamp(8px, 2vw, 25px); }
 }
 @media (max-width: 680px) {
+  .cave-page { padding: 15px 8px 18px; border-radius: 22px; }
+  .cave-heading-row { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+  .cave-back-link { min-height: 44px; padding: 7px 15px; }
+  .cave-frame { padding: 6px; }
   .chispitas-header-inner { padding: 9px 10px 12px; }
   .chispitas-brand { align-self: center; }
   .chispitas-mark { width: 47px; height: 47px; }

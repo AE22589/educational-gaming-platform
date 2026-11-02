@@ -7,8 +7,12 @@ Spanish UI, English vocabulary/audio, avatar, glasses/cap/T-shirt, local profile
 full replay rewards and robust recovery. Each solved question gives 2 stars;
 completion gives 10 once, totaling 26 per complete run. Prices: 10/15/20.
 
-No accounts, backend, Science World, speech recognition, rooms, pets, full offline
-support, runtime AI or analytics. Only after acceptance: 12 animals, three
+No accounts, backend, Science World, speech recognition, customizable rooms,
+pets, full offline support, runtime AI or analytics. A narrowly scoped companion
+cave preview is commissioned: it shows the empty cave background and switches
+between its day and night illustrations using the browser's local time (day
+06:00–17:59, night 18:00–05:59). It has no placed objects or room customization.
+Only after acceptance: 12 animals, three
 missions, matching game and six items. Five-subject content architecture is
 prepared now; five-subject game content is deferred.
 
