@@ -42,8 +42,8 @@ mastery; retry, backup restore, JSON import/export and confirmed reset UI.
 Pending unsaved snapshots remain exportable. Storage is never accessed during
 server rendering. The provider currently receives an empty validated content
 catalog, so no mission can be started and no curriculum has been authored.
-The app builds as a static export for GitHub Pages; a Pages Actions workflow is
-configured to publish on pushes to `main`, matching the existing Lara project.
+The app builds as a static export for GitHub Pages; the Pages workflow publishes
+on pushes to `main`.
 The repository is now public and GitHub Pages is enabled (build type: workflow,
 source: `main`), so the site is published at
 https://ae22589.github.io/educational-gaming-platform/ (verified through the

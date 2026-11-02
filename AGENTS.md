@@ -23,14 +23,15 @@
 
 ## Collaboration
 - Check branch and working tree before edits; never implement on main.
-- Never overwrite/revert another developer's changes.
-- Keep to task ownership; coordinate shared contracts/dependencies first.
+- Work sequentially as a solo-maintained project; no second developer, role split,
+  separate account/clone, or independent review is required.
+- Preserve existing uncommitted changes. Keep shared contracts in their single
+  source of truth and update dependent specs/tests in the same change.
 - Never commit, push or merge without explicit authorization.
 - No force push or destructive Git operations without authorization.
-- Each developer uses a separate clone and session. Independent review is the
-  default before merging, but the owner may explicitly waive it for a named
-  release. A direct owner instruction to bring that release live is sufficient
-  authorization to merge and deploy it without waiting for independent review.
+- The owner's explicit deployment instruction authorizes the release flow after
+  required automated checks pass. Do not claim GitHub protections were changed;
+  if an existing setting blocks solo release, report that concrete blocker.
 
 ## Architecture
 - Games emit results; profile alone controls rewards, inventory and persistence.
@@ -58,5 +59,5 @@ Repository instructions complement effective GitHub rules and cannot enable them
 - Keep fixture imports out of production routes. Media directories contain no approved assets.
 - Run npm ci, npm run check:docs, npm run lint, npm run typecheck, npm test,
   npm run build and npm run test:e2e (after Playwright Chromium installation).
-- The owner authorized local MVP-01 before bootstrap review/merge only; see decisions.md.
-  Independent review and authorized merge remain required before parallel development.
+- MVP-01 foundation is complete. Current work follows the solo workflow in
+  docs/decisions.md and docs/mvp-development-plan-1.1.md.
