@@ -8,14 +8,14 @@
   },
   "packageManager": "npm@11.19.0",
   "scripts": {
-    "dev": "next dev --hostname 127.0.0.1",
+    "dev": "node scripts/dev-server.mjs",
     "start": "node scripts/serve-static.mjs",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "playwright": "node scripts/playwright.mjs",
     "test:e2e": "npm run playwright -- test",
-    "build": "next build",
+    "build": "next build --webpack",
     "check:docs": "node scripts/validate-repository.mjs"
   },
   "dependencies": {

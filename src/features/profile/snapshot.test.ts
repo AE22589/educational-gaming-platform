@@ -2,10 +2,10 @@ import { describe, expect, it } from "vitest";
 import profile from "../../../tests/fixtures/profile-v1.json";
 import { decodeSnapshot, MAX_SNAPSHOT_BYTES } from "./snapshot";
 describe("snapshot decoder", () => {
-  it("loads valid v1 without changing its revision", () => {
+  it("migrates v1 profiles without changing their revision or star balance", () => {
     expect(decodeSnapshot(JSON.stringify(profile))).toEqual({
       status: "ready",
-      snapshot: profile,
+      snapshot: { ...profile, schemaVersion: 2, inventory: {} },
     });
   });
   it.each([

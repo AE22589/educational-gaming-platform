@@ -15,6 +15,7 @@ import {
   type ExclusiveWriterLease,
   type LoadResult,
   type ProfileStatus,
+  type PurchaseResult,
   type RecoveryPort,
   type SaveResult,
   type SnapshotStore,
@@ -25,12 +26,14 @@ import {
 } from "./ports";
 import { createSession } from "./sessions";
 import { decodeSnapshot } from "./snapshot";
+import { APPLE_ITEM_ID, APPLE_PRICE_STARS } from "@/features/shop/catalog";
 
 export function createEmptyProfile(): ProfileState {
   return {
     schemaVersion: PROFILE_SCHEMA_VERSION,
     revision: 0,
-    stars: 0,
+    stars: 100,
+    inventory: {},
     ownedItemIds: [],
     equipment: {},
     learningEvidence: [],
@@ -256,6 +259,30 @@ export class ProfileService implements ProfilePort, RecoveryPort {
       return saved.status === "saved"
         ? { status: "started", session: run }
         : { status: "unsaved" };
+    });
+  }
+
+  async purchaseApple(): Promise<PurchaseResult> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready") return { status: "not-ready" };
+      if (this.state.ownership !== "exclusive" || !this.lease())
+        return { status: "read-only" };
+      const current = this.state.snapshot as ProfileState;
+      if (current.stars < APPLE_PRICE_STARS) return { status: "insufficient-stars" };
+      const appleCount = (current.inventory[APPLE_ITEM_ID] ?? 0) + 1;
+      const next = profileStateSchema.parse({
+        ...current,
+        revision: current.revision + 1,
+        stars: current.stars - APPLE_PRICE_STARS,
+        inventory: {
+          ...current.inventory,
+          [APPLE_ITEM_ID]: appleCount,
+        },
+      });
+      const saved = await this.persist(next);
+      return saved.status === "saved"
+        ? { status: "purchased", stars: next.stars, appleCount }
+        : { status: "unsaved", reason: saved.reason };
     });
   }
 

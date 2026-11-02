@@ -22,11 +22,21 @@ and effective branch-protection settings have not been verified.
 
 ## Product status
 
-The home page, profile and persistence foundation, and empty day/night companion
-cave are available as development previews. The animal curriculum, approved
-animal images/audio, playable mission, shop purchases, avatar rendering and
-child-pilot approval remain incomplete. See `docs/mvp.md` for the binding scope.
+The home page, profile and persistence foundation, empty day/night companion
+cave and initial apple shop are available as local development previews. The
+animal curriculum, approved animal images/audio, playable mission, broader shop
+catalog and full avatar rendering remain incomplete. Child-pilot approval is
+also pending. See `docs/mvp.md` for the recommended
+starting scope; it is not a binding product boundary.
 
 Run `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,
 `npm run build` and `npm run test:e2e` as applicable to a change. Use Node
 24.21.0 LTS and npm 11.x from `.nvmrc` and `package-lock.json`.
+
+On Windows PowerShell systems where script execution policy blocks `npm.ps1`,
+use `.\start-dev.cmd` to launch the local preview without changing the
+PowerShell execution policy. The launcher finds a free port and gives each
+development server its own Next.js output directory.
+
+To request a specific port, run `.\start-dev.cmd --port 3001`; then open the
+Shop preview URL printed by the launcher.

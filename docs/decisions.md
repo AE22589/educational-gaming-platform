@@ -1,5 +1,34 @@
 # Project decisions
 
+## Star shop launch — 2026-11-02
+
+The `/shop` page follows the CHISPITAS site layout and does not feature a
+specific avatar. A newly created profile starts with 100 spendable stars;
+existing profiles keep their current balance. Buying one apple costs one star
+and adds one apple to the locally persisted inventory in the same profile
+transition. The visible filters are `Todo`, `Comida y bebida` and `Cueva`.
+Apple is the only purchasable item at launch; water, cave bed and cave plant are
+visible as upcoming items. The shop displays the star balance and apple count.
+
+## Local Next.js bundler — 2026-11-02
+
+The `dev` and `build` scripts use Next.js's supported Webpack mode. In this
+restricted environment, Turbopack's PostCSS child process repeatedly exited
+before completing its socket handshake; the worker-thread alternative is
+disabled by the installed Next.js version on Node 24.21.0 because of a known
+Node worker teardown risk. Webpack production builds and Playwright browser
+checks pass. This keeps local preview and static export builds reproducible.
+
+## MVP scope is advisory — 2026-11-02
+
+The MVP in `docs/mvp.md` and `docs/mvp-development-plan-1.1.md` is the
+recommended starting scope, not a mandatory product boundary or approval gate.
+The owner may select features from the master plan or request other expansions
+without first completing the MVP. Keep the MVP documents as the implementation
+baseline and update them when an approved scope choice changes their requirements.
+Other recorded product, privacy, quality and architecture decisions remain in
+effect unless the owner changes them explicitly.
+
 ## Solo development model — 2026-11-02
 
 The owner is the sole maintainer. Work proceeds sequentially, one task at a time.

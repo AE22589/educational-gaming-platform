@@ -21,7 +21,7 @@ together. A missing contract is reported, never independently redefined.
 
 `src/types/contracts.ts` is the single runtime authority. All exported domain
 TypeScript types are inferred from strict Zod schemas. Content bundle
-`contractVersion: 1`, profile `schemaVersion: 1`, mission/content versions,
+`contractVersion: 1`, profile `schemaVersion: 2`, mission/content versions,
 `stars-v1` and `mastery-v1` are distinct version axes. A schema change requires
 updating dependent consumers and, for persisted data, an explicit migration decision.
 
@@ -50,14 +50,17 @@ verifies content versions, answer correctness, attempt index/order, unlocked
 questions, evidence, reward keys and derived completion against trusted content.
 Never trust the game-supplied `correct` flag or a completion callback.
 
-Profile schemas require integer balances/revisions/prices, owned equipment,
+Profile schemas require integer balances/revisions/prices, item quantity
+inventory, owned equipment,
 matching evidence/processed attempt IDs and ledger/processed reward keys.
 `archivedSessions` preserves replaced/completed runs. The browser provider
-creates and persists a zero-star profile on first use; the fixture remains
+creates and persists a 100-star profile on first use; the fixture remains
 technical contract data only.
 Mastery raw evidence stores subject/skill/item and full attempts separately
-from rewards. Mastery derivation is implemented in MVP-02; purchase ledger
-design remains future shop work.
+from rewards. Mastery derivation is implemented in MVP-02. Apple purchases
+deduct one star and increment the saved inventory quantity atomically. Existing
+v1 snapshots migrate to schema v2 with an empty inventory while preserving the
+current balance and history.
 
 ### Profile and persistence boundary
 
@@ -83,11 +86,12 @@ preferred; when unavailable, a short localStorage lease and BroadcastChannel
 coordination fail closed on malformed or uncertain state. Browser storage and
 cross-tab behavior still require runtime verification.
 
-`decodeSnapshot` is pure and never accesses browser storage. It accepts only v1,
+`decodeSnapshot` is pure and never accesses browser storage. It migrates profile
+snapshots from v1 to v2 by adding an empty inventory, accepts v2,
 limits imports to 2 MiB of UTF-8 data, preserves raw rejected input and identifies
-invalid JSON, invalid data, oversized data and future versions. There is no
-historical application schema to migrate. Old/unknown schemas enter recovery;
-any future persisted schema change must add explicit supported migrations
+invalid JSON, invalid data, oversized data and future versions. Profile v1 is
+the supported historical schema. Other old/unknown schemas enter recovery;
+future persisted schema changes must add explicit supported migrations
 while preserving originals.
 Reset requires informed data-loss confirmation. The browser adapter and recovery
 UI now implement storage availability/quota handling, backup restoration,

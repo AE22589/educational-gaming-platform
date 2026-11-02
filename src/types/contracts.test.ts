@@ -19,7 +19,10 @@ describe("versioned shared contracts", () => {
     expect(contentBundleSchema.parse(content).learningItems[0]?.kind).toBe(
       "number",
     );
-    expect(profileStateSchema.parse(profile).stars).toBe(0);
+    expect(
+      profileStateSchema.parse({ ...profile, schemaVersion: 2, inventory: {} })
+        .stars,
+    ).toBe(0);
   });
   it("preserves saved question and option order", () => {
     const mission = contentBundleSchema.parse(content).missions[0]!;
@@ -113,7 +116,7 @@ describe("versioned shared contracts", () => {
   });
   it("rejects unsupported versions, unowned equipment and inconsistent session maps", () => {
     expect(
-      profileStateSchema.safeParse({ ...profile, schemaVersion: 2 }).success,
+      profileStateSchema.safeParse({ ...profile, schemaVersion: 1, inventory: {} }).success,
     ).toBe(false);
     expect(
       profileStateSchema.safeParse({
