@@ -1,5 +1,17 @@
 # Homepage Asset Register
 
+## Companion cave preview
+
+These empty base backgrounds were generated with Codex ImageGen from the
+owner-approved purple baby dragon style reference. No external media files were
+used. Future dragon, furniture and decor images are intended to remain separate
+overlays. Rights and visual review remain pending before any child pilot.
+
+| Asset | Local path | Type | Locale | Accessible description | Review status |
+|---|---|---|---|---|---|
+| Companion cave day | `public/dragon-cave/cave-day.png` | Empty room background | None | Empty violet crystal cave interior in bright daylight, with blue sky visible through the cave opening. | Owner requested; joint visual and rights review pending. |
+| Companion cave night | `public/dragon-cave/cave-night.png` | Empty room background | None | Empty violet crystal cave interior at night, with a crescent moon and stars visible through the cave opening. | Owner requested; joint visual and rights review pending. |
+
 The owner reviewed the rendered homepage at 390, 630, 800 and 1440 pixels and
 authorized this visual release for deployment on 2026-11-01. Independent
 co-developer review and rights review remain pending before any child pilot.

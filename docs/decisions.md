@@ -1,5 +1,18 @@
 # Project decision log
 
+## 2026-11-02 — Companion cave day/night preview
+
+Status: accepted and implemented locally; deployment pending required checks.
+
+- The homepage's "Mi pequeño amigo" tile opens the companion cave at `/avatar`.
+- Use separate empty cave background illustrations for day and night. Select day
+  from 06:00 through 17:59 and night from 18:00 through 05:59 using the browser's
+  local computer time.
+- Keep the cave background separate from the future sleeping dragon, furniture
+  and decor assets. This preview adds no object placement or room customization.
+- The day and night backgrounds were generated with Codex ImageGen and are
+  recorded in `docs/assets.md`; review remains required before any child pilot.
+
 ## 2026-11-01 — Reuse the tested build for Pages deployment
 
 Status: accepted by the owner; implemented and verified on 2026-11-02. A
