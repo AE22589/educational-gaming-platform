@@ -2,7 +2,7 @@
 
 ## 2026-11-02 — Companion cave day/night preview
 
-Status: accepted and implemented locally; deployment pending required checks.
+Status: accepted, implemented, deployed and verified on 2026-11-02.
 
 - The homepage's "Mi pequeño amigo" tile opens the companion cave at `/avatar`.
 - Use separate empty cave background illustrations for day and night. Select day
@@ -12,6 +12,9 @@ Status: accepted and implemented locally; deployment pending required checks.
   and decor assets. This preview adds no object placement or room customization.
 - The day and night backgrounds were generated with Codex ImageGen and are
   recorded in `docs/assets.md`; review remains required before any child pilot.
+- PR #12 passed repository validation, lint, typecheck, unit tests, the standard
+  production build and Playwright browser checks. Main workflow run #39 passed
+  the same applicable checks and deployed the tested static artifact to Pages.
 
 ## 2026-11-01 — Reuse the tested build for Pages deployment
 
