@@ -10,5 +10,9 @@ const config: NextConfig = {
   ...(process.env.GITHUB_ACTIONS === "true"
     ? { basePath: "/educational-gaming-platform" }
     : {}),
+  env: {
+    NEXT_PUBLIC_BASE_PATH:
+      process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "",
+  },
 };
 export default config;
