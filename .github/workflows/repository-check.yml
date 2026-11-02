@@ -1,6 +1,7 @@
 name: Repository checks and Pages deployment
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   workflow_dispatch:
@@ -23,25 +24,189 @@ jobs:
     name: application-check
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: read
+      pull-requests: read
     env:
       NEXT_TELEMETRY_DISABLED: '1'
     steps:
       - uses: actions/checkout@v4
+
+      - name: Find the successful PR run for this merge
+        id: find-pr-run
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const associated = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner,
+              repo,
+              commit_sha: context.sha,
+            });
+            const pullRequest = associated.data.find((item) =>
+              item.merged_at &&
+              item.merge_commit_sha === context.sha &&
+              item.base.ref === "main"
+            );
+
+            if (!pullRequest) {
+              core.info("No merged PR is associated with this push; a full main build will run.");
+              return;
+            }
+
+            const workflows = await github.rest.actions.listRepoWorkflows({
+              owner,
+              repo,
+              per_page: 100,
+            });
+            const workflow = workflows.data.workflows.find((item) =>
+              item.path === ".github/workflows/repository-check.yml" && item.state === "active"
+            );
+            if (!workflow) {
+              core.warning("The release workflow could not be identified; a full main build will run.");
+              return;
+            }
+
+            const { data } = await github.rest.actions.listWorkflowRunsForRepo({
+              owner,
+              repo,
+              event: "pull_request",
+              head_sha: pullRequest.head.sha,
+              per_page: 100,
+            });
+            const successfulRun = data.workflow_runs
+              .filter((run) =>
+                run.workflow_id === workflow.id &&
+                run.status === "completed" &&
+                run.conclusion === "success" &&
+                run.head_sha === pullRequest.head.sha
+              )
+              .sort((left, right) => Date.parse(right.updated_at) - Date.parse(left.updated_at))[0];
+
+            if (!successfulRun) {
+              core.info("No successful PR workflow run matches the merged head; a full main build will run.");
+              return;
+            }
+
+            core.setOutput("run_id", String(successfulRun.id));
+            core.setOutput("pull_request_number", String(pullRequest.number));
+            core.info(`Found successful PR #${pullRequest.number} workflow run ${successfulRun.id}.`);
+
+      - name: Download the tested PR site
+        id: download-pr-site
+        if: steps.find-pr-run.outputs.run_id != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: pages-site
+          path: release-candidate/site
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.find-pr-run.outputs.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Download tested PR metadata
+        id: download-pr-metadata
+        if: steps.find-pr-run.outputs.run_id != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: pages-site-metadata
+          path: release-candidate/metadata
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.find-pr-run.outputs.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Verify the PR artifact matches this main tree
+        id: reuse-pr-artifact
+        if: steps.find-pr-run.outputs.run_id != ''
+        uses: actions/github-script@v7
+        env:
+          EXPECTED_RUN_ID: ${{ steps.find-pr-run.outputs.run_id }}
+          EXPECTED_PR_NUMBER: ${{ steps.find-pr-run.outputs.pull_request_number }}
+        with:
+          script: |
+            const fs = require("node:fs");
+            const path = require("node:path");
+            const { execFileSync } = require("node:child_process");
+            const metadataPath = path.join("release-candidate", "metadata", "pages-build-metadata.json");
+            const requiredSiteFiles = [
+              "index.html",
+              "avatar/index.html",
+              "dragon-cave/cave-day.png",
+              "dragon-cave/cave-night.png",
+            ];
+            const currentTree = execFileSync("git", ["rev-parse", "HEAD^{tree}"], {
+              encoding: "utf8",
+            }).trim();
+            let metadata;
+            try {
+              metadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
+            } catch {
+              core.warning("The PR metadata artifact is missing or invalid; a full main build will run.");
+              core.setOutput("reusable", "false");
+              return;
+            }
+
+            const completeSite = requiredSiteFiles.every((file) =>
+              fs.existsSync(path.join("release-candidate", "site", file))
+            );
+            const matches =
+              completeSite &&
+              metadata.eventName === "pull_request" &&
+              metadata.workflowRunId === Number(process.env.EXPECTED_RUN_ID) &&
+              metadata.pullRequestNumber === Number(process.env.EXPECTED_PR_NUMBER) &&
+              metadata.sourceTree === currentTree;
+
+            core.setOutput("reusable", String(matches));
+            if (matches) {
+              core.info(`PR #${metadata.pullRequestNumber} artifact matches main tree ${currentTree}.`);
+            } else {
+              core.warning("The PR artifact does not match this complete main tree; a full main build will run.");
+            }
+
+      - name: Promote the tested PR site
+        if: steps.reuse-pr-artifact.outputs.reusable == 'true'
+        run: |
+          mkdir -p out
+          cp -a release-candidate/site/. out/
+
       - uses: actions/setup-node@v4
+        if: steps.reuse-pr-artifact.outputs.reusable != 'true'
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      - name: Install dependencies for the full validation path
+        if: steps.reuse-pr-artifact.outputs.reusable != 'true'
+        run: npm ci
+      - name: Build for the full validation path
+        if: steps.reuse-pr-artifact.outputs.reusable != 'true'
+        run: npm run build
+      - name: Install Chromium for the full validation path
+        if: steps.reuse-pr-artifact.outputs.reusable != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Run browser tests for the full validation path
+        if: steps.reuse-pr-artifact.outputs.reusable != 'true'
+        run: npm run test:e2e
+      - name: Record tested source tree
+        if: success() && steps.reuse-pr-artifact.outputs.reusable != 'true'
+        run: node scripts/write-pages-build-metadata.mjs
       - uses: actions/upload-artifact@v4
-        if: success() && github.ref == 'refs/heads/main'
+        if: success()
         with:
           name: pages-site
           path: out/
           if-no-files-found: error
-          retention-days: 1
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: success() && steps.reuse-pr-artifact.outputs.reusable != 'true'
+        with:
+          name: pages-site-metadata
+          path: pages-build-metadata.json
+          if-no-files-found: error
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

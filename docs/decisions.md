@@ -25,12 +25,12 @@ has been checked locally in desktop, portrait and landscape browser sizes.
 
 ## Pages release workflow — 2026-11-01
 
-Build the static export once in application CI, run browser checks against it,
-and publish that same artifact after repository validation and application
-checks pass. Keep Pages write and OIDC permissions scoped to the deploy job.
-Manual dispatch may deploy only from `main`. PR #8 and main run #31 verified
-this workflow; cave release workflow #39 verified it again. Manual dispatch and
-effective required-check settings have not been tested/read back.
+Build and browser-test the static export on each pull request. After merge, reuse
+that artifact only when its successful PR run, PR number and source-tree hash
+match the current `main` tree. If the exact artifact is unavailable or does not
+match, run the full build and browser checks on `main`. Manual dispatch from
+`main` always runs the full checks. Publish the validated artifact and keep
+Pages write and OIDC permissions scoped to the deploy job.
 
 ## CHISPITAS home page — 2026-11-01
 
