@@ -121,3 +121,11 @@ artifact, and published it to GitHub Pages without another checkout, install or
 build. Pages write/OIDC permissions are limited to the deploy job. Manual
 workflow dispatch and the effective required status-check names in repository
 settings remain unverified.
+
+## 2026-11-02 — Run release checks in parallel
+
+To shorten the wait before Pages deployment, lint, typecheck and unit tests
+run in a separate job alongside the build and Playwright smoke tests. Deployment
+still waits for repository validation and both application gates, and it still
+publishes the exact static artifact exercised by Playwright. CI verification and
+elapsed-time comparison are pending.
