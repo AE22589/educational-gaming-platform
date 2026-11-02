@@ -114,16 +114,10 @@ re-read, so no enforcement is claimed; verify and record it before relying on it
 
 ## 2026-11-01 — Single-build Pages pipeline
 
-Workflow changes are local on `codex/fix-pages-image-paths` and have not run on
-GitHub. The repository/documentation validator and application checks run on PRs
-and `main`. The application job builds once and tests the static export with
-Playwright. On `main`, it uploads that tested `out/` directory; a dependent Pages
-job publishes the artifact after both check jobs pass, without another source
-checkout, npm install or build. Pages write/OIDC permissions are limited to the
-deploy job. Manual dispatch publishes only from `main`, and superseded runs for
-the same ref are canceled.
-
-Before relying on this change, verify a PR run, a successful `main` run with
-artifact handoff, a manual dispatch from `main`, and the effective required
-status-check names in repository settings. No check has been run against GitHub
-yet; local `git diff --check` is the only verification recorded for this update.
+The workflow changes were merged in PR #8 on 2026-11-02. PR checks passed for
+repository validation, lint, TypeScript, unit tests, the static production build
+and Playwright. Main run #31 passed the same checks, uploaded the tested `out/`
+artifact, and published it to GitHub Pages without another checkout, install or
+build. Pages write/OIDC permissions are limited to the deploy job. Manual
+workflow dispatch and the effective required status-check names in repository
+settings remain unverified.
