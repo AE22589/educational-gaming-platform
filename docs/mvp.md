@@ -16,9 +16,11 @@ prepared now; five-subject game content is deferred.
 
 Implemented: Next.js App Router, React, strict TypeScript, Tailwind, Spanish
 placeholder navigation, reusable UI, versioned runtime contracts, test fixtures,
-persistence/recovery ports and pure snapshot decoding. Real lint, type, unit,
-production-build and browser-smoke commands are wired into CI alongside the
-retained documentation validator. See setup-status.md for actual check results.
+persistence/recovery ports and pure snapshot decoding. CI runs the documentation
+validator alongside real lint, type, unit, production-build and browser-smoke
+checks. On `main`, Pages publishes the same single build that passed browser
+smoke tests; its deploy job does not reinstall dependencies or rebuild. See
+setup-status.md for implementation and verification status.
 
 Deferred: animal content/media, mission gameplay, future schema migrations, shop
 purchases and avatar rendering. Contract fixtures are technical review data,

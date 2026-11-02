@@ -6,10 +6,9 @@ co-developer review and rights review remain pending before any child pilot.
 
 ## Illustrated homepage tiles
 
-All eight WebP illustrations were generated with Codex ImageGen on 2026-11-01
-from the owner's supplied screenshot as a broad visual reference. No external
-media files were used. Third-party rights have not been independently assessed;
-review the assets before any child pilot.
+The homepage illustrations were generated with Codex ImageGen from owner
+references. No external media files were used. Third-party rights have not been
+independently assessed; review the assets before any child pilot.
 
 | Asset | Local path | Type | Locale | Accessible description | Review status |
 |---|---|---|---|---|---|
@@ -18,7 +17,7 @@ review the assets before any child pilot.
 | Original valley draft | `public/homepage/enchanted-valley-hero.webp` | Superseded source illustration | None | Earlier landscape composition retained as a local source variant; not used in the current homepage. | Superseded by the panoramic background. |
 | Science garden | `public/homepage/science-garden.webp` | Tile illustration | None | Decorative smiling flask among leaves; tile is labelled as coming soon. | Joint visual review pending; preview only. |
 | English book | `public/homepage/english-book.webp` | Tile illustration | English learning subject | Decorative open picture book with letter blocks; adjacent HTML identifies the learning tile. | Joint visual review pending. |
-| Avatar explorer | `public/homepage/avatar-girl.webp` | Tile illustration | None | Decorative waving explorer character; adjacent HTML names the avatar tile. | Joint visual review pending. |
+| Little friend dragon | `public/homepage/my-little-friend-dragon.png` | Tile illustration | None | Decorative purple baby dragon; adjacent HTML names the companion tile. | Generated from the owner's supplied dragon reference; joint visual review pending. |
 | Adventure map | `public/homepage/adventure-map.webp` | Tile illustration | None | Decorative illustrated trail map; tile is labelled as coming soon. | Joint visual review pending; preview only. |
 | Mission clipboard | `public/homepage/daily-missions.webp` | Support illustration | None | Decorative checked clipboard; adjacent HTML describes the next mission as in preparation. | Joint visual review pending. |
 | Star chest | `public/homepage/star-chest.webp` | Support illustration | None | Decorative chest of stars; adjacent HTML describes future collection use without inventing a balance. | Joint visual review pending. |
