@@ -97,12 +97,12 @@ export function HomepageContent() {
           action="Explorar"
         />
         <WorldTile
-          title="Mi avatar"
-          description="Prepara tu personaje para la aventura."
-          image={assetPath("/homepage/avatar-girl.webp")}
+          title="Mi pequeño amigo"
+          description="Conoce a tu compañero de aventuras."
+          image={assetPath("/homepage/my-little-friend-dragon.png")}
           tone="orange"
           href="/avatar"
-          action="Ver avatar"
+          action="Ver amigo"
         />
         <WorldTile
           title="Mapa de aventuras"

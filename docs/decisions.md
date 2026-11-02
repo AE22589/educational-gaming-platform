@@ -1,5 +1,19 @@
 # Project decision log
 
+## 2026-11-01 — Reuse the tested build for Pages deployment
+
+Status: accepted by the owner; workflow and documentation updated locally.
+
+- Keep repository/documentation validation and application checks as required
+  gates for a Pages release.
+- Build the static export once in application CI, run browser smoke tests against
+  it, and publish that same artifact after both gates pass.
+- The deploy job must not check out source, install npm dependencies or rebuild.
+- Keep Pages write and OIDC permissions scoped to the deploy job. Manual
+  dispatch may deploy only from `main`.
+- GitHub Actions has not yet run this local workflow change; successful artifact
+  handoff and required-check names remain to be verified on GitHub.
+
 ## 2026-11-01 — Owner-authorized release may bypass independent review
 
 Status: accepted by the owner; applied to the CHISPITAS release and its rollback.

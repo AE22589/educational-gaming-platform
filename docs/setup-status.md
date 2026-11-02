@@ -1,5 +1,8 @@
 # Setup status — 28 October 2026
 
+> Historical setup notes follow. The 1 November 2026 addendum at the end is the
+> current workflow status and supersedes earlier statements where they conflict.
+
 Verified: private GitHub repository AE22589/educational-gaming-platform created
 through the user's authenticated browser, default branch main, initial README.
 Local Git workspace initialized under outputs/educational-gaming-platform.
@@ -108,3 +111,19 @@ previews only. The earlier notes remain as historical observations.
 Because the repository is public, the "private repository ruleset" limitation
 recorded earlier may no longer apply. Effective branch protection has not been
 re-read, so no enforcement is claimed; verify and record it before relying on it.
+
+## 2026-11-01 — Single-build Pages pipeline
+
+Workflow changes are local on `codex/fix-pages-image-paths` and have not run on
+GitHub. The repository/documentation validator and application checks run on PRs
+and `main`. The application job builds once and tests the static export with
+Playwright. On `main`, it uploads that tested `out/` directory; a dependent Pages
+job publishes the artifact after both check jobs pass, without another source
+checkout, npm install or build. Pages write/OIDC permissions are limited to the
+deploy job. Manual dispatch publishes only from `main`, and superseded runs for
+the same ref are canceled.
+
+Before relying on this change, verify a PR run, a successful `main` run with
+artifact handoff, a manual dispatch from `main`, and the effective required
+status-check names in repository settings. No check has been run against GitHub
+yet; local `git diff --check` is the only verification recorded for this update.

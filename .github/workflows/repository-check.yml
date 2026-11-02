@@ -1,10 +1,14 @@
-name: Repository checks
+name: Repository checks and Pages deployment
 on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   repository-check:
     name: repository-check
@@ -35,6 +39,13 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - uses: actions/upload-artifact@v4
+        if: success() && github.ref == 'refs/heads/main'
+        with:
+          name: pages-site
+          path: out/
+          if-no-files-found: error
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: browser-failure-evidence
@@ -42,3 +53,28 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 7
+  deploy:
+    name: deploy
+    needs: [repository-check, application-check]
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: pages-site
+          path: out
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
