@@ -1,25 +1,21 @@
-# Educational Gaming Platform — Animal Adventure
+# Animal Adventure
 
-MVP-01 implements the local application foundation, not a playable game.
-The Spanish routes `/`, `/learn`, `/learn/[missionId]`, `/shop` and `/avatar`
-are labelled development previews. They do not create profiles, save data,
-award stars or enable purchases. No animal art or audio is supplied yet.
-
-All project documentation, task descriptions and PR text must remain English.
-The product UI is Spanish; learning vocabulary/audio will be English.
+Aventura Animal is a Spanish-language learning app for children learning English
+animal vocabulary. The current site is a development preview; the full animal
+mission, approved media, shop purchases and avatar rendering are still deferred.
+The companion cave is a separate commissioned preview at `/avatar`.
 
 ## Local development
 
-Use Node **24.21.0 LTS** (see `.nvmrc`) and npm **11.19.0**. npm is the only
-package manager. Dependencies are pinned and `package-lock.json` is authoritative.
+Use Node **24.21.0 LTS** (`.nvmrc`) and npm **11.19.0**.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:3000. No environment variables or external service accounts
-are needed. Stop the server before the production browser check on the same port.
+Open http://127.0.0.1:3000. No environment variables or external accounts are
+needed. To verify changes, run:
 
 ```bash
 npm run check:docs
@@ -31,36 +27,28 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Browser tests launch the production server themselves; build first. In Linux CI,
-Playwright installation uses `--with-deps`. Failure traces and screenshots are
-uploaded by CI. `npm run start` serves the production build locally.
-Next telemetry may be disabled with `NEXT_TELEMETRY_DISABLED=1`.
+Browser tests use the production export. In Linux CI, install Playwright with
+`npx playwright install --with-deps chromium`. `npm run start` serves the export.
 
-## Foundation layout
+## Project structure
 
-- `src/app/`: Spanish App Router pages and responsive base styles.
-- `src/components/ui/`: shared semantic Button, Card and preview shell.
-- `src/types/contracts.ts`: Zod schemas, inferred shared types and validation.
-- `src/features/profile/`: typed ports and pure bounded snapshot decoding only.
-- `src/content/animals/`, `src/games/picture-selection/`, other `src/features/`
-  folders: explicit ownership reservations for later milestones.
-- `public/animals/`, `public/audio/`: reserved local media directories, no media.
-- `tests/fixtures/`: review fixtures, excluded from production application imports.
-- `tests/e2e/`: browser home, keyboard and placeholder-navigation smoke checks.
+- `src/app/`: Spanish pages and responsive styles.
+- `src/types/contracts.ts`: canonical Zod schemas and inferred shared types.
+- `src/features/profile/`: profile, rewards and persistence boundaries.
+- `src/content/`, `src/games/`, `src/features/`: sequential feature implementation.
+- `public/`: local product artwork and media.
+- `tests/`: fixtures and automated behavior checks.
 
-## Specifications and sequencing
+## Project guidance
 
-- [Development plan 1.1](docs/mvp-development-plan-1.1.md): binding scope and acceptance.
-- [MVP state](docs/mvp.md): implemented versus deferred behavior.
-- [Contracts](docs/contracts.md): schema authority, port semantics and review handover.
-- [Contract review](docs/contracts-review.md): current integrity corrections and open MVP-02 decisions.
-- [Decision log](docs/decisions.md): accepted exceptions and implementation choices.
-- [Setup status](docs/setup-status.md): verification and remaining blockers.
-- [Master plan](docs/master-plan.md): future scope boundary.
+- [MVP scope](docs/mvp.md)
+- [MVP development plan](docs/mvp-development-plan-1.1.md)
+- [Contracts](docs/contracts.md)
+- [Contract review](docs/contracts-review.md)
+- [Current setup status](docs/setup-status.md)
+- [Project decisions](docs/decisions.md)
+- [Master plan](docs/master-plan.md)
 
-Read AGENTS.md before editing. Foundation is on `chore/MVP-01-foundation`, based
-on bootstrap commit `166df1707e5561db19600abfb6a783ad436ea40d` by the owner's
-explicit sequencing exception. Bootstrap and foundation still need independent
-review and authorized merge before parallel feature work. Shared types,
-configuration and lockfile changes require coordinated review. No local test
-result establishes GitHub rule enforcement or independent approval.
+The owner maintains the project solo and works sequentially. Read `AGENTS.md`
+before changing the project. Keep documentation in English and the product UI
+in Spanish.

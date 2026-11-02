@@ -49,7 +49,9 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "La cueva de Chispitas",
     );
-    await expect(page.getByRole("img", { name: /Interior vacío de la cueva/ })).toBeVisible();
+    const caveImage = page.getByRole("img", { name: /Interior vacío de la cueva/ });
+    await expect(caveImage).toBeVisible();
+    await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
     expect(
       await page.evaluate(() => localStorage.getItem("tier-abenteuer.profile.v1")),
     ).not.toBeNull();
@@ -60,12 +62,16 @@ for (const width of [360, 768, 1280]) {
 test("the companion cave follows the 06:00 and 18:00 local-time changes", async ({ page }) => {
   await page.clock.install({ time: new Date(2026, 0, 1, 5, 59, 0) });
   await page.goto("/avatar");
+  const caveImage = page.getByRole("img", { name: /Interior vacío de la cueva/ });
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
+  await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 
   await page.clock.runFor(60_000);
   await expect(page.getByRole("img", { name: /luz del día/i })).toBeVisible();
+  await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 
   await page.clock.setFixedTime(new Date(2026, 0, 1, 18, 0, 0));
   await page.clock.runFor(30_000);
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
+  await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 });

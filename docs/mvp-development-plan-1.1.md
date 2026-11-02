@@ -121,7 +121,7 @@ Use discriminated payloads for vocabulary, numbers, text and concepts, plus an e
 
 ## 6. Architecture and persistence
 
-Games emit results; they never mutate balance, inventory or browser storage. Developer 1 owns the profile/reward boundary; Developer 2 can develop against a separate test adapter. Only the profile layer writes persistent application state. React Context plus reducer is sufficient unless the foundation establishes otherwise. Access storage only on the client after hydration.
+Games emit results; they never mutate balance, inventory or browser storage. Only the profile layer writes persistent application state. Build and integrate the profile and game features sequentially against the same typed contract. React Context plus reducer is sufficient unless the foundation establishes otherwise. Access storage only on the client after hydration.
 
 Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger and balance) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
 
@@ -135,36 +135,26 @@ Create a coherent child-friendly visual language: consistent illustration style,
 
 Target 48×48 CSS-pixel controls, visible keyboard focus, touch and keyboard support, readable Spanish text, sufficient contrast (WCAG AA target), feedback beyond colour, reduced-motion support and no flashing/timers. Review phone (360 px), tablet (768 px) and desktop (1280 px) layouts for clipping and scrolling. Prevent layout shifts while media loads. Review screenshots of home, mission, wrong/correct feedback, completion, shop, avatar and recovery states.
 
-Use local, reviewed English pronunciation recordings and a visible repeat button. Handle rejected playback and missing/failed media with retry and an explicit Spanish message. Do not silently substitute unrelated audio or pretend placeholder files exist. Maintain an asset licence/attribution register. No child pilot until both developers review media, Spanish wording and visual consistency.
+Use local, reviewed English pronunciation recordings and a visible repeat button. Handle rejected playback and missing/failed media with retry and an explicit Spanish message. Do not silently substitute unrelated audio or pretend placeholder files exist. Maintain an asset licence/attribution register. The owner reviews media, Spanish wording and visual consistency before any child pilot.
 
-## 8. Two-developer workflow and enforceable gates
+## 8. Solo workflow and release gates
 
-Each developer uses their own GitHub account, local clone and Codex session. Never run two writing sessions in the same folder. One active implementation task per developer initially. The other developer reviews every PR; an author cannot provide their own independent approval.
-
-| Developer 1 — platform/economy | Developer 2 — learning/games |
-|---|---|
-| Foundation, CI, home/navigation | Animal content and questions |
-| Profile, rewards, persistence | Audio, picture selection, mission flow |
-| Shop, inventory, avatar | Later matching game and review round |
-| Profile provider integration | Game route integration and end-to-end loop |
-
-Developer 1 first creates `chore/MVP-01-foundation`; Developer 2 reviews it. After merge both branch from updated main: `feature/MVP-02-profile-rewards` and `feature/MVP-03-picture-selection`. Shared types, dependencies, root configuration and lockfile changes require coordination before editing. Each developer tests their behavior. Never overwrite the other's work.
+The owner is the sole maintainer. Work proceeds one task at a time in the existing checkout; there are no developer roles, separate accounts/clones, parallel chats, handovers or independent-review prerequisites. Start each implementation task on a feature branch, preserve unrelated work and keep changes to shared contracts in their canonical source with dependent consumers, docs and tests.
 
 ```bash
+git status --short --branch
 git switch main
 git pull --ff-only
-git switch -c chore/MVP-01-foundation
-# After the foundation PR is reviewed and merged, each developer repeats
-# the first two commands, then creates their assigned feature branch.
+git switch -c codex/<task-name>
 ```
 
-GitHub configuration must be applied and read back: private repository; main default; require PR, one approving review, stale-approval dismissal, approval of the most recent push by another person, resolved conversations and required CI with branch up to date. Block force pushes and deletion; apply to administrators/no routine bypass. Enable squash merges and branch cleanup; disable other merge methods if practical. Configure exact required status names after the first successful runs. Workflows run on all PRs and main pushes, with read-only token permissions and no application secrets. Do not use `pull_request_target` to execute untrusted changes.
+Keep automated repository validation, application checks and tested-artifact deployment. Do not require approval from a second person. Read the effective GitHub rules before changing them; any existing rule that prevents the owner from releasing a passing change is an explicit configuration issue to resolve, not a reason to invent another developer role. Keep main as the default branch, block force pushes, use squash merges and least-privilege workflow permissions. Do not use `pull_request_target` to execute untrusted changes.
 
 CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests.
 
 On pushes to `main`, deploy only after both repository and application checks pass. Upload the already-built and browser-tested `out/` directory as a short-lived artifact; the Pages deployment job downloads that artifact and publishes it without checking out the source, reinstalling dependencies or rebuilding. Keep Pages deployment permissions scoped to that job. A manual workflow dispatch may publish only from `main`. Cancel superseded runs for the same ref so obsolete commits do not consume runner time. Keep the required PR status-check job names stable when changing workflow structure; verify configured required-check names after the first successful run.
 
-Verify an unreviewed PR cannot merge and a deliberately failing check blocks merge using a temporary safe test PR once two accounts and enforcement are available. A policy file, AGENTS.md, PR template or configured-but-unenforced ruleset is not branch protection. If the GitHub plan or permissions prevent enforcement, record the limitation and treat team readiness as blocked; do not silently accept manual convention as equivalent.
+Automated checks must block a release when they fail. A policy file, AGENTS.md or PR template does not enforce GitHub settings. Record actual protection and check results; do not claim a setting is active without reading it back.
 
 ## 9. Copy-ready foundation Codex prompt
 
@@ -204,15 +194,16 @@ test results and remaining risks. Do not claim GitHub settings are applied
 without reading back their effective state.
 ```
 
-## 10. Copy-ready parallel Codex prompts
+## 10. Sequential feature work prompts
 
-### Developer 1 — feature/MVP-02-profile-rewards
+### MVP-02-profile-rewards — profile and rewards pass
 
 ```text
 Read AGENTS.md, docs/mvp.md, docs/contracts.md and the 1.1 plan. Check branch
-and working tree. Implement only src/features/profile/, src/features/rewards/
-and their tests. Use Context/reducer unless the foundation specifies otherwise;
-add no state management dependency. Do not edit shared types or other features.
+and working tree. Implement the profile, rewards and persistence requirements.
+Use Context/reducer unless the foundation establishes otherwise; add no state
+management dependency. Keep shared schemas in src/types/contracts.ts and update
+their consumers, documentation and tests in the same change when necessary.
 
 Create a local profile with 0 stars. Persist the active run and question state.
 Award 2 stars once per solved question per run, even after errors/help. Award
@@ -226,7 +217,7 @@ Complete loading before autosave; runtime-validate and migrate snapshots.
 Implement section 6 backup/recovery, blocked storage/quota handling, retry,
 export and exclusive writer behavior. Never silently reset corrupt data or
 claim failed writes were saved. Report missing interfaces rather than inventing
-parallel structures. Coordinate any required contract change before editing.
+parallel structures.
 
 Tests: +2 correct; zero/no deduction incorrect; +2 after error/help; duplicate
 attempt/reward/completion handling; +10 completion once; incomplete run no bonus;
@@ -235,13 +226,14 @@ corrupt/future/old snapshots, failed writes, backup recovery and second tab.
 Run applicable checks and report results; no commit/push/merge without instruction.
 ```
 
-### Developer 2 — feature/MVP-03-picture-selection
+### MVP-03-picture-selection — learning and game pass
 
 ```text
 Read AGENTS.md, docs/mvp.md, docs/contracts.md and the 1.1 plan. Check branch
-and working tree. Edit only src/content/animals/, src/games/picture-selection/,
-src/features/learning/, public/animals/, public/audio/ and related tests.
-Do not change shared types, platform configuration or profile persistence.
+and working tree. Implement animal content, audio, picture selection, learning
+flow and related tests, integrating them with the canonical profile contract.
+Keep shared schema changes in src/types/contracts.ts and update all consumers,
+documentation and tests together.
 
 Author cat, dog, cow, horse; one eight-question mission, each animal twice.
 Each question has three distinct animal picture options; vary correct position.
@@ -253,18 +245,19 @@ contract, with help use distinguished from audio replay. Never write stars or
 localStorage. Surface missing audio/playback failures in Spanish with retry.
 Label placeholders truthfully. Follow the visual/media gate in section 7.
 
-Develop with a separate test adapter, excluded from production wiring.
 Tests: correct/incorrect choices, repeated taps after solve, audio replay and
 failure, next-question transition, all-eight completion and stable resume.
 Run applicable checks and report results; no commit/push/merge without instruction.
 ```
 
-## 11. Integration and follow-on prompts
+## 11. Sequential integration and follow-on work
 
-Merge only reviewed, passing work. Developer 2 owns the game route; Developer 1 owns profile-provider wiring. Remove the test adapter from production.
+Complete and integrate the profile/rewards pass and the learning/game pass in
+sequence. Run the full checks when their contracts connect. Do not leave a test
+adapter wired into production.
 
 ```text
-Developer 1: On a new feature branch, implement glasses (10), cap (15) and
+On a feature branch, implement glasses (10), cap (15) and
 T-shirt (20), shop states, ownership, equip/unequip and avatar rendering through
 the profile layer. Respect one item per category and simultaneous categories.
 Test insufficient funds, duplicate purchase, rapid clicks, persistence failure
@@ -272,14 +265,14 @@ and reload. Follow the visual gate. Do not expand product scope.
 ```
 
 ```text
-Developer 2: On a new feature branch, complete the four-animal introduction,
+On a feature branch, complete the four-animal introduction,
 play/resume flow, completion page with stars earned in this run, explicit Play
 again with a new run ID, and Go to shop. Add a real browser test of the complete
 loop and recovery states. Confirm no production test adapter remains. Do not add
 animals or the matching game until the first integrated acceptance passes.
 ```
 
-## 12. Joint acceptance and release gates
+## 12. Owner acceptance and release gates
 
 1. Empty profile: **0** stars.
 2. First question incorrect: **0**.
@@ -291,4 +284,4 @@ animals or the matching game until the first integrated acceptance passes.
 8. Start a new run and finish: **37**.
 9. Buy cap again: rejected with no deduction.
 
-Also verify abandon/resume, duplicate callbacks and completion events, insufficient funds, simultaneous categories, mastery-v1 cases, audio/image failures, corrupt and unavailable storage, supported migration, future-version rejection, failed purchase save, and second-tab refusal. There must be no false “saved” message. Run lint/typecheck/unit/build/browser checks and record results. Both developers review responsive screenshots and assets. A child pilot additionally requires final media rights/review and age-appropriate Spanish instructions. Expansion to 12 animals/three missions/matching/six items is a separate reviewed milestone; the five-subject platform remains a master-plan objective.
+Also verify abandon/resume, duplicate callbacks and completion events, insufficient funds, simultaneous categories, mastery-v1 cases, audio/image failures, corrupt and unavailable storage, supported migration, future-version rejection, failed purchase save, and second-tab refusal. There must be no false “saved” message. Run lint/typecheck/unit/build/browser checks and record results. The owner reviews responsive screenshots and assets. A child pilot additionally requires final media rights/review and age-appropriate Spanish instructions. Expansion to 12 animals/three missions/matching/six items is a separately commissioned milestone; the five-subject platform remains a master-plan objective.

@@ -1,10 +1,8 @@
 # Shared contract review — 29 October 2026
 
-Status: local review and corrections by the foundation author. The P1 corrections
-are implemented and covered by regression tests. This is not an independent
-review or colleague approval. The owner confirmed that local development should
-continue without depending on the colleague's schedule; the colleague can join
-bounded tasks later as a learner and contributing developer.
+Status: local author review and corrections. The P1 corrections are implemented
+and covered by regression tests. The owner later replaced the two-developer
+model with a solo workflow; automated checks remain the release gate.
 
 Reviewed `src/types/contracts.ts`, `src/features/profile/ports.ts`, snapshot
 decoding, all three JSON fixtures and contract tests against MVP Development
@@ -76,9 +74,8 @@ question states. Snapshot validation also reconciles historical results using
 trusted content. No game renderer or product curriculum exists yet; unknown
 future schemas enter recovery because no earlier profile schema has shipped.
 
-## Collaboration and release
+## Sequential development and release
 
-Local work proceeds sequentially without waiting for the colleague. When he is
-available, provide a written handover and small bounded development tasks. The
-local self-review does not count as independent review. Repository publication
-and merge still require their applicable independent review and release gates.
+Local work proceeds sequentially under the owner. No separate developer,
+handover or independent-review step is required. Repository validation and
+application checks remain required before release.

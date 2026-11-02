@@ -1,263 +1,68 @@
-# Project decision log
+# Project decisions
 
-## 2026-11-02 — Companion cave day/night preview
+## Solo development model — 2026-11-02
 
-Status: accepted, implemented, deployed and verified on 2026-11-02.
+The owner is the sole maintainer. Work proceeds sequentially, one task at a time.
+There is no second-developer role split, separate account/clone/chat, handover
+requirement or independent-review prerequisite. Use a feature branch, preserve
+existing local changes, keep shared contracts in their canonical files, and run
+the required automated checks before an explicitly authorized release.
 
-- The homepage's "Mi pequeño amigo" tile opens the companion cave at `/avatar`.
-- Use separate empty cave background illustrations for day and night. Select day
-  from 06:00 through 17:59 and night from 18:00 through 05:59 using the browser's
-  local computer time.
-- Keep the cave background separate from the future sleeping dragon, furniture
-  and decor assets. This preview adds no object placement or room customization.
-- The day and night backgrounds were generated with Codex ImageGen and are
-  recorded in `docs/assets.md`; review remains required before any child pilot.
-- PR #12 passed repository validation, lint, typecheck, unit tests, the standard
-  production build and Playwright browser checks. Main workflow run #39 passed
-  the same applicable checks and deployed the tested static artifact to Pages.
+Keep existing CI checks and GitHub protections. Do not configure a second-person
+approval requirement for this solo project. Effective repository settings have
+not been verified; check them before relying on them or changing them.
 
-## 2026-11-01 — Reuse the tested build for Pages deployment
+## Companion cave — 2026-11-02
 
-Status: accepted by the owner; implemented and verified on 2026-11-02. A
-follow-up to avoid repeating quality checks on `main` is accepted and implemented
-locally; its CI result is pending.
+Implemented and deployed. The "Mi pequeño amigo" tile opens `/avatar`, which
+shows an empty framed cave. The browser's local time selects day from 06:00 to
+17:59 and night from 18:00 to 05:59. The cave backgrounds remain separate from
+future dragon, furniture and decor overlays; no placement or customization is
+included. PR #12 and Pages workflow #39 passed repository, quality, build and
+Playwright checks; workflow #39 deployed the tested static artifact.
 
-- Keep repository/documentation validation and application checks as required
-  gates for a Pages release.
-- Build the static export once in application CI, run browser smoke tests against
-  it, and publish that same artifact after both gates pass.
-- Run lint, typecheck and unit tests on pull requests. On `main`, build and run
-  Playwright against the static export; do not repeat the quality checks there.
-- The deploy job must not check out source, install npm dependencies or rebuild.
-- Keep Pages write and OIDC permissions scoped to the deploy job. Manual
-  dispatch may deploy only from `main`.
-- PR #8 passed both repository and application checks, including Playwright.
-  Main run #31 passed the same checks, uploaded the tested static artifact and
-  deployed it successfully to GitHub Pages.
-- Manual workflow dispatch and the effective required-check settings remain
-  unverified.
-- PR run #34 passed all three checks in 1 minute 49 seconds. Main run #35 passed
-  all checks and deployed in 2 minutes 7 seconds, compared with 2 minutes 20
-  seconds for main run #31. These single-run durations are subject to runner and
-  network variation; the quality job finished 29 seconds before the build/test
-  job in run #35.
+## Pages release workflow — 2026-11-01
 
-## 2026-11-01 — Owner-authorized release may bypass independent review
+Build the static export once in application CI, run browser checks against it,
+and publish that same artifact after repository validation and application
+checks pass. Keep Pages write and OIDC permissions scoped to the deploy job.
+Manual dispatch may deploy only from `main`. PR #8 and main run #31 verified
+this workflow; cave release workflow #39 verified it again. Manual dispatch and
+effective required-check settings have not been tested/read back.
 
-Status: accepted by the owner; applied to the CHISPITAS release and its rollback.
+## CHISPITAS home page — 2026-11-01
 
-- Independent review remains the default before merge.
-- For a named live release, the owner's explicit instruction to bring it live
-  authorizes merging and deploying without waiting for independent review.
-- This authorization is limited to that release. All other project rules,
-  including successful required checks and GitHub-enforced protections, remain
-  in force.
-- The CHISPITAS homepage release was the first release covered by this exception;
-  it was deployed and then rolled back at the owner's request.
+Use the approved bright illustrated storybook style, rounded pastel tiles and
+five icon-led navigation items. UI remains Spanish; English is limited to the
+learning subject and vocabulary. Science and map tiles are previews. Use the
+real profile star balance; do not invent progress, daily limits or reward state.
+This decision adds no new game, account, curriculum or economy behavior.
 
-## 2026-11-01 — CHISPITAS homepage branding
+## World map direction — 2026-10-29
 
-Status: the first implementation was withdrawn by the owner; the supplied
-reference image reconfirmed CHISPITAS, and the owner authorized the current
-visual release for deployment on 2026-11-01.
+The home-page mission entry leads to a small animal world map before a mission.
+The map concept remains exploratory; locations, labels and interactions are
+not final. This direction does not expand the current MVP's game or content
+count. Verify asset rights before product use.
 
-- Use CHISPITAS branding, a bright illustrated storybook landscape, rounded
-  pastel tiles and five icon-led navigation items based on the owner's supplied
-  reference image.
-- Product UI remains Spanish. English appears only for the learning subject and
-  animal vocabulary; do not add bilingual UI copy.
-- Science and map tiles are static previews labelled as coming soon. The
-  homepage must use the real profile star balance and must not invent progress,
-  daily limits, or reward state.
-- The initial implementation was reverted on 2026-11-01 after the owner rejected
-  its appearance. The current visual redesign is approved for live deployment;
-  no new game, account, science curriculum, map interaction or economy behavior
-  is implied.
-## 2026-10-29 — World map as the mission entry point
+## Product name — 2026-10-29
 
-Status: accepted direction; map design is in progress and the concept art is
-not final.
+The Spanish product name is **Aventura Animal**. English project documentation
+and package metadata use **Animal Adventure**. Existing browser storage keys
+remain unchanged for compatibility.
 
-- The Spanish home-page mission entry opens a small animal world map before a
-  learner enters a mission.
-- Define and review the world first; decide which missions or games belong in
-  its locations afterward. This navigation decision does not expand the MVP's
-  current game or content count.
-- The alternatives in `docs/concepts/animal-valley-map-concept.md` are working
-  visual references. They do not establish final locations, labels, interaction
-  design or approved production art. Verify provenance and usage rights before
-  product use.
-- Continue revising the existing MVP development plan and master plan as this
-  direction becomes more specific; do not treat the concept image as a locked
-  design.
+## Repository and child-pilot requirements — 2026-10-31
 
-## 2026-10-29 — Spanish product name
+The repository is public and GitHub Pages publishes from `main` at
+https://ae22589.github.io/educational-gaming-platform/. Use only local media;
+review asset rights, child-data privacy, accessibility and age-appropriate
+Spanish before any child pilot. Effective branch protection has not been
+verified.
 
-Status: accepted and implemented.
+## Documentation and decision records
 
-- The Spanish product name shown in the application is **Aventura Animal**.
-- English project documentation and package metadata use **Animal Adventure**.
-- Existing browser storage keys retain their original identifiers so saved
-  profiles and cross-tab coordination remain compatible with earlier builds.
-
-Record confirmed project decisions here in English so future Codex sessions and
-both developers can recover the agreed context from the repository. Chat history
-alone is not the project source of truth. Update affected specifications when a
-decision changes them; do not treat an assistant proposal as an approved decision.
-
-## 2026-10-31 — Repository is public; GitHub Pages is live
-
-Status: observed and verified through the GitHub API; documentation corrected.
-
-- The repository visibility is `PUBLIC` and GitHub Pages publishes from `main`
-  via the Pages workflow at https://ae22589.github.io/educational-gaming-platform/.
-- Earlier entries describing a private repository and blocked Pages are historical.
-  Whether and when visibility changed was not recorded in the repository; the owner
-  should confirm that this is intended.
-- Plan section 8 still lists "private repository" as a GitHub configuration item.
-  This is open for an explicit owner decision. Effective branch-protection and
-  ruleset enforcement have not been re-read and are not claimed.
-- Public visibility makes the media-rights, asset-licence and child-data rules
-  more important: no unapproved assets, credentials or real children's data.
-
-## 2026-10-28 — Repository documentation is the durable handover
-
-Status: accepted by the project owner.
-
-- Document project decisions, scope changes, working agreements and unresolved
-  blockers in repository files as part of the work that introduces them.
-- Keep all project documentation in English. Product UI remains Spanish and
-  English vocabulary and learning audio remain English.
-- Distinguish proposed, accepted, implemented and verified states. Record actual
-  validation results and never present local edits as committed or published.
-- Commit, push and merge still require explicit owner authorization. Until then,
-  documentation changes remain local and are not available to the colleague.
-
-## 2026-10-28 — Developer 1 starts before the colleague joins
-
-Status: accepted direction; application implementation has not started.
-
-- The owner starts as Developer 1. The second developer will join later with a
-  separate GitHub account, local clone and Codex chat.
-- The next intended implementation milestone is MVP-01 foundation. The animal
-  game, complete economy and broader platform remain later milestones.
-- Local foundation work before bootstrap merge was recommended, but an explicit
-  exception to the plan's bootstrap review/merge prerequisite remains unresolved.
-- Independent review and enforceable GitHub gates remain open requirements.
-  No approval, merge, collaborator invitation or plan upgrade is implied.
-
-## 2026-10-28 — Defer the multi-chat collaboration setup
-
-Status: accepted; setup deferred until the colleague joins.
-
-- Plan separate development chats and a central integration chat on the owner's
-  machine. Do not create or configure those chats yet.
-- Developer 1 owns foundation, profile, rewards, persistence, shop and avatar.
-  Developer 2 owns animal content, audio, learning game and mission flow, following
-  the ownership and sequencing rules in the MVP implementation plan.
-- Use separate clones or isolated worktrees for concurrent writing sessions.
-- Share code, project rules and handover notes through the private GitHub
-  repository. Do not assume automatic chat or account synchronization.
-- The integration chat is intended to combine completed branches, run integration
-  checks and publish authorized work. A colleague's changes must first reach a
-  shared Git branch; the integration chat cannot access another machine's
-  uncommitted files. Its checks do not replace independent developer review.
-
-## Current workspace distinction
-
-Verified on 2026-10-28:
-
-- The prepared repository is at
-  `C:\Users\ebeling\Documents\Codex\2026-10-28\referenced-chatgpt-conversation-this-is-an-2\outputs\educational-gaming-platform`.
-  It was clean on `chore/project-bootstrap` at `1509249` before this update.
-- The saved Codex project named `educational-gaming-platform` points to
-  `C:\Users\ebeling\Documents\ChatGPT\educational-gaming-platform`, which was a
-  separate empty Git repository when inspected. Saved-project registration now
-  exists, but it does not yet point to the prepared repository.
-- Bootstrap PR #1 was open with no reviews and its current documentation check
-  passed. Local `node scripts/validate-repository.mjs` also passed.
-- GitHub still displayed the private-repository ruleset enforcement limitation.
-  The GitHub connector returned 404 while system Git and the authenticated
-  in-app browser could access the repository. No authentication was changed.
-
-## 2026-10-28 — Owner-authorized MVP-01 sequencing exception
-
-Status: accepted by the owner in the development-chat handover; locally implemented.
-This supersedes the earlier unresolved-exception note for local foundation work.
-
-- Developer 1 may implement MVP-01 locally before bootstrap independent review/merge.
-- The foundation branch is `chore/MVP-01-foundation`, based on verified bootstrap
-  tip `166df1707e5561db19600abfb6a783ad436ea40d`, because main lacks the plan.
-  This is a temporary base choice, not permission to bypass review or merge gates.
-- Bootstrap and foundation still need independent review and authorized merge.
-  Reconcile the eventual main base before review/merge; do not begin parallel
-  feature work from the unreviewed foundation.
-- No commit, push, merge, collaborator invitation, authentication change or
-  account change is authorized. No independent review is claimed.
-- The prepared checkout remains in the documented outputs directory; the saved
-  project's empty checkout is untouched. No move, deletion or project repointing.
-- Before editing, both related source chats were idle, the prepared checkout was
-  clean, no Git lock files were present and the sender explicitly handed off
-  writing. No concurrent implementation task or subagent was created.
-- Remote refs still identified the same bootstrap tip and main at
-  `56175fca60dea33f63d5364f59d4801b8818d9c7`. PR ref #1 remained available;
-  the connector returned 404, so current PR/check/review state was not reverified.
-
-## 2026-10-28 — Foundation contracts and toolchain
-
-Status: local implementation proposal awaiting independent developer review.
-
-- Use Node 24.21.0 LTS / npm 11.19.0, pinned Next 16.4.3, React 19.3.1,
-  Tailwind 4.3.3 and Zod 4.6.7. Versions and peer ranges were checked in npm.
-  Node 24 remains a supported LTS line per https://github.com/nodejs/Release.
-- Strict TypeScript includes unchecked-index and exact-optional-property checks.
-  Zod schemas infer types; no duplicate hand-written domain interfaces.
-- Version 1 schemas, one game registry and synthetic fixtures coordinate the
-  next developers. See contracts.md for exact reference and persistence semantics.
-- No production storage writes or economy are implemented. The pure bounded
-  decoder preserves invalid/future raw data; migration and writer coordination
-  are explicit later implementation requirements.
-- Next's React/accessibility lint plugins currently declare peers through ESLint 9,
-  despite Next's broad top-level peer range. ESLint 10 produced peer overrides;
-  pin compatible ESLint 9.39.5 without force/legacy-peer options. npm marks it
-  deprecated/unsupported. Revisit once the complete lint plugin chain supports 10.
-- Local package installation reported an unapproved optional postinstall for
-  unrs-resolver. No blanket script approval was added. Verify resolver behavior
-  with the actual checks; do not suppress failures.
-- Local assets remain empty reservations; original media rights and child-pilot
-  review remain mandatory. Master-plan scope has not expanded.
-
-- `agentRules: false` keeps `next dev` from modifying the repository's maintained
-  AGENTS.md; verified against the installed Next 16.4 documentation. Project rules
-  remain authoritative. Consult version-matched docs in node_modules/next/dist/docs
-  when using Next APIs, rather than relying on older conventions.
-
-- Asset paths are generic root-relative local files, not restricted to animal
-  directories; traversal, remote/protocol-relative URLs and encoded paths fail
-  validation. This keeps shared metadata usable by later avatar/subject assets
-  without adding production content or creating missing-file claims.
-
-- After a clean npm ci, Vitest's default fork workers timed out before executing
-  tests on this Windows machine. Use the supported threads pool with at most two
-  concurrent workers, retaining test isolation and every assertion. The complete
-  25-test suite passed afterward; no startup timeout was raised or error ignored.
-
-## 2026-10-29 — Solo development scheduling
-
-Status: accepted by the owner.
-
-- Continue sequential local development without depending on the colleague's
-  schedule. His later participation is welcome but optional for progress.
-- The colleague is a learner and contributing developer, not a required gate for
-  each local task. Provide clear, bounded tasks and English handover notes when
-  he is available.
-- This changes scheduling, not independent review requirements for publication
-  or merge. No commit, push or merge is authorized by this decision.
-
-## 2026-10-29 — Correct profile session integrity findings
-
-Status: implemented locally; regression checks passed. Independent review remains open.
-
-- Completion status now matches solved question states exactly.
-- Profile session run IDs and attempt IDs are unique across active and archived histories.
-- Exact reconciliation between session history, mastery evidence and processed attempt IDs remains for MVP-02 design.
+Project documentation is English; product UI remains Spanish and animal
+vocabulary/audio remains English. Record confirmed decisions and unresolved
+prerequisites here and update affected specifications. Keep proposed, accepted,
+implemented and verified states distinct. Chat history is not the project
+source of truth.

@@ -1,27 +1,29 @@
 # Contracts and ownership
 
 Section 5 of MVP Development Plan 1.1 defines the required contract fields.
-MVP-01 must implement shared TypeScript discriminated unions and runtime
-validation, with contract fixtures reviewed by both developers before parallel work.
+MVP-01 implements shared TypeScript discriminated unions and runtime validation.
+The owner maintains one canonical contract authority and validates changes with
+fixtures and automated checks before integrating dependent features.
 
-Developer 2 submits AnswerAttempt events through a typed profile port. Developer
-1 validates them and returns an accepted/duplicate/rejected/unsaved result and
-read-only session/progress state. The game must not calculate authoritative
+Game code submits AnswerAttempt events through a typed profile port. The profile
+layer validates them and returns an accepted/duplicate/rejected/unsaved result
+and read-only session/progress state. The game must not calculate authoritative
 balances. Completion is derived by the profile layer. Economic mutations and
 evidence updates are serialized, idempotent and persisted as one transition.
 
 Persist run/question identities, content versions, seed, options/order, attempts,
 reward ledger and processed keys. Use mastery-v1 and the recovery contracts in
-sections 4 and 6. Shared contracts/configuration/lockfile changes require prior
-coordination. A missing contract is reported, never independently redefined.
+sections 4 and 6. Changes to shared contracts/configuration/lockfiles must
+update the canonical definition and dependent code, specifications and tests
+together. A missing contract is reported, never independently redefined.
 
-## MVP-01 contract handover (local, awaiting independent review)
+## MVP-01 contract status
 
 `src/types/contracts.ts` is the single runtime authority. All exported domain
 TypeScript types are inferred from strict Zod schemas. Content bundle
 `contractVersion: 1`, profile `schemaVersion: 1`, mission/content versions,
 `stars-v1` and `mastery-v1` are distinct version axes. A schema change requires
-coordinated review and, for persisted data, an explicit migration decision.
+updating dependent consumers and, for persisted data, an explicit migration decision.
 
 Implemented contracts cover every section 5 entity. Learning items discriminate
 `vocabulary`, `number`, `text` and `concept` payloads. Localized titles are locale
@@ -101,11 +103,9 @@ an empty profile. Tests exercise successful parsing and broken references,
 options, versions, sessions, timestamps, equipment and recovery data.
 Fixtures are not imported by production routes and assert no media rights.
 
-Developer 1 prepared this common proposal under the owner's local-foundation
-exception. Developer 2 must independently review schemas, fixtures, result
-semantics and versioning before parallel work. This written coordination does
-not claim that review has happened. Report missing interfaces instead of
-creating a second contract definition.
+The owner maintains this shared contract as the single project authority.
+Review schemas, fixtures, result semantics and versioning when changing it.
+Report missing interfaces instead of creating a second contract definition.
 
 ## Local review findings — 2026-10-29
 
@@ -115,6 +115,5 @@ completion status must match solved questions, and run/attempt IDs are unique
 across an entire profile's active and archived sessions. See
 [contracts-review.md](contracts-review.md) for details and remaining questions.
 
-The author review is not independent approval. Local sequential development may
-continue without the colleague's availability by owner direction. Applicable
-independent review and release gates still apply before publication or merge.
+These are local author review findings. The project now uses a solo workflow;
+automated checks remain required where specified before release.
