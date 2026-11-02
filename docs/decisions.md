@@ -2,14 +2,16 @@
 
 ## 2026-11-01 — Reuse the tested build for Pages deployment
 
-Status: accepted by the owner; implemented and verified on 2026-11-02.
+Status: accepted by the owner; implemented and verified on 2026-11-02. A
+follow-up to avoid repeating quality checks on `main` is accepted and implemented
+locally; its CI result is pending.
 
 - Keep repository/documentation validation and application checks as required
   gates for a Pages release.
 - Build the static export once in application CI, run browser smoke tests against
   it, and publish that same artifact after both gates pass.
-- Run lint, typecheck and unit tests alongside the build and browser smoke tests
-  so deployment waits for the slower gate instead of their combined durations.
+- Run lint, typecheck and unit tests on pull requests. On `main`, build and run
+  Playwright against the static export; do not repeat the quality checks there.
 - The deploy job must not check out source, install npm dependencies or rebuild.
 - Keep Pages write and OIDC permissions scoped to the deploy job. Manual
   dispatch may deploy only from `main`.
@@ -18,8 +20,11 @@ Status: accepted by the owner; implemented and verified on 2026-11-02.
   deployed it successfully to GitHub Pages.
 - Manual workflow dispatch and the effective required-check settings remain
   unverified.
-- This parallel-check optimization is being prepared for release; its runtime
-  improvement is not yet measured.
+- PR run #34 passed all three checks in 1 minute 49 seconds. Main run #35 passed
+  all checks and deployed in 2 minutes 7 seconds, compared with 2 minutes 20
+  seconds for main run #31. These single-run durations are subject to runner and
+  network variation; the quality job finished 29 seconds before the build/test
+  job in run #35.
 
 ## 2026-11-01 — Owner-authorized release may bypass independent review
 

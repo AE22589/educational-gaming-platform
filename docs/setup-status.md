@@ -124,8 +124,16 @@ settings remain unverified.
 
 ## 2026-11-02 — Run release checks in parallel
 
-To shorten the wait before Pages deployment, lint, typecheck and unit tests
-run in a separate job alongside the build and Playwright smoke tests. Deployment
-still waits for repository validation and both application gates, and it still
-publishes the exact static artifact exercised by Playwright. CI verification and
-elapsed-time comparison are pending.
+PR #10 introduced a separate lint/typecheck/unit-test job alongside the build
+and Playwright smoke tests. PR run #34 passed in 1 minute 49 seconds. Main run
+#35 passed all checks and deployed in 2 minutes 7 seconds; main run #31 had taken
+2 minutes 20 seconds. The quality job finished 29 seconds before the build/test
+job in run #35, so repeating it on `main` did not gate that deployment. These
+single-run durations vary with runner and network conditions.
+
+## 2026-11-02 — Run quality checks only on pull requests
+
+The owner accepted skipping the duplicate lint, typecheck and unit-test job on
+`main`. Those checks remain on pull requests; the main deployment still builds
+the export, runs Playwright against it, and deploys that same artifact after
+repository validation. The change is local and awaits CI verification.
