@@ -8,6 +8,8 @@ Status: accepted by the owner; implemented and verified on 2026-11-02.
   gates for a Pages release.
 - Build the static export once in application CI, run browser smoke tests against
   it, and publish that same artifact after both gates pass.
+- Run lint, typecheck and unit tests alongside the build and browser smoke tests
+  so deployment waits for the slower gate instead of their combined durations.
 - The deploy job must not check out source, install npm dependencies or rebuild.
 - Keep Pages write and OIDC permissions scoped to the deploy job. Manual
   dispatch may deploy only from `main`.
@@ -16,6 +18,8 @@ Status: accepted by the owner; implemented and verified on 2026-11-02.
   deployed it successfully to GitHub Pages.
 - Manual workflow dispatch and the effective required-check settings remain
   unverified.
+- This parallel-check optimization is being prepared for release; its runtime
+  improvement is not yet measured.
 
 ## 2026-11-01 — Owner-authorized release may bypass independent review
 

@@ -32,9 +32,6 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
@@ -53,9 +50,23 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 7
+  quality-check:
+    name: quality-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
   deploy:
     name: deploy
-    needs: [repository-check, application-check]
+    needs: [repository-check, quality-check, application-check]
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
