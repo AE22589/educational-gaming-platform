@@ -43,8 +43,8 @@
 ## Quality and privacy
 - Test changed behavior; never disable tests or weaken checks.
 - Bootstrap check: node scripts/validate-repository.mjs.
-- After foundation: npm run lint, npm run typecheck, npm test, npm run build;
-  run relevant Playwright tests. Report any unexecuted checks.
+- After foundation: npm run lint, npm run typecheck, npm test, npm run build.
+  Report any unexecuted checks.
 - Follow the plan's visual, accessibility, audio and asset-rights gate.
 - No credentials or real children's data in code, prompts or fixtures.
 - Local assets only; no external tracking/media service.
@@ -58,6 +58,6 @@ Repository instructions complement effective GitHub rules and cannot enable them
 - Profile ports and pure decoder exist; no storage adapter/provider is wired yet.
 - Keep fixture imports out of production routes. Media directories contain no approved assets.
 - Run npm ci, npm run check:docs, npm run lint, npm run typecheck, npm test,
-  npm run build and npm run test:e2e (after Playwright Chromium installation).
+  and npm run build.
 - MVP-01 foundation is complete. Current work follows the solo workflow in
   docs/decisions.md and docs/mvp-development-plan-1.1.md.

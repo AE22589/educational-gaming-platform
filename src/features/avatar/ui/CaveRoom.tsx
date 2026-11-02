@@ -24,6 +24,7 @@ export function CaveRoom({ basePath }: { basePath: string }) {
   const imagePath = timeOfDay
     ? `${basePath}/dragon-cave/cave-${timeOfDay}.png`
     : undefined;
+  const dragonPath = `${basePath}/dragon-cave/dragon-sleep.gif`;
 
   return (
     <section
@@ -43,6 +44,7 @@ export function CaveRoom({ basePath }: { basePath: string }) {
 
       <div
         className="cave-frame"
+        role="group"
         aria-label={timeOfDay === "night" ? "La cueva por la noche" : "La cueva durante el día"}
       >
         <div className="cave-art-window">
@@ -52,8 +54,8 @@ export function CaveRoom({ basePath }: { basePath: string }) {
               src={imagePath}
               alt={
                 timeOfDay === "night"
-                  ? "Interior vacío de la cueva iluminado por la luna, con estrellas visibles en el cielo nocturno."
-                  : "Interior vacío de la cueva bañado por la luz del día y con cielo azul visible."
+                  ? "Interior de la cueva iluminado por la luna, con estrellas visibles en el cielo nocturno."
+                  : "Interior de la cueva bañado por la luz del día y con cielo azul visible."
               }
               fill
               priority
@@ -63,6 +65,16 @@ export function CaveRoom({ basePath }: { basePath: string }) {
           ) : (
             <div className="cave-art-loading" aria-label="Cargando la cueva" />
           )}
+          <Image
+            className="cave-dragon"
+            src={dragonPath}
+            alt="Chispitas duerme enroscado sobre el suelo de la cueva."
+            width={512}
+            height={512}
+            unoptimized
+            sizes="(max-width: 680px) 34vw, 210px"
+            draggable={false}
+          />
         </div>
       </div>
     </section>

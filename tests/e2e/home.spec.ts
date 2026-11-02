@@ -49,9 +49,12 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "La cueva de Chispitas",
     );
-    const caveImage = page.getByRole("img", { name: /Interior vacío de la cueva/ });
+    const caveImage = page.locator(".cave-art");
+    const dragonImage = page.getByRole("img", { name: /Chispitas duerme enroscado/ });
     await expect(caveImage).toBeVisible();
+    await expect(dragonImage).toBeVisible();
     await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect.poll(() => dragonImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(512);
     expect(
       await page.evaluate(() => localStorage.getItem("tier-abenteuer.profile.v1")),
     ).not.toBeNull();
@@ -68,17 +71,24 @@ for (const viewport of [
     await page.setViewportSize(viewport);
     await page.goto("/avatar");
 
-    const caveImage = page.getByRole("img", { name: /Interior vacío de la cueva/ });
+    const caveImage = page.locator(".cave-art");
+    const dragonImage = page.getByRole("img", { name: /Chispitas duerme enroscado/ });
     await expect(caveImage).toBeVisible();
+    await expect(dragonImage).toBeVisible();
     await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 
     const layout = await page.evaluate(() => {
       const image = document.querySelector<HTMLImageElement>(".cave-art");
+      const dragon = document.querySelector<HTMLImageElement>(".cave-dragon");
+      const artWindow = document.querySelector<HTMLElement>(".cave-art-window");
       const footer = document.querySelector<HTMLElement>(".chispitas-footer");
+      const dragonRect = dragon?.getBoundingClientRect();
+      const artRect = artWindow?.getBoundingClientRect();
       return {
         scrollHeight: document.documentElement.scrollHeight,
         viewportHeight: window.innerHeight,
         imageBottom: image?.getBoundingClientRect().bottom ?? Infinity,
+        dragonInsideArt: Boolean(dragonRect && artRect && dragonRect.left >= artRect.left && dragonRect.right <= artRect.right && dragonRect.top >= artRect.top && dragonRect.bottom <= artRect.bottom),
         footerBottom: footer?.getBoundingClientRect().bottom ?? Infinity,
       };
     });
@@ -86,13 +96,14 @@ for (const viewport of [
     expect(layout.scrollHeight).toBeLessThanOrEqual(layout.viewportHeight);
     expect(layout.imageBottom).toBeLessThanOrEqual(layout.viewportHeight);
     expect(layout.footerBottom).toBeLessThanOrEqual(layout.viewportHeight);
+    expect(layout.dragonInsideArt).toBe(true);
   });
 }
 
 test("the companion cave follows the 06:00 and 18:00 local-time changes", async ({ page }) => {
   await page.clock.install({ time: new Date(2026, 0, 1, 5, 59, 0) });
   await page.goto("/avatar");
-  const caveImage = page.getByRole("img", { name: /Interior vacío de la cueva/ });
+  const caveImage = page.locator(".cave-art");
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 

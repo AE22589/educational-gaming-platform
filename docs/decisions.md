@@ -12,16 +12,31 @@ Keep existing CI checks and GitHub protections. Do not configure a second-person
 approval requirement for this solo project. Effective repository settings have
 not been verified; check them before relying on them or changing them.
 
+## Local Playwright instructions — 2026-11-02
+
+The owner removed the local instruction to run Playwright E2E tests for routine
+implementation work. The E2E tests and CI checks remain unchanged.
+
 ## Companion cave — 2026-11-02
 
 Implemented and deployed. The "Mi pequeño amigo" tile opens `/avatar`, which
-shows an empty framed cave. The browser's local time selects day from 06:00 to
-17:59 and night from 18:00 to 05:59. The cave backgrounds remain separate from
-future dragon, furniture and decor overlays; no placement or customization is
-included. PR #12 and Pages workflow #39 passed repository, quality, build and
+initially showed an empty framed cave. The browser's local time selects day from
+06:00 to 17:59 and night from 18:00 to 05:59. The cave backgrounds remain
+separate from character, furniture and decor overlays. The original release had
+no placement or customization. PR #12 and Pages workflow #39 passed repository, quality, build and
 Playwright checks; workflow #39 deployed the tested static artifact. The cave
 view must fit the browser viewport without page scrolling; responsive behavior
 has been checked locally in desktop, portrait and landscape browser sizes.
+
+## Sleeping dragon in the companion cave — 2026-11-02
+
+The owner commissioned one sleeping-dragon GIF overlay in `/avatar`, placed at
+the red mark in the supplied cave screenshot. Its position is fixed relative to
+the cave artwork at approximately 51% from the left and 69% from the top. The
+overlay is not draggable and adds no inventory or room customization. The GIF
+was generated locally from the owner's character reference. Responsive visual
+review is required before this implementation is considered verified; media
+rights and owner review remain prerequisites before a child pilot.
 
 ## Pages release workflow — 2026-11-01
 
