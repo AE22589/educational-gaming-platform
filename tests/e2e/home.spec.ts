@@ -44,7 +44,7 @@ for (const width of [360, 768, 1280]) {
     );
     await page.goto("/");
     await page
-      .getByRole("link", { name: "Mi avatar: Ver avatar", exact: true })
+      .getByRole("link", { name: "Mi pequeño amigo: Ver amigo", exact: true })
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Mi avatar",
