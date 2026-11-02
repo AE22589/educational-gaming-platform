@@ -66,8 +66,9 @@ UI and brief instructions are **Spanish**; vocabulary and learning audio are **E
 | Explicitly started new playthrough | Full rewards again |
 | Incorrect answer | No reward and no deduction |
 
-New profiles receive 100 spendable starter stars; existing profiles retain
-their current balance. The `/shop` page initially offers apples for one star
+Every profile starts with 100 spendable starter stars. A one-time schema
+migration tops existing balances below 100 up to 100 and preserves higher
+balances. The `/shop` page initially offers apples for one star
 each. A purchase deducts one star and increments the saved apple inventory in
 one profile transition. Water and cave furnishing examples may be visible as
 upcoming items, with `Todo`, `Comida y bebida` and `Cueva` filters. The shop
@@ -142,7 +143,7 @@ Use discriminated payloads for vocabulary, numbers, text and concepts, plus an e
 
 Games emit results; they never mutate balance, inventory or browser storage. Only the profile layer writes persistent application state. Build and integrate the profile and game features sequentially against the same typed contract. React Context plus reducer is sufficient unless the foundation establishes otherwise. Access storage only on the client after hydration.
 
-Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger, balance and inventory) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. The v1-to-v2 profile migration adds an empty item inventory while preserving existing stars and progress. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
+Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger, balance and inventory) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. The v1-to-v2 profile migration adds an empty item inventory. The v2-to-v3 migration tops balances below 100 up to 100 once, preserving higher balances and progress. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
 
 Catch unavailable storage, quota errors, invalid JSON, validation errors and migration failures. Never silently reset or overwrite corrupt data. Offer retry and raw backup export; explicit reset requires informed confirmation. Validate imports, bound their size, migrate only supported versions and preserve originals. A future schema version opens recovery mode rather than downgrading data. On write failure show Spanish “changes not saved”, preserve pending state in memory, and allow retry/export; block further economic transactions until resolved. Do not claim reload safety for unsaved changes.
 
@@ -224,8 +225,9 @@ Use Context/reducer unless the foundation establishes otherwise; add no state
 management dependency. Keep shared schemas in src/types/contracts.ts and update
 their consumers, documentation and tests in the same change when necessary.
 
-Create a new local profile with 100 starter stars. Existing profiles keep their
-current balance. Persist the active run and question state.
+Create a new local profile with 100 starter stars. Migrate existing profiles
+below 100 up to 100 once; preserve higher balances. Persist the active run and
+question state.
 Award 2 stars once per solved question per run, even after errors/help. Award
 10 once when all eight are solved. New explicit runs receive full rewards.
 Use run/question reward keys and deduplicate attempt evidence separately.
@@ -295,7 +297,8 @@ acceptance.
 
 ## 12. Owner acceptance and release gates
 
-1. New profile: **100** starter stars; an existing profile keeps its balance.
+1. New profile: **100** starter stars; existing profiles below 100 are topped
+   up to **100** once during schema migration; higher balances are preserved.
 2. First question incorrect: **100**.
 3. Then correct: **102**.
 4. Reload: **102**, same run, solved question locked and same remaining order.

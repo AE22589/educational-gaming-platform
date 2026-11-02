@@ -3,8 +3,10 @@
 ## Star shop launch — 2026-11-02
 
 The `/shop` page follows the CHISPITAS site layout and does not feature a
-specific avatar. A newly created profile starts with 100 spendable stars;
-existing profiles keep their current balance. Buying one apple costs one star
+specific avatar. Every profile starts with 100 spendable stars. A one-time
+schema migration tops existing balances below 100 up to 100 and preserves
+higher balances; later purchases and rewards change the balance normally.
+Buying one apple costs one star
 and adds one apple to the locally persisted inventory in the same profile
 transition. The visible filters are `Todo`, `Comida y bebida` and `Cueva`.
 Apple is the only purchasable item at launch; water, cave bed and cave plant are
