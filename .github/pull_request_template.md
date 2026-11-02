@@ -9,6 +9,5 @@ For UI changes attach responsive screenshots and asset review information.
 
 ## Review
 
-- [ ] Other developer reviewed shared-contract and behavior changes.
 - [ ] No scope expansion; reward/mastery/persistence rules preserved.
 - [ ] Required checks passed on the current commit.

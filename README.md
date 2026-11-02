@@ -23,11 +23,13 @@ npm run lint
 npm run typecheck
 npm test
 npm run build
-npx playwright install chromium
+npm run playwright -- install chromium
 npm run test:e2e
 ```
 
-Browser tests use the production export. In Linux CI, install Playwright with
+Browser tests use the production export. The project Playwright command reuses
+the normal per-user browser cache on Windows, including when a sandbox gives
+`LOCALAPPDATA` a temporary value. In Linux CI, install Playwright with
 `npx playwright install --with-deps chromium`. `npm run start` serves the export.
 
 ## Project structure
