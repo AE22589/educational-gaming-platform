@@ -26,6 +26,7 @@ function ShopBranch({ side }: { side: "left" | "right" }) {
 }
 
 function ProductArt({ id }: { id: ShopProductId }) {
+  const basePath = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
   const sources: Record<ShopProductId, string> = {
     apple: "/shop/apple.webp",
     water: "/shop/water.webp",
@@ -35,7 +36,7 @@ function ProductArt({ id }: { id: ShopProductId }) {
 
   return (
     <Image
-      src={sources[id]}
+      src={`${basePath}${sources[id]}`}
       alt=""
       aria-hidden="true"
       width={640}
