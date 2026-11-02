@@ -21,7 +21,7 @@ together. A missing contract is reported, never independently redefined.
 
 `src/types/contracts.ts` is the single runtime authority. All exported domain
 TypeScript types are inferred from strict Zod schemas. Content bundle
-`contractVersion: 1`, profile `schemaVersion: 2`, mission/content versions,
+`contractVersion: 1`, profile `schemaVersion: 3`, mission/content versions,
 `stars-v1` and `mastery-v1` are distinct version axes. A schema change requires
 updating dependent consumers and, for persisted data, an explicit migration decision.
 
@@ -59,8 +59,10 @@ technical contract data only.
 Mastery raw evidence stores subject/skill/item and full attempts separately
 from rewards. Mastery derivation is implemented in MVP-02. Apple purchases
 deduct one star and increment the saved inventory quantity atomically. Existing
-v1 snapshots migrate to schema v2 with an empty inventory while preserving the
-current balance and history.
+v1 snapshots migrate to schema v2 with an empty inventory, then to schema v3
+with a one-time top-up to 100 starter stars when below 100. Higher balances and
+all profile history remain unchanged. Schema-v3 purchases are not topped up
+again.
 
 ### Profile and persistence boundary
 
