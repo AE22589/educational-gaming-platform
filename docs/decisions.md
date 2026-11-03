@@ -1,5 +1,17 @@
 # Project decisions
 
+## Efficient implementation and verification — 2026-11-02
+
+Keep routine implementation focused and deliver a useful local result promptly.
+Scale local checks to the risk of the change: use a focused review and narrow
+check for copy, styling and isolated UI changes; run relevant tests for behavior
+and shared contracts. Do not weaken the comprehensive pull-request CI gate or
+the required checks before a live release. Batch related small changes for a
+release when appropriate. During CI and deployment, use longer waits, report
+meaningful progress and avoid repeated unchanged status polling. Timebox failed
+tool operations and do not retry the same unsuccessful approach without a reason.
+For longer work, provide a useful intermediate result and communicate blockers.
+
 ## Star shop launch — 2026-11-02
 
 The `/shop` page follows the CHISPITAS site layout and does not feature a
@@ -76,6 +88,18 @@ overlay is not draggable and adds no inventory or room customization. The GIF
 was generated locally from the owner's character reference. Responsive visual
 review is required before this implementation is considered verified; media
 rights and owner review remain prerequisites before a child pilot.
+
+## Apple display in the companion cave — 2026-11-03
+
+The companion cave displays the locally bundled shop apple to the right of the
+cave artwork, inside the cave scene. Its appearance follows the active profile's
+persisted apple inventory: show the purchased count with a normal apple when
+available, and keep a greyed-out apple visible when the count is zero. The owner
+later approved feeding the dragon by dragging an apple onto it on both laptop and
+touch devices. One apple is removed through the profile service when the drop is
+saved; the eating GIF temporarily replaces the sleeping GIF, then the sleeping
+GIF returns. Feeding does not start when no apple is available or the profile
+cannot save.
 
 ## Pages release workflow — 2026-11-01
 
