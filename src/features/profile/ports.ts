@@ -111,6 +111,10 @@ export type PurchaseResult =
   | { status: "purchased"; stars: number; appleCount: number }
   | { status: "insufficient-stars" | "read-only" | "not-ready" }
   | { status: "unsaved"; reason: RecoveryReason };
+export type ConsumeAppleResult =
+  | { status: "consumed"; appleCount: number }
+  | { status: "empty" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
 /** Games submit events; profile derives correctness, completion and rewards from persisted content. */
 export interface ProfilePort {
   getState(): ProfileStatus;
@@ -122,6 +126,7 @@ export interface ProfilePort {
     confirmReplacement: boolean;
   }): Promise<StartRunResult>;
   abandonRun(confirmation: { confirmedAbandonment: true }): Promise<SaveResult>;
+  consumeApple(): Promise<ConsumeAppleResult>;
 }
 export interface RecoveryPort {
   retry(): Promise<LoadResult | SaveResult>;

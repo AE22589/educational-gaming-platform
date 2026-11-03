@@ -329,6 +329,7 @@ p { line-height: 1.45; }
 .cave-intro { margin: 6px 0 0; color: #3d5278; font-size: clamp(.9rem, 1.7vw, 1.05rem); }
 .cave-back-link { display: inline-flex; min-height: 48px; flex: 0 0 auto; align-items: center; justify-content: center; padding: 9px 17px; border: 2px solid rgba(255,255,255,.95); border-radius: 999px; background: #fff; box-shadow: 0 4px 0 rgba(47,70,112,.15); color: #24477e; font-weight: 900; text-decoration: none; }
 .cave-back-link:hover { background: #f4f8ff; }
+.cave-stage { position: relative; display: grid; width: 100%; min-height: 0; place-items: center; }
 .cave-frame { overflow: hidden; padding: clamp(7px, 1.4vw, 14px); border: 2px solid rgba(255,255,255,.94); border-radius: clamp(20px, 3.6vw, 38px); background: linear-gradient(145deg, var(--cave-frame-light), #fff 42%, var(--cave-frame-dark)); box-shadow: 0 12px 24px rgba(27,53,100,.2), inset 0 0 0 2px rgba(255,255,255,.45); }
 .cave-art-window { position: relative; width: 100%; overflow: hidden; aspect-ratio: 1 / 1; border: 3px solid rgba(255,255,255,.87); border-radius: clamp(14px, 2.8vw, 28px); background: #7364ab; box-shadow: inset 0 0 22px rgba(29,31,82,.14); }
 .cave-art { object-fit: cover; }
@@ -344,6 +345,12 @@ p { line-height: 1.45; }
   user-select: none;
 }
 .cave-art-loading { position: absolute; inset: 0; background: linear-gradient(135deg, #5d5b9c, #a889cd 48%, #425d94); }
+.cave-apple { position: absolute; z-index: 2; top: 74%; right: 5%; display: grid; width: clamp(56px, 8vw, 96px); aspect-ratio: 1; place-items: center; transform: translateY(-50%); cursor: grab; touch-action: none; user-select: none; }
+.cave-apple[aria-disabled="true"] { cursor: default; }
+.cave-apple:active { cursor: grabbing; }
+.cave-apple img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1) opacity(.42); }
+.cave-apple.has-apples img { filter: drop-shadow(0 4px 3px rgba(65, 53, 28, .2)); }
+.cave-apple span { position: absolute; right: -5px; bottom: -3px; display: grid; min-width: 27px; height: 27px; place-items: center; padding: 0 5px; border: 2px solid white; border-radius: 999px; background: #ffdf67; box-shadow: 0 2px 5px rgba(70, 50, 15, .2); color: #553d16; font-size: .82rem; font-weight: 1000; }
 
 @media (min-width: 1351px) {
   .home-support-card img { width: clamp(88px, 6vw, 104px); height: clamp(88px, 6vw, 104px); }
@@ -411,6 +418,7 @@ p { line-height: 1.45; }
   .cave-heading-row { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 12px; }
   .cave-back-link { min-height: 44px; padding: 7px 15px; }
   .cave-frame { padding: 6px; }
+  .cave-apple { top: auto; right: 7%; bottom: 3%; width: clamp(52px, 14vw, 76px); transform: none; }
   .chispitas-header-inner { padding: 9px 10px 12px; }
   .chispitas-brand { align-self: center; }
   .chispitas-mark { width: 47px; height: 47px; }

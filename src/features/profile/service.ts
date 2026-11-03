@@ -12,6 +12,7 @@ import type { ProfileCatalog } from "./catalog";
 import { PROFILE_SCHEMA_VERSION } from "@/types/contracts";
 import {
   type AttemptResult,
+  type ConsumeAppleResult,
   type ExclusiveWriterLease,
   type LoadResult,
   type ProfileStatus,
@@ -282,6 +283,27 @@ export class ProfileService implements ProfilePort, RecoveryPort {
       const saved = await this.persist(next);
       return saved.status === "saved"
         ? { status: "purchased", stars: next.stars, appleCount }
+        : { status: "unsaved", reason: saved.reason };
+    });
+  }
+
+  async consumeApple(): Promise<ConsumeAppleResult> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready") return { status: "not-ready" };
+      if (this.state.ownership !== "exclusive" || !this.lease())
+        return { status: "read-only" };
+      const current = this.state.snapshot as ProfileState;
+      const appleCount = current.inventory[APPLE_ITEM_ID] ?? 0;
+      if (appleCount < 1) return { status: "empty" };
+      const remaining = appleCount - 1;
+      const next = profileStateSchema.parse({
+        ...current,
+        revision: current.revision + 1,
+        inventory: { ...current.inventory, [APPLE_ITEM_ID]: remaining },
+      });
+      const saved = await this.persist(next);
+      return saved.status === "saved"
+        ? { status: "consumed", appleCount: remaining }
         : { status: "unsaved", reason: saved.reason };
     });
   }

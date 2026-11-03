@@ -122,4 +122,32 @@ describe("shop profile transactions", () => {
     expect(store.value).toMatchObject({ stars: 100, inventory: {}, revision: 0 });
     service.dispose();
   });
+
+  it("consumes one saved apple per successful feeding and does not go below zero", async () => {
+    const store = new MemorySnapshotStore({
+      ...createEmptyProfile(),
+      inventory: { apple: 1 },
+    });
+    const service = createService(store);
+    await service.initialize();
+
+    expect(await service.consumeApple()).toEqual({ status: "consumed", appleCount: 0 });
+    expect(await service.consumeApple()).toEqual({ status: "empty" });
+    expect(store.value).toMatchObject({ inventory: { apple: 0 }, revision: 1 });
+    service.dispose();
+  });
+
+  it("does not consume an apple when saving the feeding transaction fails", async () => {
+    const store = new MemorySnapshotStore({
+      ...createEmptyProfile(),
+      inventory: { apple: 1 },
+    });
+    const service = createService(store);
+    await service.initialize();
+    store.failNextSave = true;
+
+    expect(await service.consumeApple()).toEqual({ status: "unsaved", reason: "unavailable" });
+    expect(store.value).toMatchObject({ inventory: { apple: 1 }, revision: 0 });
+    service.dispose();
+  });
 });
