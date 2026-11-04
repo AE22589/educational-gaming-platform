@@ -111,8 +111,16 @@ export type PurchaseResult =
   | { status: "purchased"; stars: number; appleCount: number }
   | { status: "insufficient-stars" | "read-only" | "not-ready" }
   | { status: "unsaved"; reason: RecoveryReason };
+export type PurchaseWaterResult =
+  | { status: "purchased"; stars: number; waterCount: number }
+  | { status: "insufficient-stars" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
 export type ConsumeAppleResult =
   | { status: "consumed"; appleCount: number }
+  | { status: "empty" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
+export type ConsumeWaterResult =
+  | { status: "consumed"; waterCount: number }
   | { status: "empty" | "read-only" | "not-ready" }
   | { status: "unsaved"; reason: RecoveryReason };
 /** Games submit events; profile derives correctness, completion and rewards from persisted content. */
@@ -127,6 +135,8 @@ export interface ProfilePort {
   }): Promise<StartRunResult>;
   abandonRun(confirmation: { confirmedAbandonment: true }): Promise<SaveResult>;
   consumeApple(): Promise<ConsumeAppleResult>;
+  purchaseWater(): Promise<PurchaseWaterResult>;
+  consumeWater(): Promise<ConsumeWaterResult>;
 }
 export interface RecoveryPort {
   retry(): Promise<LoadResult | SaveResult>;

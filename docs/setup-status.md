@@ -23,10 +23,10 @@ and effective branch-protection settings have not been verified.
 ## Product status
 
 The home page, profile and persistence foundation, empty day/night companion
-cave and initial apple shop are available as local development previews. The
-animal curriculum, approved animal images/audio, playable mission, broader shop
-catalog and full avatar rendering remain incomplete. Child-pilot approval is
-also pending. See `docs/mvp.md` for the recommended
+cave, apple and water shop items are available as local development previews.
+The animal curriculum, approved animal images/audio, playable mission, broader
+shop catalog and full avatar rendering remain incomplete. Child-pilot approval
+is also pending. See `docs/mvp.md` for the recommended
 starting scope; it is not a binding product boundary.
 
 Run `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,
