@@ -46,12 +46,15 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { name: "Manzana" })).toBeHidden();
     await expect(page.getByRole("heading", { name: "Cama de hojas" })).toBeVisible();
     await page.getByRole("button", { name: "Todo" }).click();
-    await page.getByRole("button", { name: "Comprar" }).click();
+    await page.locator(".product-apple").getByRole("button", { name: "Comprar" }).click();
     await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
     await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
     await page.reload();
     await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
     await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+    await page.locator(".product-water").getByRole("button", { name: "Comprar" }).click();
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("98");
+    await expect(page.locator(".shop-pantry")).toContainText("1 agua");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.goto("/");
     await page
@@ -64,6 +67,7 @@ for (const width of [360, 768, 1280]) {
     const dragonImage = page.getByRole("img", { name: /Chispitas duerme enroscado/ });
     await expect(caveImage).toBeVisible();
     await expect(dragonImage).toBeVisible();
+    await expect(page.getByRole("button", { name: /Arrastra agua fresca hasta Chispitas/ })).toBeVisible();
     await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
     await expect.poll(() => dragonImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(512);
     expect(

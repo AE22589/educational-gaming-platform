@@ -338,7 +338,7 @@ p { line-height: 1.45; }
   z-index: 1;
   top: 68.8%;
   left: 51.4%;
-  width: clamp(96px, 34%, 210px);
+  width: min(clamp(48px, 34%, 210px), 60%);
   height: auto;
   transform: translate(-50%, -50%);
   pointer-events: none;
