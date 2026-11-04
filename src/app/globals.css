@@ -500,7 +500,7 @@ body:has(.cave-page) .cave-heading-row {
 body:has(.cave-page) .cave-frame {
   display: grid;
   min-height: 0;
-  width: min(100%, calc(100vw - 220px), calc(100dvh - 270px));
+  width: min(100%, calc(100vw - 220px), calc(100dvh - 190px));
   max-width: 100%;
   height: auto;
   max-height: 100%;
