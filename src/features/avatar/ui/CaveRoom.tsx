@@ -4,9 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { useProfile } from "@/features/profile/ui/ProfileProvider";
-import { APPLE_ITEM_ID } from "@/features/shop/catalog";
+import { APPLE_ITEM_ID, WATER_ITEM_ID } from "@/features/shop/catalog";
 
 type TimeOfDay = "day" | "night";
+type Consumable = "apple" | "water";
+type DragonAnimation = Consumable | null;
+type DragState = { item: Consumable; x: number; y: number; width: number; height: number };
 
 function getTimeOfDay(): TimeOfDay {
   const hour = new Date().getHours();
@@ -15,15 +18,20 @@ function getTimeOfDay(): TimeOfDay {
 
 export function CaveRoom({ basePath }: { basePath: string }) {
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay | null>(null);
-  const [appleDrag, setAppleDrag] = useState<{ x: number; y: number } | null>(null);
-  const [isEating, setIsEating] = useState(false);
+  const [drag, setDrag] = useState<DragState | null>(null);
+  const [dragonAnimation, setDragonAnimation] = useState<DragonAnimation>(null);
   const { service, state } = useProfile();
   const dragonRef = useRef<HTMLImageElement>(null);
-  const eatTimerRef = useRef<number | null>(null);
+  const dragRef = useRef<DragState | null>(null);
+  const animationTimerRef = useRef<number | null>(null);
   const feedingRef = useRef(false);
   const appleCount =
     state.status === "ready"
       ? state.snapshot.inventory[APPLE_ITEM_ID] ?? 0
+      : 0;
+  const waterCount =
+    state.status === "ready"
+      ? state.snapshot.inventory[WATER_ITEM_ID] ?? 0
       : 0;
 
   useEffect(() => {
@@ -34,50 +42,114 @@ export function CaveRoom({ basePath }: { basePath: string }) {
   }, []);
 
   useEffect(() => () => {
-    if (eatTimerRef.current !== null) window.clearTimeout(eatTimerRef.current);
+    if (animationTimerRef.current !== null) window.clearTimeout(animationTimerRef.current);
   }, []);
 
-  const feedDragon = async () => {
-    if (!service || feedingRef.current || appleCount < 1) return;
+  const feedDragon = async (item: Consumable) => {
+    const itemCount = item === "apple" ? appleCount : waterCount;
+    if (!service || feedingRef.current || itemCount < 1) return;
     feedingRef.current = true;
-    const result = await service.consumeApple();
+    const result = item === "apple" ? await service.consumeApple() : await service.consumeWater();
     if (result.status !== "consumed") {
       feedingRef.current = false;
       return;
     }
-    setIsEating(true);
-    eatTimerRef.current = window.setTimeout(() => {
-      setIsEating(false);
+    setDragonAnimation(item);
+    animationTimerRef.current = window.setTimeout(() => {
+      setDragonAnimation(null);
       feedingRef.current = false;
-      eatTimerRef.current = null;
-    }, 4010);
+      animationTimerRef.current = null;
+    }, item === "water" ? 3000 : 4010);
   };
 
-  const handleApplePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (appleCount < 1 || feedingRef.current) return;
+  const handlePointerDown = (item: Consumable, itemCount: number, event: PointerEvent<HTMLDivElement>) => {
+    if (itemCount < 1 || feedingRef.current) return;
     event.preventDefault();
     event.currentTarget.setPointerCapture(event.pointerId);
-    setAppleDrag({ x: event.clientX, y: event.clientY });
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const nextDrag = { item, x: event.clientX, y: event.clientY, width: bounds.width, height: bounds.height };
+    dragRef.current = nextDrag;
+    setDrag(nextDrag);
   };
 
-  const handleApplePointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (appleDrag) setAppleDrag({ x: event.clientX, y: event.clientY });
+  const handlePointerMove = (item: Consumable, event: PointerEvent<HTMLDivElement>) => {
+    const current = dragRef.current;
+    if (current?.item === item) {
+      const nextDrag = { ...current, x: event.clientX, y: event.clientY };
+      dragRef.current = nextDrag;
+      setDrag(nextDrag);
+    }
   };
 
-  const handleApplePointerUp = async (event: PointerEvent<HTMLDivElement>) => {
-    if (!appleDrag) return;
+  const handlePointerUp = async (item: Consumable, event: PointerEvent<HTMLDivElement>) => {
+    if (dragRef.current?.item !== item) return;
     const dragonBounds = dragonRef.current?.getBoundingClientRect();
     const droppedOnDragon = dragonBounds !== undefined &&
       event.clientX >= dragonBounds.left && event.clientX <= dragonBounds.right &&
       event.clientY >= dragonBounds.top && event.clientY <= dragonBounds.bottom;
-    setAppleDrag(null);
-    if (droppedOnDragon) await feedDragon();
+    dragRef.current = null;
+    setDrag(null);
+    if (droppedOnDragon) await feedDragon(item);
   };
 
   const imagePath = timeOfDay
     ? `${basePath}/dragon-cave/cave-${timeOfDay}.png`
     : undefined;
   const dragonPath = `${basePath}/dragon-cave/dragon-sleep.gif`;
+  const dragonImage = dragonAnimation === "apple"
+    ? `${basePath}/dragon-cave/dragon-eats-shop-apple.gif`
+    : dragonAnimation === "water"
+      ? `${basePath}/dragon-cave/dragon-drinks-shop-water.gif`
+      : dragonPath;
+
+  const renderConsumable = (item: Consumable, count: number) => {
+    const itemLabel = item === "apple" ? "manzana" : "agua fresca";
+    const dragging = drag?.item === item;
+    return (
+      <div
+        className={`cave-consumable cave-${item}${count > 0 ? " has-count" : ""}`}
+        role="button"
+        tabIndex={count > 0 ? 0 : -1}
+        aria-disabled={count < 1 || dragonAnimation !== null}
+        aria-label={count > 0
+          ? `Arrastra ${itemLabel} hasta Chispitas. ${count} ${count === 1 ? "disponible" : "disponibles"}.`
+          : `${item === "apple" ? "Manzana" : "Agua fresca"} agotada`}
+        aria-live="polite"
+        onPointerDown={(event) => handlePointerDown(item, count, event)}
+        onPointerMove={(event) => handlePointerMove(item, event)}
+        onPointerUp={(event) => void handlePointerUp(item, event)}
+        onPointerCancel={() => {
+          dragRef.current = null;
+          setDrag(null);
+        }}
+        onKeyDown={(event) => {
+          if ((event.key === "Enter" || event.key === " ") && count > 0) {
+            event.preventDefault();
+            void feedDragon(item);
+          }
+        }}
+        style={dragging ? {
+          position: "fixed",
+          right: "auto",
+          left: drag.x,
+          top: drag.y,
+          width: drag.width,
+          height: drag.height,
+          transform: "translate(-50%, -50%)",
+        } : undefined}
+      >
+        <Image
+          src={`${basePath}/shop/${item === "apple" ? "apple" : "water"}.webp`}
+          alt=""
+          width={160}
+          height={160}
+          unoptimized
+          draggable={false}
+        />
+        {count > 0 && <span>{count}</span>}
+      </div>
+    );
+  };
 
   return (
     <section
@@ -120,11 +192,11 @@ export function CaveRoom({ basePath }: { basePath: string }) {
               <div className="cave-art-loading" aria-label="Cargando la cueva" />
             )}
             <Image
-              key={isEating ? "eating" : "sleeping"}
+              key={dragonAnimation ?? "sleeping"}
               ref={dragonRef}
               className="cave-dragon"
-              src={isEating ? `${basePath}/dragon-cave/dragon-eats-shop-apple.gif` : dragonPath}
-              alt={isEating ? "Chispitas está comiendo una manzana." : "Chispitas duerme enroscado sobre el suelo de la cueva."}
+              src={dragonImage}
+              alt={dragonAnimation === "apple" ? "Chispitas está comiendo una manzana." : dragonAnimation === "water" ? "Chispitas está bebiendo agua fresca." : "Chispitas duerme enroscado sobre el suelo de la cueva."}
               width={512}
               height={512}
               unoptimized
@@ -133,44 +205,9 @@ export function CaveRoom({ basePath }: { basePath: string }) {
             />
           </div>
         </div>
-        <div
-          className={`cave-apple${appleCount > 0 ? " has-apples" : ""}`}
-          role="button"
-          tabIndex={appleCount > 0 ? 0 : -1}
-          aria-disabled={appleCount < 1 || isEating}
-          aria-label={
-            appleCount > 0
-              ? `Arrastra la manzana hasta Chispitas para darle de comer. ${appleCount} ${appleCount === 1 ? "manzana disponible" : "manzanas disponibles"}.`
-              : "Manzana agotada"
-          }
-          aria-live="polite"
-          onPointerDown={handleApplePointerDown}
-          onPointerMove={handleApplePointerMove}
-          onPointerUp={handleApplePointerUp}
-          onPointerCancel={() => setAppleDrag(null)}
-          onKeyDown={(event) => {
-            if ((event.key === "Enter" || event.key === " ") && appleCount > 0) {
-              event.preventDefault();
-              void feedDragon();
-            }
-          }}
-          style={appleDrag ? {
-            position: "fixed",
-            right: "auto",
-            left: appleDrag.x,
-            top: appleDrag.y,
-            transform: "translate(-50%, -50%)",
-          } : undefined}
-        >
-          <Image
-            src={`${basePath}/shop/apple.webp`}
-            alt=""
-            width={160}
-            height={160}
-            unoptimized
-            draggable={false}
-          />
-          {appleCount > 0 && <span>{appleCount}</span>}
+        <div className="cave-consumables">
+          {renderConsumable("water", waterCount)}
+          {renderConsumable("apple", appleCount)}
         </div>
       </div>
     </section>

@@ -150,4 +150,38 @@ describe("shop profile transactions", () => {
     expect(store.value).toMatchObject({ inventory: { apple: 1 }, revision: 0 });
     service.dispose();
   });
+
+  it("buys water for one star and consumes one saved unit per successful drink", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+
+    expect(await service.purchaseWater()).toEqual({ status: "purchased", stars: 99, waterCount: 1 });
+    expect(await service.purchaseWater()).toEqual({ status: "purchased", stars: 98, waterCount: 2 });
+    expect(store.value).toMatchObject({ stars: 98, inventory: { water: 2 }, revision: 2 });
+    expect(await service.consumeWater()).toEqual({ status: "consumed", waterCount: 1 });
+    expect(await service.consumeWater()).toEqual({ status: "consumed", waterCount: 0 });
+    expect(await service.consumeWater()).toEqual({ status: "empty" });
+    expect(store.value).toMatchObject({ inventory: { water: 0 }, revision: 4 });
+    service.dispose();
+  });
+
+  it("does not deduct stars or water when an unaffordable or unsaved purchase fails", async () => {
+    const existing = { ...createEmptyProfile(), stars: 0 };
+    const store = new MemorySnapshotStore(existing);
+    const service = createService(store);
+    await service.initialize();
+
+    expect(await service.purchaseWater()).toEqual({ status: "insufficient-stars" });
+    expect(store.value).toMatchObject({ stars: 0, inventory: {}, revision: 0 });
+    service.dispose();
+
+    const saveStore = new MemorySnapshotStore();
+    const saveService = createService(saveStore);
+    await saveService.initialize();
+    saveStore.failNextSave = true;
+    expect(await saveService.purchaseWater()).toEqual({ status: "unsaved", reason: "unavailable" });
+    expect(saveStore.value).toMatchObject({ stars: 100, inventory: {}, revision: 0 });
+    saveService.dispose();
+  });
 });

@@ -13,10 +13,12 @@ import { PROFILE_SCHEMA_VERSION } from "@/types/contracts";
 import {
   type AttemptResult,
   type ConsumeAppleResult,
+  type ConsumeWaterResult,
   type ExclusiveWriterLease,
   type LoadResult,
   type ProfileStatus,
   type PurchaseResult,
+  type PurchaseWaterResult,
   type RecoveryPort,
   type SaveResult,
   type SnapshotStore,
@@ -27,7 +29,7 @@ import {
 } from "./ports";
 import { createSession } from "./sessions";
 import { decodeSnapshot } from "./snapshot";
-import { APPLE_ITEM_ID, APPLE_PRICE_STARS } from "@/features/shop/catalog";
+import { APPLE_ITEM_ID, APPLE_PRICE_STARS, WATER_ITEM_ID, WATER_PRICE_STARS } from "@/features/shop/catalog";
 
 export function createEmptyProfile(): ProfileState {
   return {
@@ -304,6 +306,48 @@ export class ProfileService implements ProfilePort, RecoveryPort {
       const saved = await this.persist(next);
       return saved.status === "saved"
         ? { status: "consumed", appleCount: remaining }
+        : { status: "unsaved", reason: saved.reason };
+    });
+  }
+
+  async purchaseWater(): Promise<PurchaseWaterResult> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready") return { status: "not-ready" };
+      if (this.state.ownership !== "exclusive" || !this.lease())
+        return { status: "read-only" };
+      const current = this.state.snapshot as ProfileState;
+      if (current.stars < WATER_PRICE_STARS) return { status: "insufficient-stars" };
+      const waterCount = (current.inventory[WATER_ITEM_ID] ?? 0) + 1;
+      const next = profileStateSchema.parse({
+        ...current,
+        revision: current.revision + 1,
+        stars: current.stars - WATER_PRICE_STARS,
+        inventory: { ...current.inventory, [WATER_ITEM_ID]: waterCount },
+      });
+      const saved = await this.persist(next);
+      return saved.status === "saved"
+        ? { status: "purchased", stars: next.stars, waterCount }
+        : { status: "unsaved", reason: saved.reason };
+    });
+  }
+
+  async consumeWater(): Promise<ConsumeWaterResult> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready") return { status: "not-ready" };
+      if (this.state.ownership !== "exclusive" || !this.lease())
+        return { status: "read-only" };
+      const current = this.state.snapshot as ProfileState;
+      const waterCount = current.inventory[WATER_ITEM_ID] ?? 0;
+      if (waterCount < 1) return { status: "empty" };
+      const remaining = waterCount - 1;
+      const next = profileStateSchema.parse({
+        ...current,
+        revision: current.revision + 1,
+        inventory: { ...current.inventory, [WATER_ITEM_ID]: remaining },
+      });
+      const saved = await this.persist(next);
+      return saved.status === "saved"
+        ? { status: "consumed", waterCount: remaining }
         : { status: "unsaved", reason: saved.reason };
     });
   }
