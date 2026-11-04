@@ -48,11 +48,12 @@ Pending unsaved snapshots remain exportable. Storage is never accessed during
 server rendering. The provider currently receives an empty validated content
 catalog, so no mission can be started and no curriculum has been authored.
 
-The `/shop` route displays the star balance, three category filters, an apple
-priced at one star, and upcoming drink/cave items. Every profile starts with
-100 stars; a one-time migration tops existing balances below 100 up to 100 and
-preserves higher balances. Apple purchases atomically deduct one star and
-increase the persisted apple inventory. No avatar is featured in the shop.
+The `/shop` route displays the star balance, three category filters, apples and
+water priced at one star each, and upcoming cave items. Every profile starts
+with 100 stars; a one-time migration tops existing balances below 100 up to
+100 and preserves higher balances. Consumable purchases atomically deduct one
+star and increase the matching persisted inventory. No avatar is featured in
+the shop.
 
 The app builds as a static export for GitHub Pages; the Pages workflow publishes
 on pushes to `main`.

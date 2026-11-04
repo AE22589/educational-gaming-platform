@@ -24,6 +24,17 @@ transition. The visible filters are `Todo`, `Comida y bebida` and `Cueva`.
 Apple is the only purchasable item at launch; water, cave bed and cave plant are
 visible as upcoming items. The shop displays the star balance and apple count.
 
+## Water purchase and dragon animation — 2026-11-04
+
+Water becomes a purchasable consumable for one star. Buying water deducts one
+star and increments the current profile's water inventory in one saved
+transition. The cave displays water above the apple, including a visible grey
+icon when its count is zero. Dragging water to the dragon on pointer or touch
+devices consumes one saved unit and temporarily replaces the sleeping GIF with
+the owner's transparent water-drinking GIF; the sleeping GIF returns after the
+three-second animation. Failed saves do not consume inventory or start the
+animation. Water and apple inventory are shown separately in the shop pantry.
+
 ## Local Next.js bundler — 2026-11-02
 
 The `dev` and `build` scripts use Next.js's supported Webpack mode. In this

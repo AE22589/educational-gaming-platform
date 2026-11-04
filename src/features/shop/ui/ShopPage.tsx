@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useProfile } from "@/features/profile/ui/ProfileProvider";
-import { APPLE_ITEM_ID, APPLE_PRICE_STARS, shopFilters, shopProducts, type ShopFilter, type ShopProductId } from "@/features/shop/catalog";
+import { APPLE_ITEM_ID, APPLE_PRICE_STARS, WATER_ITEM_ID, WATER_PRICE_STARS, shopFilters, shopProducts, type ShopFilter, type ShopProductId } from "@/features/shop/catalog";
 
 function StarIcon() {
   return <svg aria-hidden="true" viewBox="0 0 32 32"><path d="m16 2.8 4.1 8.3 9.2 1.3-6.7 6.5 1.6 9.2-8.2-4.3-8.2 4.3 1.6-9.2-6.7-6.5 9.2-1.3z" /></svg>;
@@ -59,13 +59,16 @@ export function ShopPage() {
     [filter],
   );
   const appleCount = snapshot?.inventory[APPLE_ITEM_ID] ?? 0;
+  const waterCount = snapshot?.inventory[WATER_ITEM_ID] ?? 0;
   const countLabel = appleCount === 1 ? "1 manzana" : `${appleCount} manzanas`;
-  const buyApple = async () => {
+  const waterCountLabel = waterCount === 1 ? "1 agua" : `${waterCount} aguas`;
+  const buyItem = async (itemId: ShopProductId) => {
     if (!service || !ready || busy) return;
     setBusy(true);
     setMessage("");
-    const result = await service.purchaseApple();
-    if (result.status === "purchased") setMessage("¡Manzana comprada! Ya está en tu despensa.");
+    const isApple = itemId === APPLE_ITEM_ID;
+    const result = isApple ? await service.purchaseApple() : await service.purchaseWater();
+    if (result.status === "purchased") setMessage(isApple ? "¡Manzana comprada! Ya está en tu despensa." : "¡Agua fresca comprada! Ya está en tu despensa.");
     else if (result.status === "insufficient-stars") setMessage("Necesitas una estrella más para comprarla.");
     else if (result.status === "unsaved") setMessage("No se pudo guardar la compra. Tus estrellas no se han actualizado.");
     else if (result.status === "read-only") setMessage("Esta pestaña no puede guardar compras ahora.");
@@ -105,16 +108,17 @@ export function ShopPage() {
 
         <div className="shop-product-grid">
           {visibleProducts.map((product) => {
-            const available = product.id === APPLE_ITEM_ID;
+            const available = product.id === APPLE_ITEM_ID || product.id === WATER_ITEM_ID;
+            const price = product.id === WATER_ITEM_ID ? WATER_PRICE_STARS : APPLE_PRICE_STARS;
             return (
               <article key={product.id} className={`shop-product-card product-${product.id}${available ? " is-available" : " is-upcoming"}`}>
                 <div className="shop-product-art"><ProductArt id={product.id} /></div>
                 <h2>{product.name}</h2>
                 {available ? (
                   <>
-                    <p className="shop-item-price"><StarIcon /> {APPLE_PRICE_STARS} estrella</p>
-                    <button className="shop-buy-button" type="button" disabled={!ready || state.status === "ready" && state.ownership !== "exclusive" || busy || (snapshot?.stars ?? 0) < APPLE_PRICE_STARS} onClick={() => void buyApple()}>
-                      {busy ? "Guardando…" : (snapshot?.stars ?? 0) < APPLE_PRICE_STARS ? "Necesitas más estrellas" : "Comprar"}
+                    <p className="shop-item-price"><StarIcon /> {price} estrella</p>
+                    <button className="shop-buy-button" type="button" disabled={!ready || state.status === "ready" && state.ownership !== "exclusive" || busy || (snapshot?.stars ?? 0) < price} onClick={() => void buyItem(product.id)}>
+                      {busy ? "Guardando…" : (snapshot?.stars ?? 0) < price ? "Necesitas más estrellas" : "Comprar"}
                     </button>
                   </>
                 ) : <span className="shop-coming-soon">Próximamente</span>}
@@ -125,7 +129,7 @@ export function ShopPage() {
 
         <div className="shop-pantry" aria-live="polite">
           <svg aria-hidden="true" viewBox="0 0 64 54"><path d="M12 19h40l-5 29H17z" fill="#c98745" stroke="#8e5c31" strokeWidth="3"/><path d="M18 19c0-11 8-15 14-15s14 4 14 15" fill="none" stroke="#a76b37" strokeWidth="5"/><path d="M18 29h28M17 38h28" stroke="#e3ad6d" strokeWidth="4"/></svg>
-          <span>Tu despensa: <strong>{countLabel}</strong></span>
+          <span>Tu despensa: <strong>{countLabel} · {waterCountLabel}</strong></span>
         </div>
         {message && <p className="shop-feedback" role="status">{message}</p>}
         {state.status === "unsaved" && <p className="shop-storage-note" role="status">Hay cambios sin guardar. <Link href="/#profile-summary">Revisar tu perfil</Link>.</p>}

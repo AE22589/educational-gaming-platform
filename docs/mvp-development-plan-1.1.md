@@ -68,11 +68,11 @@ UI and brief instructions are **Spanish**; vocabulary and learning audio are **E
 
 Every profile starts with 100 spendable starter stars. A one-time schema
 migration tops existing balances below 100 up to 100 and preserves higher
-balances. The `/shop` page initially offers apples for one star
-each. A purchase deducts one star and increments the saved apple inventory in
-one profile transition. Water and cave furnishing examples may be visible as
-upcoming items, with `Todo`, `Comida y bebida` and `Cueva` filters. The shop
-does not feature a particular avatar.
+balances. The `/shop` page offers apples and water for one star each. A purchase
+deducts one star and increments the matching saved inventory in one profile
+transition. Cave furnishing examples may be visible as upcoming items, with
+`Todo`, `Comida y bebida` and `Cueva` filters. The shop does not feature a
+particular avatar.
 
 A full mission earns **26 stars**. Credit solved questions immediately; stopping early retains credited stars. Completion bonus requires all eight solved questions. There is **no daily cap, replay discount, speed requirement or punishment**.
 
