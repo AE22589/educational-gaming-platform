@@ -107,7 +107,7 @@ export function CaveRoom({ basePath }: { basePath: string }) {
     const dragging = drag?.item === item;
     return (
       <div
-        className={`cave-consumable cave-${item}${count > 0 ? " has-count" : ""}`}
+        className={`cave-consumable cave-${item}${count > 0 ? " has-count" : " is-empty"}`}
         role="button"
         tabIndex={count > 0 ? 0 : -1}
         aria-disabled={count < 1 || dragonAnimation !== null}
@@ -146,7 +146,8 @@ export function CaveRoom({ basePath }: { basePath: string }) {
           unoptimized
           draggable={false}
         />
-        {count > 0 && <span>{count}</span>}
+        <span className="cave-consumable-name">{item === "apple" ? "Manzana" : "Agua"}</span>
+        <span className="cave-consumable-count">{count}</span>
       </div>
     );
   };
@@ -205,10 +206,14 @@ export function CaveRoom({ basePath }: { basePath: string }) {
             />
           </div>
         </div>
-        <div className="cave-consumables">
-          {renderConsumable("water", waterCount)}
-          {renderConsumable("apple", appleCount)}
-        </div>
+        <aside className="cave-inventory" aria-label="Inventario">
+          <h2>Inventario</h2>
+          <p>Arrastra al dragón</p>
+          <div className="cave-consumables">
+            {renderConsumable("water", waterCount)}
+            {renderConsumable("apple", appleCount)}
+          </div>
+        </aside>
       </div>
     </section>
   );
