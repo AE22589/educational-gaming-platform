@@ -1,5 +1,6 @@
 import type {
   AnswerAttempt,
+  BodyMissionProgress,
   ProfileState,
   SessionState,
 } from "@/types/contracts";
@@ -107,6 +108,9 @@ export type StartRunResult =
   | { status: "started"; session: DeepReadonly<SessionState> }
   | { status: "confirmation-required" }
   | { status: "unavailable" | "read-only" | "unsaved" };
+export type BodyMissionPlacementResult =
+  | { status: "placed" | "duplicate" | "round-complete" | "mission-complete"; progress: BodyMissionProgress; stars: number }
+  | { status: "rejected" | "unsaved" };
 export type PurchaseResult =
   | { status: "purchased"; stars: number; appleCount: number }
   | { status: "insufficient-stars" | "read-only" | "not-ready" }
@@ -133,6 +137,10 @@ export interface ProfilePort {
     missionVersion: string;
     confirmReplacement: boolean;
   }): Promise<StartRunResult>;
+  startBodyMission(): Promise<{ status: "started"; progress: BodyMissionProgress } | { status: "read-only" | "not-ready" | "unsaved" }>;
+  setBodyMissionDemoSeen(): Promise<boolean>;
+  placeBodyMissionWord(wordId: string, expectedRound: 1 | 2, assisted?: boolean): Promise<BodyMissionPlacementResult>;
+  continueBodyMission(): Promise<boolean>;
   abandonRun(confirmation: { confirmedAbandonment: true }): Promise<SaveResult>;
   consumeApple(): Promise<ConsumeAppleResult>;
   purchaseWater(): Promise<PurchaseWaterResult>;

@@ -161,6 +161,14 @@ Use local, reviewed English pronunciation recordings and a visible repeat button
 
 The owner is the sole maintainer. Work proceeds one task at a time in the existing checkout; there are no developer roles, separate accounts/clones, parallel chats, handovers or independent-review prerequisites. Start each implementation task on a feature branch, preserve unrelated work and keep changes to shared contracts in their canonical source with dependent consumers, docs and tests.
 
+Keep routine work focused and use the smallest relevant local check for low-risk
+copy, styling or isolated UI changes. Run tests that cover changed behavior and
+shared contracts. The full pull-request CI gate remains mandatory for releases;
+local verification tiers do not remove or weaken CI checks. Batch related small
+changes for a release when appropriate. While CI runs, use longer waits and
+report meaningful progress rather than polling unchanged status repeatedly.
+Timebox failed tools and provide a useful intermediate result for longer tasks.
+
 ```bash
 git status --short --branch
 git switch main
@@ -170,7 +178,7 @@ git switch -c codex/<task-name>
 
 Keep automated repository validation, application checks and tested-artifact deployment. Do not require approval from a second person. Read the effective GitHub rules before changing them; any existing rule that prevents the owner from releasing a passing change is an explicit configuration issue to resolve, not a reason to invent another developer role. Keep main as the default branch, block force pushes, use squash merges and least-privilege workflow permissions. Do not use `pull_request_target` to execute untrusted changes.
 
-CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests.
+CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests. For local iteration, choose checks based on change risk; this does not change the required CI release gate.
 
 On pushes to `main`, deploy only after both repository and application checks pass. Upload the already-built and browser-tested `out/` directory as a short-lived artifact; the Pages deployment job downloads that artifact and publishes it without checking out the source, reinstalling dependencies or rebuilding. Keep Pages deployment permissions scoped to that job. A manual workflow dispatch may publish only from `main`. Cancel superseded runs for the same ref so obsolete commits do not consume runner time. Keep the required PR status-check job names stable when changing workflow structure; verify configured required-check names after the first successful run.
 

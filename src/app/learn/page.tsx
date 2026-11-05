@@ -1,12 +1,5 @@
 import Link from "next/link";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { BODY_PARTS_TEXT } from "@/features/learning/body-parts-mission";
 export default function Learn() {
-  return (
-    <Placeholder title="Misiones para descubrir">
-      La primera misión de animales está en preparación.{" "}
-      <Link className="underline font-bold" href="/learn/animals-01">
-        Ver la vista previa de la misión
-      </Link>
-    </Placeholder>
-  );
+  return <section className="body-mission-card"><p className="body-mission-kicker">AVENTURAS DE INGLÉS</p><h1>Misiones para descubrir</h1><Link className="body-mission-entry" href="/learn/body-parts-01"><span aria-hidden="true">🧍</span><span><strong>{BODY_PARTS_TEXT.title}</strong><small>Coloca cada palabra y acompaña al dragón.</small></span><b aria-hidden="true">➜</b></Link><Link className="body-mission-back" href="/">Volver al inicio</Link></section>;
 }

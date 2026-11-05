@@ -1,5 +1,32 @@
 # Project decisions
 
+## Body-parts matching mission — 2026-11-04
+
+The `/learn` entry offers a silent body-parts matching mission for nine English
+words in two rounds. The player may drag a word card or select it and a target.
+The seven-stop adventure path uses the owner's supplied landscape, cropped to a
+local WebP strip, with the owner's dragon overlaid. The body-parts mission uses
+the first two stations: the dragon advances when Continue opens Round 2, then
+again when the mission is completed. Replay does not reset reached stations.
+The visible path has no numeric counter. The locally authored storybook-style
+SVG body figure and target configuration live with the learning feature. A
+profile-schema-v4 migration preserves existing profiles and adds
+versioned mission progress. The profile service persists each placement and
+awards the existing two stars per solved learning item, a round completion
+ledger event, and the existing ten-star completion bonus. Rewards are
+idempotent per run; an explicit replay starts a fresh run and is eligible for
+the normal full reward. Errors, hints and demonstration steps never grant or
+deduct stars. The mission practices vocabulary without recording mastery.
+Review Spanish copy and asset suitability before a child pilot.
+
+## Visual review in Codex browser — 2026-11-03
+
+Every GUI implementation or change receives a visual review by Codex in a
+browser available in this environment. Do not ask the owner to provide or
+operate their personal laptop browser. Review relevant viewport sizes and
+interactions for the change, and include the result of this review when
+reporting verification. This applies throughout the project.
+
 ## Efficient implementation and verification — 2026-11-02
 
 Keep routine implementation focused and deliver a useful local result promptly.

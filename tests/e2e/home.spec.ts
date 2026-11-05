@@ -30,11 +30,14 @@ for (const width of [360, 768, 1280]) {
     await page.getByRole("link", { name: "Explorar misiones" }).click();
     await expect(page).toHaveURL(/\/learn\/?$/);
     await page
-      .getByRole("link", { name: "Ver la vista previa de la misión" })
+      .getByRole("link", { name: /Misión: partes del cuerpo/ })
       .click();
+    await expect(page).toHaveURL(/\/learn\/body-parts-01\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Tu próxima aventura",
+      "Misión: partes del cuerpo",
     );
+    await page.getByRole("link", { name: "‹ Misiones" }).click();
+    await expect(page).toHaveURL(/\/learn\/?$/);
     await page
       .getByRole("navigation")
       .getByRole("link", { name: "Tienda de estrellas", exact: true })

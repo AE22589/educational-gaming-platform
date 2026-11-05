@@ -185,3 +185,42 @@ describe("shop profile transactions", () => {
     saveService.dispose();
   });
 });
+
+describe("body-parts mission profile rewards", () => {
+  it("persists placements and grants each completed round and mission once per run", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    const started = await service.startBodyMission();
+    expect(started.status).toBe("started");
+    await service.setBodyMissionDemoSeen();
+    for (const id of ["eye", "ear", "nose", "mouth"])
+      await service.placeBodyMissionWord(id, 1);
+    expect(service.getState()).toMatchObject({ status: "ready", snapshot: { stars: 108, bodyMissionProgress: { round: 1, placedWordIds: ["eye", "ear", "nose", "mouth"] } } });
+    expect(await service.placeBodyMissionWord("mouth", 1)).toMatchObject({ status: "duplicate" });
+    expect(await service.continueBodyMission()).toBe(true);
+    for (const id of ["head", "arm", "hand", "leg", "foot"])
+      await service.placeBodyMissionWord(id, 2);
+    expect(service.getState()).toMatchObject({ status: "ready", snapshot: { stars: 128, bodyMissionProgress: { status: "completed", placedWordIds: ["eye", "ear", "nose", "mouth", "head", "arm", "hand", "leg", "foot"] } } });
+    service.dispose();
+
+    const reloaded = createService(store);
+    await reloaded.initialize();
+    expect(reloaded.getState()).toMatchObject({ status: "ready", snapshot: { stars: 128, bodyMissionProgress: { status: "completed" } } });
+    const replay = await reloaded.startBodyMission();
+    expect(replay).toMatchObject({ status: "started", progress: { round: 1, placedWordIds: [], demoSeen: true } });
+    expect(reloaded.getState()).toMatchObject({ status: "ready", snapshot: { stars: 128 } });
+    reloaded.dispose();
+  });
+
+  it("keeps progress and rewards unchanged when a save fails", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    await service.startBodyMission();
+    store.failNextSave = true;
+    expect(await service.placeBodyMissionWord("eye", 1)).toEqual({ status: "unsaved" });
+    expect(store.value).toMatchObject({ stars: 100, bodyMissionProgress: { placedWordIds: [] } });
+    service.dispose();
+  });
+});

@@ -2,7 +2,7 @@ import { z } from "zod";
 
 // Runtime schemas are the only source of shared TypeScript contract types.
 export const CONTRACT_VERSION = 1 as const;
-export const PROFILE_SCHEMA_VERSION = 3 as const;
+export const PROFILE_SCHEMA_VERSION = 4 as const;
 const id = z.string().min(1).max(160);
 const version = z.string().min(1).max(80);
 const locale = z.string().regex(/^[a-z]{2}(?:-[A-Z]{2})?$/);
@@ -207,9 +207,17 @@ export const rewardEntrySchema = z.strictObject({
   key: id,
   runId: id,
   questionId: id.optional(),
-  kind: z.enum(["question-solved", "run-complete"]),
+  kind: z.enum(["question-solved", "run-complete", "body-round-complete", "body-mission-complete"]),
   amount: integer,
   timestamp,
+});
+export const bodyMissionProgressSchema = z.strictObject({
+  runId: id,
+  demoSeen: z.boolean(),
+  round: z.union([z.literal(1), z.literal(2)]),
+  placedWordIds: ids,
+  assistedWordIds: ids,
+  status: z.enum(["active", "completed"]),
 });
 export const profileStateSchema = z
   .strictObject({
@@ -230,6 +238,7 @@ export const profileStateSchema = z
     processedAttemptIds: ids,
     processedRewardKeys: ids,
     rewardLedger: z.array(rewardEntrySchema),
+    bodyMissionProgress: bodyMissionProgressSchema.nullable(),
   })
   .superRefine((p, ctx) => {
     const sessions = [
@@ -421,6 +430,7 @@ export type LearningEvidence = z.infer<typeof learningEvidenceSchema>;
 export type SessionState = z.infer<typeof sessionStateSchema>;
 export type ShopItem = z.infer<typeof shopItemSchema>;
 export type ProfileState = z.infer<typeof profileStateSchema>;
+export type BodyMissionProgress = z.infer<typeof bodyMissionProgressSchema>;
 export type ContentBundle = z.infer<typeof contentBundleSchema>;
 
 /** This validates stable session references, not authoritative attempt acceptance. */
