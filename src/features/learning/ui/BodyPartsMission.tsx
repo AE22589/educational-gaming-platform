@@ -10,7 +10,7 @@ type Target = { id: string; x: number; y: number };
 const FACE_TARGETS: Target[] = [
   { id: "eye-left", x: 43, y: 41 }, { id: "eye-right", x: 68, y: 32 },
   { id: "ear-left", x: 27, y: 56 }, { id: "ear-right", x: 81, y: 54 },
-  { id: "nose", x: 53, y: 46 }, { id: "mouth", x: 56, y: 65 },
+  { id: "nose", x: 61, y: 47 }, { id: "mouth", x: 56, y: 65 },
 ];
 const BODY_TARGETS: Target[] = [
   { id: "head", x: 50, y: 15 },
