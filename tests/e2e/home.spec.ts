@@ -1,4 +1,45 @@
 import { expect, test } from "@playwright/test";
+
+for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
+  test(`home navigation and layout fit at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+
+    const navigation = page.getByRole("navigation", { name: "Navegación principal" });
+    await expect(navigation.getByRole("link", { name: "My Profile Mi perfil" })).toBeVisible();
+    await expect(navigation.getByRole("link", { name: "Contact Us Contacto" })).toBeVisible();
+    await expect(navigation.getByRole("link", { name: "About Chispitas Sobre Chispitas" })).toBeVisible();
+    await expect(navigation.getByText("Log in/Register", { exact: false })).toBeVisible();
+    await expect(navigation.getByText("Iniciar sesión/Registrarse", { exact: true })).toBeVisible();
+    const subtitleColors = await navigation.locator("small").evaluateAll((elements) =>
+      elements.map((element) => getComputedStyle(element).color),
+    );
+    expect(new Set(subtitleColors)).toEqual(new Set(["rgb(94, 112, 138)"]));
+
+    const contactArt = navigation.locator('a[href^="/learn"] img');
+    await expect.poll(() => contactArt.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+
+    const layout = await page.evaluate(() => {
+      const nav = document.querySelector<HTMLElement>(".chispitas-nav");
+      const navRect = nav?.getBoundingClientRect();
+      const items = [...document.querySelectorAll<HTMLElement>(".chispitas-nav-item")];
+      return {
+        documentWidth: document.documentElement.scrollWidth,
+        viewportWidth: window.innerWidth,
+        navWidth: nav?.scrollWidth ?? Infinity,
+        navClientWidth: nav?.clientWidth ?? 0,
+        navItemsFit: Boolean(navRect && items.every((item) => {
+          const rect = item.getBoundingClientRect();
+          return rect.left >= navRect.left && rect.right <= navRect.right;
+        })),
+      };
+    });
+    expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth);
+    expect(layout.navWidth).toBeLessThanOrEqual(layout.navClientWidth);
+    expect(layout.navItemsFit).toBe(true);
+  });
+}
+
 for (const width of [360, 768, 1280]) {
   test(`Spanish home and keyboard navigation at ${width}px`, async ({
     page,
@@ -39,7 +80,7 @@ for (const width of [360, 768, 1280]) {
     await expect(page).toHaveURL(/\/learn\/?$/);
     await page
       .getByRole("navigation")
-      .getByRole("link", { name: "Tienda de estrellas", exact: true })
+      .getByRole("link", { name: "About Chispitas Sobre Chispitas", exact: true })
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tienda de estrellas");
     await expect(page.locator(".shop-star-balance strong")).toHaveText("100");
@@ -60,7 +101,7 @@ for (const width of [360, 768, 1280]) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.goto("/");
     await page
-      .getByRole("link", { name: "Mi pequeño amigo: Ver amigo", exact: true })
+      .getByRole("link", { name: "My Little Friend: Ver amigo", exact: true })
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "La cueva de Chispitas",
