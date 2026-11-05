@@ -26,7 +26,7 @@ const shuffled = <T,>(items: T[], seed: number) => {
   return result;
 };
 const wordText = (word: BodyWord) => <span lang="en">{word.term}</span>;
-const assetBase = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const GAME_PATH_POINTS = [[9, 77], [20, 82], [29.5, 85.4], [39, 86.6], [53.6, 83.4], [63.5, 80], [72.3, 77], [80.6, 74]] as const;
 const CALLOUTS: Record<string, [number, number]> = {
   eye: [80, 35], ear: [5, 52], nose: [81, 47], mouth: [80, 60],
