@@ -1,5 +1,17 @@
 # Project decisions
 
+## Friendly coming-soon items in the navigation — 2026-11-05
+
+Status: decided by the owner; implemented in the pull request that introduces it.
+
+"Contact Us" and "About Chispitas" no longer link to the learning page and the shop.
+They are non-interactive coming-soon items with the friendly Spanish text "¡Muy
+pronto!" and a longer tooltip ("¡Muy pronto podrás escribirnos!"). This supersedes the
+placeholder links in "Home navigation adopted from Feduta". Consequence: the global
+navigation has no link to the learning page or the shop; they are reached from the home
+page tiles and cards (the brand link leads home from every page). The contact icon was
+downscaled to 256 px (885 KB to 64 KB) with the owner's approval.
+
 ## Quick start for assistants and draft pull requests for side branches — 2026-11-05
 
 Status: decided by the owner; implemented, the repository setting is on and tested

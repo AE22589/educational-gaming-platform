@@ -59,8 +59,9 @@ improvements are listed in `docs/backlog.md`.
 - Home page with the CHISPITAS brand, star balance and a card linking to the
   body-parts mission. Navigation labels and tile titles are English-first with
   Spanish subtitles ("My Profile", "Science", "Contact Us", "About Chispitas",
-  "Log in/Register"); "Log in/Register" and "Science" are non-interactive previews,
-  "Contact Us" opens `/learn` and "About Chispitas" opens `/shop` for now.
+  "Log in/Register"); "Contact Us", "About Chispitas", "Log in/Register" and "Science" are non-interactive
+  coming-soon previews (the first two say "¡Muy pronto!"). The learning and shop pages
+  are reached through the home page tiles and cards, not through the navigation.
 - `/learn`: the silent body-parts matching mission `body-parts-01` is playable
   (nine words, two rounds, adventure path with the dragon, stars per solved item,
   round event and completion bonus). `animals-01` is only a placeholder page.

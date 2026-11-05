@@ -53,10 +53,10 @@ unnoticed on `codex/my-work`.
 
 ### Home navigation follow-ups
 
-"Contact Us" opens the learning page and "About Chispitas" opens the shop; replace
-these with real pages. `contact-dragon.webp` is 1254 px wide for a 64 px icon (885 KB);
-a 256 px version would be about 20 KB but needs the owner's approval (no resizing
-without it). Branch `codex/my-work` can be deleted once the owner is happy.
+"Contact Us" and "About Chispitas" are coming-soon items; build the real pages later.
+The global navigation currently has no link to the learning page or the shop, only the
+home page does; decide whether to add them back. Branch `codex/my-work` can be deleted
+once the owner is happy.
 
 ## Open decisions
 
