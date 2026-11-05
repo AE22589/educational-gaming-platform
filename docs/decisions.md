@@ -1,5 +1,18 @@
 # Project decisions
 
+## Placeholder pages behind Contact Us and About Chispitas — 2026-11-05
+
+Status: decided by the owner; implemented in the pull request that introduces it.
+
+The owner wanted a placeholder page behind the two new navigation tiles, not only text on
+the tile. "Contact Us" opens `/contact` and "About Chispitas" opens `/about`. Each page
+shows a friendly Spanish message that something is coming very soon ("¡Muy pronto!"),
+an illustration (the contact dragon, the star mascot) and a "Volver al inicio" button.
+The shared component is `ComingSoon`. The pages do not collect or store anything; no
+contact form, accounts or analytics exist. The tiles keep the "¡Muy pronto!" subtitle
+and the navigation again has no link to the learning page or the shop (home page tiles
+and cards still do).
+
 ## Friendly coming-soon items in the navigation — 2026-11-05
 
 Status: decided by the owner; implemented in the pull request that introduces it.
@@ -7,7 +20,8 @@ Status: decided by the owner; implemented in the pull request that introduces it
 "Contact Us" and "About Chispitas" no longer link to the learning page and the shop.
 They are non-interactive coming-soon items with the friendly Spanish text "¡Muy
 pronto!" and a longer tooltip ("¡Muy pronto podrás escribirnos!"). This supersedes the
-placeholder links in "Home navigation adopted from Feduta". Consequence: the global
+placeholder links in "Home navigation adopted from Feduta". (Superseded the same day by
+"Placeholder pages behind Contact Us and About Chispitas": the tiles link to pages again.) Consequence: the global
 navigation has no link to the learning page or the shop; they are reached from the home
 page tiles and cards (the brand link leads home from every page). The contact icon was
 downscaled to 256 px (885 KB to 64 KB) with the owner's approval.

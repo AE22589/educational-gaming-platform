@@ -7,11 +7,10 @@ for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
 
     const navigation = page.getByRole("navigation", { name: "Navegación principal" });
     await expect(navigation.getByRole("link", { name: "My Profile Mi perfil" })).toBeVisible();
-    // Contact Us and About Chispitas are friendly "coming soon" previews, not links.
-    await expect(navigation.getByText("Contact Us")).toBeVisible();
-    await expect(navigation.getByText("About Chispitas")).toBeVisible();
+    // Contact Us and About Chispitas lead to friendly "coming soon" pages.
+    await expect(navigation.getByRole("link", { name: /Contact Us/ })).toBeVisible();
+    await expect(navigation.getByRole("link", { name: /About Chispitas/ })).toBeVisible();
     await expect(navigation.getByText("¡Muy pronto!", { exact: false })).toHaveCount(2);
-    await expect(navigation.getByRole("link", { name: /Contact Us|About Chispitas/ })).toHaveCount(0);
     await expect(navigation.getByText("Log in/Register", { exact: false })).toBeVisible();
     await expect(navigation.getByText("Iniciar sesión/Registrarse", { exact: true })).toBeVisible();
     const subtitleColors = await navigation.locator("small").evaluateAll((elements) =>
@@ -257,3 +256,21 @@ test("feeding the dragon plays the lossless WebP animations and returns to sleep
     await expect(page.getByRole("img", { name: /Chispitas duerme enroscado/ })).toBeVisible({ timeout: 8_000 });
   }
 });
+for (const [link, path, heading, text] of [
+  ["Contact Us", /\/contact\/?$/, "Contacto", "buzón mágico"],
+  ["About Chispitas", /\/about\/?$/, "Sobre Chispitas", "Pequeñas chispas, grandes descubrimientos"],
+] as const) {
+  test(`the ${link} tile opens a friendly coming-soon page`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+    await page.getByRole("navigation", { name: "Navegación principal" }).getByRole("link", { name: new RegExp(link) }).click();
+    await expect(page).toHaveURL(path);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(heading);
+    await expect(page.getByText("¡Muy pronto!", { exact: true })).toBeVisible();
+    await expect(page.locator("main").getByText(text, { exact: false })).toBeVisible();
+    await expect.poll(() => page.locator("main img").first().evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole("link", { name: "Volver al inicio" }).click();
+    await expect(page).toHaveURL(/\/$/);
+  });
+}
