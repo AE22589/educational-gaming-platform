@@ -1,5 +1,19 @@
 # Project rules
 
+## Quick start for assistants (read this first)
+1. Run git fetch, git switch main and git pull. Read docs/decisions.md.
+2. Work on main and push directly to origin main. Do not create codex/* or other side
+   branches. If a branch is unavoidable, open a pull request in the same session.
+3. Before pushing run npm run check:docs, lint, typecheck, test and build. After UI or
+   test changes also run GITHUB_ACTIONS=true npm run build and GITHUB_ACTIONS=true npx
+   playwright test.
+4. Update the documentation in the same push (docs/setup-status.md, docs/decisions.md,
+   docs/assets.md for anything in public/).
+5. Images in public/ are lossless WebP only; convert with scripts/to-lossless-webp.mjs.
+6. Finish by reporting the changed files, the check results and remaining risks.
+
+The detailed rules follow below.
+
 ## Documentation language
 - Always write all project documentation in English, including plans, README files,
   architecture decisions, setup guides, task descriptions, issues and pull requests.

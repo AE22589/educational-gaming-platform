@@ -1,0 +1,40 @@
+name: Side branch visibility
+# Opens a draft pull request for work pushed to a side branch, so unmerged work is never
+# invisible. A pull request created with the workflow token does not start other
+# workflows, so this draft has no CI run; it only makes the work visible.
+on:
+  push:
+    branches-ignore:
+      - main
+      - 'dependabot/**'
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: side-branch-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  draft-pr:
+    name: draft-pr
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Open a draft pull request if none exists
+        # Needs the repository setting "Allow GitHub Actions to create and approve pull
+        # requests". Without it this step fails and the push is unaffected.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          # Give the author time to open their own pull request first.
+          sleep 120
+          existing=$(gh pr list --repo "$REPO" --head "$BRANCH" --state open --json number --jq length)
+          if [ "$existing" != "0" ]; then
+            echo "An open pull request already exists for $BRANCH."
+            exit 0
+          fi
+          gh pr create --repo "$REPO" --base main --head "$BRANCH" --draft \
+            --title "Unmerged work on $BRANCH (opened automatically)" \
+            --body "Work was pushed to the side branch \`$BRANCH\` and is not on \`main\`, so it is not deployed. Merge it or delete the branch. See the working rules in AGENTS.md."
