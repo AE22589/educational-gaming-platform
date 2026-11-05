@@ -144,6 +144,7 @@ export function BodyPartsMission() {
 
   const handlePointerDown = (event: PointerEvent<HTMLButtonElement>, wordId: string) => {
     if (pointerId.current !== null) { event.preventDefault(); return; }
+    suppressClick.current = true;
     didMove.current = false;
     dragOrigin.current = [event.clientX, event.clientY];
     pointerId.current = event.pointerId;
@@ -161,9 +162,8 @@ export function BodyPartsMission() {
     if (pointerId.current !== event.pointerId) return;
     pointerId.current = null;
     setDragPreview(null);
-    if (!didMove.current) return;
-    suppressClick.current = true;
     window.setTimeout(() => { suppressClick.current = false; }, 0);
+    if (!didMove.current) return;
     const figure = figureRef.current;
     if (figure) {
       const rect = figure.getBoundingClientRect();
