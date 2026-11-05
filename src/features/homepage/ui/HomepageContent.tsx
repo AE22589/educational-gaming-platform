@@ -82,14 +82,14 @@ export function HomepageContent() {
 
       <section aria-label="Mundos para explorar" className="home-world-grid">
         <WorldTile
-          title="Mundo de ciencias"
+          title="Science World"
           description="Descubre la naturaleza y sus maravillas."
           image={assetPath("/homepage/science-garden.webp")}
           tone="lime"
           comingSoon
         />
         <WorldTile
-          title="Mundo del inglés"
+          title="English World"
           description="Practica palabras nuevas mientras juegas."
           image={assetPath("/homepage/english-book.webp")}
           tone="lilac"
@@ -97,7 +97,7 @@ export function HomepageContent() {
           action="Explorar"
         />
         <WorldTile
-          title="Mi pequeño amigo"
+          title="My Little Friend"
           description="Conoce a tu compañero de aventuras."
           image={assetPath("/homepage/my-little-friend-dragon.png")}
           tone="orange"
@@ -105,7 +105,7 @@ export function HomepageContent() {
           action="Ver amigo"
         />
         <WorldTile
-          title="Mapa de aventuras"
+          title="Adventure Map"
           description="Elige un camino y descubre nuevos lugares."
           image={assetPath("/homepage/adventure-map.webp")}
           tone="cyan"
@@ -117,7 +117,7 @@ export function HomepageContent() {
         <article className="home-support-card support-missions">
           <div className="home-support-copy">
             <p className="home-support-kicker">Pequeños pasos</p>
-            <h2>Tu próxima misión</h2>
+            <h2>Your next adventure</h2>
             <p>La primera aventura de animales está en preparación.</p>
             <Link href="/learn" className="home-text-link">Explorar misiones <Arrow /></Link>
           </div>
@@ -127,7 +127,7 @@ export function HomepageContent() {
         <article className="home-support-card support-stars">
           <div className="home-support-copy">
             <p className="home-support-kicker">Sigue brillando</p>
-            <h2>Tu colección de estrellas</h2>
+            <h2>Star Shop</h2>
             <p>Más adelante podrás canjearlas por sorpresas.</p>
             <Link href="/shop" className="home-text-link">Visitar tienda <Arrow /></Link>
           </div>

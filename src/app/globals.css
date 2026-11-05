@@ -92,9 +92,9 @@ p { line-height: 1.45; }
 .chispitas-nav-item:nth-child(3) { background: linear-gradient(145deg, #f7f5ff, #e4e0ff); }
 .chispitas-nav-item:nth-child(4) { background: linear-gradient(145deg, #fffdf2, #fff0b9); }
 .chispitas-nav-item:nth-child(5) { background: linear-gradient(145deg, #f2ffff, #d5f5f5); }
-.chispitas-nav-item small { display: block; margin-top: 2px; font-size: .65rem; font-weight: 700; }
+.chispitas-nav-item small { display: block; margin-top: 2px; color: #5e708a; font-size: .65rem; font-weight: 700; }
 .chispitas-nav-item.is-soon { cursor: default; }
-.chispitas-nav-item.is-soon small { color: #647794; }
+.chispitas-nav-item.is-soon small { color: #5e708a; }
 .chispitas-nav-item.is-soon:hover { transform: none; }
 
 .shop-scene { position: relative; isolation: isolate; min-height: 100%; padding: clamp(18px, 3vw, 40px) 0 30px; }
