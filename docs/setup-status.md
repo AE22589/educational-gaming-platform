@@ -40,6 +40,10 @@ Repository settings, verified through the GitHub API on 2026-11-05:
   and five GitHub Actions updates are merged and deployed, TypeScript 7 and
   `@types/node` 26 were closed, and major updates of `@types/node` are ignored.
 
+The workflow `side-branch-draft-pr.yml` opens a draft pull request for work pushed to
+a side branch. It needs the repository setting "Allow GitHub Actions to create and
+approve pull requests", which is not yet on (see `docs/backlog.md`).
+
 Direct pushes to `main` are checked after the push, not before: every push to
 `main` runs the repository check (document links, asset rules, script tests), the
 application check (build and browser tests) and the quality check (lint, typecheck,
