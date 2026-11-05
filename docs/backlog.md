@@ -53,7 +53,8 @@ unnoticed on `codex/my-work`.
 
 ### Home navigation follow-ups
 
-"Contact Us" and "About Chispitas" are coming-soon items; build the real pages later.
+"Contact Us" and "About Chispitas" open friendly placeholder pages (`/contact`, `/about`);
+build the real content later (no contact form without a privacy and child-safety review).
 The global navigation currently has no link to the learning page or the shop, only the
 home page does; decide whether to add them back. Branch `codex/my-work` can be deleted
 once the owner is happy.

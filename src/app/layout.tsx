@@ -35,12 +35,12 @@ export default function RootLayout({
                 <span className="chispitas-nav-item is-soon" aria-disabled="true">
                   <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-science.webp`} alt="" width={64} height={64} unoptimized /><span>Science<small>Ciencias · Próximamente</small></span>
                 </span>
-                <span className="chispitas-nav-item is-soon" aria-disabled="true" title="¡Muy pronto podrás escribirnos! Estamos preparando este rincón para ti.">
+                <Link href="/contact" className="chispitas-nav-item">
                   <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/contact-dragon.webp`} alt="" width={64} height={64} unoptimized /><span>Contact Us<small>Contacto · ¡Muy pronto!</small></span>
-                </span>
-                <span className="chispitas-nav-item is-soon" aria-disabled="true" title="¡Muy pronto conocerás la historia de Chispitas y sus amigos!">
+                </Link>
+                <Link href="/about" className="chispitas-nav-item">
                   <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-shop.webp`} alt="" width={64} height={64} unoptimized /><span>About Chispitas<small>Sobre Chispitas · ¡Muy pronto!</small></span>
-                </span>
+                </Link>
                 <span className="chispitas-nav-item is-soon" aria-disabled="true">
                   <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-profile.webp`} alt="" width={64} height={64} unoptimized /><span>Log in/Register<small>Iniciar sesión/Registrarse</small></span>
                 </span>
