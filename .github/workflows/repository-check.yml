@@ -210,21 +210,21 @@ jobs:
       - name: Record tested source tree
         if: success() && steps.reuse-pr-artifact.outputs.reusable != 'true'
         run: node scripts/write-pages-build-metadata.mjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: success()
         with:
           name: pages-site
           path: out/
           if-no-files-found: error
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: success() && steps.reuse-pr-artifact.outputs.reusable != 'true'
         with:
           name: pages-site-metadata
           path: pages-build-metadata.json
           if-no-files-found: error
           retention-days: 14
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: browser-failure-evidence
