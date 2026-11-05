@@ -2,8 +2,8 @@
 
 ## Quick start for assistants and draft pull requests for side branches — 2026-11-05
 
-Status: decided by the owner; the workflow is implemented, the repository setting it
-needs is pending.
+Status: decided by the owner; implemented, the repository setting is on and tested
+(a test branch produced a draft pull request).
 
 AGENTS.md now starts with a six-point quick start for assistants (update from main,
 push directly to main, run the checks, update the documentation, use lossless WebP,
@@ -11,7 +11,8 @@ report). The first message to a Codex session can repeat it. The workflow
 `side-branch-draft-pr.yml` opens a draft pull request when work is pushed to any
 branch except `main` and Dependabot branches and no pull request exists after two
 minutes, so unmerged work cannot go unnoticed again. It needs the repository setting
-"Allow GitHub Actions to create and approve pull requests".
+"Allow GitHub Actions to create and approve pull requests", which the owner switched
+on on 2026-11-05.
 
 ## Home navigation adopted from Feduta; no work on side branches — 2026-11-05
 

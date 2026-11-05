@@ -41,12 +41,12 @@ Turn on in the repository security settings as soon as the project gets
 credentials, API keys or integrations. Free for public repositories. Not needed
 while the project has no secrets.
 
-### Make stranded branch work visible (workflow added, setting pending)
+### Make stranded branch work visible (done; optional weekly report open)
 
 `.github/workflows/side-branch-draft-pr.yml` opens a draft pull request for work pushed
-to a side branch after a two-minute grace period. It only works after the owner turns on
-the repository setting "Allow GitHub Actions to create and approve pull requests"; until
-then the step fails harmlessly. Such a draft has no CI run (a pull request created with
+to a side branch after a two-minute grace period. The repository setting "Allow GitHub
+Actions to create and approve pull requests" is on and a test branch proved it works.
+Such a draft has no CI run (a pull request created with
 the workflow token does not start other workflows). An optional weekly report of
 branches with unmerged work is not built. Added on 2026-11-05 after Feduta's commit sat
 unnoticed on `codex/my-work`.
