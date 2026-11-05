@@ -25,10 +25,24 @@ production build and Playwright browser checks. A push to `main` validates the
 repository, reuses or rebuilds and browser-tests the static export, then
 publishes that artifact.
 
-Verified through the GitHub API on 2026-11-05: `main` has no branch protection
-and no rulesets, so the checks are not required for merging. Auto-merge is
-disabled, secret scanning is disabled, the repository has no licence file and
-branches are not deleted automatically after merge. These are open cleanup items.
+Repository settings, verified through the GitHub API on 2026-11-05:
+
+- **Who can push:** only the owner (`AE22589`, admin) and the collaborator
+  `Feduta` (write). Claude and Codex work through the owner's account. Pushes
+  need no review and no pull request.
+- **`main` protection (light):** force pushes and deleting `main` are blocked.
+  Nothing else is required: no pull request, no review, no required checks, and
+  administrators are not enforced.
+- **Branches:** branches are deleted automatically after a merge. The 28 stale
+  merged branches were deleted on 2026-11-05.
+- **Still open:** secret scanning is disabled, the repository has no licence file,
+  auto-merge is disabled, and 8 Dependabot pull requests (#19 to #26) are open.
+
+Because direct pushes to `main` are allowed, the pull-request-only checks do not
+run for them: `quality-check` (lint, typecheck, unit tests) and the documentation
+impact check. The repository check (document links, asset rules, script tests) and
+the application check (build and browser tests) run on every push to `main`, and
+a failure stops the deployment, but the change is already on `main`.
 
 ## Product status (what `main` serves)
 

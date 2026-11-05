@@ -64,6 +64,9 @@
   proposed, accepted, implemented and verified states distinct.
 - CI runs scripts/check-docs-impact.mjs on pull requests. If a change truly needs no
   documentation, add "Docs-Impact: none — <reason>" to the pull request description.
+- Direct pushes to main are allowed and skip the pull-request checks (quality-check and
+  the documentation impact check). When pushing directly, run the local checks first and
+  update the documentation yourself in the same push.
 - Before finishing, list which documents you updated, or state why none were needed.
 
 ## Architecture
