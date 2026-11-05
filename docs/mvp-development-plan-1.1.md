@@ -17,9 +17,14 @@ that map before deciding where missions and games belong; treat the current
 concept image as exploratory only. Do not ask Codex to build the whole platform
 at once.
 
-This is the implementation plan for the MVP. `master-plan.md` records the broader educational gaming platform and future textbook coverage. Future architecture support does not authorize implementing future worlds. The supplied German guide is the scope baseline; the safeguards, mastery rules and reliability requirements below are explicit 1.1 additions. No images are embedded in this plan.
+This is the implementation plan for the recommended MVP baseline. It is not a
+binding product boundary: the owner may select broader features or a different
+sequence at any time. `master-plan.md` records the broader educational gaming
+platform and future textbook coverage. The supplied German guide is the baseline;
+the safeguards, mastery rules and reliability requirements below are explicit
+1.1 additions. No images are embedded in this plan.
 
-## 2. Binding first scope
+## 2. Recommended first scope
 
 - Four animals: **cat, dog, cow, horse**.
 - One game: hear an English animal name and select the correct image.
@@ -28,15 +33,16 @@ This is the implementation plan for the MVP. `master-plan.md` records the broade
 - Star balance, inventory, equipment, learning evidence and local persistence.
 - Replay with full new rewards.
 
-Only after this loop passes acceptance may the scope expand to **12 animals, three missions, a matching game and six shop items**.
+Suggested follow-on scope is **12 animals, three missions, a matching game and
+six shop items**. The owner may choose this or another expansion at any time;
+passing this loop first is a sequencing recommendation, not a prerequisite.
 
-The world map is a navigation and presentation layer for this loop, not a
-commitment to additional game content. The immediate design task is to define a
-small, child-friendly world and review its locations and navigation. Decide how
-the existing mission fits only after that world is defined. Do not add new
-missions or subjects as a consequence of the map concept.
+For this baseline, the world map is a navigation and presentation layer. A
+small, child-friendly world and review of locations/navigation are recommended
+design steps. The owner may also choose additional missions or subjects; the map
+concept alone does not decide their details.
 
-Excluded: registration, backend, Science World, speech recognition, customizable
+Outside the recommended baseline: registration, backend, Science World, speech recognition, customizable
 rooms, pets, full offline operation, runtime AI, analytics and microphone
 recording. The owner commissioned a narrowly scoped companion-cave view as a
 visual extension of `/avatar`: show the local-time day image from 06:00 through
@@ -60,6 +66,14 @@ UI and brief instructions are **Spanish**; vocabulary and learning audio are **E
 | Explicitly started new playthrough | Full rewards again |
 | Incorrect answer | No reward and no deduction |
 
+Every profile starts with 100 spendable starter stars. A one-time schema
+migration tops existing balances below 100 up to 100 and preserves higher
+balances. The `/shop` page offers apples and water for one star each. A purchase
+deducts one star and increments the matching saved inventory in one profile
+transition. Cave furnishing examples may be visible as upcoming items, with
+`Todo`, `Comida y bebida` and `Cueva` filters. The shop does not feature a
+particular avatar.
+
 A full mission earns **26 stars**. Credit solved questions immediately; stopping early retains credited stars. Completion bonus requires all eight solved questions. There is **no daily cap, replay discount, speed requirement or punishment**.
 
 Distinguish a new playthrough from duplicate delivery. Persist the run ID, question IDs, random seed, order and options; reload never creates a run. Only an explicit Spanish “play again” action after confirmation of an active-run replacement creates a new run. Starting over preserves already earned stars and archives the abandoned run without a completion bonus.
@@ -74,7 +88,7 @@ Provisional anti-farming measures are content variety, stable randomized order/o
 | Cap | headwear | 15 |
 | T-shirt | top | 20 |
 
-A purchase checks the current balance and ownership, deducts once and adds ownership in one state transition. No repeat purchases. Equip only owned items; one per category. All three categories can be worn together. Spanish states: buy, already owned, insufficient stars. Equip/unequip and purchases persist.
+A unique accessory purchase checks the current balance and ownership, deducts once and adds ownership in one state transition. No repeat purchases. Equip only owned items; one per category. All three categories can be worn together. Spanish states: buy, already owned, insufficient stars. Equip/unequip and purchases persist. Consumable purchases instead deduct the price and increment the item's inventory quantity atomically; the initial apple costs one star and can be purchased repeatedly while stars remain.
 
 ## 4. Explicit mastery model — separate from stars
 
@@ -92,7 +106,10 @@ Test: supported success still gives two stars but no independent credit; two occ
 
 ## 5. Multi-subject content contracts
 
-Build subject-neutral contracts now; author only the four-animal English slice. Keep subject, instruction language and target language distinct. Do not hard-code all content as English animal vocabulary.
+For the recommended baseline, build subject-neutral contracts and author the
+four-animal English slice. Keep subject, instruction language and target language
+distinct. Do not hard-code all content as English animal vocabulary. Broader
+content may be selected by the owner at any time.
 
 The supplied school image identifies five second-primary subjects (2026/27):
 
@@ -104,7 +121,7 @@ The supplied school image identifies five second-primary subjects (2026/27):
 | natural-science | 2PRI NATURAL SCIENCE STD BOOK WM ED23 | Richmond | 9788414408087 |
 | social-science | 2PRI SOCIAL SCIENCE STD BK MADR WM ED23 | Richmond | 9788414408254 |
 
-These are transcriptions, not publisher-verified editions or verified unit mappings. Obtain official publisher catalogues, sample pages or tables of contents by ISBN; record exact source URL, access date, edition and confidence. Mark mappings `unverified`, `verified` or `needs-review`. Do not invent chapter alignment or reproduce copyrighted exercises without permission. This investigation belongs to the master-plan backlog and is not a blocker for original animal exercises.
+These are transcriptions, not publisher-verified editions or verified unit mappings. Obtain official publisher catalogues, sample pages or tables of contents by ISBN; record exact source URL, access date, edition and confidence. Mark mappings `unverified`, `verified` or `needs-review`. Do not invent chapter alignment or reproduce copyrighted exercises without permission. This investigation is outside the recommended baseline and is not a blocker for original animal exercises.
 
 | Contract | Required fields |
 |---|---|
@@ -118,7 +135,7 @@ These are transcriptions, not publisher-verified editions or verified unit mappi
 | AnswerAttempt | attemptId, runId, questionId, selected option ID, correct, helpUsed, attempt index, timestamp, contentVersion |
 | SessionState | runId, missionId/version, seed, stable order/options, question states, results, active/completed/abandoned |
 | ShopItem | id, Spanish name, category, nonnegative integer price, rendering data |
-| ProfileState | schemaVersion, revision, stars, owned IDs, equipment, learning evidence/policy version, active session, processed event keys, reward ledger |
+| ProfileState | schemaVersion, revision, stars, inventory item quantities, owned IDs, equipment, learning evidence/policy version, active session, processed event keys, reward ledger |
 
 Use discriminated payloads for vocabulary, numbers, text and concepts, plus an extensible game registry. Validate JSON at runtime, stable reference integrity, option uniqueness and answer membership. Keep textbook metadata independent of exercise assets. Unknown game types fail with a Spanish recovery message. No requirement to implement renderers for all five subjects in the MVP.
 
@@ -126,7 +143,7 @@ Use discriminated payloads for vocabulary, numbers, text and concepts, plus an e
 
 Games emit results; they never mutate balance, inventory or browser storage. Only the profile layer writes persistent application state. Build and integrate the profile and game features sequentially against the same typed contract. React Context plus reducer is sufficient unless the foundation establishes otherwise. Access storage only on the client after hydration.
 
-Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger and balance) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
+Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger, balance and inventory) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. The v1-to-v2 profile migration adds an empty item inventory. The v2-to-v3 migration tops balances below 100 up to 100 once, preserving higher balances and progress. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
 
 Catch unavailable storage, quota errors, invalid JSON, validation errors and migration failures. Never silently reset or overwrite corrupt data. Offer retry and raw backup export; explicit reset requires informed confirmation. Validate imports, bound their size, migrate only supported versions and preserve originals. A future schema version opens recovery mode rather than downgrading data. On write failure show Spanish “changes not saved”, preserve pending state in memory, and allow retry/export; block further economic transactions until resolved. Do not claim reload safety for unsaved changes.
 
@@ -144,6 +161,14 @@ Use local, reviewed English pronunciation recordings and a visible repeat button
 
 The owner is the sole maintainer. Work proceeds one task at a time in the existing checkout; there are no developer roles, separate accounts/clones, parallel chats, handovers or independent-review prerequisites. Start each implementation task on a feature branch, preserve unrelated work and keep changes to shared contracts in their canonical source with dependent consumers, docs and tests.
 
+Keep routine work focused and use the smallest relevant local check for low-risk
+copy, styling or isolated UI changes. Run tests that cover changed behavior and
+shared contracts. The full pull-request CI gate remains mandatory for releases;
+local verification tiers do not remove or weaken CI checks. Batch related small
+changes for a release when appropriate. While CI runs, use longer waits and
+report meaningful progress rather than polling unchanged status repeatedly.
+Timebox failed tools and provide a useful intermediate result for longer tasks.
+
 ```bash
 git status --short --branch
 git switch main
@@ -153,7 +178,7 @@ git switch -c codex/<task-name>
 
 Keep automated repository validation, application checks and tested-artifact deployment. Do not require approval from a second person. Read the effective GitHub rules before changing them; any existing rule that prevents the owner from releasing a passing change is an explicit configuration issue to resolve, not a reason to invent another developer role. Keep main as the default branch, block force pushes, use squash merges and least-privilege workflow permissions. Do not use `pull_request_target` to execute untrusted changes.
 
-CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests.
+CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests. For local iteration, choose checks based on change risk; this does not change the required CI release gate.
 
 On pushes to `main`, deploy only after both repository and application checks pass. Upload the already-built and browser-tested `out/` directory as a short-lived artifact; the Pages deployment job downloads that artifact and publishes it without checking out the source, reinstalling dependencies or rebuilding. Keep Pages deployment permissions scoped to that job. A manual workflow dispatch may publish only from `main`. Cancel superseded runs for the same ref so obsolete commits do not consume runner time. Keep the required PR status-check job names stable when changing workflow structure; verify configured required-check names after the first successful run.
 
@@ -208,7 +233,9 @@ Use Context/reducer unless the foundation establishes otherwise; add no state
 management dependency. Keep shared schemas in src/types/contracts.ts and update
 their consumers, documentation and tests in the same change when necessary.
 
-Create a local profile with 0 stars. Persist the active run and question state.
+Create a new local profile with 100 starter stars. Migrate existing profiles
+below 100 up to 100 once; preserve higher balances. Persist the active run and
+question state.
 Award 2 stars once per solved question per run, even after errors/help. Award
 10 once when all eight are solved. New explicit runs receive full rewards.
 Use run/question reward keys and deduplicate attempt evidence separately.
@@ -264,27 +291,31 @@ On a feature branch, implement glasses (10), cap (15) and
 T-shirt (20), shop states, ownership, equip/unequip and avatar rendering through
 the profile layer. Respect one item per category and simultaneous categories.
 Test insufficient funds, duplicate purchase, rapid clicks, persistence failure
-and reload. Follow the visual gate. Do not expand product scope.
+and reload. Follow the visual gate. Keep to the scope chosen for the task.
 ```
 
 ```text
 On a feature branch, complete the four-animal introduction,
 play/resume flow, completion page with stars earned in this run, explicit Play
 again with a new run ID, and Go to shop. Add a real browser test of the complete
-loop and recovery states. Confirm no production test adapter remains. Do not add
-animals or the matching game until the first integrated acceptance passes.
+loop and recovery states. Confirm no production test adapter remains. Adding
+animals or the matching game is a suggested follow-on, not gated on first-loop
+acceptance.
 ```
 
 ## 12. Owner acceptance and release gates
 
-1. Empty profile: **0** stars.
-2. First question incorrect: **0**.
-3. Then correct: **2**.
-4. Reload: **2**, same run, solved question locked and same remaining order.
-5. Finish all eight: **26** total.
-6. Buy cap for 15: **11**.
-7. Equip cap, reload: cap stays equipped, **11**.
-8. Start a new run and finish: **37**.
+1. New profile: **100** starter stars; existing profiles below 100 are topped
+   up to **100** once during schema migration; higher balances are preserved.
+2. First question incorrect: **100**.
+3. Then correct: **102**.
+4. Reload: **102**, same run, solved question locked and same remaining order.
+5. Finish all eight: **126** total.
+6. Buy cap for 15: **111**.
+7. Equip cap, reload: cap stays equipped, **111**.
+8. Start a new run and finish: **137**.
 9. Buy cap again: rejected with no deduction.
+10. Buy one apple: one star deducted, apple inventory increases by one; reload
+    preserves both the remaining balance and inventory count.
 
-Also verify abandon/resume, duplicate callbacks and completion events, insufficient funds, simultaneous categories, mastery-v1 cases, audio/image failures, corrupt and unavailable storage, supported migration, future-version rejection, failed purchase save, and second-tab refusal. There must be no false “saved” message. Run lint/typecheck/unit/build/browser checks and record results. The owner reviews responsive screenshots and assets. A child pilot additionally requires final media rights/review and age-appropriate Spanish instructions. Expansion to 12 animals/three missions/matching/six items is a separately commissioned milestone; the five-subject platform remains a master-plan objective.
+Also verify abandon/resume, duplicate callbacks and completion events, insufficient funds, simultaneous categories, mastery-v1 cases, audio/image failures, corrupt and unavailable storage, supported migration, future-version rejection, failed purchase save, and second-tab refusal. There must be no false “saved” message. Run lint/typecheck/unit/build/browser checks and record results. The owner reviews responsive screenshots and assets. A child pilot additionally requires final media rights/review and age-appropriate Spanish instructions. Expansion to 12 animals/three missions/matching/six items is a suggested follow-on; the five-subject platform remains a master-plan objective that may be selected by the owner.
