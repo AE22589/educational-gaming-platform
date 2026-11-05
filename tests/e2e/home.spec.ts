@@ -36,6 +36,8 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",
     );
+    await page.getByRole("link", { name: "‹ Misiones" }).click();
+    await expect(page).toHaveURL(/\/learn\/?$/);
     await page
       .getByRole("navigation")
       .getByRole("link", { name: "Tienda de estrellas", exact: true })
