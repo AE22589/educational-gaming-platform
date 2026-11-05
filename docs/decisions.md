@@ -1,5 +1,23 @@
 # Project decisions
 
+## Repository access and light branch protection — 2026-11-05
+
+Status: decided by the owner; applied through the GitHub API and verified.
+
+The owner and the collaborator `Feduta` may push directly to `main` without a pull
+request or review, because there is no time for second-person review. Claude and
+Codex push through the owner's account. Only these two accounts have write access;
+the public can read the repository but cannot change it. `main` has light
+protection: force pushes and deletion are blocked, and nothing else is required
+(no pull request, no review, no required checks, no admin enforcement). The setting
+"delete branch after merge" is on, and the stale merged branches were deleted.
+
+Consequence: the pull-request-only checks (`quality-check`, the documentation impact
+check) do not run for direct pushes. The documentation rule in AGENTS.md therefore
+depends on the author. Secret scanning, a licence, and the Dependabot updates are
+still open. This supersedes "effective branch protection has not been verified" in
+the earlier entries.
+
 ## Lossless WebP for all images, and the approval process — 2026-11-05
 
 Status: requested by the owner; implemented in the pull request that introduces it.
@@ -32,8 +50,9 @@ files (`src/` outside tests, `public/`, `package.json`, `scripts/`, workflows,
 `next.config.ts`) must also change `docs/setup-status.md` or `docs/decisions.md`,
 and changes under `public/` must also change `docs/assets.md`. A pull request may
 opt out with a line `Docs-Impact: none — <reason>`. The check is a minimum, not proof
-that the documentation is correct. It only blocks merging once branch protection
-requires the `repository-check` job; this setting is still open.
+that the documentation is correct. It runs on pull requests only; direct pushes to
+`main` skip it because no branch protection requires it (see "Repository access and
+light branch protection", 2026-11-05).
 
 ## Body mission start controls and home mission card — 2026-11-05
 
@@ -236,8 +255,8 @@ remain unchanged for compatibility.
 The repository is public and GitHub Pages publishes from `main` at
 https://ae22589.github.io/educational-gaming-platform/. Use only local media;
 review asset rights, child-data privacy, accessibility and age-appropriate
-Spanish before any child pilot. Effective branch protection has not been
-verified.
+Spanish before any child pilot. (Branch protection was set up on 2026-11-05, see
+the entry "Repository access and light branch protection".)
 
 ## Documentation and decision records
 
