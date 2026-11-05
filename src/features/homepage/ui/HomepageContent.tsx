@@ -118,8 +118,8 @@ export function HomepageContent() {
           <div className="home-support-copy">
             <p className="home-support-kicker">Pequeños pasos</p>
             <h2>Tu próxima misión</h2>
-            <p>La primera aventura de animales está en preparación.</p>
-            <Link href="/learn" className="home-text-link">Explorar misiones <Arrow /></Link>
+            <p>Practica las partes del cuerpo en inglés y acompaña al dragón.</p>
+            <Link href="/learn/body-parts-01" className="home-text-link">Jugar la misión <Arrow /></Link>
           </div>
           <Image src={assetPath("/homepage/daily-missions.webp")} alt="" width={152} height={152} unoptimized />
         </article>

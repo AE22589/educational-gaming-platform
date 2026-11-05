@@ -27,17 +27,14 @@ for (const width of [360, 768, 1280]) {
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
-    await page.getByRole("link", { name: "Explorar misiones" }).click();
-    await expect(page).toHaveURL(/\/learn\/?$/);
-    await page
-      .getByRole("link", { name: /Misión: partes del cuerpo/ })
-      .click();
+    await expect(page.getByText("La primera aventura de animales está en preparación.")).toHaveCount(0);
+    await page.getByRole("link", { name: "Jugar la misión" }).click();
     await expect(page).toHaveURL(/\/learn\/body-parts-01\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",
     );
-    const skipMissionDemo = page.getByRole("button", { name: "Saltar y empezar" });
-    if (await skipMissionDemo.isVisible()) await skipMissionDemo.click();
+    const startMission = page.getByRole("button", { name: "Empezar", exact: true });
+    if (await startMission.isVisible()) await startMission.click();
     await page.getByRole("link", { name: "‹ Misiones" }).click();
     await expect(page).toHaveURL(/\/learn\/?$/);
     await page
@@ -137,16 +134,21 @@ test("the companion cave follows the 06:00 and 18:00 local-time changes", async 
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 });
 
-test("the body mission starts without Comenzar, accepts face drags, and uses the matching round-two art", async ({ page }) => {
+test("the body mission has a single Empezar button, no Comenzar button, accepts face drags, and uses the matching round-two art", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/learn/body-parts-01/");
 
   const eyeCard = page.getByRole("button", { name: "eye", exact: true });
-  const skipDemo = page.getByRole("button", { name: "Saltar y empezar" });
-  await expect(skipDemo).toBeVisible();
-  await skipDemo.click();
+  const startDemo = page.getByRole("button", { name: "Empezar", exact: true });
+  await expect(startDemo).toBeVisible();
+  await expect(page.getByRole("button", { name: "Saltar y empezar" })).toHaveCount(0);
+  await startDemo.click();
   await expect(eyeCard).toBeEnabled();
-  await expect(page.getByRole("button", { name: "Comenzar" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Comenzar" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Ver ayuda" }).click();
+  await expect(page.getByRole("dialog", { name: "Así se juega" })).toBeVisible();
+  await page.getByRole("button", { name: "Empezar", exact: true }).click();
+  await expect(eyeCard).toBeEnabled();
 
   const dragWord = async (word: string, targetId: string) => {
     const card = page.getByRole("button", { name: word, exact: true });
