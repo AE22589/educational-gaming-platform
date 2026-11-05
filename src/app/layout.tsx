@@ -36,7 +36,7 @@ export default function RootLayout({
                   <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-science.webp`} alt="" width={64} height={64} unoptimized /><span>Science<small>Ciencias · Próximamente</small></span>
                 </span>
                 <Link href="/learn" className="chispitas-nav-item">
-                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/contact-dragon.png`} alt="" width={64} height={64} unoptimized /><span>Contact Us<small>Contacto</small></span>
+                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/contact-dragon.webp`} alt="" width={64} height={64} unoptimized /><span>Contact Us<small>Contacto</small></span>
                 </Link>
                 <Link href="/shop" className="chispitas-nav-item">
                   <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-shop.webp`} alt="" width={64} height={64} unoptimized /><span>About Chispitas<small>Sobre Chispitas</small></span>

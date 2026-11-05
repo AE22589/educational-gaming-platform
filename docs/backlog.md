@@ -41,6 +41,20 @@ Turn on in the repository security settings as soon as the project gets
 credentials, API keys or integrations. Free for public repositories. Not needed
 while the project has no secrets.
 
+### Make stranded branch work visible
+
+A workflow that opens a draft pull request when someone pushes to a side branch, or a
+weekly report of branches with work that is not on `main`. Added on 2026-11-05 after
+Feduta's commit sat unnoticed on `codex/my-work`. The working rules in AGENTS.md
+already apply.
+
+### Home navigation follow-ups
+
+"Contact Us" opens the learning page and "About Chispitas" opens the shop; replace
+these with real pages. `contact-dragon.webp` is 1254 px wide for a 64 px icon (885 KB);
+a 256 px version would be about 20 KB but needs the owner's approval (no resizing
+without it). Branch `codex/my-work` can be deleted once the owner is happy.
+
 ## Open decisions
 
 - **Licence:** the repository has none, so all rights are reserved by default.

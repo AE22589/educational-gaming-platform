@@ -22,7 +22,14 @@
 - Update affected specifications when approved decisions change them.
 
 ## Collaboration
-- Check branch and working tree before edits; never implement on main.
+- Check branch and working tree before edits. Direct commits and pushes to main are
+  allowed (owner decision, docs/decisions.md); pull main first and keep the tree clean.
+- Never leave finished work only on a side branch (for example codex/*): in the same
+  session, push it to main or open a pull request. Deployment runs from main only, so
+  work on a side branch is invisible and goes stale. Update from main before starting.
+- At the start of every session run git fetch and git branch -r --no-merged origin/main.
+  Report any branch with unmerged work to the owner before starting new work (squash-
+  merged branches also appear; check the pull request state before judging).
 - Work sequentially as a solo-maintained project; no second developer, role split,
   separate account/clone, or independent review is required.
 - Keep routine changes focused: inspect the relevant files, make the smallest

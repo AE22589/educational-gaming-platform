@@ -1,5 +1,30 @@
 # Project decisions
 
+## Home navigation adopted from Feduta; no work on side branches — 2026-11-05
+
+Status: decided by the owner; implemented in the pull request that introduces it.
+
+A commit by Feduta (`05d7b78` on `codex/my-work`) sat unmerged and undeployed. The owner
+decided to take over all of it, with its author kept on the commit. Consequences:
+
+- Navigation labels and tile titles are English-first with a Spanish subtitle, for
+  example "My Profile / Mi perfil". This supersedes "UI remains Spanish" for those
+  labels; body text and other screens stay Spanish.
+- New items: "Contact Us" (opens `/learn` for now), "About Chispitas" (opens `/shop`
+  for now) and "Log in/Register". The last one and "Science" are non-interactive
+  coming-soon previews. No accounts exist and none are implemented; the rule
+  "no accounts" is unchanged. The link targets are placeholders until real pages exist.
+- The card heading is "Your next adventure"; its text and link keep pointing to the
+  playable body-parts mission. Navigation subtitles use a darker colour; a layout test
+  checks ten viewport widths.
+- New image `public/homepage/contact-dragon.webp` (converted to lossless WebP, pixel
+  comparison identical, registered). It is 1254 px wide but shown at 64 px.
+
+Working rule: do not leave finished work only on a side branch such as `codex/*`. Push to
+`main` or open a pull request in the same session, update from `main` before starting, and
+check `git branch -r --no-merged origin/main` at the start of each session (AGENTS.md).
+A workflow that makes stranded branch work visible is in `docs/backlog.md`.
+
 ## Dependabot updates handled — 2026-11-05
 
 Status: implemented and deployed.
@@ -256,7 +281,8 @@ Pages write and OIDC permissions scoped to the deploy job.
 ## CHISPITAS home page — 2026-11-01
 
 Use the approved bright illustrated storybook style, rounded pastel tiles and
-five icon-led navigation items. UI remains Spanish; English is limited to the
+five icon-led navigation items. (Navigation labels and tile titles later became
+English-first, see 2026-11-05.) UI remains Spanish; English is limited to the
 learning subject and vocabulary. Science and map tiles are previews. Use the
 real profile star balance; do not invent progress, daily limits or reward state.
 This decision adds no new game, account, curriculum or economy behavior.
