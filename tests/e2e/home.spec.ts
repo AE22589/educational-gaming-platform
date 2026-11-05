@@ -134,3 +134,33 @@ test("the companion cave follows the 06:00 and 18:00 local-time changes", async 
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 });
+
+test("the body mission explains its start gate and accepts face-word drags", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/learn/body-parts-01/");
+
+  await expect(page.getByText("Pulsa Comenzar para activar las palabras.")).toBeVisible();
+  const eyeCard = page.getByRole("button", { name: "eye", exact: true });
+  await expect(eyeCard).toBeDisabled();
+  await page.getByRole("button", { name: "Comenzar" }).click();
+  const skipDemo = page.getByRole("button", { name: "Saltar y empezar" });
+  if (await skipDemo.isVisible()) await skipDemo.click();
+  await expect(eyeCard).toBeEnabled();
+
+  const dragWord = async (word: string, targetId: string) => {
+    const card = page.getByRole("button", { name: word, exact: true });
+    const cardBox = await card.boundingBox();
+    const targetBox = await page.locator(`[data-target-id="${targetId}"]`).boundingBox();
+    if (!cardBox || !targetBox) throw new Error(`The ${word} card or target is missing.`);
+    await page.mouse.move(cardBox.x + cardBox.width / 2, cardBox.y + cardBox.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(targetBox.x + targetBox.width / 2, targetBox.y + targetBox.height / 2, { steps: 8 });
+    await page.mouse.up();
+    await expect(page.locator(`.body-placement-label.body-label-${word}`)).toBeVisible();
+    await expect(page.getByText("¡Muy bien!")).toBeVisible();
+  };
+
+  await dragWord("eye", "eye-left");
+  await dragWord("mouth", "mouth");
+  await dragWord("nose", "nose");
+});

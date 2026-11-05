@@ -24,6 +24,7 @@ export const BODY_PARTS_TEXT = {
   title: "Misión: partes del cuerpo",
   instructions: "Arrastra cada palabra a su lugar.",
   alternative: "También puedes tocar la palabra y después su lugar.",
+  startInstruction: "Pulsa Comenzar para activar las palabras.",
   retry: "Prueba otra vez.",
   hint: "Pista",
   continue: "Continuar",
