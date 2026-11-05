@@ -66,12 +66,13 @@ UI and brief instructions are **Spanish**; vocabulary and learning audio are **E
 | Explicitly started new playthrough | Full rewards again |
 | Incorrect answer | No reward and no deduction |
 
-New profiles receive 100 spendable starter stars; existing profiles retain
-their current balance. The `/shop` page initially offers apples for one star
-each. A purchase deducts one star and increments the saved apple inventory in
-one profile transition. Water and cave furnishing examples may be visible as
-upcoming items, with `Todo`, `Comida y bebida` and `Cueva` filters. The shop
-does not feature a particular avatar.
+Every profile starts with 100 spendable starter stars. A one-time schema
+migration tops existing balances below 100 up to 100 and preserves higher
+balances. The `/shop` page offers apples and water for one star each. A purchase
+deducts one star and increments the matching saved inventory in one profile
+transition. Cave furnishing examples may be visible as upcoming items, with
+`Todo`, `Comida y bebida` and `Cueva` filters. The shop does not feature a
+particular avatar.
 
 A full mission earns **26 stars**. Credit solved questions immediately; stopping early retains credited stars. Completion bonus requires all eight solved questions. There is **no daily cap, replay discount, speed requirement or punishment**.
 
@@ -142,7 +143,7 @@ Use discriminated payloads for vocabulary, numbers, text and concepts, plus an e
 
 Games emit results; they never mutate balance, inventory or browser storage. Only the profile layer writes persistent application state. Build and integrate the profile and game features sequentially against the same typed contract. React Context plus reducer is sufficient unless the foundation establishes otherwise. Access storage only on the client after hydration.
 
-Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger, balance and inventory) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. The v1-to-v2 profile migration adds an empty item inventory while preserving existing stars and progress. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
+Use a versioned, runtime-validated local snapshot with a monotonic revision. Persist a complete transition (attempt, progress, reward keys, ledger, balance and inventory) in one snapshot write; do not scatter related state across keys. Serialize writes and acknowledge a reward/purchase as saved only after successful persistence. The v1-to-v2 profile migration adds an empty item inventory. The v2-to-v3 migration tops balances below 100 up to 100 once, preserving higher balances and progress. Retain a validated last-known-good backup before replacing a good snapshot. Load and validate before any initial autosave. Store run order and seed to resume exactly.
 
 Catch unavailable storage, quota errors, invalid JSON, validation errors and migration failures. Never silently reset or overwrite corrupt data. Offer retry and raw backup export; explicit reset requires informed confirmation. Validate imports, bound their size, migrate only supported versions and preserve originals. A future schema version opens recovery mode rather than downgrading data. On write failure show Spanish “changes not saved”, preserve pending state in memory, and allow retry/export; block further economic transactions until resolved. Do not claim reload safety for unsaved changes.
 
@@ -160,6 +161,14 @@ Use local, reviewed English pronunciation recordings and a visible repeat button
 
 The owner is the sole maintainer. Work proceeds one task at a time in the existing checkout; there are no developer roles, separate accounts/clones, parallel chats, handovers or independent-review prerequisites. Start each implementation task on a feature branch, preserve unrelated work and keep changes to shared contracts in their canonical source with dependent consumers, docs and tests.
 
+Keep routine work focused and use the smallest relevant local check for low-risk
+copy, styling or isolated UI changes. Run tests that cover changed behavior and
+shared contracts. The full pull-request CI gate remains mandatory for releases;
+local verification tiers do not remove or weaken CI checks. Batch related small
+changes for a release when appropriate. While CI runs, use longer waits and
+report meaningful progress rather than polling unchanged status repeatedly.
+Timebox failed tools and provide a useful intermediate result for longer tasks.
+
 ```bash
 git status --short --branch
 git switch main
@@ -169,7 +178,7 @@ git switch -c codex/<task-name>
 
 Keep automated repository validation, application checks and tested-artifact deployment. Do not require approval from a second person. Read the effective GitHub rules before changing them; any existing rule that prevents the owner from releasing a passing change is an explicit configuration issue to resolve, not a reason to invent another developer role. Keep main as the default branch, block force pushes, use squash merges and least-privilege workflow permissions. Do not use `pull_request_target` to execute untrusted changes.
 
-CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests.
+CI must keep the pull-request gate short and meaningful: run the repository/documentation validator and the real application checks (lint, strict TypeScript, Vitest, production build and Playwright smoke tests) from the committed lockfile. Install dependencies once per application job. Build the static export once, run browser smoke tests against that export, and retain browser failure evidence. Checks must not skip silently or use empty scripts. The documentation validator does **not** replace application tests. For local iteration, choose checks based on change risk; this does not change the required CI release gate.
 
 On pushes to `main`, deploy only after both repository and application checks pass. Upload the already-built and browser-tested `out/` directory as a short-lived artifact; the Pages deployment job downloads that artifact and publishes it without checking out the source, reinstalling dependencies or rebuilding. Keep Pages deployment permissions scoped to that job. A manual workflow dispatch may publish only from `main`. Cancel superseded runs for the same ref so obsolete commits do not consume runner time. Keep the required PR status-check job names stable when changing workflow structure; verify configured required-check names after the first successful run.
 
@@ -224,8 +233,9 @@ Use Context/reducer unless the foundation establishes otherwise; add no state
 management dependency. Keep shared schemas in src/types/contracts.ts and update
 their consumers, documentation and tests in the same change when necessary.
 
-Create a new local profile with 100 starter stars. Existing profiles keep their
-current balance. Persist the active run and question state.
+Create a new local profile with 100 starter stars. Migrate existing profiles
+below 100 up to 100 once; preserve higher balances. Persist the active run and
+question state.
 Award 2 stars once per solved question per run, even after errors/help. Award
 10 once when all eight are solved. New explicit runs receive full rewards.
 Use run/question reward keys and deduplicate attempt evidence separately.
@@ -295,7 +305,8 @@ acceptance.
 
 ## 12. Owner acceptance and release gates
 
-1. New profile: **100** starter stars; an existing profile keeps its balance.
+1. New profile: **100** starter stars; existing profiles below 100 are topped
+   up to **100** once during schema migration; higher balances are preserved.
 2. First question incorrect: **100**.
 3. Then correct: **102**.
 4. Reload: **102**, same run, solved question locked and same remaining order.

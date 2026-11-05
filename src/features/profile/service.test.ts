@@ -122,4 +122,105 @@ describe("shop profile transactions", () => {
     expect(store.value).toMatchObject({ stars: 100, inventory: {}, revision: 0 });
     service.dispose();
   });
+
+  it("consumes one saved apple per successful feeding and does not go below zero", async () => {
+    const store = new MemorySnapshotStore({
+      ...createEmptyProfile(),
+      inventory: { apple: 1 },
+    });
+    const service = createService(store);
+    await service.initialize();
+
+    expect(await service.consumeApple()).toEqual({ status: "consumed", appleCount: 0 });
+    expect(await service.consumeApple()).toEqual({ status: "empty" });
+    expect(store.value).toMatchObject({ inventory: { apple: 0 }, revision: 1 });
+    service.dispose();
+  });
+
+  it("does not consume an apple when saving the feeding transaction fails", async () => {
+    const store = new MemorySnapshotStore({
+      ...createEmptyProfile(),
+      inventory: { apple: 1 },
+    });
+    const service = createService(store);
+    await service.initialize();
+    store.failNextSave = true;
+
+    expect(await service.consumeApple()).toEqual({ status: "unsaved", reason: "unavailable" });
+    expect(store.value).toMatchObject({ inventory: { apple: 1 }, revision: 0 });
+    service.dispose();
+  });
+
+  it("buys water for one star and consumes one saved unit per successful drink", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+
+    expect(await service.purchaseWater()).toEqual({ status: "purchased", stars: 99, waterCount: 1 });
+    expect(await service.purchaseWater()).toEqual({ status: "purchased", stars: 98, waterCount: 2 });
+    expect(store.value).toMatchObject({ stars: 98, inventory: { water: 2 }, revision: 2 });
+    expect(await service.consumeWater()).toEqual({ status: "consumed", waterCount: 1 });
+    expect(await service.consumeWater()).toEqual({ status: "consumed", waterCount: 0 });
+    expect(await service.consumeWater()).toEqual({ status: "empty" });
+    expect(store.value).toMatchObject({ inventory: { water: 0 }, revision: 4 });
+    service.dispose();
+  });
+
+  it("does not deduct stars or water when an unaffordable or unsaved purchase fails", async () => {
+    const existing = { ...createEmptyProfile(), stars: 0 };
+    const store = new MemorySnapshotStore(existing);
+    const service = createService(store);
+    await service.initialize();
+
+    expect(await service.purchaseWater()).toEqual({ status: "insufficient-stars" });
+    expect(store.value).toMatchObject({ stars: 0, inventory: {}, revision: 0 });
+    service.dispose();
+
+    const saveStore = new MemorySnapshotStore();
+    const saveService = createService(saveStore);
+    await saveService.initialize();
+    saveStore.failNextSave = true;
+    expect(await saveService.purchaseWater()).toEqual({ status: "unsaved", reason: "unavailable" });
+    expect(saveStore.value).toMatchObject({ stars: 100, inventory: {}, revision: 0 });
+    saveService.dispose();
+  });
+});
+
+describe("body-parts mission profile rewards", () => {
+  it("persists placements and grants each completed round and mission once per run", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    const started = await service.startBodyMission();
+    expect(started.status).toBe("started");
+    await service.setBodyMissionDemoSeen();
+    for (const id of ["eye", "ear", "nose", "mouth"])
+      await service.placeBodyMissionWord(id, 1);
+    expect(service.getState()).toMatchObject({ status: "ready", snapshot: { stars: 108, bodyMissionProgress: { round: 1, placedWordIds: ["eye", "ear", "nose", "mouth"] } } });
+    expect(await service.placeBodyMissionWord("mouth", 1)).toMatchObject({ status: "duplicate" });
+    expect(await service.continueBodyMission()).toBe(true);
+    for (const id of ["head", "arm", "hand", "leg", "foot"])
+      await service.placeBodyMissionWord(id, 2);
+    expect(service.getState()).toMatchObject({ status: "ready", snapshot: { stars: 128, bodyMissionProgress: { status: "completed", placedWordIds: ["eye", "ear", "nose", "mouth", "head", "arm", "hand", "leg", "foot"] } } });
+    service.dispose();
+
+    const reloaded = createService(store);
+    await reloaded.initialize();
+    expect(reloaded.getState()).toMatchObject({ status: "ready", snapshot: { stars: 128, bodyMissionProgress: { status: "completed" } } });
+    const replay = await reloaded.startBodyMission();
+    expect(replay).toMatchObject({ status: "started", progress: { round: 1, placedWordIds: [], demoSeen: true } });
+    expect(reloaded.getState()).toMatchObject({ status: "ready", snapshot: { stars: 128 } });
+    reloaded.dispose();
+  });
+
+  it("keeps progress and rewards unchanged when a save fails", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    await service.startBodyMission();
+    store.failNextSave = true;
+    expect(await service.placeBodyMissionWord("eye", 1)).toEqual({ status: "unsaved" });
+    expect(store.value).toMatchObject({ stars: 100, bodyMissionProgress: { placedWordIds: [] } });
+    service.dispose();
+  });
 });

@@ -1,5 +1,6 @@
 import type {
   AnswerAttempt,
+  BodyMissionProgress,
   ProfileState,
   SessionState,
 } from "@/types/contracts";
@@ -107,9 +108,24 @@ export type StartRunResult =
   | { status: "started"; session: DeepReadonly<SessionState> }
   | { status: "confirmation-required" }
   | { status: "unavailable" | "read-only" | "unsaved" };
+export type BodyMissionPlacementResult =
+  | { status: "placed" | "duplicate" | "round-complete" | "mission-complete"; progress: BodyMissionProgress; stars: number }
+  | { status: "rejected" | "unsaved" };
 export type PurchaseResult =
   | { status: "purchased"; stars: number; appleCount: number }
   | { status: "insufficient-stars" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
+export type PurchaseWaterResult =
+  | { status: "purchased"; stars: number; waterCount: number }
+  | { status: "insufficient-stars" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
+export type ConsumeAppleResult =
+  | { status: "consumed"; appleCount: number }
+  | { status: "empty" | "read-only" | "not-ready" }
+  | { status: "unsaved"; reason: RecoveryReason };
+export type ConsumeWaterResult =
+  | { status: "consumed"; waterCount: number }
+  | { status: "empty" | "read-only" | "not-ready" }
   | { status: "unsaved"; reason: RecoveryReason };
 /** Games submit events; profile derives correctness, completion and rewards from persisted content. */
 export interface ProfilePort {
@@ -121,7 +137,14 @@ export interface ProfilePort {
     missionVersion: string;
     confirmReplacement: boolean;
   }): Promise<StartRunResult>;
+  startBodyMission(): Promise<{ status: "started"; progress: BodyMissionProgress } | { status: "read-only" | "not-ready" | "unsaved" }>;
+  setBodyMissionDemoSeen(): Promise<boolean>;
+  placeBodyMissionWord(wordId: string, expectedRound: 1 | 2, assisted?: boolean): Promise<BodyMissionPlacementResult>;
+  continueBodyMission(): Promise<boolean>;
   abandonRun(confirmation: { confirmedAbandonment: true }): Promise<SaveResult>;
+  consumeApple(): Promise<ConsumeAppleResult>;
+  purchaseWater(): Promise<PurchaseWaterResult>;
+  consumeWater(): Promise<ConsumeWaterResult>;
 }
 export interface RecoveryPort {
   retry(): Promise<LoadResult | SaveResult>;

@@ -45,23 +45,27 @@ attempt validation against the bundled catalog; serialized profile transitions;
 idempotent question and completion rewards; raw learning evidence and derived
 mastery; retry, backup restore, JSON import/export and confirmed reset UI.
 Pending unsaved snapshots remain exportable. Storage is never accessed during
-server rendering. The provider currently receives an empty validated content
-catalog, so no mission can be started and no curriculum has been authored.
+server rendering. The provider receives an empty validated content catalog, so the animal
+picture-selection mission cannot be started and no animal curriculum has been
+authored. The separate silent body-parts matching mission (`body-parts-01`,
+see docs/decisions.md, 2026-11-04) does not use that catalog and is playable.
 
-The `/shop` route displays the star balance, three category filters, an apple
-priced at one star, and upcoming drink/cave items. New profiles start with 100
-stars; existing balances are preserved. Apple purchases atomically deduct one
-star and increase the persisted apple inventory. No avatar is featured in the
-shop.
+The `/shop` route displays the star balance, three category filters, apples and
+water priced at one star each, and upcoming cave items. Every profile starts
+with 100 stars; a one-time migration tops existing balances below 100 up to
+100 and preserves higher balances. Consumable purchases atomically deduct one
+star and increase the matching persisted inventory. No avatar is featured in
+the shop.
 
 The app builds as a static export for GitHub Pages; the Pages workflow publishes
 on pushes to `main`.
 The repository is now public and GitHub Pages is enabled (build type: workflow,
 source: `main`), so the site is published at
 https://ae22589.github.io/educational-gaming-platform/ (verified through the
-GitHub API on 2026-10-31). It currently serves development previews only.
+GitHub API on 2026-10-31). It serves development previews only; docs/setup-status.md
+records what is currently available.
 
-Not yet implemented: approved animal content/media, full avatar rendering, gameplay and
-the child-pilot/media gates. Imports with session history require the matching
+Not yet implemented: approved animal content/media, full avatar rendering, the animal
+picture-selection game and the child-pilot/media gates. Imports with session history require the matching
 trusted mission versions in the catalog and enter recovery if those versions
 are unavailable. MVP-02 does not make the first integrated learning loop ready.

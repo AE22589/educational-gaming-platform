@@ -1,5 +1,7 @@
 export const APPLE_ITEM_ID = "apple";
 export const APPLE_PRICE_STARS = 1;
+export const WATER_ITEM_ID = "water";
+export const WATER_PRICE_STARS = 1;
 
 export type ShopFilter = "Todo" | "Comida y bebida" | "Cueva";
 export type ShopProductId = typeof APPLE_ITEM_ID | "water" | "leaf-bed" | "glow-plant";

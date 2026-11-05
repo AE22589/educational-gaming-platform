@@ -25,7 +25,33 @@ export function decodeSnapshot(raw: string): LoadResult {
     "schemaVersion" in value &&
     value.schemaVersion === 1
   ) {
-    value = { ...value, schemaVersion: PROFILE_SCHEMA_VERSION, inventory: {} };
+    value = { ...value, schemaVersion: 2, inventory: {} };
+  }
+  if (
+    typeof value === "object" &&
+    value !== null &&
+    "schemaVersion" in value &&
+    value.schemaVersion === 2
+  ) {
+    const profile = value as { stars?: unknown };
+    value = {
+      ...value,
+      schemaVersion: PROFILE_SCHEMA_VERSION,
+      bodyMissionProgress: null,
+      ...(typeof profile.stars === "number" &&
+      Number.isSafeInteger(profile.stars) &&
+      profile.stars >= 0
+        ? { stars: Math.max(profile.stars, 100) }
+        : {}),
+    };
+  }
+  if (
+    typeof value === "object" &&
+    value !== null &&
+    "schemaVersion" in value &&
+    value.schemaVersion === 3
+  ) {
+    value = { ...value, schemaVersion: PROFILE_SCHEMA_VERSION, bodyMissionProgress: null };
   }
   const parsed = profileStateSchema.safeParse(value);
   return parsed.success
