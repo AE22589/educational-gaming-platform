@@ -54,7 +54,7 @@ jobs:
         id: find-pr-run
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         continue-on-error: true
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -139,7 +139,7 @@ jobs:
       - name: Verify the PR artifact matches this main tree
         id: reuse-pr-artifact
         if: steps.find-pr-run.outputs.run_id != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           EXPECTED_RUN_ID: ${{ steps.find-pr-run.outputs.run_id }}
           EXPECTED_PR_NUMBER: ${{ steps.find-pr-run.outputs.pull_request_number }}
