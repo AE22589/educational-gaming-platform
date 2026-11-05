@@ -7,8 +7,11 @@ for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
 
     const navigation = page.getByRole("navigation", { name: "Navegación principal" });
     await expect(navigation.getByRole("link", { name: "My Profile Mi perfil" })).toBeVisible();
-    await expect(navigation.getByRole("link", { name: "Contact Us Contacto" })).toBeVisible();
-    await expect(navigation.getByRole("link", { name: "About Chispitas Sobre Chispitas" })).toBeVisible();
+    // Contact Us and About Chispitas are friendly "coming soon" previews, not links.
+    await expect(navigation.getByText("Contact Us")).toBeVisible();
+    await expect(navigation.getByText("About Chispitas")).toBeVisible();
+    await expect(navigation.getByText("¡Muy pronto!", { exact: false })).toHaveCount(2);
+    await expect(navigation.getByRole("link", { name: /Contact Us|About Chispitas/ })).toHaveCount(0);
     await expect(navigation.getByText("Log in/Register", { exact: false })).toBeVisible();
     await expect(navigation.getByText("Iniciar sesión/Registrarse", { exact: true })).toBeVisible();
     const subtitleColors = await navigation.locator("small").evaluateAll((elements) =>
@@ -16,7 +19,7 @@ for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
     );
     expect(new Set(subtitleColors)).toEqual(new Set(["rgb(94, 112, 138)"]));
 
-    const contactArt = navigation.locator('a[href*="/learn"] img');
+    const contactArt = navigation.locator('img[src*="contact-dragon"]');
     await expect.poll(() => contactArt.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 
     const layout = await page.evaluate(() => {
@@ -78,10 +81,8 @@ for (const width of [360, 768, 1280]) {
     if (await startMission.isVisible()) await startMission.click();
     await page.getByRole("link", { name: "‹ Misiones" }).click();
     await expect(page).toHaveURL(/\/learn\/?$/);
-    await page
-      .getByRole("navigation")
-      .getByRole("link", { name: "About Chispitas Sobre Chispitas", exact: true })
-      .click();
+    await page.getByRole("link", { name: "Chispitas" }).first().click();
+    await page.getByRole("link", { name: "Visitar tienda" }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tienda de estrellas");
     await expect(page.locator(".shop-star-balance strong")).toHaveText("100");
     await page.screenshot({ path: `test-results/shop-${width}.png`, fullPage: true });
