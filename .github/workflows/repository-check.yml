@@ -15,10 +15,10 @@ jobs:
     name: repository-check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
       - run: node scripts/validate-repository.mjs
@@ -48,7 +48,7 @@ jobs:
     env:
       NEXT_TELEMETRY_DISABLED: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Find the successful PR run for this merge
         id: find-pr-run
@@ -190,7 +190,7 @@ jobs:
           mkdir -p out
           cp -a release-candidate/site/. out/
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.reuse-pr-artifact.outputs.reusable != 'true'
         with:
           node-version-file: .nvmrc
@@ -237,8 +237,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
