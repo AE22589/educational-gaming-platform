@@ -38,11 +38,14 @@ Repository settings, verified through the GitHub API on 2026-11-05:
 - **Still open:** secret scanning is disabled, the repository has no licence file,
   auto-merge is disabled, and 8 Dependabot pull requests (#19 to #26) are open.
 
-Because direct pushes to `main` are allowed, the pull-request-only checks do not
-run for them: `quality-check` (lint, typecheck, unit tests) and the documentation
-impact check. The repository check (document links, asset rules, script tests) and
-the application check (build and browser tests) run on every push to `main`, and
-a failure stops the deployment, but the change is already on `main`.
+Direct pushes to `main` are checked after the push, not before: every push to
+`main` runs the repository check (document links, asset rules, script tests), the
+application check (build and browser tests) and the quality check (lint, typecheck,
+unit tests). A failure in any of them stops the deployment, but the change is
+already on `main`. The documentation impact check also runs on every push, but
+only as a warning (it never stops the deployment). An opt-out line
+`Docs-Impact: none — <reason>` in a commit message silences it. Planned
+improvements are listed in `docs/backlog.md`.
 
 ## Product status (what `main` serves)
 

@@ -1,5 +1,17 @@
 # Project decisions
 
+## Quality and documentation checks also run on push — 2026-11-05
+
+Status: decided by the owner; implemented in the pull request that introduces it.
+
+Because the owner pushes directly to `main` without a pull request, the quality
+check (lint, typecheck, unit tests) now runs on every push to `main` and the
+deployment waits for it, like the repository and application checks. The
+documentation impact check also runs on every push, but only as a warning, because
+a squash-merged pull request can lose its opt-out line and must not block a release.
+The commit messages of the change may carry the opt-out line. A later step, an
+automated self-merging pull-request flow, is recorded in `docs/backlog.md`.
+
 ## Repository access and light branch protection — 2026-11-05
 
 Status: decided by the owner; applied through the GitHub API and verified.

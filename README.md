@@ -75,6 +75,7 @@ the normal per-user browser cache on Windows. In Linux CI, install Playwright wi
 - [Project decisions](docs/decisions.md)
 - [Asset register](docs/assets.md)
 - [Master plan](docs/master-plan.md)
+- [Backlog of planned later work](docs/backlog.md)
 
 The owner maintains the project solo and works sequentially, with several AI
 assistants contributing through pull requests. Read `AGENTS.md` before changing
