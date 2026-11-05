@@ -22,7 +22,14 @@
 - Update affected specifications when approved decisions change them.
 
 ## Collaboration
-- Check branch and working tree before edits; never implement on main.
+- Check branch and working tree before edits. Direct commits and pushes to main are
+  allowed (owner decision, docs/decisions.md); pull main first and keep the tree clean.
+- Never leave finished work only on a side branch (for example codex/*): in the same
+  session, push it to main or open a pull request. Deployment runs from main only, so
+  work on a side branch is invisible and goes stale. Update from main before starting.
+- At the start of every session run git fetch and git branch -r --no-merged origin/main.
+  Report any branch with unmerged work to the owner before starting new work (squash-
+  merged branches also appear; check the pull request state before judging).
 - Work sequentially as a solo-maintained project; no second developer, role split,
   separate account/clone, or independent review is required.
 - Keep routine changes focused: inspect the relevant files, make the smallest
@@ -87,6 +94,9 @@
   `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,
   `npm run build`, and the applicable browser checks.
   Report any unexecuted checks.
+- The deployed site uses a base path in CI (GITHUB_ACTIONS=true). Before pushing UI or test
+  changes, also run: GITHUB_ACTIONS=true npm run build, then GITHUB_ACTIONS=true npx playwright
+  test. Tests must not assume hrefs or image paths start at "/".
 - Follow the plan's visual, accessibility, audio and asset-rights gate.
 - No credentials or real children's data in code, prompts or fixtures.
 - Local assets only; no external tracking/media service.
