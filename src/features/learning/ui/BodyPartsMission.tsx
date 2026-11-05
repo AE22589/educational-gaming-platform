@@ -144,7 +144,6 @@ export function BodyPartsMission() {
 
   const handlePointerDown = (event: PointerEvent<HTMLButtonElement>, wordId: string) => {
     if (pointerId.current !== null) { event.preventDefault(); return; }
-    suppressClick.current = true;
     didMove.current = false;
     dragOrigin.current = [event.clientX, event.clientY];
     pointerId.current = event.pointerId;
@@ -162,8 +161,9 @@ export function BodyPartsMission() {
     if (pointerId.current !== event.pointerId) return;
     pointerId.current = null;
     setDragPreview(null);
-    window.setTimeout(() => { suppressClick.current = false; }, 0);
     if (!didMove.current) return;
+    suppressClick.current = true;
+    window.setTimeout(() => { suppressClick.current = false; }, 0);
     const figure = figureRef.current;
     if (figure) {
       const rect = figure.getBoundingClientRect();
@@ -203,7 +203,7 @@ export function BodyPartsMission() {
         {targets.map((target) => {
           const word = BODY_PARTS_WORDS.find((item) => item.targets.includes(target.id));
           const alreadyPlaced = Boolean(word && placed.includes(word.id));
-          return <button key={target.id} type="button" className={`body-target ${round === 1 ? "is-face-target" : ""} ${selected && word?.id === selected ? "is-selected" : ""} ${hinted && word?.id === hinted ? "is-hinted" : ""} ${word?.id === recentWord ? "is-recent" : ""}`} data-target-id={target.id} style={{ left: `${target.x}%`, top: `${target.y}%` }} disabled={alreadyPlaced || !isPlaying || busy} aria-label={word?.meaning ?? target.id} aria-pressed={Boolean(word && selected === word.id)} onClick={() => { if (selected) void place(selected, target.id); }} onKeyDown={(event) => { if (["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) { event.preventDefault(); const buttons = Array.from(event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>("[data-target-id]:not(:disabled)") ?? []); const step = event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 1; buttons[(buttons.indexOf(event.currentTarget) + step + buttons.length) % (buttons.length || 1)]?.focus(); } if (event.key === "Escape") setSelected(null); }}>
+          return <button key={target.id} type="button" className={`body-target is-quiet-target ${selected && word?.id === selected ? "is-selected" : ""} ${hinted && word?.id === hinted ? "is-hinted" : ""} ${word?.id === recentWord ? "is-recent" : ""}`} data-target-id={target.id} style={{ left: `${target.x}%`, top: `${target.y}%` }} disabled={alreadyPlaced || !isPlaying || busy} aria-label={word?.meaning ?? target.id} aria-pressed={Boolean(word && selected === word.id)} onClick={() => { if (selected) void place(selected, target.id); }} onKeyDown={(event) => { if (["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) { event.preventDefault(); const buttons = Array.from(event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>("[data-target-id]:not(:disabled)") ?? []); const step = event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 1; buttons[(buttons.indexOf(event.currentTarget) + step + buttons.length) % (buttons.length || 1)]?.focus(); } if (event.key === "Escape") setSelected(null); }}>
             <span aria-hidden="true">{alreadyPlaced ? "✓" : ""}</span>
           </button>;
         })}
