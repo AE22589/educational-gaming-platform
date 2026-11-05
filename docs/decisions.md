@@ -1,5 +1,16 @@
 # Project decisions
 
+## Fast lane for small changes — 2026-11-05
+
+Status: decided by the owner; implemented in AGENTS.md.
+
+A small change went through the full local checks twice, a pull request, the CI run and
+the deployment, which took far too long. Small changes (text, colours, spacing, one
+image or icon, documentation) now take a fast lane: commit and push directly to
+`main`, run only lint and the one affected test, update the documentation. The full
+CI still runs after the push and a failing run stops the deployment. Larger changes keep
+the full lane with a pull request and all checks. The rule is in AGENTS.md.
+
 ## Placeholder pages behind Contact Us and About Chispitas — 2026-11-05
 
 Status: decided by the owner; implemented in the pull request that introduces it.

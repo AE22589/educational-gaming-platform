@@ -52,6 +52,14 @@ The detailed rules follow below.
   use a focused review and the narrowest relevant check. For behavior or shared
   contracts, run the relevant tests and checks. Never weaken or skip the full
   pull-request CI gate for a release.
+- Fast lane for small changes (text, colours, spacing, one image or icon, docs): commit
+  and push directly to main. Run only lint and the one affected test (none for pure
+  text or docs), update the affected documentation, push. CI runs every check after the
+  push and a red run stops the deployment, so fix it immediately.
+- Full lane (pull request and all local checks) for new pages or routes, logic, rewards,
+  storage, dependencies, workflows or changes across many files. Run the browser tests
+  once; add the GITHUB_ACTIONS=true run only when links, image paths or navigation
+  changed. Do not repeat a full run for a change that did not touch code.
 - For every GUI implementation or change, inspect the result visually in a
   browser controlled by Codex. Use the browser available in this environment;
   do not ask the owner to provide or operate their personal laptop browser.
