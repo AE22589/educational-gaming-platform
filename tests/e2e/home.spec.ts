@@ -135,17 +135,16 @@ test("the companion cave follows the 06:00 and 18:00 local-time changes", async 
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 });
 
-test("the body mission explains its start gate and accepts face-word drags", async ({ page }) => {
+test("the body mission starts without Comenzar, accepts face drags, and uses the matching round-two art", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/learn/body-parts-01/");
 
-  await expect(page.getByText("Pulsa Comenzar para activar las palabras.")).toBeVisible();
   const eyeCard = page.getByRole("button", { name: "eye", exact: true });
-  await expect(eyeCard).toBeDisabled();
-  await page.getByRole("button", { name: "Comenzar" }).click();
   const skipDemo = page.getByRole("button", { name: "Saltar y empezar" });
-  if (await skipDemo.isVisible()) await skipDemo.click();
+  await expect(skipDemo).toBeVisible();
+  await skipDemo.click();
   await expect(eyeCard).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Comenzar" })).toBeVisible();
 
   const dragWord = async (word: string, targetId: string) => {
     const card = page.getByRole("button", { name: word, exact: true });
@@ -163,4 +162,9 @@ test("the body mission explains its start gate and accepts face-word drags", asy
   await dragWord("eye", "eye-left");
   await dragWord("mouth", "mouth");
   await dragWord("nose", "nose");
+  await dragWord("ear", "ear-left");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  const fullBody = page.getByRole("img", { name: "La niña de la portada de cuerpo entero, con los brazos extendidos a los lados" });
+  await expect(fullBody).toBeVisible();
+  await expect.poll(() => fullBody.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(1024);
 });
