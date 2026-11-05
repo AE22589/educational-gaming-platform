@@ -94,6 +94,9 @@
   `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,
   `npm run build`, and the applicable browser checks.
   Report any unexecuted checks.
+- The deployed site uses a base path in CI (GITHUB_ACTIONS=true). Before pushing UI or test
+  changes, also run: GITHUB_ACTIONS=true npm run build, then GITHUB_ACTIONS=true npx playwright
+  test. Tests must not assume hrefs or image paths start at "/".
 - Follow the plan's visual, accessibility, audio and asset-rights gate.
 - No credentials or real children's data in code, prompts or fixtures.
 - Local assets only; no external tracking/media service.

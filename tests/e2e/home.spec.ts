@@ -16,7 +16,7 @@ for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
     );
     expect(new Set(subtitleColors)).toEqual(new Set(["rgb(94, 112, 138)"]));
 
-    const contactArt = navigation.locator('a[href^="/learn"] img');
+    const contactArt = navigation.locator('a[href*="/learn"] img');
     await expect.poll(() => contactArt.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 
     const layout = await page.evaluate(() => {
