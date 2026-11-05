@@ -6,12 +6,14 @@ import {
   type LearningEvidence,
   type ProfileState,
   type SessionState,
+  type BodyMissionProgress,
 } from "@/types/contracts";
 import { deriveMastery, type MasterySummary } from "@/features/rewards/mastery";
 import type { ProfileCatalog } from "./catalog";
 import { PROFILE_SCHEMA_VERSION } from "@/types/contracts";
 import {
   type AttemptResult,
+  type BodyMissionPlacementResult,
   type ConsumeAppleResult,
   type ConsumeWaterResult,
   type ExclusiveWriterLease,
@@ -30,6 +32,7 @@ import {
 import { createSession } from "./sessions";
 import { decodeSnapshot } from "./snapshot";
 import { APPLE_ITEM_ID, APPLE_PRICE_STARS, WATER_ITEM_ID, WATER_PRICE_STARS } from "@/features/shop/catalog";
+import { roundWords } from "@/features/learning/body-parts-mission";
 
 export function createEmptyProfile(): ProfileState {
   return {
@@ -46,6 +49,7 @@ export function createEmptyProfile(): ProfileState {
     processedAttemptIds: [],
     processedRewardKeys: [],
     rewardLedger: [],
+    bodyMissionProgress: null,
   };
 }
 
@@ -262,6 +266,74 @@ export class ProfileService implements ProfilePort, RecoveryPort {
       return saved.status === "saved"
         ? { status: "started", session: run }
         : { status: "unsaved" };
+    });
+  }
+
+  async startBodyMission(): Promise<{ status: "started"; progress: BodyMissionProgress } | { status: "read-only" | "not-ready" | "unsaved" }> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready") return { status: "not-ready" };
+      if (this.state.ownership !== "exclusive" || !this.lease()) return { status: "read-only" };
+      const current = this.state.snapshot as ProfileState;
+      const previous = current.bodyMissionProgress;
+      if (previous?.status === "active") return { status: "started", progress: previous };
+      const progress: BodyMissionProgress = {
+        runId: crypto.randomUUID(),
+        demoSeen: previous?.demoSeen ?? false,
+        round: 1,
+        placedWordIds: [],
+        assistedWordIds: [],
+        status: "active",
+      };
+      const saved = await this.persist(profileStateSchema.parse({ ...current, revision: current.revision + 1, bodyMissionProgress: progress }));
+      return saved.status === "saved" ? { status: "started", progress } : { status: "unsaved" };
+    });
+  }
+
+  async setBodyMissionDemoSeen(): Promise<boolean> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready" || this.state.ownership !== "exclusive" || !this.lease()) return false;
+      const current = this.state.snapshot as ProfileState;
+      const progress = current.bodyMissionProgress;
+      if (!progress || progress.demoSeen) return Boolean(progress?.demoSeen);
+      const saved = await this.persist(profileStateSchema.parse({ ...current, revision: current.revision + 1, bodyMissionProgress: { ...progress, demoSeen: true } }));
+      return saved.status === "saved";
+    });
+  }
+
+  async placeBodyMissionWord(wordId: string, expectedRound: 1 | 2, assisted = false): Promise<BodyMissionPlacementResult> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready" || this.state.ownership !== "exclusive" || !this.lease()) return { status: "rejected" };
+      const current = this.state.snapshot as ProfileState;
+      const progress = current.bodyMissionProgress;
+      const validWords = roundWords(expectedRound).map((word) => word.id);
+      if (!progress || progress.status !== "active" || progress.round !== expectedRound || !validWords.includes(wordId)) return { status: "rejected" };
+      if (progress.placedWordIds.includes(wordId)) return { status: "duplicate", progress, stars: current.stars };
+      const placedWordIds = [...progress.placedWordIds, wordId];
+      const assistedWordIds = assisted && !progress.assistedWordIds.includes(wordId) ? [...progress.assistedWordIds, wordId] : progress.assistedWordIds;
+      const next = profileStateSchema.parse({ ...current, revision: current.revision + 1, bodyMissionProgress: { ...progress, placedWordIds, assistedWordIds } });
+      const completeRound = validWords.every((word) => placedWordIds.includes(word));
+      if (completeRound) {
+        const key = `body-parts:${progress.runId}:round-${expectedRound}`;
+        this.addReward(next, { key, runId: progress.runId, kind: "body-round-complete", amount: validWords.length * 2, timestamp: this.now() });
+        if (expectedRound === 2) {
+          this.addReward(next, { key: `body-parts:${progress.runId}:complete`, runId: progress.runId, kind: "body-mission-complete", amount: 10, timestamp: this.now() });
+          next.bodyMissionProgress = { ...next.bodyMissionProgress!, status: "completed" };
+        }
+      }
+      const saved = await this.persist(next);
+      if (saved.status !== "saved") return { status: "unsaved" };
+      return { status: completeRound ? expectedRound === 2 ? "mission-complete" : "round-complete" : "placed", progress: next.bodyMissionProgress!, stars: next.stars };
+    });
+  }
+
+  async continueBodyMission(): Promise<boolean> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready" || this.state.ownership !== "exclusive" || !this.lease()) return false;
+      const current = this.state.snapshot as ProfileState;
+      const progress = current.bodyMissionProgress;
+      if (!progress || progress.round !== 1 || progress.status !== "active" || !roundWords(1).every(({ id }) => progress.placedWordIds.includes(id))) return false;
+      const saved = await this.persist(profileStateSchema.parse({ ...current, revision: current.revision + 1, bodyMissionProgress: { ...progress, round: 2 } }));
+      return saved.status === "saved";
     });
   }
 

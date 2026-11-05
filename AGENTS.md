@@ -25,6 +25,23 @@
 - Check branch and working tree before edits; never implement on main.
 - Work sequentially as a solo-maintained project; no second developer, role split,
   separate account/clone, or independent review is required.
+- Keep routine changes focused: inspect the relevant files, make the smallest
+  complete change, and avoid broad repository exploration when the task is clear.
+- Match local verification to risk. For copy, styling or isolated UI changes,
+  use a focused review and the narrowest relevant check. For behavior or shared
+  contracts, run the relevant tests and checks. Never weaken or skip the full
+  pull-request CI gate for a release.
+- For every GUI implementation or change, inspect the result visually in a
+  browser controlled by Codex. Use the browser available in this environment;
+  do not ask the owner to provide or operate their personal laptop browser.
+  Check the relevant viewport sizes and interactions for the change.
+- Batch related small edits before a live release when that fits the owner's
+  request. Show a useful local result promptly when a task will take longer.
+- While CI or deployment runs, avoid frequent status polling. Use longer waits
+  and report meaningful state changes; do not spend time repeating unchanged
+  status checks.
+- Timebox blocked tools and failed previews. Inspect the failure once, choose a
+  practical next step, and avoid repeating the same unsuccessful operation.
 - Preserve existing uncommitted changes. Keep shared contracts in their single
   source of truth and update dependent specs/tests in the same change.
 - Never commit, push or merge without explicit authorization.
@@ -42,8 +59,13 @@
 
 ## Quality and privacy
 - Test changed behavior; never disable tests or weaken checks.
+- Use focused local checks for low-risk changes and test changed behavior.
+- The pull-request CI gate remains comprehensive: repository validation, lint,
+  typecheck, unit tests, production build and Playwright smoke tests.
 - Bootstrap check: node scripts/validate-repository.mjs.
-- After foundation: npm run lint, npm run typecheck, npm test, npm run build.
+- For foundation work or an explicitly requested full verification, run
+  `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,
+  `npm run build`, and the applicable browser checks.
   Report any unexecuted checks.
 - Follow the plan's visual, accessibility, audio and asset-rights gate.
 - No credentials or real children's data in code, prompts or fixtures.
@@ -57,7 +79,7 @@ Repository instructions complement effective GitHub rules and cannot enable them
 - Shared schema authority: src/types/contracts.ts; review fixtures: tests/fixtures/.
 - Profile ports and pure decoder exist; no storage adapter/provider is wired yet.
 - Keep fixture imports out of production routes. Media directories contain no approved assets.
-- Run npm ci, npm run check:docs, npm run lint, npm run typecheck, npm test,
-  and npm run build.
+- For foundation implementation, run npm ci, npm run check:docs, npm run lint,
+  npm run typecheck, npm test, and npm run build.
 - MVP-01 foundation is complete. Current work follows the solo workflow in
   docs/decisions.md and docs/mvp-development-plan-1.1.md.

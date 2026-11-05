@@ -5,25 +5,25 @@ describe("snapshot decoder", () => {
   it("migrates v1 profiles and tops their starting balance up to 100 once", () => {
     expect(decodeSnapshot(JSON.stringify(profile))).toEqual({
       status: "ready",
-      snapshot: { ...profile, schemaVersion: 3, stars: 100, inventory: {} },
+      snapshot: { ...profile, schemaVersion: 4, stars: 100, inventory: {}, bodyMissionProgress: null },
     });
   });
   it("tops up existing v2 profiles below 100 and preserves higher balances", () => {
     const oldProfile = { ...profile, schemaVersion: 2, inventory: {}, stars: 42 };
     expect(decodeSnapshot(JSON.stringify(oldProfile))).toMatchObject({
       status: "ready",
-      snapshot: { schemaVersion: 3, stars: 100, inventory: {} },
+      snapshot: { schemaVersion: 4, stars: 100, inventory: {}, bodyMissionProgress: null },
     });
     expect(decodeSnapshot(JSON.stringify({ ...oldProfile, stars: 125 }))).toMatchObject({
       status: "ready",
-      snapshot: { schemaVersion: 3, stars: 125 },
+      snapshot: { schemaVersion: 4, stars: 125, bodyMissionProgress: null },
     });
   });
-  it("does not reapply the starting balance to v3 purchases", () => {
+  it("migrates v3 profiles without reapplying the starting balance", () => {
     const currentProfile = { ...profile, schemaVersion: 3, inventory: { apple: 1 }, stars: 99 };
     expect(decodeSnapshot(JSON.stringify(currentProfile))).toMatchObject({
       status: "ready",
-      snapshot: { schemaVersion: 3, stars: 99, inventory: { apple: 1 } },
+      snapshot: { schemaVersion: 4, stars: 99, inventory: { apple: 1 }, bodyMissionProgress: null },
     });
   });
   it.each([

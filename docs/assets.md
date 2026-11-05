@@ -1,5 +1,25 @@
 # Homepage Asset Register
 
+## Body-parts mission
+
+The progress character is a transparent WebP adapted from the dragon image
+provided by the owner. The checkerboard background was removed while preserving
+the character, then the image was resized and converted locally for web use.
+No external media or runtime image service is used. Owner visual review and
+rights review remain pending before any child pilot.
+
+The adventure path is a shallow crop from the landscape illustration supplied
+by the owner (`Bild-3.png`), converted locally to WebP. The original flag and
+label are replaced by a round origin marker; seven path stations and the cave
+remain visible. The image is decorative; the
+accessible progressbar exposes the game-completion position. No external media
+is used.
+
+| Asset | Local path | Type | Locale | Accessible description | Review status |
+|---|---|---|---|---|---|
+| Adventure progress path | `public/learning/adventure-progress-path.webp` | Cropped progress-bar background | None | Decorative landscape with a start marker, seven path stations, and a cave; progress is also exposed as a semantic progressbar. | Owner-provided source; local crop; visual review pending. |
+| Dragon progress character | `public/learning/dragon-progress.webp` | Transparent progress illustration | None | The owner's purple baby dragon sits on the mission path and moves forward as words are placed. | Owner-provided source image; owner visual and rights review pending before any child pilot. |
+
 ## Companion cave preview
 
 These empty base backgrounds were generated with Codex ImageGen from the
