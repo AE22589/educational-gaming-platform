@@ -116,7 +116,7 @@ jobs:
         id: download-pr-site
         if: steps.find-pr-run.outputs.run_id != ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pages-site
           path: release-candidate/site
@@ -128,7 +128,7 @@ jobs:
         id: download-pr-metadata
         if: steps.find-pr-run.outputs.run_id != ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pages-site-metadata
           path: release-candidate/metadata
@@ -260,7 +260,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: pages-site
           path: out
