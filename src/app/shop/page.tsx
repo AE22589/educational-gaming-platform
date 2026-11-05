@@ -1,8 +1,5 @@
-import { Placeholder } from "@/components/ui/Placeholder";
+import { ShopPage } from "@/features/shop/ui/ShopPage";
+
 export default function Shop() {
-  return (
-    <Placeholder title="La tienda de la aventura">
-      Los accesorios llegarán más adelante. Aún no hay compras disponibles.
-    </Placeholder>
-  );
+  return <ShopPage />;
 }
