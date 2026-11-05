@@ -33,19 +33,29 @@ function git(...args) {
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const base = process.env.BASE_SHA;
-  if (!base) {
-    console.log('No BASE_SHA set; documentation impact check skipped (pull requests only).');
+  if (!base || /^0+$/.test(base)) {
+    console.log('No usable BASE_SHA; documentation impact check skipped.');
     process.exit(0);
   }
-  const files = git('diff', '--name-only', `${base}...HEAD`).split('\n').filter(Boolean);
-  const result = evaluate({ files, body: process.env.PR_BODY ?? '', author: process.env.PR_AUTHOR ?? '' });
+  let files;
+  let messages = '';
+  try {
+    files = git('diff', '--name-only', `${base}...HEAD`).split('\n').filter(Boolean);
+    messages = git('log', '--format=%B', `${base}..HEAD`);
+  } catch {
+    console.log('Base commit not available (for example after a force push); documentation impact check skipped.');
+    process.exit(0);
+  }
+  // An opt-out line may be in the pull request description or in any commit message of the change.
+  const body = `${process.env.PR_BODY ?? ''}\n${messages}`;
+  const result = evaluate({ files, body, author: process.env.PR_AUTHOR ?? '' });
   if (result.ok) {
     console.log('Documentation impact check passed.');
   } else {
     console.error('Documentation impact check failed. This pull request changes product files:');
     for (const f of result.product) console.error(`  - ${f}`);
     for (const r of result.reasons) console.error(`* ${r}`);
-    console.error('If no documentation is affected, add this line to the pull request description:');
+    console.error('If no documentation is affected, add this line to the pull request description or a commit message:');
     console.error('  Docs-Impact: none — <reason of at least 10 characters>');
     process.exit(1);
   }
