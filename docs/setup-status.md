@@ -51,6 +51,14 @@ and any backend. Media-rights review, visual review and child-pilot approval are
 pending. See `docs/mvp.md` for the recommended scope, which is not a binding
 product boundary, and `docs/assets.md` for artwork status.
 
+## Assets
+
+All images in `public/` are WebP (animations are lossless animated WebP) and are
+registered in `docs/assets.md`; `npm run check:docs` and CI enforce this. The cave
+preloads the apple and water animations. Artwork is owner-approved in the
+development chat; an independent third-party rights assessment is still open before
+a child pilot.
+
 ## Local checks
 
 Run `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,

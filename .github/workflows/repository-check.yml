@@ -22,6 +22,7 @@ jobs:
         with:
           node-version-file: .nvmrc
       - run: node scripts/validate-repository.mjs
+      - run: node scripts/check-assets.mjs
       - run: node --test scripts/*.test.mjs
       - name: Documentation impact check
         if: github.event_name == 'pull_request'
@@ -145,8 +146,8 @@ jobs:
             const requiredSiteFiles = [
               "index.html",
               "avatar/index.html",
-              "dragon-cave/cave-day.png",
-              "dragon-cave/cave-night.png",
+              "dragon-cave/cave-day.webp",
+              "dragon-cave/cave-night.webp",
             ];
             const currentTree = execFileSync("git", ["rev-parse", "HEAD^{tree}"], {
               encoding: "utf8",

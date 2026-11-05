@@ -182,3 +182,36 @@ test("the body mission has a single Empezar button, no Comenzar button, accepts 
   await expect(page.locator(".body-placement-label.body-label-head")).toBeVisible();
   await dragWord("arm", "arm-left");
 });
+test("feeding the dragon plays the lossless WebP animations and returns to sleep", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/shop/");
+  await page.locator(".product-apple").getByRole("button", { name: "Comprar" }).click();
+  await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+  await page.locator(".product-water").getByRole("button", { name: "Comprar" }).click();
+  await expect(page.locator(".shop-pantry")).toContainText("1 agua");
+
+  const requested: string[] = [];
+  page.on("request", (request) => requested.push(request.url()));
+  await page.goto("/avatar/");
+  const dragon = page.locator(".cave-dragon");
+  await expect(dragon).toHaveAttribute("src", /dragon-sleep.webp$/);
+  // The feeding animations are fetched in the background before they are needed.
+  await expect.poll(() => requested.filter((url) => /dragon-(eats|drinks)-shop-.*.webp$/.test(url)).length, { timeout: 10_000 }).toBe(2);
+
+  for (const [item, alt, file] of [
+    ["apple", "Chispitas está comiendo una manzana.", /dragon-eats-shop-apple.webp$/],
+    ["water", "Chispitas está bebiendo agua fresca.", /dragon-drinks-shop-water.webp$/],
+  ] as const) {
+    const source = await page.locator(`.cave-${item}`).boundingBox();
+    const target = await dragon.boundingBox();
+    if (!source || !target) throw new Error("The consumable or the dragon is missing.");
+    await page.mouse.move(source.x + source.width / 2, source.y + source.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(target.x + target.width / 2, target.y + target.height / 2, { steps: 8 });
+    await page.mouse.up();
+    const animation = page.getByRole("img", { name: alt });
+    await expect(animation).toHaveAttribute("src", file);
+    await expect.poll(() => animation.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.getByRole("img", { name: /Chispitas duerme enroscado/ })).toBeVisible({ timeout: 8_000 });
+  }
+});

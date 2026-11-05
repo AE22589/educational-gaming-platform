@@ -1,5 +1,25 @@
 # Project decisions
 
+## Lossless WebP for all images, and the approval process — 2026-11-05
+
+Status: requested by the owner; implemented in the pull request that introduces it.
+
+All raster images in `public/` are WebP. The three dragon GIFs and four large PNGs
+were converted to lossless WebP (GIF playback kept: the apple and water animations
+play once, the sleeping animation loops). An exact comparison of the decoded pixels (all
+frames of the three animations, and the four stills) found no visible difference;
+only the invisible colour under fully transparent pixels of one image differs. The
+assets in `public/` went from about 31 MB to about 13 MB, and the cave preloads the two feeding
+animations in the background. `scripts/to-lossless-webp.mjs` converts new files and
+`scripts/check-assets.mjs` fails CI for GIF/PNG/JPEG files, lossy animated WebP, or
+files missing from `docs/assets.md`. Existing static WebP images are lossy and were
+left unchanged. The unused draft `enchanted-valley-hero.webp` was deleted.
+
+The owner approves artwork in the development chat before merging, so artwork on
+`main` counts as owner-approved. The remaining open item is a single independent
+assessment of third-party rights before a child pilot or wider publication; it is
+no longer tracked per image.
+
 ## Documentation synchronization — 2026-11-05
 
 Status: requested by the owner; implemented in the pull request that introduces it.

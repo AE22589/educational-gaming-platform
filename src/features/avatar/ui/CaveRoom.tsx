@@ -45,6 +45,19 @@ export function CaveRoom({ basePath }: { basePath: string }) {
     if (animationTimerRef.current !== null) window.clearTimeout(animationTimerRef.current);
   }, []);
 
+  // Fetch the feeding animations in the background so they start instantly on slow connections.
+  useEffect(() => {
+    const urls = [
+      `${basePath}/dragon-cave/dragon-eats-shop-apple.webp`,
+      `${basePath}/dragon-cave/dragon-drinks-shop-water.webp`,
+    ];
+    const preload = () => {
+      for (const url of urls) new window.Image().src = url;
+    };
+    const timer = window.setTimeout(preload, 1500);
+    return () => window.clearTimeout(timer);
+  }, [basePath]);
+
   const feedDragon = async (item: Consumable) => {
     const itemCount = item === "apple" ? appleCount : waterCount;
     if (!service || feedingRef.current || itemCount < 1) return;
@@ -93,13 +106,13 @@ export function CaveRoom({ basePath }: { basePath: string }) {
   };
 
   const imagePath = timeOfDay
-    ? `${basePath}/dragon-cave/cave-${timeOfDay}.png`
+    ? `${basePath}/dragon-cave/cave-${timeOfDay}.webp`
     : undefined;
-  const dragonPath = `${basePath}/dragon-cave/dragon-sleep.gif`;
+  const dragonPath = `${basePath}/dragon-cave/dragon-sleep.webp`;
   const dragonImage = dragonAnimation === "apple"
-    ? `${basePath}/dragon-cave/dragon-eats-shop-apple.gif`
+    ? `${basePath}/dragon-cave/dragon-eats-shop-apple.webp`
     : dragonAnimation === "water"
-      ? `${basePath}/dragon-cave/dragon-drinks-shop-water.gif`
+      ? `${basePath}/dragon-cave/dragon-drinks-shop-water.webp`
       : dragonPath;
 
   const renderConsumable = (item: Consumable, count: number) => {
