@@ -8,7 +8,7 @@ import { BODY_PARTS_TEXT, BODY_PARTS_WORDS, completedAdventureStations, roundWor
 
 type Target = { id: string; x: number; y: number };
 const FACE_TARGETS: Target[] = [
-  { id: "eye-left", x: 38, y: 37 }, { id: "eye-right", x: 70, y: 36 },
+  { id: "eye-left", x: 43, y: 41 }, { id: "eye-right", x: 68, y: 32 },
   { id: "ear-left", x: 27, y: 56 }, { id: "ear-right", x: 81, y: 54 },
   { id: "nose", x: 53, y: 46 }, { id: "mouth", x: 56, y: 65 },
 ];

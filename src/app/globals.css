@@ -337,7 +337,7 @@ p { line-height: 1.45; }
 .body-face-art { object-fit:cover;border-radius:27px; }.body-figure-svg { display:block;width:100%;height:100%; }
 .body-target { width:52px;height:52px;border:2px solid rgba(48,84,130,.78);border-radius:50%;background:rgba(255,255,255,.58);box-shadow:0 2px 7px rgba(38,67,103,.18);color:#173c78;font-size:.7rem; }
 .body-target:disabled { border-color:#4b9a68;background:rgba(233,249,228,.86); }
-.body-target.is-face-target { border:0;background:transparent;box-shadow:none; }.body-target.is-face-target::before { position:absolute;top:-12px;left:50%;color:#fff3a8;content:"✦";font-size:15px;text-shadow:0 1px 3px #694b28;transform:translateX(-50%); }.body-target.is-face-target span { visibility:hidden; }
+.body-target.is-face-target { border:0;background:transparent;box-shadow:none; }.body-target.is-face-target span { visibility:hidden; }
 .body-placement-label { position:absolute;z-index:4;display:block;padding:4px 9px;border:2px solid white;border-radius:13px;background:#fff6cf;box-shadow:0 3px 7px rgba(56,57,53,.2);color:#173b78;font-size:.83rem;font-weight:1000;transform:translate(-50%,-50%);white-space:nowrap; }.body-placement-label::before { position:absolute;top:50%;left:-17px;width:16px;border-top:2px solid #fff;content:""; }
 @media (max-width:620px) { .body-progress-path { height:96px;border-radius:20px; }.body-path-dragon { width:45px;height:45px; }.body-path-mark { width:14px;height:14px; }.body-figure-area { width:min(100%,350px);height:auto;aspect-ratio:1/1;border-radius:26px; }.body-figure-area.is-full-body { width:min(100%,175px);height:auto;aspect-ratio:12/25; }.body-face-art { border-radius:22px; }.body-target { width:48px;height:48px; }.body-progress-count { padding:5px 6px; } }
 .body-progress-path { height:clamp(132px,17vw,165px); }
@@ -346,9 +346,6 @@ p { line-height: 1.45; }
 .body-figure-area { overflow:visible; }
 .body-face-crop { position:absolute;inset:0;overflow:hidden;border-radius:inherit; }
 .body-face-art { object-fit:cover;transform:scale(1.55);transform-origin:50% 42%; }
-.body-target.is-face-target::before { top:-6px;width:12px;height:4px;border-radius:3px;background:#fff4d2;content:"";box-shadow:0 1px 2px rgba(44,47,72,.55); }
-.body-target.is-face-target:disabled::before { content:"";background:#fff4d2; }
-.body-target.is-face-target.is-hinted { outline:0; }.body-target.is-face-target.is-hinted::before { width:16px;height:6px;background:repeating-linear-gradient(90deg,#fff4d2 0 3px,#b880dd 3px 5px); }
 .body-drag-preview { position:fixed;z-index:20;pointer-events:none;transform:translate(-50%,-50%) rotate(-3deg);padding:8px 14px;border:2px solid white;border-radius:17px;background:linear-gradient(145deg,#fff,#e8f3ff);box-shadow:0 7px 16px rgba(24,53,99,.27);color:#173b78;font-size:1.1rem;font-weight:1000; }
 .body-target.is-recent::before { transform:translateX(-50%) scale(1.28); }.body-target.is-recent { background-color:rgba(255,247,182,.78); }
 body:has(.body-mission) .chispitas-main { padding-bottom:0; }
