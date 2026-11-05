@@ -16,7 +16,8 @@
     "playwright": "node scripts/playwright.mjs",
     "test:e2e": "npm run playwright -- test",
     "build": "next build --webpack",
-    "check:docs": "node scripts/validate-repository.mjs"
+    "check:docs": "node scripts/validate-repository.mjs",
+    "test:scripts": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

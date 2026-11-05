@@ -1,5 +1,41 @@
 # Project decisions
 
+## Documentation synchronization — 2026-11-05
+
+Status: requested by the owner; implemented in the pull request that introduces it.
+
+Several AI assistants and the owner change this repository, so documentation must
+be updated in the same pull request as the change. AGENTS.md now holds the rule
+("Documentation synchronization"). The pull-request template carries a checklist,
+and CI runs `scripts/check-docs-impact.mjs` on pull requests: a change to product
+files (`src/` outside tests, `public/`, `package.json`, `scripts/`, workflows,
+`next.config.ts`) must also change `docs/setup-status.md` or `docs/decisions.md`,
+and changes under `public/` must also change `docs/assets.md`. A pull request may
+opt out with a line `Docs-Impact: none — <reason>`. The check is a minimum, not proof
+that the documentation is correct. It only blocks merging once branch protection
+requires the `repository-check` job; this setting is still open.
+
+## Body mission start controls and home mission card — 2026-11-05
+
+Status: implemented and deployed (PR #42).
+
+The persistent `Comenzar` button is removed; it only reopened the explanation and
+looked like a start control. The `?` button remains the way to replay the
+explanation. The explanation has one `Empezar` button instead of two identical
+ones. The home card "Tu próxima misión" links to `/learn/body-parts-01` instead of
+the "in preparation" text. This supersedes the `Comenzar` sentence in the
+2026-11-04 body-parts entry.
+
+## Brand name in the UI — 2026-11-05
+
+Status: observed; formal naming still open.
+
+The UI brand, page title and navigation show **CHISPITAS** (home page decision,
+2026-11-01). The 2026-10-29 entry names the Spanish product **Aventura Animal**;
+the UI no longer shows that name. The owner should confirm which name is the
+formal Spanish product name. Browser storage keys keep their original
+`tier-abenteuer` identifiers for profile compatibility.
+
 ## Body-parts matching mission — 2026-11-04
 
 The `/learn` entry offers a silent body-parts matching mission for nine English
@@ -7,8 +43,8 @@ words in two rounds. The player may drag a word card or select it and a target.
 The seven-stop adventure path uses the owner's supplied landscape, cropped to a
 local WebP strip, with the owner's dragon overlaid. Visiting the mission starts
 an unstarted run automatically; the first-run explanation is shown once and
-can be skipped. The `Comenzar` control replays the explanation and never gates
-the activity. Round two uses a full-body illustration of the same girl in the
+can be skipped. (Superseded 2026-11-05: the `Comenzar` button was removed and the
+`?` button replays the explanation.) Round two uses a full-body illustration of the same girl in the
 homepage artwork's style, with arms stretched horizontally to the sides and
 legs apart for clear target separation. The body-parts mission uses
 the first two stations: the dragon advances when Continue opens Round 2, then
@@ -170,8 +206,9 @@ count. Verify asset rights before product use.
 
 ## Product name — 2026-10-29
 
-The Spanish product name is **Aventura Animal**. English project documentation
-and package metadata use **Animal Adventure**. Existing browser storage keys
+The Spanish product name is **Aventura Animal**. (Partly superseded in the UI by the
+CHISPITAS brand, see 2026-11-05; formal naming is open.) English project
+documentation and package metadata use **Animal Adventure**. Existing browser storage keys
 remain unchanged for compatibility.
 
 ## Repository and child-pilot requirements — 2026-10-31
