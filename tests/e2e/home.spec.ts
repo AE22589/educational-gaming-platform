@@ -27,21 +27,37 @@ for (const width of [360, 768, 1280]) {
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
-    await page.getByRole("link", { name: "Explorar misiones" }).click();
-    await expect(page).toHaveURL(/\/learn\/?$/);
-    await page
-      .getByRole("link", { name: "Ver la vista previa de la misión" })
-      .click();
+    await expect(page.getByText("La primera aventura de animales está en preparación.")).toHaveCount(0);
+    await page.getByRole("link", { name: "Jugar la misión" }).click();
+    await expect(page).toHaveURL(/\/learn\/body-parts-01\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Tu próxima aventura",
+      "Misión: partes del cuerpo",
     );
+    const startMission = page.getByRole("button", { name: "Empezar", exact: true });
+    if (await startMission.isVisible()) await startMission.click();
+    await page.getByRole("link", { name: "‹ Misiones" }).click();
+    await expect(page).toHaveURL(/\/learn\/?$/);
     await page
       .getByRole("navigation")
       .getByRole("link", { name: "Tienda de estrellas", exact: true })
       .click();
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "La tienda de la aventura",
-    );
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tienda de estrellas");
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("100");
+    await page.screenshot({ path: `test-results/shop-${width}.png`, fullPage: true });
+    await page.getByRole("button", { name: "Cueva" }).click();
+    await expect(page.getByRole("heading", { name: "Manzana" })).toBeHidden();
+    await expect(page.getByRole("heading", { name: "Cama de hojas" })).toBeVisible();
+    await page.getByRole("button", { name: "Todo" }).click();
+    await page.locator(".product-apple").getByRole("button", { name: "Comprar" }).click();
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
+    await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+    await page.reload();
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
+    await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+    await page.locator(".product-water").getByRole("button", { name: "Comprar" }).click();
+    await expect(page.locator(".shop-star-balance strong")).toHaveText("98");
+    await expect(page.locator(".shop-pantry")).toContainText("1 agua");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.goto("/");
     await page
       .getByRole("link", { name: "Mi pequeño amigo: Ver amigo", exact: true })
@@ -53,6 +69,7 @@ for (const width of [360, 768, 1280]) {
     const dragonImage = page.getByRole("img", { name: /Chispitas duerme enroscado/ });
     await expect(caveImage).toBeVisible();
     await expect(dragonImage).toBeVisible();
+    await expect(page.getByRole("button", { name: /Arrastra agua fresca hasta Chispitas/ })).toBeVisible();
     await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
     await expect.poll(() => dragonImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(512);
     expect(
@@ -115,4 +132,86 @@ test("the companion cave follows the 06:00 and 18:00 local-time changes", async 
   await page.clock.runFor(30_000);
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+});
+
+test("the body mission has a single Empezar button, no Comenzar button, accepts face drags, and uses the matching round-two art", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/learn/body-parts-01/");
+
+  const eyeCard = page.getByRole("button", { name: "eye", exact: true });
+  const startDemo = page.getByRole("button", { name: "Empezar", exact: true });
+  await expect(startDemo).toBeVisible();
+  await expect(page.getByRole("button", { name: "Saltar y empezar" })).toHaveCount(0);
+  await startDemo.click();
+  await expect(eyeCard).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Comenzar" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Ver ayuda" }).click();
+  await expect(page.getByRole("dialog", { name: "Así se juega" })).toBeVisible();
+  await page.getByRole("button", { name: "Empezar", exact: true }).click();
+  await expect(eyeCard).toBeEnabled();
+
+  const dragWord = async (word: string, targetId: string) => {
+    const card = page.getByRole("button", { name: word, exact: true });
+    const cardBox = await card.boundingBox();
+    const targetBox = await page.locator(`[data-target-id="${targetId}"]`).boundingBox();
+    if (!cardBox || !targetBox) throw new Error(`The ${word} card or target is missing.`);
+    await page.mouse.move(cardBox.x + cardBox.width / 2, cardBox.y + cardBox.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(targetBox.x + targetBox.width / 2, targetBox.y + targetBox.height / 2, { steps: 8 });
+    await page.mouse.up();
+    await expect(page.locator(`.body-placement-label.body-label-${word}`)).toBeVisible();
+    await expect(page.locator(".body-feedback")).toContainText("¡Muy bien!");
+  };
+
+  await dragWord("eye", "eye-left");
+  await dragWord("mouth", "mouth");
+  await dragWord("nose", "nose");
+  await page.getByRole("button", { name: "ear", exact: true }).click();
+  await expect(page.getByRole("button", { name: "ear", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.locator('[data-target-id="ear-left"]').click();
+  await expect(page.locator(".body-placement-label.body-label-ear")).toBeVisible();
+  await page.getByRole("button", { name: "Continuar" }).click();
+  const fullBody = page.getByRole("img", { name: "La niña de la portada de cuerpo entero, con los brazos extendidos a los lados" });
+  await expect(fullBody).toBeVisible();
+  await expect.poll(() => fullBody.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(1024);
+  const headTarget = page.locator('[data-target-id="head"]');
+  await expect.poll(() => headTarget.evaluate((target) => getComputedStyle(target).borderWidth)).toBe("0px");
+  await page.getByRole("button", { name: "head", exact: true }).click();
+  await expect(page.getByRole("button", { name: "head", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.locator('[data-target-id="head"]').click();
+  await expect(page.locator(".body-placement-label.body-label-head")).toBeVisible();
+  await dragWord("arm", "arm-left");
+});
+test("feeding the dragon plays the lossless WebP animations and returns to sleep", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/shop/");
+  await page.locator(".product-apple").getByRole("button", { name: "Comprar" }).click();
+  await expect(page.locator(".shop-pantry")).toContainText("1 manzana");
+  await page.locator(".product-water").getByRole("button", { name: "Comprar" }).click();
+  await expect(page.locator(".shop-pantry")).toContainText("1 agua");
+
+  const requested: string[] = [];
+  page.on("request", (request) => requested.push(request.url()));
+  await page.goto("/avatar/");
+  const dragon = page.locator(".cave-dragon");
+  await expect(dragon).toHaveAttribute("src", /dragon-sleep.webp$/);
+  // The feeding animations are fetched in the background before they are needed.
+  await expect.poll(() => requested.filter((url) => /dragon-(eats|drinks)-shop-.*.webp$/.test(url)).length, { timeout: 10_000 }).toBe(2);
+
+  for (const [item, alt, file] of [
+    ["apple", "Chispitas está comiendo una manzana.", /dragon-eats-shop-apple.webp$/],
+    ["water", "Chispitas está bebiendo agua fresca.", /dragon-drinks-shop-water.webp$/],
+  ] as const) {
+    const source = await page.locator(`.cave-${item}`).boundingBox();
+    const target = await dragon.boundingBox();
+    if (!source || !target) throw new Error("The consumable or the dragon is missing.");
+    await page.mouse.move(source.x + source.width / 2, source.y + source.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(target.x + target.width / 2, target.y + target.height / 2, { steps: 8 });
+    await page.mouse.up();
+    const animation = page.getByRole("img", { name: alt });
+    await expect(animation).toHaveAttribute("src", file);
+    await expect.poll(() => animation.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.getByRole("img", { name: /Chispitas duerme enroscado/ })).toBeVisible({ timeout: 8_000 });
+  }
 });

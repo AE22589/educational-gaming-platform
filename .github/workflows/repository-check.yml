@@ -16,10 +16,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
       - run: node scripts/validate-repository.mjs
+      - run: node scripts/check-assets.mjs
+      - run: node --test scripts/*.test.mjs
+      - name: Documentation impact check
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: node scripts/check-docs-impact.mjs
+      - name: Documentation impact check (warning only on push)
+        if: github.event_name == 'push'
+        continue-on-error: true
+        env:
+          BASE_SHA: ${{ github.event.before }}
+        run: node scripts/check-docs-impact.mjs
   application-check:
     name: application-check
     runs-on: ubuntu-latest
@@ -135,8 +152,8 @@ jobs:
             const requiredSiteFiles = [
               "index.html",
               "avatar/index.html",
-              "dragon-cave/cave-day.png",
-              "dragon-cave/cave-night.png",
+              "dragon-cave/cave-day.webp",
+              "dragon-cave/cave-night.webp",
             ];
             const currentTree = execFileSync("git", ["rev-parse", "HEAD^{tree}"], {
               encoding: "utf8",
@@ -217,7 +234,6 @@ jobs:
           retention-days: 7
   quality-check:
     name: quality-check
-    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -232,7 +248,7 @@ jobs:
       - run: npm test
   deploy:
     name: deploy
-    needs: [repository-check, application-check]
+    needs: [repository-check, application-check, quality-check]
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
@@ -248,7 +264,7 @@ jobs:
         with:
           name: pages-site
           path: out
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

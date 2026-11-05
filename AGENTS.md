@@ -8,8 +8,8 @@
 - This rule does not change the Spanish product UI or English learning vocabulary/audio.
 
 ## Product
-- Implement only docs/mvp.md and docs/mvp-development-plan-1.1.md.
-- Master-plan features are deferred unless explicitly commissioned.
+- Treat docs/mvp.md and docs/mvp-development-plan-1.1.md as the recommended starting scope, not a binding product boundary.
+- Master-plan features and other expansions may be implemented when selected by the owner; clarify scope only when the requested outcome is genuinely ambiguous.
 - UI Spanish; animal vocabulary/audio English; code English.
 - Full stars on each explicit new run; no replay discounts or daily cap.
 - Errors never deduct stars; mastery is independent of stars.
@@ -25,6 +25,23 @@
 - Check branch and working tree before edits; never implement on main.
 - Work sequentially as a solo-maintained project; no second developer, role split,
   separate account/clone, or independent review is required.
+- Keep routine changes focused: inspect the relevant files, make the smallest
+  complete change, and avoid broad repository exploration when the task is clear.
+- Match local verification to risk. For copy, styling or isolated UI changes,
+  use a focused review and the narrowest relevant check. For behavior or shared
+  contracts, run the relevant tests and checks. Never weaken or skip the full
+  pull-request CI gate for a release.
+- For every GUI implementation or change, inspect the result visually in a
+  browser controlled by Codex. Use the browser available in this environment;
+  do not ask the owner to provide or operate their personal laptop browser.
+  Check the relevant viewport sizes and interactions for the change.
+- Batch related small edits before a live release when that fits the owner's
+  request. Show a useful local result promptly when a task will take longer.
+- While CI or deployment runs, avoid frequent status polling. Use longer waits
+  and report meaningful state changes; do not spend time repeating unchanged
+  status checks.
+- Timebox blocked tools and failed previews. Inspect the failure once, choose a
+  practical next step, and avoid repeating the same unsuccessful operation.
 - Preserve existing uncommitted changes. Keep shared contracts in their single
   source of truth and update dependent specs/tests in the same change.
 - Never commit, push or merge without explicit authorization.
@@ -32,6 +49,26 @@
 - The owner's explicit deployment instruction authorizes the release flow after
   required automated checks pass. Do not claim GitHub protections were changed;
   if an existing setting blocks solo release, report that concrete blocker.
+
+## Documentation synchronization
+- Several AI assistants and the owner change this repository; the repository files,
+  not chat history, are the shared memory. Treat documentation as part of every change.
+- In the same pull request as a change to visible behavior, routes, rewards, data or
+  storage, assets, dependencies, workflow, CI or repository settings, update:
+  docs/setup-status.md (current state), docs/decisions.md (new or changed decision),
+  docs/assets.md (every file added to or removed from public/), and README.md or
+  docs/mvp.md when the described scope or structure changes.
+- When a decision is reversed, edit the older entry to say "superseded by <entry>"
+  instead of leaving two contradictory statements.
+- Never describe behavior from memory. Check the code or run the app first, and keep
+  proposed, accepted, implemented and verified states distinct.
+- CI runs scripts/check-docs-impact.mjs on pull requests. If a change truly needs no
+  documentation, add "Docs-Impact: none — <reason>" to the pull request description.
+- Direct pushes to main are allowed. Every push runs the same checks afterwards (a failing
+  check stops the deployment, but the change is already on main), and the documentation
+  impact check only warns. Run the local checks first and update the documentation in the
+  same push. Planned improvements are in docs/backlog.md.
+- Before finishing, list which documents you updated, or state why none were needed.
 
 ## Architecture
 - Games emit results; profile alone controls rewards, inventory and persistence.
@@ -42,12 +79,21 @@
 
 ## Quality and privacy
 - Test changed behavior; never disable tests or weaken checks.
+- Use focused local checks for low-risk changes and test changed behavior.
+- The pull-request CI gate remains comprehensive: repository validation, lint,
+  typecheck, unit tests, production build and Playwright smoke tests.
 - Bootstrap check: node scripts/validate-repository.mjs.
-- After foundation: npm run lint, npm run typecheck, npm test, npm run build.
+- For foundation work or an explicitly requested full verification, run
+  `npm run check:docs`, `npm run lint`, `npm run typecheck`, `npm test`,
+  `npm run build`, and the applicable browser checks.
   Report any unexecuted checks.
 - Follow the plan's visual, accessibility, audio and asset-rights gate.
 - No credentials or real children's data in code, prompts or fixtures.
 - Local assets only; no external tracking/media service.
+- Images in public/ are WebP only; convert GIF/PNG/JPEG sources to lossless WebP with
+  node scripts/to-lossless-webp.mjs and delete the original (animated images must be
+  lossless animated WebP). Register every file in docs/assets.md. CI enforces this via
+  scripts/check-assets.mjs. Do not resize or re-compress artwork without owner approval.
 - Finish with changed files, results and remaining risks.
 
 Repository instructions complement effective GitHub rules and cannot enable them.
@@ -55,9 +101,11 @@ Repository instructions complement effective GitHub rules and cannot enable them
 ## Foundation implementation guidance
 - Use Node 24.21.0 LTS, npm 11.19.0 and the checked-in package-lock.json.
 - Shared schema authority: src/types/contracts.ts; review fixtures: tests/fixtures/.
-- Profile ports and pure decoder exist; no storage adapter/provider is wired yet.
-- Keep fixture imports out of production routes. Media directories contain no approved assets.
-- Run npm ci, npm run check:docs, npm run lint, npm run typecheck, npm test,
-  and npm run build.
+- The profile service, browser storage adapter (browser-store.ts, browser-writer.ts) and
+  ProfileProvider are wired; docs/setup-status.md records the current product state.
+- Keep fixture imports out of production routes. Artwork in public/ is registered in
+  docs/assets.md; its rights review is still pending before any child pilot.
+- For foundation implementation, run npm ci, npm run check:docs, npm run lint,
+  npm run typecheck, npm test, and npm run build.
 - MVP-01 foundation is complete. Current work follows the solo workflow in
   docs/decisions.md and docs/mvp-development-plan-1.1.md.

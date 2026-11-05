@@ -72,7 +72,8 @@ mission, question, content version, option set, lock/order state and stable
 attempt ID; computes correctness itself; and derives completion from solved
 question states. Snapshot validation also reconciles historical results using
 trusted content. No game renderer or product curriculum exists yet; unknown
-future schemas enter recovery because no earlier profile schema has shipped.
+future schemas enter recovery; profile v1 is now migrated to v2 with an empty
+inventory while preserving its existing profile state.
 
 ## Sequential development and release
 
