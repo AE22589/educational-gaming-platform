@@ -38,7 +38,7 @@ function Figure({ round }: { round: 1 | 2 }) {
   return round === 1 ? (
     <div className="body-face-crop"><Image src={`${assetBase}/homepage/avatar-girl.webp`} alt={BODY_PARTS_TEXT.faceFigureAlt} fill sizes="(max-width: 620px) 100vw, 420px" className="body-face-art" unoptimized /></div>
   ) : (
-    <div className="body-full-figure-crop"><Image src={`${assetBase}/learning/body-parts-girl.png`} alt={BODY_PARTS_TEXT.bodyFigureAlt} fill sizes="(max-width: 620px) 200px, 240px" className="body-full-figure-art" unoptimized /></div>
+    <div className="body-full-figure-crop"><Image src={`${assetBase}/learning/body-parts-girl.webp`} alt={BODY_PARTS_TEXT.bodyFigureAlt} fill sizes="(max-width: 620px) 200px, 240px" className="body-full-figure-art" unoptimized /></div>
   );
 }
 

@@ -86,6 +86,10 @@
 - Follow the plan's visual, accessibility, audio and asset-rights gate.
 - No credentials or real children's data in code, prompts or fixtures.
 - Local assets only; no external tracking/media service.
+- Images in public/ are WebP only; convert GIF/PNG/JPEG sources to lossless WebP with
+  node scripts/to-lossless-webp.mjs and delete the original (animated images must be
+  lossless animated WebP). Register every file in docs/assets.md. CI enforces this via
+  scripts/check-assets.mjs. Do not resize or re-compress artwork without owner approval.
 - Finish with changed files, results and remaining risks.
 
 Repository instructions complement effective GitHub rules and cannot enable them.
