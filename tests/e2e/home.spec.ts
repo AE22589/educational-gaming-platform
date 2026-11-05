@@ -36,6 +36,8 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",
     );
+    const skipMissionDemo = page.getByRole("button", { name: "Saltar y empezar" });
+    if (await skipMissionDemo.isVisible()) await skipMissionDemo.click();
     await page.getByRole("link", { name: "‹ Misiones" }).click();
     await expect(page).toHaveURL(/\/learn\/?$/);
     await page
@@ -156,7 +158,7 @@ test("the body mission starts without Comenzar, accepts face drags, and uses the
     await page.mouse.move(targetBox.x + targetBox.width / 2, targetBox.y + targetBox.height / 2, { steps: 8 });
     await page.mouse.up();
     await expect(page.locator(`.body-placement-label.body-label-${word}`)).toBeVisible();
-    await expect(page.getByText("¡Muy bien!")).toBeVisible();
+    await expect(page.locator(".body-feedback")).toContainText("¡Muy bien!");
   };
 
   await dragWord("eye", "eye-left");
