@@ -15,10 +15,18 @@ remain visible. The image is decorative; the
 accessible progressbar exposes the game-completion position. No external media
 is used.
 
+The round-two full-body girl was generated with Codex ImageGen using the
+owner-provided homepage girl as the character and style reference. The
+transparent local image keeps the same pink hoodie and blue backpack straps,
+with arms extended horizontally and legs apart for separate body-part targets.
+The owner approved this illustration. Third-party rights have not been
+independently assessed; review the asset before any child pilot.
+
 | Asset | Local path | Type | Locale | Accessible description | Review status |
 |---|---|---|---|---|---|
 | Adventure progress path | `public/learning/adventure-progress-path.webp` | Cropped progress-bar background | None | Decorative landscape with a start marker, seven path stations, and a cave; progress is also exposed as a semantic progressbar. | Owner-provided source; local crop; visual review pending. |
 | Dragon progress character | `public/learning/dragon-progress.webp` | Transparent progress illustration | None | The owner's purple baby dragon sits on the mission path and moves forward as words are placed. | Owner-provided source image; owner visual and rights review pending before any child pilot. |
+| Round-two body figure | `public/learning/body-parts-girl.png` | Transparent full-body character illustration | None | The homepage girl stands front-facing with arms stretched to the sides and legs apart. | Generated with Codex ImageGen from the owner-provided girl reference; owner approved; independent rights review pending before any child pilot. |
 
 ## Companion cave preview
 

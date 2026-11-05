@@ -34,7 +34,7 @@ export const BODY_PARTS_TEXT = {
   backToMissions: "‹ Misiones",
   cardsLabel: "Palabras para colocar",
   faceFigureAlt: "Rostro de la niña de la portada, de frente",
-  bodyFigureAlt: "Figura ilustrada de cuerpo entero, de frente",
+  bodyFigureAlt: "La niña de la portada de cuerpo entero, con los brazos extendidos a los lados",
   progressLabel: (count: number) => `Progreso de la misión: ${count} de 9`,
   start: "Comenzar",
   loading: "Preparando tu misión…",

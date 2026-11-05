@@ -5,12 +5,17 @@
 The `/learn` entry offers a silent body-parts matching mission for nine English
 words in two rounds. The player may drag a word card or select it and a target.
 The seven-stop adventure path uses the owner's supplied landscape, cropped to a
-local WebP strip, with the owner's dragon overlaid. The body-parts mission uses
+local WebP strip, with the owner's dragon overlaid. Visiting the mission starts
+an unstarted run automatically; the first-run explanation is shown once and
+can be skipped. The `Comenzar` control replays the explanation and never gates
+the activity. Round two uses a full-body illustration of the same girl in the
+homepage artwork's style, with arms stretched horizontally to the sides and
+legs apart for clear target separation. The body-parts mission uses
 the first two stations: the dragon advances when Continue opens Round 2, then
 again when the mission is completed. Replay does not reset reached stations.
-The visible path has no numeric counter. The locally authored storybook-style
-SVG body figure and target configuration live with the learning feature. A
-profile-schema-v4 migration preserves existing profiles and adds
+The visible path has no numeric counter. Face targets and the body target
+configuration live with the learning feature. A profile-schema-v4 migration
+preserves existing profiles and adds
 versioned mission progress. The profile service persists each placement and
 awards the existing two stars per solved learning item, a round completion
 ledger event, and the existing ten-star completion bonus. Rewards are

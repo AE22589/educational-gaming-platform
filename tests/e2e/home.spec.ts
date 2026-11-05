@@ -36,6 +36,8 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",
     );
+    const skipMissionDemo = page.getByRole("button", { name: "Saltar y empezar" });
+    if (await skipMissionDemo.isVisible()) await skipMissionDemo.click();
     await page.getByRole("link", { name: "‹ Misiones" }).click();
     await expect(page).toHaveURL(/\/learn\/?$/);
     await page
@@ -133,4 +135,38 @@ test("the companion cave follows the 06:00 and 18:00 local-time changes", async 
   await page.clock.runFor(30_000);
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+});
+
+test("the body mission starts without Comenzar, accepts face drags, and uses the matching round-two art", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/learn/body-parts-01/");
+
+  const eyeCard = page.getByRole("button", { name: "eye", exact: true });
+  const skipDemo = page.getByRole("button", { name: "Saltar y empezar" });
+  await expect(skipDemo).toBeVisible();
+  await skipDemo.click();
+  await expect(eyeCard).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Comenzar" })).toBeVisible();
+
+  const dragWord = async (word: string, targetId: string) => {
+    const card = page.getByRole("button", { name: word, exact: true });
+    const cardBox = await card.boundingBox();
+    const targetBox = await page.locator(`[data-target-id="${targetId}"]`).boundingBox();
+    if (!cardBox || !targetBox) throw new Error(`The ${word} card or target is missing.`);
+    await page.mouse.move(cardBox.x + cardBox.width / 2, cardBox.y + cardBox.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(targetBox.x + targetBox.width / 2, targetBox.y + targetBox.height / 2, { steps: 8 });
+    await page.mouse.up();
+    await expect(page.locator(`.body-placement-label.body-label-${word}`)).toBeVisible();
+    await expect(page.locator(".body-feedback")).toContainText("¡Muy bien!");
+  };
+
+  await dragWord("eye", "eye-left");
+  await dragWord("mouth", "mouth");
+  await dragWord("nose", "nose");
+  await dragWord("ear", "ear-left");
+  await page.getByRole("button", { name: "Continuar" }).click();
+  const fullBody = page.getByRole("img", { name: "La niña de la portada de cuerpo entero, con los brazos extendidos a los lados" });
+  await expect(fullBody).toBeVisible();
+  await expect.poll(() => fullBody.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBe(1024);
 });

@@ -13,10 +13,10 @@ const FACE_TARGETS: Target[] = [
   { id: "nose", x: 61, y: 47 }, { id: "mouth", x: 56, y: 65 },
 ];
 const BODY_TARGETS: Target[] = [
-  { id: "head", x: 50, y: 15 },
-  { id: "arm-left", x: 34, y: 43 }, { id: "arm-right", x: 66, y: 43 },
-  { id: "hand-left", x: 20, y: 66 }, { id: "hand-right", x: 80, y: 66 },
-  { id: "leg-left", x: 43, y: 73 }, { id: "leg-right", x: 57, y: 73 },
+  { id: "head", x: 50, y: 20 },
+  { id: "arm-left", x: 34, y: 42 }, { id: "arm-right", x: 66, y: 42 },
+  { id: "hand-left", x: 10, y: 42 }, { id: "hand-right", x: 90, y: 42 },
+  { id: "leg-left", x: 40, y: 75 }, { id: "leg-right", x: 60, y: 75 },
   { id: "foot-left", x: 39, y: 94 }, { id: "foot-right", x: 61, y: 94 },
 ];
 const shuffled = <T,>(items: T[], seed: number) => {
@@ -36,42 +36,9 @@ const EMPTY_PLACED: readonly string[] = [];
 
 function Figure({ round }: { round: 1 | 2 }) {
   return round === 1 ? (
-    <div className="body-face-crop"><Image src={`${assetBase}/homepage/avatar-girl.webp`} alt="Rostro de la niña de la portada, de frente" fill sizes="(max-width: 620px) 100vw, 420px" className="body-face-art" unoptimized /></div>
+    <div className="body-face-crop"><Image src={`${assetBase}/homepage/avatar-girl.webp`} alt={BODY_PARTS_TEXT.faceFigureAlt} fill sizes="(max-width: 620px) 100vw, 420px" className="body-face-art" unoptimized /></div>
   ) : (
-      <svg viewBox="0 0 240 420" className="body-figure-svg" role="img" aria-label={BODY_PARTS_TEXT.bodyFigureAlt}>
-        <defs>
-          <linearGradient id="figure-skin" x2=".8" y2="1"><stop stopColor="#ffe0b8"/><stop offset="1" stopColor="#efaa78"/></linearGradient>
-          <linearGradient id="figure-hair" x2=".7" y2="1"><stop stopColor="#bd642d"/><stop offset=".55" stopColor="#8c401d"/><stop offset="1" stopColor="#642a19"/></linearGradient>
-          <linearGradient id="figure-pink" x2=".2" y2="1"><stop stopColor="#ff8bc3"/><stop offset="1" stopColor="#e84492"/></linearGradient>
-          <linearGradient id="figure-blue" x2="0" y2="1"><stop stopColor="#47d9ed"/><stop offset="1" stopColor="#1682c3"/></linearGradient>
-          <filter id="figure-shadow" x="-30%" y="-20%" width="160%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="3" floodColor="#35517c" floodOpacity=".2"/></filter>
-        </defs>
-        <g stroke="#7f3a26" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3.5" filter="url(#figure-shadow)">
-          <path d="M78 151c-15 10-25 32-36 60l-8 26 19 8 24-38 20-35m66-21c15 10 25 32 36 60l8 26-19 8-24-38-20-35" fill="none" stroke="#a34420" strokeWidth="37"/>
-          <path d="M78 151c-15 10-25 32-36 60l-8 26 19 8 24-38 20-35m66-21c15 10 25 32 36 60l8 26-19 8-24-38-20-35" fill="none" stroke="url(#figure-pink)" strokeWidth="30"/>
-          <path d="M36 233q-7 1-10 10l-2 20q1 9 7 11 5 0 7-8 0 10 7 10 6-1 6-10 3 9 9 6 6-3 2-12l-7-20q-4-10-12-7Z" fill="url(#figure-skin)"/>
-          <path d="M204 233q7 1 10 10l2 20q-1 9-7 11-5 0-7-8 0 10-7 10-6-1-6-10-3 9-9 6-6-3-2-12l7-20q4-10 12-7Z" fill="url(#figure-skin)"/>
-          <path d="M84 129q36-21 72 0l16 116q-51 21-104 0Z" fill="url(#figure-pink)"/>
-          <path d="M88 143q-12 33-5 90m74-90q12 33 5 90" fill="none" stroke="#ffd0e5" strokeWidth="5"/>
-          <path d="M118 140v99m-22 4q24 12 48 0" fill="none" stroke="#a83370" strokeWidth="3"/>
-          <path d="M109 245q11 14 22 0l14 20-23 14-24-14Z" fill="#ffb0d3"/>
-          <path d="M101 263q19 9 38 0l9 25q-29 12-56 0Z" fill="url(#figure-blue)"/>
-          <path d="M105 282q-3 30-10 85m40-85q3 30 10 85" fill="none" stroke="#7d3e2a" strokeWidth="34"/>
-          <path d="M105 282q-3 30-10 85m40-85q3 30 10 85" fill="none" stroke="url(#figure-skin)" strokeWidth="27"/>
-          <path d="M96 357q-7 4-8 14l-2 15q0 9 8 11 14 5 29 0 5-2 4-8l-8-24Z" fill="#f1a54f"/>
-          <path d="M144 357q7 4 8 14l2 15q0 9-8 11-14 5-29 0-5-2-4-8l8-24Z" fill="#f1a54f"/>
-          <path d="M105 21q15-20 33 0 29-1 34 32 26 18 12 48-1 30-27 42-37 20-74 0-26-12-27-42-14-30 12-48 5-33 37-32Z" fill="url(#figure-hair)" stroke="#74321d" strokeWidth="4"/>
-          <path d="M72 54q5-28 34-30 15 0 23 12 17-18 37 0 14 13 9 35-13-10-25-11-17 1-29-10-17 18-45 18Z" fill="url(#figure-hair)"/>
-          <ellipse cx="120" cy="75" rx="43" ry="49" fill="url(#figure-skin)" stroke="#9d522e"/>
-          <path d="M77 61q8-22 23-25 11 13 22 13 17 0 29-16 16 10 20 29-16-5-25-17-18 19-47 18-11 0-22-2Z" fill="url(#figure-hair)" stroke="#74321d" strokeWidth="3"/>
-          <path d="M96 72q8-6 16 0m16 0q8-6 16 0" fill="none" stroke="#71391f" strokeWidth="3"/>
-          <ellipse cx="104" cy="82" rx="6" ry="8" fill="#fff" stroke="none"/><ellipse cx="136" cy="82" rx="6" ry="8" fill="#fff" stroke="none"/>
-          <ellipse cx="105" cy="83" rx="3.5" ry="5" fill="#754022" stroke="none"/><ellipse cx="135" cy="83" rx="3.5" ry="5" fill="#754022" stroke="none"/>
-          <circle cx="106" cy="81" r="1.5" fill="#fff" stroke="none"/><circle cx="136" cy="81" r="1.5" fill="#fff" stroke="none"/>
-          <path d="M117 92q3 3 6 0m-13 12q10 10 20 0" fill="none" stroke="#9c4836" strokeWidth="3"/>
-          <ellipse cx="91" cy="94" rx="7" ry="4" fill="#f38a82" opacity=".58" stroke="none"/><ellipse cx="149" cy="94" rx="7" ry="4" fill="#f38a82" opacity=".58" stroke="none"/>
-        </g>
-      </svg>
+    <div className="body-full-figure-crop"><Image src={`${assetBase}/learning/body-parts-girl.png`} alt={BODY_PARTS_TEXT.bodyFigureAlt} fill sizes="(max-width: 620px) 200px, 240px" className="body-full-figure-art" unoptimized /></div>
   );
 }
 
@@ -88,6 +55,7 @@ function DragonMarker() {
 export function BodyPartsMission() {
   const { service, state } = useProfile();
   const progress = state.status === "ready" ? state.snapshot.bodyMissionProgress : null;
+  const canStartRun = state.status === "ready" && state.ownership === "exclusive";
   const [selected, setSelected] = useState<string | null>(null);
   const [demo, setDemo] = useState(false);
   const [demoDismissedForRun, setDemoDismissedForRun] = useState(false);
@@ -100,6 +68,7 @@ export function BodyPartsMission() {
   const [seed, setSeed] = useState(1);
   const [demoStep, setDemoStep] = useState(0);
   const pointerId = useRef<number | null>(null);
+  const startRequested = useRef(false);
   const suppressClick = useRef(false);
   const didMove = useRef(false);
   const dragOrigin = useRef<[number, number]>([0, 0]);
@@ -123,22 +92,32 @@ export function BodyPartsMission() {
   }, [demo]);
 
   useEffect(() => {
+    if (!service || !canStartRun || progress || startRequested.current) return;
+    startRequested.current = true;
+    setBusy(true);
+    void service.startBodyMission().then((result) => {
+      setBusy(false);
+      if (result.status === "started") {
+        setPhase("playing");
+        setSeed((value) => value + 1);
+        setMessage("");
+      } else {
+        startRequested.current = false;
+        setMessage(BODY_PARTS_TEXT.saveError);
+      }
+    }).catch(() => {
+      startRequested.current = false;
+      setBusy(false);
+      setMessage(BODY_PARTS_TEXT.saveError);
+    });
+  }, [service, canStartRun, progress]);
+
+  useEffect(() => {
     const cancelDrag = () => { pointerId.current = null; setDragPreview(null); setSelected(null); suppressClick.current = false; };
     window.addEventListener("blur", cancelDrag);
     window.addEventListener("orientationchange", cancelDrag);
     return () => { window.removeEventListener("blur", cancelDrag); window.removeEventListener("orientationchange", cancelDrag); };
   }, []);
-
-  const start = useCallback(async () => {
-    if (!service || busy) return;
-    setBusy(true);
-    const result = await service.startBodyMission();
-    setBusy(false);
-    if (result.status === "started") {
-      setPhase("playing"); setSeed((value) => value + 1); setMessage("");
-      if (!result.progress?.demoSeen) { setDemo(true); }
-    } else setMessage(BODY_PARTS_TEXT.saveError);
-  }, [service, busy]);
 
   const place = useCallback(async (wordId: string, targetId: string) => {
     if (busy || !progress || placed.includes(wordId) || demo || !isPlaying) return;
@@ -211,6 +190,7 @@ export function BodyPartsMission() {
 
   return <section className="body-mission" aria-labelledby="body-mission-title">
     <header className="body-mission-heading"><div><div className="body-heading-topline"><Link className="body-back-link" href="/learn">{BODY_PARTS_TEXT.backToMissions}</Link><p className="body-mission-kicker">{BODY_PARTS_TEXT.eyebrow}</p></div><h1 id="body-mission-title">{BODY_PARTS_TEXT.title}</h1><p>{BODY_PARTS_TEXT.instructions} {BODY_PARTS_TEXT.alternative}</p></div><button type="button" className="body-help-button" aria-label={BODY_PARTS_TEXT.helpLabel} onClick={() => { setDemo(true); setDemoStep(0); }}>?</button></header>
+    {activePhase === "playing" && !showDemo && <div className="body-intro-actions"><button className="action" type="button" onClick={() => { setDemo(true); setDemoStep(0); }}>{BODY_PARTS_TEXT.start}</button></div>}
     <div className="body-progress-wrap">
       <div className="body-progress-path" style={{ backgroundImage: `url("${assetBase}/learning/adventure-progress-path.webp")` }} role="progressbar" aria-label="Camino de juegos" aria-valuemin={0} aria-valuemax={7} aria-valuenow={gamesCompleted}>
         <span className="body-path-dragon" style={{ left: `${dragonPoint[0]}%`, top: `${dragonPoint[1]}%` }} aria-hidden="true"><Image className="body-dragon-gif" src={`${assetBase}/learning/dragon-progress.webp`} alt="" width={64} height={64} unoptimized/><span className="body-dragon-still"><DragonMarker/></span></span>
@@ -234,9 +214,8 @@ export function BodyPartsMission() {
       </div>
     </div>
     {dragPreview && <span className="body-drag-preview" style={{ left: dragPreview.x, top: dragPreview.y }} aria-hidden="true">{wordText(dragPreview.word)}</span>}
-    {isPlaying && <div className="body-feedback" aria-live="polite" aria-atomic="true">{message}{selected && <span> · {BODY_PARTS_TEXT.chooseTarget}</span>}</div>}
+    {(isPlaying || message) && <div className="body-feedback" aria-live="polite" aria-atomic="true">{message}{selected && <span> · {BODY_PARTS_TEXT.chooseTarget}</span>}</div>}
     {isPlaying && Object.entries(mistakes).filter(([, count]) => count >= 3).map(([wordId]) => <button type="button" className="body-hint-button" key={wordId} onClick={() => { setHinted(wordId); setMessage(BODY_PARTS_TEXT.hintFor(wordId)); }} aria-label={`${BODY_PARTS_TEXT.hint} para ${wordId}`}>💡 {BODY_PARTS_TEXT.hint}: {wordId}</button>)}
-    {activePhase === "intro" && <div className="body-intro-actions"><button className="action" type="button" onClick={() => void start()} disabled={busy}>{BODY_PARTS_TEXT.start}</button></div>}
     {activePhase === "round-complete" && <div className="body-end-panel" aria-live="polite"><h2>{BODY_PARTS_TEXT.roundOne}</h2><button className="action" type="button" onClick={() => void nextRound()} disabled={busy}>{BODY_PARTS_TEXT.continue}</button></div>}
     {activePhase === "complete" && <div className="body-end-panel" aria-live="polite"><h2>{BODY_PARTS_TEXT.complete}</h2><div className="body-word-summary">{BODY_PARTS_WORDS.map((word) => <span key={word.id}><span className="body-word-icon" role="img" aria-label={word.meaning}>{word.image}</span>{wordText(word)}</span>)}</div><button className="action" type="button" onClick={() => void replay()} disabled={busy}>{BODY_PARTS_TEXT.replay}</button><Link className="action body-friend-link" href="/avatar">{BODY_PARTS_TEXT.friend}</Link></div>}
     {showDemo && <div className="body-demo-scrim" role="dialog" aria-modal="true" aria-labelledby="body-demo-title"><section className="body-demo-card"><h2 id="body-demo-title">{BODY_PARTS_TEXT.demoTitle}</h2><p>{BODY_PARTS_TEXT.demoInstructions}</p><div className="body-demo-example"><span className={demoStep === 0 ? "is-demo-highlight" : ""} lang="en">eye</span><b aria-hidden="true">➜</b><span className={demoStep > 0 ? "is-demo-highlight" : ""} aria-hidden="true">👁️</span></div><div><button className="action" type="button" onClick={() => void finishDemo()}>{BODY_PARTS_TEXT.skipDemo}</button><button className="body-demo-close" type="button" onClick={() => void finishDemo()}>{BODY_PARTS_TEXT.beginAfterDemo}</button></div></section></div>}
