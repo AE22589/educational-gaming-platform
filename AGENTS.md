@@ -50,6 +50,22 @@
   required automated checks pass. Do not claim GitHub protections were changed;
   if an existing setting blocks solo release, report that concrete blocker.
 
+## Documentation synchronization
+- Several AI assistants and the owner change this repository; the repository files,
+  not chat history, are the shared memory. Treat documentation as part of every change.
+- In the same pull request as a change to visible behavior, routes, rewards, data or
+  storage, assets, dependencies, workflow, CI or repository settings, update:
+  docs/setup-status.md (current state), docs/decisions.md (new or changed decision),
+  docs/assets.md (every file added to or removed from public/), and README.md or
+  docs/mvp.md when the described scope or structure changes.
+- When a decision is reversed, edit the older entry to say "superseded by <entry>"
+  instead of leaving two contradictory statements.
+- Never describe behavior from memory. Check the code or run the app first, and keep
+  proposed, accepted, implemented and verified states distinct.
+- CI runs scripts/check-docs-impact.mjs on pull requests. If a change truly needs no
+  documentation, add "Docs-Impact: none — <reason>" to the pull request description.
+- Before finishing, list which documents you updated, or state why none were needed.
+
 ## Architecture
 - Games emit results; profile alone controls rewards, inventory and persistence.
 - Follow docs/contracts.md and shared types; no parallel contract definitions.
@@ -77,8 +93,10 @@ Repository instructions complement effective GitHub rules and cannot enable them
 ## Foundation implementation guidance
 - Use Node 24.21.0 LTS, npm 11.19.0 and the checked-in package-lock.json.
 - Shared schema authority: src/types/contracts.ts; review fixtures: tests/fixtures/.
-- Profile ports and pure decoder exist; no storage adapter/provider is wired yet.
-- Keep fixture imports out of production routes. Media directories contain no approved assets.
+- The profile service, browser storage adapter (browser-store.ts, browser-writer.ts) and
+  ProfileProvider are wired; docs/setup-status.md records the current product state.
+- Keep fixture imports out of production routes. Artwork in public/ is registered in
+  docs/assets.md; its rights review is still pending before any child pilot.
 - For foundation implementation, run npm ci, npm run check:docs, npm run lint,
   npm run typecheck, npm test, and npm run build.
 - MVP-01 foundation is complete. Current work follows the solo workflow in
