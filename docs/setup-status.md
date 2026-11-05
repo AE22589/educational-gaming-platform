@@ -36,7 +36,9 @@ Repository settings, verified through the GitHub API on 2026-11-05:
 - **Branches:** branches are deleted automatically after a merge. The 28 stale
   merged branches were deleted on 2026-11-05.
 - **Still open:** secret scanning is disabled, the repository has no licence file,
-  auto-merge is disabled, and 8 Dependabot pull requests (#19 to #26) are open.
+  and auto-merge is disabled. Dependabot updates were handled on 2026-11-05: ESLint 10
+  and five GitHub Actions updates are merged and deployed, TypeScript 7 and
+  `@types/node` 26 were closed, and major updates of `@types/node` are ignored.
 
 Direct pushes to `main` are checked after the push, not before: every push to
 `main` runs the repository check (document links, asset rules, script tests), the

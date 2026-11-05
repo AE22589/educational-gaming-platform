@@ -29,12 +29,11 @@ What is needed:
 Why later: today direct pushes to `main` are fast and all checks already run after
 the push. The flow adds value when a broken change on `main` becomes a problem.
 
-### Dependabot updates
+### TypeScript 7
 
-Eight pull requests (#19 to #26) are open. Plan: merge ESLint 10 and the five
-GitHub Actions updates one by one (rebase first, watch the deployment after each
-one), close TypeScript 7 (the quality check fails) and `@types/node` 26 (does not
-match Node 24), and tell Dependabot to ignore major updates of Node types.
+Dependabot's TypeScript 7 pull request (#24) was closed on 2026-11-05 because the
+quality check failed. Retry when the toolchain supports TypeScript 7; Dependabot
+will open a new pull request on its own.
 
 ### Secret scanning and push protection
 

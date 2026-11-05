@@ -1,5 +1,18 @@
 # Project decisions
 
+## Dependabot updates handled — 2026-11-05
+
+Status: implemented and deployed.
+
+The five GitHub Actions updates (configure-pages 6, deploy-pages 5,
+upload-pages-artifact 5, upload-artifact 7, download-artifact 8) and ESLint 10 were
+merged one at a time, each followed by a successful deployment from `main`.
+TypeScript 7 was closed because the quality check failed; Dependabot may propose it
+again. `@types/node` 26 was closed because the type definitions must match the
+Node 24 runtime pinned in `.nvmrc`; `.github/dependabot.yml` now ignores major
+updates of `@types/node`. Weekly Dependabot updates continue for npm and GitHub
+Actions.
+
 ## Quality and documentation checks also run on push — 2026-11-05
 
 Status: decided by the owner; implemented in the pull request that introduces it.
