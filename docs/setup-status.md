@@ -57,8 +57,8 @@ improvements are listed in `docs/backlog.md`.
 ## Product status (what `main` serves)
 
 - Home page with the CHISPITAS brand, star balance and a card linking to the
-  body-parts mission. Navigation labels and tile titles are English-first with
-  Spanish subtitles ("My Profile", "Science", "Contact Us", "About Chispitas",
+  body-parts mission. The hero says "You See" and "I did it!". Navigation labels
+  and tile titles are English-first with Spanish subtitles ("My Profile", "Science", "Contact Us", "About Chispitas",
   "Log in/Register"); "Log in/Register" and "Science" are non-interactive coming-soon previews. "Contact Us"
   opens `/contact` and "About Chispitas" opens `/about`, friendly "¡Muy pronto!"
   placeholder pages. The learning and shop pages are reached through the home page tiles

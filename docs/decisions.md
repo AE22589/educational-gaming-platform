@@ -1,5 +1,11 @@
 # Project decisions
 
+## Homepage hero copy — 2026-11-06
+
+Status: requested by the owner and implemented.
+
+The home-page hero heading is "You See" and its supporting line is "I did it!".
+
 ## Fast lane for small changes — 2026-11-05
 
 Status: decided by the owner; implemented in AGENTS.md.

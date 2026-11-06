@@ -74,8 +74,8 @@ export function HomepageContent() {
       <section aria-labelledby="welcome-title" className="chispitas-hero">
         <div className="chispitas-hero-copy">
           <p className="chispitas-eyebrow">Una pequeña chispa te espera</p>
-          <h1 id="welcome-title">¡Hola, explorador!</h1>
-          <p className="chispitas-hero-subtitle">¿Preparado para la aventura de hoy?</p>
+          <h1 id="welcome-title">You See</h1>
+          <p className="chispitas-hero-subtitle">I did it!</p>
           <ProfileSummary />
         </div>
       </section>
