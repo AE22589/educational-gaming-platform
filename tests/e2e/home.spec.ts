@@ -53,7 +53,7 @@ for (const width of [360, 768, 1280]) {
     await page.goto("/");
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "¡Hola, explorador!",
+      "You See",
     );
     await page.screenshot({
       path: `test-results/home-${width}.png`,
