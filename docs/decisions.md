@@ -6,6 +6,33 @@ Status: requested by the owner and implemented.
 
 The home-page hero heading is "You See" and its supporting line is "I did it!".
 
+## Top navigation order and conditional Home link — 2026-11-07
+
+Status: requested by the owner and implemented locally; visual and production-build
+verification passed. Playwright browser automation could not be completed locally.
+
+The top navigation order is Home, About Chispitas, Contact Us, and Log in/Register.
+The Home link appears on non-home pages only and returns to the home screen. It
+uses the owner's supplied house illustration, converted to the repository's
+lossless WebP format. The old My Profile link and Science preview are removed
+from the top navigation. Log in/Register opens `/login-register`. On the home
+page, the Home link is hidden.
+This supersedes the older top navigation shape described in "Home navigation
+adopted from Feduta" and "CHISPITAS home page"; their unrelated decisions remain.
+
+## Login/register screen — 2026-11-07
+
+Status: requested by the owner and implemented locally; visual, build, lint,
+typecheck and unit-test verification passed. Playwright browser automation could
+not be completed locally.
+
+The `/login-register` screen opens in Sign In mode and switches between Sign In
+and Register forms without navigating. Registration collects email, user name,
+grade and school, and validates email format. Sign in and account creation remain
+UI-only because authentication and accounts are outside the approved product scope.
+English labels and actions include Spanish translations beside them for the bilingual
+child-facing interface.
+
 ## Fast lane for small changes — 2026-11-05
 
 Status: decided by the owner; implemented in AGENTS.md.
@@ -59,7 +86,8 @@ on on 2026-11-05.
 
 ## Home navigation adopted from Feduta; no work on side branches — 2026-11-05
 
-Status: decided by the owner; implemented in the pull request that introduces it.
+Status: implemented in the pull request that introduced it; its top navigation
+shape was superseded by "Top navigation order and conditional Home link" on 2026-11-07.
 
 A commit by Feduta (`05d7b78` on `codex/my-work`) sat unmerged and undeployed. The owner
 decided to take over all of it, with its author kept on the commit. Consequences:

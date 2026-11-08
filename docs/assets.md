@@ -96,16 +96,16 @@ independently assessed; review the assets before any child pilot.
 
 ## Navigation illustrations
 
-The five locally generated transparent WebP illustrations below share the
-homepage storybook style. They are decorative because each navigation item has
-a text label. Science and map navigation are non-interactive coming-soon
-previews.
+The transparent WebP illustrations below are decorative because each
+navigation item has a text label. The top navigation includes a conditional
+Home link on non-home pages, About Chispitas, Contact Us and a non-interactive
+Log in/Register preview.
 
 | Asset | Local path | Type | Accessible description | Review status |
 |---|---|---|---|---|
-| Learner profile | `public/homepage/nav-profile.webp` | Navigation illustration | Decorative smiling learner portrait; the adjacent label identifies the profile link. | Owner visual review pending. |
-| Science flask | `public/homepage/nav-science.webp` | Navigation illustration | Decorative turquoise flask; the adjacent label identifies the coming-soon science preview. | Owner visual review pending; preview only. |
+| Home house | `public/homepage/nav-home.webp` | Navigation illustration (lossless WebP with alpha, 1328 × 1184 px) | Decorative purple house with a star on its door; the adjacent "Home" label names the link. | Supplied by the owner and converted from PNG to lossless WebP on 2026-11-07; third-party rights not independently assessed. |
+| Learner portrait | `public/homepage/nav-profile.webp` | Navigation illustration | Decorative smiling learner portrait; the adjacent label identifies the non-interactive Log in/Register preview. | Owner visual review pending. |
 | English book | `public/homepage/nav-learn.webp` | Navigation illustration | Decorative open book with a UK flag bookmark; the adjacent label identifies English learning. | Owner visual review pending. |
-| Smiling star mascot and star shop | `public/homepage/nav-shop.webp` | Brand mascot and navigation illustration | Decorative smiling golden star; adjacent brand text names CHISPITAS and the navigation label identifies the star shop. | Owner visual review pending. |
+| Smiling star mascot | `public/homepage/nav-shop.webp` | Brand mascot and navigation illustration | Decorative smiling golden star; adjacent brand text names CHISPITAS and the navigation label identifies About Chispitas. | Owner visual review pending. |
 | Contact dragon | `public/homepage/contact-dragon.webp` | Navigation illustration (lossless WebP, 256 × 256 px; downscaled from the 1254 px original with the owner's approval on 2026-11-05, the original stays in the Git history) | None | Decorative purple dragon icon; the adjacent label "Contact Us / Contacto" identifies the link. | Added by Feduta; owner-approved. Third-party rights not independently assessed. |
 | Adventure map | `public/homepage/nav-map.webp` | Navigation illustration | Decorative folded map with a location pin; the adjacent label identifies the coming-soon map preview. | Owner visual review pending; preview only. |

@@ -6,13 +6,19 @@ for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
     await page.goto("/");
 
     const navigation = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(navigation.getByRole("link", { name: "My Profile Mi perfil" })).toBeVisible();
+    const navigationItems = navigation.locator(".chispitas-nav-item");
+    await expect(navigationItems).toHaveCount(3);
+    await expect(navigationItems.nth(0)).toContainText("About Chispitas");
+    await expect(navigationItems.nth(1)).toContainText("Contact Us");
+    await expect(navigationItems.nth(2)).toContainText("Log in/Register");
+    await expect(navigation.getByRole("link", { name: "Home" })).toHaveCount(0);
+    await expect(navigation.getByText("My Profile", { exact: false })).toHaveCount(0);
+    await expect(navigation.getByText("Science", { exact: true })).toHaveCount(0);
     // Contact Us and About Chispitas lead to friendly "coming soon" pages.
     await expect(navigation.getByRole("link", { name: /Contact Us/ })).toBeVisible();
     await expect(navigation.getByRole("link", { name: /About Chispitas/ })).toBeVisible();
     await expect(navigation.getByText("¡Muy pronto!", { exact: false })).toHaveCount(2);
-    await expect(navigation.getByText("Log in/Register", { exact: false })).toBeVisible();
-    await expect(navigation.getByText("Iniciar sesión/Registrarse", { exact: true })).toBeVisible();
+    await expect(navigation.getByRole("link", { name: /Log in\/Register/ })).toBeVisible();
     const subtitleColors = await navigation.locator("small").evaluateAll((elements) =>
       elements.map((element) => getComputedStyle(element).color),
     );
@@ -76,8 +82,16 @@ for (const width of [360, 768, 1280]) {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",
     );
+    const missionNavigation = page.getByRole("navigation", { name: "Navegación principal" });
+    await expect(missionNavigation.locator(".chispitas-nav-item")).toHaveCount(4);
+    await expect(missionNavigation.locator(".chispitas-nav-item").first()).toContainText("Home");
     const startMission = page.getByRole("button", { name: "Empezar", exact: true });
     if (await startMission.isVisible()) await startMission.click();
+    await missionNavigation.getByRole("link", { name: "Home" }).click();
+    await expect(page).toHaveURL(/\/$/);
+    await expect(missionNavigation.getByRole("link", { name: "Home" })).toHaveCount(0);
+    await page.getByRole("link", { name: "Jugar la misión" }).click();
+    await expect(page).toHaveURL(/\/learn\/body-parts-01\/?$/);
     await page.getByRole("link", { name: "‹ Misiones" }).click();
     await expect(page).toHaveURL(/\/learn\/?$/);
     await page.getByRole("link", { name: "Chispitas" }).first().click();
@@ -270,6 +284,15 @@ for (const [link, path, heading, text] of [
     await expect(page.locator("main").getByText(text, { exact: false })).toBeVisible();
     await expect.poll(() => page.locator("main img").first().evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const navigation = page.getByRole("navigation", { name: "Navegación principal" });
+    const navigationItems = navigation.locator(".chispitas-nav-item");
+    await expect(navigationItems).toHaveCount(4);
+    await expect(navigationItems.first()).toContainText("Home");
+    await navigation.getByRole("link", { name: "Home" }).click();
+    await expect(page).toHaveURL(/\/$/);
+    await expect(navigation.getByRole("link", { name: "Home" })).toHaveCount(0);
+    await navigation.getByRole("link", { name: new RegExp(link) }).click();
+    await expect(page).toHaveURL(path);
     await page.getByRole("link", { name: "Volver al inicio" }).click();
     await expect(page).toHaveURL(/\/$/);
   });

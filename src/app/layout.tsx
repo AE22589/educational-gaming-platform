@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
 import { ProfileProvider } from "@/features/profile/ui/ProfileProvider";
+import { PrimaryNavigation } from "./PrimaryNavigation";
 
 export const metadata: Metadata = {
   title: "CHISPITAS · Aprende y explora",
@@ -28,23 +29,7 @@ export default function RootLayout({
                   <span className="chispitas-tagline">PEQUEÑAS CHISPAS, GRANDES DESCUBRIMIENTOS</span>
                 </span>
               </Link>
-              <nav aria-label="Navegación principal" className="chispitas-nav">
-                <Link href="/#profile-summary" className="chispitas-nav-item">
-                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-profile.webp`} alt="" width={64} height={64} unoptimized /><span>My Profile<small>Mi perfil</small></span>
-                </Link>
-                <span className="chispitas-nav-item is-soon" aria-disabled="true">
-                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-science.webp`} alt="" width={64} height={64} unoptimized /><span>Science<small>Ciencias · Próximamente</small></span>
-                </span>
-                <Link href="/contact" className="chispitas-nav-item">
-                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/contact-dragon.webp`} alt="" width={64} height={64} unoptimized /><span>Contact Us<small>Contacto · ¡Muy pronto!</small></span>
-                </Link>
-                <Link href="/about" className="chispitas-nav-item">
-                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-shop.webp`} alt="" width={64} height={64} unoptimized /><span>About Chispitas<small>Sobre Chispitas · ¡Muy pronto!</small></span>
-                </Link>
-                <span className="chispitas-nav-item is-soon" aria-disabled="true">
-                  <Image className="chispitas-nav-art" src={`${assetBasePath}/homepage/nav-profile.webp`} alt="" width={64} height={64} unoptimized /><span>Log in/Register<small>Iniciar sesión/Registrarse</small></span>
-                </span>
-              </nav>
+              <PrimaryNavigation assetBasePath={assetBasePath} />
             </div>
           </header>
           <main id="main" tabIndex={-1} className="chispitas-main">
