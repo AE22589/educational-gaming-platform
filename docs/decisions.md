@@ -425,3 +425,7 @@ checkpoints have no actions. The sidebar uses English progress labels and
 placeholder values of two English units, one Science unit and twelve stars.
 Stars remain independent of unit completion. Real curriculum and game data
 remain pending.
+
+## English World unit catalog — 2026-11-09
+
+The catalog uses the ten owner-provided English titles with short Spanish descriptions. Unit URLs are exported as static preview pages. Each card uses a separate text-free generated WebP illustration. Cards follow the rainbow color order. Buttons use the English label “Explore this topic.”

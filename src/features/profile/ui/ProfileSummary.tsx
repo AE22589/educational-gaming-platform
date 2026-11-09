@@ -24,10 +24,7 @@ export function ProfileSummary() {
     return (
       <div id="profile-summary" aria-live="polite" className="home-star-pill">
         <svg aria-hidden="true" viewBox="0 0 32 32"><path d="m16 2 4.2 8.5 9.4 1.4-6.8 6.6 1.6 9.3L16 23.4l-8.4 4.4 1.6-9.3-6.8-6.6 9.4-1.4z" /></svg>
-        <p><strong>{state.snapshot.stars}</strong><span> estrellas</span></p>
-        {state.ownership === "read-only" && (
-          <span className="home-star-note">Otra pestaña puede estar usando tu perfil. Aquí no se guardarán cambios.</span>
-        )}
+        <p><strong>{state.snapshot.stars}</strong><span lang="en"> Stars</span></p>
       </div>
     );
 

@@ -121,3 +121,9 @@ of five sections. The five section names are stored in map preview data.
 The return control is hidden on the world overview. No text appears beneath
 either map image. Image checkpoints do not navigate or update progress. Star balance is
 separate from completed units. Real units, games and scores remain pending.
+
+## English World and home welcome
+
+The home screen displays updated English welcome copy in its existing panel. The
+English World tile opens a ten-unit catalog at /englishworld. Each card has a Spanish description and a separate generated WebP illustration.
+Unit links open the existing preview routes while the activities are being prepared.

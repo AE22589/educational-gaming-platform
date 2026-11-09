@@ -111,3 +111,20 @@ Log in/Register preview.
 | Adventure map | `public/homepage/nav-map.webp` | Navigation illustration | Decorative folded map with a location pin; the adjacent label identifies the coming-soon map preview. | Owner visual review pending; preview only. |
 | Adventure world overview | `public/homepage/adventure-world-overview.webp` | Shared map overview | Fantasy world with five named sections and a green play control for Bosque Encantado. | Owner-supplied visual; converted to lossless WebP. Rights not independently assessed. |
 | Bosque Encantado detail | `public/homepage/adventure-forest-detail.webp` | First section map detail | Fantasy forest with five numbered checkpoints and star illustrations. | Owner-supplied visual; converted to lossless WebP. Rights not independently assessed. |
+
+## English World unit illustrations
+
+Separate generated, text-free illustrations for the ten unit cards, cropped from a consistent 3D storybook-style sheet.
+
+| Asset | Local path | Type | Accessible description | Review status |
+|---|---|---|---|---|
+| English World basics | `public/englishworld/basics.webp` | Decorative unit illustration | Colored building blocks; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World sports | `public/englishworld/sports.webp` | Decorative unit illustration | Sports balls; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World seasons | `public/englishworld/seasons.webp` | Decorative unit illustration | Sun, rain cloud and snowflake; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World animals | `public/englishworld/animals.webp` | Decorative unit illustration | Lion, elephant and giraffe; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World world-and-fruit | `public/englishworld/world-and-fruit.webp` | Decorative unit illustration | Globe and healthy fruit; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World places-and-activities | `public/englishworld/places-and-activities.webp` | Decorative unit illustration | Theme park and city buildings; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World beach | `public/englishworld/beach.webp` | Decorative unit illustration | Beach umbrella and sandcastle; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World safe-travel | `public/englishworld/safe-travel.webp` | Decorative unit illustration | Airplane, bus and car; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World home | `public/englishworld/home.webp` | Decorative unit illustration | Cozy house, books and toys; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| English World family | `public/englishworld/family.webp` | Decorative unit illustration | Picnic basket and photo album; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |

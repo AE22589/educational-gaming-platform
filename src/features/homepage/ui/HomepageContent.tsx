@@ -74,8 +74,8 @@ export function HomepageContent() {
       <section aria-labelledby="welcome-title" className="chispitas-hero">
         <div className="chispitas-hero-copy">
           <p className="chispitas-eyebrow">Una pequeña chispa te espera</p>
-          <h1 id="welcome-title">You See</h1>
-          <p className="chispitas-hero-subtitle">I did it!</p>
+          <h1 id="welcome-title" lang="en">Welcome to Chispitas!</h1>
+          <p className="chispitas-hero-subtitle" lang="en">Ready to play and learn?</p>
           <ProfileSummary />
         </div>
       </section>
@@ -93,7 +93,7 @@ export function HomepageContent() {
           description="Practica palabras nuevas mientras juegas."
           image={assetPath("/homepage/english-book.webp")}
           tone="lilac"
-          href="/learn"
+          href="/englishworld"
           action="Explorar"
         />
         <WorldTile

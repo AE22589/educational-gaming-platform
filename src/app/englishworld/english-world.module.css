@@ -1,0 +1,123 @@
+.world {
+  width: min(100% - 56px, 1260px);
+  margin-inline: auto;
+  padding: clamp(18px, 3vw, 38px) 0;
+}
+
+.heading {
+  margin-bottom: 24px;
+  text-align: center;
+  color: #243b70;
+}
+
+.heading h1 {
+  margin: 0;
+  color: #123d87;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 1000;
+  line-height: 1.1;
+}
+
+.heading > p:last-child {
+  margin: 8px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: clamp(10px, 1.2vw, 16px);
+}
+
+.grid > article {
+  min-height: 250px;
+}
+
+.unitCard:nth-child(7n + 1) { background: #ef5350; }
+.unitCard:nth-child(7n + 2) { background: #ff9800; }
+.unitCard:nth-child(7n + 3) { background: #ffca28; }
+.unitCard:nth-child(7n + 4) { background: #66bb6a; }
+.unitCard:nth-child(7n + 5) { background: #42a5f5; }
+.unitCard:nth-child(7n + 6) { background: #5c6bc0; }
+.unitCard:nth-child(7n) { background: #ab47bc; }
+
+.unitCard:nth-child(7n + 1) .button { background: #d93636; }
+.unitCard:nth-child(7n + 2) .button { background: #e58000; }
+.unitCard:nth-child(7n + 3) .button { background: #d9a900; }
+.unitCard:nth-child(7n + 4) .button { background: #3b9d42; }
+.unitCard:nth-child(7n + 5) .button { background: #2684d8; }
+.unitCard:nth-child(7n + 6) .button { background: #4656aa; }
+.unitCard:nth-child(7n) .button { background: #8f2da1; }
+
+.art {
+  display: grid;
+  min-height: 100px;
+  place-content: center;
+  gap: 3px;
+  padding: 10px;
+  background: radial-gradient(ellipse, rgba(255,255,255,.8), transparent 76%);
+  text-align: center;
+}
+
+.art img {
+  display: block;
+  width: 100%;
+  height: 116px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.copy h2 {
+  margin: 4px 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  text-wrap: balance;
+}
+
+.copy p {
+  margin-bottom: 12px;
+  font-size: .94rem;
+}
+
+.copy {
+  padding-bottom: 14px;
+}
+
+.button {
+  min-width: 0;
+  min-height: 42px;
+  font-size: .82rem;
+  text-decoration: none;
+}
+
+.button:hover {
+  filter: brightness(.88);
+}
+
+.button:focus-visible {
+  outline: 3px solid #123d87;
+  outline-offset: 3px;
+}
+
+.preview {
+  margin-top: 20px;
+  padding: 22px;
+  border: 3px solid white;
+  border-radius: 30px;
+}
+
+.preview .button {
+  margin-top: 18px;
+}
+
+@media (max-width: 1150px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .world { width: min(100% - 28px, 420px); }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
