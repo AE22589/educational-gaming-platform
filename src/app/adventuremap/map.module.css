@@ -1,0 +1,54 @@
+.page {
+  max-width: 1500px;
+  margin-inline: auto;
+  padding: clamp(12px, 2vw, 28px);
+  border-radius: 32px;
+  background: radial-gradient(ellipse at 50% 0%, #fff9d8, transparent 55%), linear-gradient(#dff8ff, #e8f5ff);
+  color: #20375d;
+}
+.intro { margin-bottom: 18px; text-align: center; }
+.intro h1 { margin: 4px 0; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; font-weight: 1000; }
+.eyebrow { margin: 0; color: #5539a2; font-weight: 850; }
+.layout { display: grid; grid-template-columns: minmax(200px, 245px) minmax(0, 1fr); gap: 18px; align-items: start; }
+.panel, .map {
+  border: 3px solid white;
+  border-radius: 25px;
+  background: #fffdf6;
+  box-shadow: 0 5px 0 #aecde7;
+  padding: clamp(10px, 1.5vw, 18px);
+}
+.panel { text-align: center; }
+.avatar { display: block; margin: 0 auto 8px; object-fit: contain; border-radius: 50%; background: #efe1ff; border: 3px solid white; box-shadow: 0 0 0 2px #d4bffa; }
+.panel h2 { margin: 0; font-size: 1.35rem; font-weight: 900; }
+.stars { margin: 8px 0 14px; padding: 5px 10px; border-radius: 999px; background: #fff0b1; color: #684300; font-weight: 900; }
+.stars span { color: #9a5d00; }
+.counts { display: grid; gap: 8px; margin-bottom: 14px; }
+.counts p { margin: 0; padding: 8px 4px; border-radius: 12px; background: #eee4ff; font-weight: 800; }
+.counts p + p { background: #ddf5d4; }
+.progressLabel { font-weight: 850; }
+.panel progress {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 14px;
+  overflow: hidden;
+  border: 1px solid #b9a7e2;
+  border-radius: 999px;
+  background: #eae0ff;
+}
+.panel progress::-webkit-progress-bar { background: #eae0ff; }
+.panel progress::-webkit-progress-value { border-radius: 999px; background: #7151c3; }
+.panel progress::-moz-progress-bar { border-radius: 999px; background: #7151c3; }
+.progressText { margin: 5px 0 16px; font-size: .9rem; }
+.overviewButton { width: 100%; min-height: 44px; border: 0; border-radius: 999px; background: #30a94f; box-shadow: 0 3px 0 #1b7132; color: white; font: inherit; font-weight: 900; cursor: pointer; }
+.overviewButton:focus-visible, .playButton:focus-visible { outline: 3px solid #25366e; outline-offset: 3px; }
+.panel small { display: block; margin-top: 12px; color: #54627b; }
+.map { min-width: 0; }
+.artwork { position: relative; overflow: hidden; border-radius: 17px; }
+.artwork img { display: block; width: 100%; height: auto; }
+.playButton { position: absolute; left: 12.8%; top: 77%; width: 9%; height: 12%; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.visuallyHidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

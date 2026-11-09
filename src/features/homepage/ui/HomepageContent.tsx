@@ -109,7 +109,8 @@ export function HomepageContent() {
           description="Elige un camino y descubre nuevos lugares."
           image={assetPath("/homepage/adventure-map.webp")}
           tone="cyan"
-          comingSoon
+          href="/adventuremap"
+          action="Explorar el mapa"
         />
       </section>
 

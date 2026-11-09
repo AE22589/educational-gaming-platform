@@ -6,6 +6,12 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 `npm run lint`, `npm run typecheck`, `npm test` (42 tests), `npm run build` and
 `npm run test:e2e` (8 tests).
 
+## Adventure Map prototype
+
+The home screen's Adventure Map tile opens `/adventuremap` via “Explorar el mapa.”
+The shared map and its Bosque Encantado detail are described in the 2026-11-09
+entry below. Real units, games, scores and saved progress are pending.
+
 ## Development model
 
 The owner maintains the repository solo and works sequentially, one task at a
@@ -104,3 +110,14 @@ use `.\start-dev.cmd` to launch the local preview without changing the
 PowerShell execution policy. The launcher finds a free port and gives each
 development server its own Next.js output directory. To request a specific
 port, run `.\start-dev.cmd --port 3001`.
+## Shared Adventure Map preview — 2026-11-09
+
+`/adventuremap` now displays one owner-supplied world map for all subjects.
+The owner-supplied Bosque Encantado detail image appears in the same map area
+after the green play control is selected. The left panel then provides a return
+control and shows placeholder progress of English 2 completed, Science 1
+completed, 3 sections completed, and 12 stars. The progress bar uses three
+of five sections. The five section names are stored in map preview data.
+The return control is hidden on the world overview. No text appears beneath
+either map image. Image checkpoints do not navigate or update progress. Star balance is
+separate from completed units. Real units, games and scores remain pending.

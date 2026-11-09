@@ -1,5 +1,16 @@
 # Project decisions
 
+## Adventure Map prototype — 2026-11-08
+
+Superseded by "Shared Adventure Map preview — 2026-11-09". The earlier
+prototype had separate English and Science trails with selectable stops.
+
+The future progression model allows variable game counts per unit and up to
+three stars per game. Completing all games in a unit adds one shared map step
+independently of other units. A separate star balance can later be
+spent without affecting unit or game completion. The prototype uses sample data
+and does not record game completions or award stars.
+
 ## Homepage hero copy — 2026-11-06
 
 Status: requested by the owner and implemented.
@@ -368,7 +379,8 @@ Pages write and OIDC permissions scoped to the deploy job.
 Use the approved bright illustrated storybook style, rounded pastel tiles and
 five icon-led navigation items. (Navigation labels and tile titles later became
 English-first, see 2026-11-05.) UI remains Spanish; English is limited to the
-learning subject and vocabulary. Science and map tiles are previews. Use the
+learning subject and vocabulary. The Science tile remains a preview. The map
+tile preview was superseded by "Adventure Map prototype". Use the
 real profile star balance; do not invent progress, daily limits or reward state.
 This decision adds no new game, account, curriculum or economy behavior.
 
@@ -401,3 +413,15 @@ vocabulary/audio remains English. Record confirmed decisions and unresolved
 prerequisites here and update affected specifications. Keep proposed, accepted,
 implemented and verified states distinct. Chat history is not the project
 source of truth.
+## Shared Adventure Map preview — 2026-11-09
+
+The Adventure Map presents one illustrated world for all subjects. Every completed
+unit contributes one step to a shared progression count, independent of its
+subject. The owner supplied overview and Bosque Encantado detail images. The
+green play control on the overview switches to the five-step Bosque Encantado
+image in place. The left summary shows its return button only in the detail
+view. No text is shown beneath either map image. Illustrated map
+checkpoints have no actions. The sidebar uses English progress labels and
+placeholder values of two English units, one Science unit and twelve stars.
+Stars remain independent of unit completion. Real curriculum and game data
+remain pending.
