@@ -128,3 +128,16 @@ Separate generated, text-free illustrations for the ten unit cards, cropped from
 | English World safe-travel | `public/englishworld/safe-travel.webp` | Decorative unit illustration | Airplane, bus and car; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
 | English World home | `public/englishworld/home.webp` | Decorative unit illustration | Cozy house, books and toys; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
 | English World family | `public/englishworld/family.webp` | Decorative unit illustration | Picnic basket and photo album; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+
+## Science World unit illustrations
+
+Six owner-provided illustrations cropped from the supplied educational sticker sheet. Each crop is a lossless WebP at 512 x 512 pixels. The adjacent unit title identifies each card.
+
+| Asset | Local path | Type | Accessible description | Review status |
+|---|---|---|---|---|
+| My Amazing Body | `public/scienceworld/body.webp` | Decorative unit illustration | Child with a diagram of the human body; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
+| Healthy Habits | `public/scienceworld/healthy-habits.webp` | Decorative unit illustration | Water, heart, fruit and exercise shoe; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
+| Animal Kingdom | `public/scienceworld/animal-kingdom.webp` | Decorative unit illustration | Giraffe, elephant, tiger, penguin and turtle; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
+| Growing Plants | `public/scienceworld/plants.webp` | Decorative unit illustration | Growing plant, sun and watering can; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
+| Save Our Planet | `public/scienceworld/planet.webp` | Decorative unit illustration | Earth held in hands with a recycling symbol; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
+| Everyday Technology | `public/scienceworld/technology.webp` | Decorative unit illustration | Robot with computer devices; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
