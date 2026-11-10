@@ -429,3 +429,7 @@ remain pending.
 ## English World unit catalog — 2026-11-09
 
 The catalog uses the ten owner-provided English titles with short Spanish descriptions. Unit URLs are exported as static preview pages. Each card uses a separate text-free generated WebP illustration. Cards follow the rainbow color order. Buttons use the English label “Explore this topic.”
+
+## Science World unit catalog - 2026-11-10
+
+Science World opens from the homepage and shares the English World catalog component, card styles and responsive grid. The six owner-provided titles link to static unit previews. Each unit uses its corresponding owner-provided illustration, cropped from a single sticker sheet and encoded as lossless WebP.

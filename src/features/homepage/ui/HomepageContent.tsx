@@ -86,7 +86,8 @@ export function HomepageContent() {
           description="Descubre la naturaleza y sus maravillas."
           image={assetPath("/homepage/science-garden.webp")}
           tone="lime"
-          comingSoon
+          href="/scienceworld"
+          action="Explorar"
         />
         <WorldTile
           title="English World"
