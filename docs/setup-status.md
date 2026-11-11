@@ -126,7 +126,12 @@ separate from completed units. Real units, games and scores remain pending.
 
 The home screen displays updated English welcome copy in its existing panel. The
 English World tile opens a ten-unit catalog at /englishworld. Each card has a Spanish description and a separate generated WebP illustration.
-Unit links open the existing preview routes while the activities are being prepared.
+Sports opens a game menu with eight playable activities that use the unit's 16 English vocabulary terms.
+The selected game opens below the menu. Other English World units open their preview routes.
+The Sports menu shows the total stars earned on first tries and each completed
+game's best score as a proportionally filled star. Each game shows correct
+answers and mistakes. Picture Match plays sound feedback and reshuffles after
+completion.
 
 ## Science World catalog
 

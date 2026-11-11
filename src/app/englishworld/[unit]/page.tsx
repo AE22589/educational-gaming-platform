@@ -4,7 +4,7 @@ import { englishUnits } from "../units";
 import styles from "../english-world.module.css";
 
 export function generateStaticParams() {
-  return englishUnits.map(({ slug }) => ({ unit: slug }));
+  return englishUnits.filter(({ slug }) => slug !== "sports").map(({ slug }) => ({ unit: slug }));
 }
 
 export default async function EnglishUnitPage({ params }: { params: Promise<{ unit: string }> }) {

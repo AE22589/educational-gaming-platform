@@ -120,6 +120,10 @@ Separate generated, text-free illustrations for the ten unit cards, cropped from
 |---|---|---|---|---|
 | English World basics | `public/englishworld/basics.webp` | Decorative unit illustration | Colored building blocks; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
 | English World sports | `public/englishworld/sports.webp` | Decorative unit illustration | Sports balls; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
+| Sports bat | `public/englishworld/sports-equipment/bat.webp` | Vocabulary picture | Wooden baseball bat with a black grip. | Generated artwork, not independently rights-reviewed. |
+| Sports knee pads | `public/englishworld/sports-equipment/knee.webp` | Vocabulary picture | Blue knee pads, one worn on a bent leg. | Generated artwork, not independently rights-reviewed. |
+| Sports elbow pads | `public/englishworld/sports-equipment/elbow.webp` | Vocabulary picture | Orange elbow pads, one worn on a bent arm. | Generated artwork, not independently rights-reviewed. |
+| Sports park | `public/englishworld/sports-equipment/park.webp` | Look & Find scene | A sunny playground with children, animals, sports equipment, toys, and picnic objects. | Generated artwork, not independently rights-reviewed. |
 | English World seasons | `public/englishworld/seasons.webp` | Decorative unit illustration | Sun, rain cloud and snowflake; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
 | English World animals | `public/englishworld/animals.webp` | Decorative unit illustration | Lion, elephant and giraffe; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |
 | English World world-and-fruit | `public/englishworld/world-and-fruit.webp` | Decorative unit illustration | Globe and healthy fruit; the adjacent unit title identifies the card. | Generated artwork, not independently rights-reviewed. |

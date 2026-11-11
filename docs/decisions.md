@@ -433,3 +433,28 @@ The catalog uses the ten owner-provided English titles with short Spanish descri
 ## Science World unit catalog - 2026-11-10
 
 Science World opens from the homepage and shares the English World catalog component, card styles and responsive grid. The six owner-provided titles link to static unit previews. Each unit uses its corresponding owner-provided illustration, cropped from a single sticker sheet and encoded as lossless WebP.
+
+## English World Sports activities — 2026-11-11
+
+The Sports unit offers Picture Match, Mystery Word, Build a Phrase, See It,
+Hear It, Spell It, Letter Scramble, Word Hunt, Look & Find, and Play, Go, Do,
+Wear? Selecting a game opens its
+play area below the menu. The games use the 16 owner-provided vocabulary terms
+with Spanish instructions and English answers. Phrase tiles support drag and
+tap. Spelling uses a local English browser voice when available and always
+offers a visual clue.
+
+Sports tracks correct answers and mistakes per run and awards one Sports star
+for each first-try correct answer across the eight games. In Word Hunt, an invalid
+guess uses up the first try for the next word found. After a completed run, the
+game card shows a star filled to the best first-try score for that page visit.
+Picture Match plays separate sounds for correct and incorrect answers and
+shuffles the next run. In Build a Phrase, the eraser clears the draft and the
+Check button gives feedback.
+
+Look & Find counts spelling and finding the object as one question. A mistake
+at either step makes that question ineligible for a star. Every round uses
+the same illustrated park and fixed object positions. Tap targets are visually
+unmarked until the correct object is found. Play, Go, Do, Wear?
+uses the sports vocabulary and adds gymnastics for the Do group. The bat and
+racket go in Play. Each prompt shows the full phrase with the verb blank.
