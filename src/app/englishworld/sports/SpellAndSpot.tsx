@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { SportsPicture } from "./SportsPicture";
-import { sportsVocabulary, type VocabularyItem } from "./vocabulary";
+import { scramble, type VocabularyItem } from "./vocabulary";
 import styles from "./sports.module.css";
 
 const sceneNames: Record<string, string> = {
@@ -36,21 +36,28 @@ const locations: Record<string, [left: number, top: number, painted?: true]> = {
   "elbow pads": [65, 75],
 };
 
-export function SpellAndSpot({ round, onAnswer, onNext }: {
+export function SpellAndSpot({ round, vocabulary, unit, onAnswer, onNext }: {
   round: number;
+  vocabulary: VocabularyItem[];
+  unit: "sports" | "seasons";
   onAnswer: (correct: boolean) => void;
   onNext: () => void;
 }) {
-  const item = sportsVocabulary[round]!;
+  const item = vocabulary[round]!;
+  const park = unit === "sports" && vocabulary.every(({ word }) => locations[word]);
+  const start = Math.floor(round / 8) * 8;
+  const objects = park ? vocabulary : scramble(vocabulary.slice(start, start + 8), start + 17);
+  const sceneName = park ? sceneNames[item.word] : undefined;
   const [letters, setLetters] = useState("");
   const [step, setStep] = useState<"spell" | "spot" | "found">("spell");
   const [feedback, setFeedback] = useState("");
   const prompt = useRef<HTMLParagraphElement>(null);
   const next = useRef<HTMLButtonElement>(null);
-  const vowels = item.word.match(/[aeiou]/g) ?? [];
-  const missing = vowels.slice(0, 2).join("");
-  let hidden = 0;
-  const pattern = item.word.replace(/[aeiou]/g, (letter) => hidden++ < missing.length ? "_" : letter);
+  const hide = /[aeiou]/.test(item.word) ? /[aeiou]/g : /[a-z]/g;
+  const blanks = Array.from(item.word.matchAll(hide)).slice(0, 2);
+  const missing = blanks.map(([letter]) => letter).join("");
+  const pattern = item.word.split("").map((letter, index) =>
+    blanks.some((blank) => blank.index === index) ? "_" : letter).join("");
 
   useEffect(() => {
     if (step === "spot") prompt.current?.focus();
@@ -100,20 +107,21 @@ export function SpellAndSpot({ round, onAnswer, onNext }: {
       ) : (
         <>
           <p className={styles.prompt} ref={prompt} tabIndex={-1} lang="en">
-            Find the <strong>{sceneNames[item.word] ?? item.word}</strong>!
+            Find: <strong>{sceneName ?? item.word}</strong>
           </p>
-          {sceneNames[item.word] && sceneNames[item.word] !== item.word && <p lang="en">{item.word}</p>}
+          {sceneName && sceneName !== item.word && <p lang="en">{item.word}</p>}
         </>
       )}
-      <div className={styles.scene} role="group" aria-label="Escena deportiva"
-        style={{ backgroundImage: `url("${process.env.NEXT_PUBLIC_BASE_PATH}/englishworld/sports-equipment/park.webp")` }}
+      <div className={`${styles.scene} ${park ? "" : styles.iconScene}`} role="group"
+        aria-label={park ? "Escena deportiva" : "Busca el dibujo"}
+        style={park ? { backgroundImage: `url("${process.env.NEXT_PUBLIC_BASE_PATH}/englishworld/sports-equipment/park.webp")` } : undefined}
         onClick={(event) => { if (event.target === event.currentTarget) spot(); }}>
-        <span className={styles.sceneCamera} aria-hidden="true">📷</span>
-        {sportsVocabulary.map((object) => {
-          const [left, top, painted] = locations[object.word]!;
+        {park && <span className={styles.sceneCamera} aria-hidden="true">📷</span>}
+        {objects.map((object) => {
+          const [left, top, painted] = park ? locations[object.word]! : [];
           return (
-            <button type="button" className={styles.sceneObject} key={object.word}
-              style={{ left: `${left}%`, top: `${top}%` }}
+            <button type="button" className={park ? styles.sceneObject : styles.iconObject} key={object.word}
+              style={park ? { left: `${left}%`, top: `${top}%` } : undefined}
               aria-label={object.translation} data-painted={painted}
               disabled={step !== "spot"} data-found={step === "found" && object === item}
               onClick={() => spot(object)}>

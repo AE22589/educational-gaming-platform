@@ -1,20 +1,22 @@
 import { useState, type CSSProperties } from "react";
-import { scramble, sportsVocabulary } from "./vocabulary";
+import { scramble, type VocabularyItem } from "./vocabulary";
 import styles from "./sports.module.css";
 
 const rows = 8;
 
 function createBoard(round: number, words: string[]) {
-  const vertical = words.find((word) => word.length <= rows)!;
+  const vertical = words.find((word) => word.length <= rows);
   const horizontal = words.filter((word) => word !== vertical);
-  const columns = Math.max(...horizontal.map((word) => word.length)) + 1;
+  const columns = Math.max(4, ...horizontal.map((word) => word.length)) + 1;
   const board = Array.from({ length: rows * columns }, (_, index) =>
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[((index * 71) ^ (index * 13 + round * 37)) % 26]!);
   const verticalColumn = round % 2 === 0 ? 0 : columns - 1;
-  const top = (rows - vertical.length) % 3;
-  Array.from(vertical).forEach((letter, index) => {
-    board[(top + index) * columns + verticalColumn] = letter;
-  });
+  if (vertical) {
+    const top = (rows - vertical.length) % 3;
+    Array.from(vertical).forEach((letter, index) => {
+      board[(top + index) * columns + verticalColumn] = letter;
+    });
+  }
   const wordRows = scramble(Array.from({ length: rows }, (_, index) => index), round + 41);
   horizontal.forEach((word, index) => {
     const margin = columns - 1 - word.length;
@@ -40,12 +42,13 @@ function lineBetween(start: number, end: number, columns: number) {
   return [];
 }
 
-export function WordHunt({ round, onAnswer, onNext }: {
+export function WordHunt({ round, vocabulary, onAnswer, onNext }: {
   round: number;
+  vocabulary: VocabularyItem[];
   onAnswer: (correct: boolean) => void;
   onNext: () => void;
 }) {
-  const targets = sportsVocabulary.slice(round * 4, round * 4 + 4).map(({ word }) => ({
+  const targets = vocabulary.slice(round * 4, round * 4 + 4).map(({ word }) => ({
     word,
     compact: word.replaceAll(" ", "").toUpperCase(),
   }));

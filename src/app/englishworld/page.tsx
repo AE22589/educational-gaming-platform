@@ -9,9 +9,9 @@ export default function EnglishWorldPage() {
       <header className={styles.heading}>
         <p className="chispitas-eyebrow">Elige tu próxima aventura</p>
         <h1 id="english-world-title" lang="en">English World</h1>
-        <p>Explora 10 unidades y descubre palabras nuevas en inglés.</p>
+        <p>Explora {englishUnits.length} unidades y descubre palabras nuevas en inglés.</p>
       </header>
-      <div className={`english-unit-grid ${styles.grid}`}>
+      <div className={`english-unit-grid ${styles.grid} ${styles.englishGrid}`}>
         {englishUnits.map((unit) => (
           <article className={`home-tile ${styles.unitCard}`} key={unit.slug}>
             <div className={styles.art}>

@@ -1,5 +1,4 @@
 export const englishUnits = [
-  { slug: "basics", title: "Let's Learn the Basics!", description: "Practica saludos, colores y números en inglés.", image: "/englishworld/basics.webp", imageLabel: "Colored building blocks", icon: "🔤" },
   { slug: "sports", title: "Let's Play Sports!", description: "Aprende los nombres de tus deportes favoritos.", image: "/englishworld/sports.webp", imageLabel: "Sports balls", icon: "⚽" },
   { slug: "seasons", title: "Discover the Seasons!", description: "Descubre las cuatro estaciones y cómo cambia el tiempo.", image: "/englishworld/seasons.webp", imageLabel: "Sun, rain cloud and snowflake", icon: "🍂" },
   { slug: "animals", title: "Amazing Animal World!", description: "Conoce animales y aprende sus nombres en inglés.", image: "/englishworld/animals.webp", imageLabel: "Lion, elephant and giraffe", icon: "🦁" },

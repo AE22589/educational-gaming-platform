@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { normalizeWord, scramble, sportsVocabulary, type VocabularyItem } from "./vocabulary";
+import { normalizeWord, scramble, type VocabularyItem } from "./vocabulary";
 import { WordHunt } from "./WordHunt";
 import { SpellAndSpot } from "./SpellAndSpot";
-import { SortSports, sortWords } from "./SortSports";
+import { SortWords } from "./SortWords";
 import { SportsPicture } from "./SportsPicture";
 import { playAnswerSound } from "./answer-sound";
 import styles from "./sports.module.css";
@@ -20,18 +20,17 @@ const games = [
   { id: "sort", name: "Play, Go, Do, Wear?", description: "Clasifica deportes y objetos.", art: "⚽ 🧢", color: "mint" },
 ] as const;
 
-type Game = (typeof games)[number];
+type Game = Omit<(typeof games)[number], "name"> & { name: string };
 
-function questionCount(id: Game["id"]) {
-  return id === "sort" ? sortWords.length : sportsVocabulary.length;
-}
-
-export function SportsGames() {
+export function UnitGames({ vocabulary, unit }: {
+  vocabulary: VocabularyItem[];
+  unit: "sports" | "seasons";
+}) {
   const [game, setGame] = useState<Game | null>(null);
   const [selection, setSelection] = useState(0);
   const [stars, setStars] = useState(0);
   const [bestScores, setBestScores] = useState<Partial<Record<Game["id"], number>>>({});
-  const [matchOrder, setMatchOrder] = useState<VocabularyItem[]>(() => [...sportsVocabulary]);
+  const [matchOrder, setMatchOrder] = useState<VocabularyItem[]>(() => [...vocabulary]);
   const audio = useRef<AudioContext | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
 
@@ -71,18 +70,23 @@ export function SportsGames() {
       <section className={styles.catalog} aria-label="Juegos de inglés">
         {games.map((entry) => {
           const best = bestScores[entry.id];
-          const questions = questionCount(entry.id);
+          const questions = vocabulary.length;
+          const seasonalSort = unit === "seasons" && entry.id === "sort";
+          const name = seasonalSort ? "Weather, Season or Activity?" : entry.name;
+          const description = seasonalSort ? "Clasifica el tiempo, las estaciones y las actividades." : entry.description;
+          const art = unit === "seasons" && entry.id === "match" ? "🖼️ ☀️"
+            : seasonalSort ? "☀️ 🍂" : entry.art;
           return (
             <button key={entry.id} type="button" className={styles.card} data-color={entry.color}
-              aria-expanded={game?.id === entry.id} aria-controls="sports-game"
+              aria-expanded={game?.id === entry.id} aria-controls="unit-game"
               onClick={() => {
-                setGame(entry);
+                setGame({ ...entry, name });
                 setSelection((previous) => previous + 1);
               }}>
-              <span className={styles.cardArt} aria-hidden="true">{entry.art}</span>
+              <span className={styles.cardArt} aria-hidden="true">{art}</span>
               <span className={styles.cardCopy}>
                 <strong className={styles.cardTitle} lang="en">
-                  {entry.name}
+                  {name}
                   {best !== undefined && (
                     <span className={styles.medal} role="img"
                       aria-label={`Best score: ${best} of ${questions} correct on the first try`}>
@@ -90,7 +94,7 @@ export function SportsGames() {
                     </span>
                   )}
                 </strong>
-                <span>{entry.description}</span>
+                <span>{description}</span>
               </span>
               <span className={styles.arrow} aria-hidden="true">›</span>
             </button>
@@ -100,11 +104,11 @@ export function SportsGames() {
       <div className={styles.starCounter} role="status">
         <span aria-hidden="true">⭐</span> Estrellas <strong>{stars}</strong>
       </div>
-      <section id="sports-game" className={styles.play} hidden={!game} aria-labelledby="sports-game-title">
+      <section id="unit-game" className={styles.play} hidden={!game} aria-labelledby="unit-game-title">
         {game && (
           <>
-            <h2 id="sports-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
-            <Activity key={selection} game={game} matchOrder={matchOrder}
+            <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
+            <Activity key={selection} game={game} matchOrder={matchOrder} vocabulary={vocabulary} unit={unit}
               onComplete={(score) => complete(game.id, score)} onMatchAnswer={scoreMatch}
               onStar={() => setStars((count) => count + 1)} />
           </>
@@ -114,9 +118,11 @@ export function SportsGames() {
   );
 }
 
-function Activity({ game, matchOrder, onComplete, onMatchAnswer, onStar }: {
+function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswer, onStar }: {
   game: Game;
   matchOrder: VocabularyItem[];
+  vocabulary: VocabularyItem[];
+  unit: "sports" | "seasons";
   onComplete: (score: number) => void;
   onMatchAnswer: (correct: boolean) => void;
   onStar: () => void;
@@ -127,8 +133,8 @@ function Activity({ game, matchOrder, onComplete, onMatchAnswer, onStar }: {
   const [correctCount, setCorrectCount] = useState(0);
   const run = useRef({ solved: 0, firstTry: 0, missed: false });
   const progress = useRef<HTMLParagraphElement>(null);
-  const questions = questionCount(game.id);
-  const total = game.id === "hunt" ? questions / 4 : questions;
+  const questions = vocabulary.length;
+  const total = game.id === "hunt" ? Math.ceil(questions / 4) : questions;
 
   function recordAnswer(correct: boolean) {
     const score = run.current;
@@ -175,14 +181,14 @@ function Activity({ game, matchOrder, onComplete, onMatchAnswer, onStar }: {
           <button className={styles.primary} onClick={replay}>Volver a jugar</button>
         </div>
       ) : game.id === "hunt" ? (
-        <WordHunt key={round} {...roundProps} />
+        <WordHunt key={round} vocabulary={vocabulary} {...roundProps} />
       ) : game.id === "spot" ? (
-        <SpellAndSpot key={round} {...roundProps} />
+        <SpellAndSpot key={round} vocabulary={vocabulary} unit={unit} {...roundProps} />
       ) : game.id === "sort" ? (
-        <SortSports key={round} {...roundProps} />
+        <SortWords key={round} item={vocabulary[round]!} unit={unit} {...roundProps} />
       ) : (
         <VocabularyRound key={round} id={game.id}
-          item={(game.id === "match" ? words : sportsVocabulary)[round]!} {...roundProps} />
+          vocabulary={vocabulary} item={(game.id === "match" ? words : vocabulary)[round]!} {...roundProps} />
       )}
       <div className={styles.results} role="status">
         <span lang="en">✓ Correct <strong>{correctCount}</strong></span>
@@ -192,10 +198,11 @@ function Activity({ game, matchOrder, onComplete, onMatchAnswer, onStar }: {
   );
 }
 
-function VocabularyRound({ id, round, item, onAnswer, onNext }: {
+function VocabularyRound({ id, round, item, vocabulary, onAnswer, onNext }: {
   id: Exclude<Game["id"], "hunt" | "spot" | "sort">;
   round: number;
   item: VocabularyItem;
+  vocabulary: VocabularyItem[];
   onAnswer: (correct: boolean) => void;
   onNext: () => void;
 }) {
@@ -205,14 +212,13 @@ function VocabularyRound({ id, round, item, onAnswer, onNext }: {
   const [audioMessage, setAudioMessage] = useState("");
   const correct = feedback === "correct";
   const letters = Array.from(item.word);
-  const letterPositions = letters.flatMap((letter, index) => letter === " " ? [] : [index]);
+  const letterPositions = letters.flatMap((letter, index) => /\p{L}/u.test(letter) ? [index] : []);
   const missing = letterPositions[(round + 1) % letterPositions.length]!;
   const letter = letters[missing]!;
   const options = scramble([letter, ...Array.from("aeiotrsl").filter((option) => option !== letter)
     .slice(round % 4, round % 4 + 2)], round + 9);
-  const wordIndex = sportsVocabulary.indexOf(item);
-  const matchOptions = scramble([item, ...[3, 7, 11].map((offset) =>
-    sportsVocabulary[(wordIndex + offset) % sportsVocabulary.length]!)], round + 11);
+  const matchDistractors = scramble(vocabulary.filter((entry) => entry !== item), round + 5).slice(0, 3);
+  const matchOptions = scramble([item, ...matchDistractors], round + 11);
 
   useEffect(() => {
     if (id === "spell") return () => window.speechSynthesis?.cancel();

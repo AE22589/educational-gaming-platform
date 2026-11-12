@@ -4,6 +4,7 @@ import styles from "./sports.module.css";
 
 export function SportsPicture({ item }: { item: VocabularyItem }) {
   const { picture, translation } = item;
+  if (!picture) return <span className={styles.picture}>{translation}</span>;
   return (
     <span className={styles.picture} role="img" aria-label={translation}>
       {picture === "bat" || picture === "knee" || picture === "elbow"

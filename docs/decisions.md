@@ -437,7 +437,9 @@ remain pending.
 
 ## English World unit catalog — 2026-11-09
 
-The catalog uses the ten owner-provided English titles with short Spanish descriptions. Unit URLs are exported as static preview pages. Each card uses a separate text-free generated WebP illustration. Cards follow the rainbow color order. Buttons use the English label “Explore this topic.”
+The unit selection and layout are superseded by “Workbook vocabulary for English World — 2026-11-12”.
+
+The original catalog used the ten owner-provided English titles with short Spanish descriptions. Unit URLs are exported as static preview pages. Each card uses a separate text-free generated WebP illustration. Cards follow the rainbow color order. Buttons use the English label “Explore this topic.”
 
 ## Science World unit catalog - 2026-11-10
 
@@ -461,9 +463,17 @@ Picture Match plays separate sounds for correct and incorrect answers and
 shuffles the next run. In Build a Phrase, the eraser clears the draft and the
 Check button gives feedback.
 
+The sorting vocabulary is superseded by “Workbook vocabulary for English World — 2026-11-12”.
+
 Look & Find counts spelling and finding the object as one question. A mistake
 at either step makes that question ineligible for a star. Every round uses
 the same illustrated park and fixed object positions. Tap targets are visually
 unmarked until the correct object is found. Play, Go, Do, Wear?
 uses the sports vocabulary and adds gymnastics for the Do group. The bat and
 racket go in Play. Each prompt shows the full phrase with the verb blank.
+
+## Workbook vocabulary for English World — 2026-11-12
+
+The English World catalog follows the nine English units in [List.xlsx](List.xlsx), with four cards in the first desktop row and five in the second. The static build reads the `vocabulary_list` sheet. English unit names match the catalog titles, and each entry supplies its English term and Spanish translation. The build checks required columns, duplicate terms and missing unit lists.
+
+Sports and Seasons share the same eight game mechanics. Sports uses its workbook terms for every activity, including its verb sorting game. Seasons uses its workbook terms for a weather, season and activity sorting game and a seasonal picture search. Vocabulary choices come from the current unit. Example sentences supply grammatical context around the workbook terms.

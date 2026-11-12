@@ -142,6 +142,42 @@
   background: #ccedaf center / 100% 100% no-repeat;
 }
 
+.iconScene {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  place-content: center;
+  gap: clamp(4px, 1.5vw, 12px);
+  padding: clamp(5px, 2vw, 18px);
+  aspect-ratio: 2 / 1;
+  border-color: #bddcea;
+  background: linear-gradient(#dbf3ff, #eaf6ce);
+}
+
+.page .iconObject {
+  display: grid;
+  place-items: center;
+  min-height: 48px;
+  padding: 3px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.iconObject .picture {
+  width: 100%;
+  height: auto;
+  min-height: 42px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  font-size: clamp(1.4rem, 5vw, 2.8rem);
+}
+
+.page .iconObject[data-found="true"] {
+  border-color: #25804a;
+  background: #fff8bd;
+}
+
 .page .sceneObject {
   position: absolute;
   width: max(36px, 10%);
@@ -202,9 +238,9 @@
   margin: 12px auto;
 }
 .page .sortGroups .tile { background: var(--group-color); }
-.sortGroups [data-group="Play"] { --group-color: #dbeeff; }
-.sortGroups [data-group="Go"] { --group-color: #dcf4d4; }
-.sortGroups [data-group="Do"] { --group-color: #ffe7ca; }
+.sortGroups :is([data-group="Play"], [data-group="Weather"]) { --group-color: #dbeeff; }
+.sortGroups :is([data-group="Go"], [data-group="Season"]) { --group-color: #dcf4d4; }
+.sortGroups :is([data-group="Do"], [data-group="Activity"]) { --group-color: #ffe7ca; }
 .sortGroups [data-group="Wear"] { --group-color: #f7e2ff; }
 .page .sortGroups [data-correct="true"] { border-color: #25804a; }
 

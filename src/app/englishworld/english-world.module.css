@@ -109,6 +109,12 @@
   margin-top: 18px;
 }
 
+@media (min-width: 1151px) {
+  .englishGrid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .englishGrid > article { grid-column: span 2; }
+  .englishGrid > article:first-child { grid-column: 2 / span 2; }
+}
+
 @media (max-width: 1150px) {
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
@@ -121,3 +127,20 @@
   .world { width: min(100% - 28px, 420px); }
   .grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+.vocabulary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 10px;
+  padding: 0;
+}
+
+.vocabulary > div {
+  padding: 10px 14px;
+  border: 2px solid white;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.vocabulary dt { font-weight: 900; }
+.vocabulary dd { margin: 2px 0 0; }
