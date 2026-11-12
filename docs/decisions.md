@@ -1,5 +1,14 @@
 # Project decisions
 
+## Scrolling homepage illustration - 2026-11-11
+
+Implemented. The owner's taller valley illustration is
+the scrolling background on desktop and mobile. It covers the homepage
+through the footer without a fade or added ground color. The welcome panel
+sits at the bottom of the hero near the world cards, leaving the illustrated
+star visible above it. The panel and card surfaces keep the text and controls
+readable.
+
 ## Adventure Map prototype — 2026-11-08
 
 Superseded by "Shared Adventure Map preview — 2026-11-09". The earlier

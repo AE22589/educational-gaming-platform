@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { ProfileSummary } from "@/features/profile/ui/ProfileSummary";
 
 type TileTone = "lime" | "lilac" | "orange" | "cyan";
@@ -64,13 +63,9 @@ function WorldTile({
 export function HomepageContent() {
   const basePath = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
   const assetPath = (path: string) => `${basePath}${path}`;
-  const pageStyle = {
-    "--home-background": `url("${basePath}/homepage/enchanted-valley-panorama-v2.webp")`,
-    "--home-mobile-background": `url("${basePath}/homepage/enchanted-valley-mobile.webp")`,
-  } as CSSProperties;
 
   return (
-    <div className="chispitas-home" style={pageStyle}>
+    <div className="chispitas-home">
       <section aria-labelledby="welcome-title" className="chispitas-hero">
         <div className="chispitas-hero-copy">
           <p className="chispitas-eyebrow">Una pequeña chispa te espera</p>

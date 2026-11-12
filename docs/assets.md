@@ -79,8 +79,9 @@ independently assessed; review the assets before any child pilot.
 
 | Asset | Local path | Type | Locale | Accessible description | Review status |
 |---|---|---|---|---|---|
-| Enchanted valley panorama | `public/homepage/enchanted-valley-panorama-v2.webp` | Full-width homepage background | None | Decorative panoramic landscape with the explorer's face and castle kept clear of the overlaid cards; adjacent HTML provides the heading. | Owner design reference received; Owner visual review pending. |
-| Enchanted valley mobile scene | `public/homepage/enchanted-valley-mobile.webp` | Fixed portrait background for phone layouts | None | Decorative portrait scene keeps the explorer, star and castle in view behind scrolling cards. | Owner visual review pending. |
+| Enchanted valley panorama | `public/homepage/enchanted-valley-panorama-v2.webp` | Previous desktop homepage background | None | Decorative panoramic landscape with the explorer, star and castle. | Retained as prior artwork. |
+| Enchanted valley mobile scene | `public/homepage/enchanted-valley-mobile.webp` | Previous mobile homepage background | None | Decorative portrait scene with the explorer, star and castle. | Retained as prior artwork. |
+| Tall enchanted valley | `public/homepage/enchanted-valley-tall.webp` | Scrolling homepage background | None | Decorative portrait landscape with the explorer, star, castle, waterfalls and a meadow. | Owner-supplied artwork; visual review pending. |
 | Science garden | `public/homepage/science-garden.webp` | Tile illustration | None | Decorative smiling flask among leaves; tile is labelled as coming soon. | Owner visual review pending; preview only. |
 | English book | `public/homepage/english-book.webp` | Tile illustration | English learning subject | Decorative open picture book with letter blocks; adjacent HTML identifies the learning tile. | Owner visual review pending. |
 | Little friend dragon | `public/homepage/my-little-friend-dragon.webp` | Tile illustration | None | Decorative purple baby dragon; adjacent HTML names the companion tile. | Generated from the owner's supplied dragon reference; Owner visual review pending. |

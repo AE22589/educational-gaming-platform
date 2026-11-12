@@ -6,6 +6,13 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 `npm run lint`, `npm run typecheck`, `npm test` (42 tests), `npm run build` and
 `npm run test:e2e` (8 tests).
 
+## Homepage illustration - 2026-11-11
+
+The homepage uses the owner's taller valley illustration on
+desktop and mobile. The artwork scrolls with the page and covers the
+welcome, world, support, and footer sections. The welcome panel sits just
+above the world cards.
+
 ## Adventure Map prototype
 
 The home screen's Adventure Map tile opens `/adventuremap` via “Explorar el mapa.”

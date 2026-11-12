@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import "./globals.css";
 import { ProfileProvider } from "@/features/profile/ui/ProfileProvider";
 import { PrimaryNavigation } from "./PrimaryNavigation";
@@ -17,7 +18,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body>
+      <body style={{ "--home-background": `url("${assetBasePath}/homepage/enchanted-valley-tall.webp")` } as CSSProperties}>
         <ProfileProvider>
           <a className="skip-link" href="#main">Saltar al contenido</a>
           <header className="chispitas-header">

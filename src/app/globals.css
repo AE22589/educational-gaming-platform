@@ -223,22 +223,23 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 }
 
 .chispitas-main { --main-gutter: clamp(10px, 1.8vw, 30px); width: 100%; margin: 0 auto; padding: 0 var(--main-gutter) 28px; }
-.chispitas-home { position: relative; isolation: isolate; padding-bottom: 8px; }
-.chispitas-home::before {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
+body:has(.chispitas-home) {
+  min-height: 100dvh;
   background-image: var(--home-background);
-  background-position: center top;
+  background-position: center 25%;
   background-size: cover;
   background-repeat: no-repeat;
-  content: "";
+}
+.chispitas-home { padding-bottom: 8px; }
+body:has(.chispitas-home) .chispitas-footer {
+  color: white;
+  text-shadow: 0 1px 3px #102c69, 0 0 4px #102c69;
 }
 .chispitas-hero {
   position: relative;
   display: flex;
   min-height: max(250px, calc(100dvh - 250px));
-  align-items: center;
+  align-items: flex-end;
   overflow: hidden;
   border: 0;
   border-radius: 0;
@@ -266,6 +267,7 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 .coming-soon-copy p { margin: 0 0 10px; line-height: 1.5; }
 .coming-soon .action { display: inline-flex; margin-top: 22px; }
 .chispitas-eyebrow { margin: 0 0 6px; color: #e58400; font-size: .72rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+.chispitas-home .chispitas-eyebrow { color: #945000; }
 .chispitas-hero h1 { margin: 0; color: #123d87; font-size: clamp(1.85rem, 3vw, 2.6rem); font-weight: 1000; letter-spacing: -.04em; line-height: 1.03; text-wrap: balance; }
 .chispitas-hero-subtitle { margin: 7px 0 0; color: #243b70; font-size: clamp(.95rem, 1.55vw, 1.2rem); font-weight: 800; }
 .home-star-pill {
@@ -538,7 +540,7 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .chispitas-header-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
   .chispitas-nav { width: 100%; }
   .chispitas-nav-item { min-height: 66px; }
-  .chispitas-home::before { background-color: #e8f7ff; background-image: var(--home-mobile-background); background-size: 100% auto; background-position: center 65px; background-repeat: no-repeat; }
+  body:has(.chispitas-home) { background-position: center top; }
   .chispitas-hero { min-height: max(260px, calc(100dvh - 390px)); }
   .chispitas-hero-copy { width: min(31%, 290px); margin: 6px auto; padding: clamp(10px, 1.2vw, 15px); border-radius: 28px; }
   .chispitas-hero h1 { font-size: clamp(1.4rem, 3.3vw, 1.85rem); }
@@ -603,16 +605,7 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .chispitas-nav-item { min-height: 64px; padding: 5px 4px; border-radius: 16px; font-size: .69rem; }
   .chispitas-nav-art { width: 40px; height: 40px; }
   .chispitas-main { --main-gutter: 9px; padding: 0 var(--main-gutter) 14px; }
-  .chispitas-home::before {
-    position: fixed;
-    inset: 0;
-    background-color: #71dcf7;
-    background-image: var(--home-mobile-background);
-    background-position: center 100px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-  }
-  .chispitas-hero { min-height: max(210px, calc(100dvh - 365px)); }
+  .chispitas-hero { min-height: max(475px, calc(100dvh - 365px)); }
   .chispitas-hero-copy { width: min(96%, 365px); margin: 6px auto; padding: 13px 12px 15px; border-radius: 23px; }
   .chispitas-hero h1 { font-size: clamp(1.4rem, 6vw, 2rem); }
   .chispitas-hero-subtitle { margin-top: 6px; font-size: .9rem; }
@@ -633,6 +626,7 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
 }
 @media (max-width: 340px) {
   body:has(.chispitas-home) { min-width: 0; }
+  .chispitas-hero { min-height: max(530px, calc(100dvh - 365px)); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
