@@ -31,7 +31,7 @@ export const BODY_PARTS_TEXT = {
   replay: "Jugar otra vez",
   friend: "Ir con mi amigo",
   helpLabel: "Ver ayuda",
-  backToMissions: "‹ Misiones",
+  backToScienceWorld: "‹ Volver a las unidades",
   cardsLabel: "Palabras para colocar",
   faceFigureAlt: "Rostro de la niña de la portada, de frente",
   bodyFigureAlt: "La niña de la portada de cuerpo entero, con los brazos extendidos a los lados",

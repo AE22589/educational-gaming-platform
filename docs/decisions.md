@@ -216,7 +216,7 @@ Status: implemented and deployed (PR #42).
 The persistent `Comenzar` button is removed; it only reopened the explanation and
 looked like a start control. The `?` button remains the way to replay the
 explanation. The explanation has one `Empezar` button instead of two identical
-ones. The home card "Tu próxima misión" links to `/learn/body-parts-01` instead of
+ones. The home card "Tu próxima misión" now links to `/scienceworld/body/` instead of
 the "in preparation" text. This supersedes the `Comenzar` sentence in the
 2026-11-04 body-parts entry.
 
@@ -443,7 +443,7 @@ The original catalog used the ten owner-provided English titles with short Spani
 
 ## Science World unit catalog - 2026-11-10
 
-Science World opens from the homepage and shares the English World catalog component, card styles and responsive grid. The six owner-provided titles link to static unit previews. Each unit uses its corresponding owner-provided illustration, cropped from a single sticker sheet and encoded as lossless WebP.
+Science World opens from the homepage and shares the English World catalog component, card styles and responsive grid. The six owner-provided titles link to unit pages. My Amazing Body! opens the existing body-parts mission at `/scienceworld/body/`, replacing its Science World preview and the former mission URL. The homepage and missions index link to the new route. The mission returns to the Science World catalog and retains its existing mission ID for saved progress. The five other units keep their static previews. Each unit uses its corresponding owner-provided illustration, cropped from a single sticker sheet and encoded as lossless WebP.
 
 ## English World Sports activities — 2026-11-11
 

@@ -78,7 +78,7 @@ for (const width of [360, 768, 1280]) {
     ).toBe(true);
     await expect(page.getByText("La primera aventura de animales está en preparación.")).toHaveCount(0);
     await page.getByRole("link", { name: "Jugar la misión" }).click();
-    await expect(page).toHaveURL(/\/learn\/body-parts-01\/?$/);
+    await expect(page).toHaveURL(/\/scienceworld\/body\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",
     );
@@ -91,9 +91,17 @@ for (const width of [360, 768, 1280]) {
     await expect(page).toHaveURL(/\/$/);
     await expect(missionNavigation.getByRole("link", { name: "Home" })).toHaveCount(0);
     await page.getByRole("link", { name: "Jugar la misión" }).click();
-    await expect(page).toHaveURL(/\/learn\/body-parts-01\/?$/);
-    await page.getByRole("link", { name: "‹ Misiones" }).click();
-    await expect(page).toHaveURL(/\/learn\/?$/);
+    await expect(page).toHaveURL(/\/scienceworld\/body\/?$/);
+    await page.getByRole("link", { name: "‹ Volver a las unidades" }).click();
+    await expect(page).toHaveURL(/\/scienceworld\/?$/);
+    const bodyUnit = page.getByRole("article").filter({
+      has: page.getByRole("heading", { name: "My Amazing Body!", exact: true }),
+    });
+    await bodyUnit.getByRole("link", { name: "Explore this topic" }).click();
+    await expect(page).toHaveURL(/\/scienceworld\/body\/?$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "Misión: partes del cuerpo",
+    );
     await page.getByRole("link", { name: "Chispitas" }).first().click();
     await page.getByRole("link", { name: "Visitar tienda" }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tienda de estrellas");
@@ -191,7 +199,7 @@ test("the companion cave follows the 06:00 and 18:00 local-time changes", async 
 
 test("the body mission has a single Empezar button, no Comenzar button, accepts face drags, and uses the matching round-two art", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/learn/body-parts-01/");
+  await page.goto("/scienceworld/body/");
 
   const eyeCard = page.getByRole("button", { name: "eye", exact: true });
   const startDemo = page.getByRole("button", { name: "Empezar", exact: true });

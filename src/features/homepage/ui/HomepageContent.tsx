@@ -116,7 +116,7 @@ export function HomepageContent() {
             <p className="home-support-kicker">Pequeños pasos</p>
             <h2>Your next adventure</h2>
             <p>Practica las partes del cuerpo en inglés y acompaña al dragón.</p>
-            <Link href="/learn/body-parts-01" className="home-text-link">Jugar la misión <Arrow /></Link>
+            <Link href="/scienceworld/body" className="home-text-link">Jugar la misión <Arrow /></Link>
           </div>
           <Image src={assetPath("/homepage/daily-missions.webp")} alt="" width={152} height={152} unoptimized />
         </article>

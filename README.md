@@ -10,8 +10,8 @@ Live preview: https://ae22589.github.io/educational-gaming-platform/
 ## What works today
 
 - **Home** (`/`): illustrated CHISPITAS home page with the real star balance.
-- **Learn** (`/learn`): the playable silent body-parts matching mission
-  (`/learn/body-parts-01`, nine English words in two rounds). The animal
+- **My Amazing Body!**: the playable silent body-parts matching mission in Science World
+  (`/scienceworld/body/`, nine English words in two rounds). The animal
   picture-selection mission (`/learn/animals-01`) is still a placeholder.
 - **Shop** (`/shop`): apples and water cost one star each; cave bed and glow plant
   are shown as upcoming. Every profile starts with 100 stars.

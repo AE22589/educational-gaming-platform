@@ -4,7 +4,7 @@ import { scienceUnits } from "../units";
 import styles from "../../englishworld/english-world.module.css";
 
 export function generateStaticParams() {
-  return scienceUnits.map(({ slug }) => ({ unit: slug }));
+  return scienceUnits.filter(({ slug }) => slug !== "body").map(({ slug }) => ({ unit: slug }));
 }
 
 export default async function ScienceUnitPage({ params }: { params: Promise<{ unit: string }> }) {

@@ -81,9 +81,9 @@ improvements are listed in `docs/backlog.md`.
   or account creation service.
   The learning and shop pages are reached through the home page tiles
   and cards, not through the navigation.
-- `/learn`: the silent body-parts matching mission `body-parts-01` is playable
+- `/scienceworld/body/`: the silent body-parts matching mission `body-parts-01` is playable
   (nine words, two rounds, adventure path with the dragon, stars per solved item,
-  round event and completion bonus). `animals-01` is only a placeholder page.
+  round event and completion bonus). `/learn/` links to the mission. `/learn/animals-01/` is a placeholder page.
 - `/shop`: apples and water are purchasable for one star; cave bed and glow plant
   are upcoming. Profiles start with 100 stars.
 - `/avatar`: companion cave with day/night backgrounds, sleeping dragon, apple
@@ -143,4 +143,4 @@ completion.
 
 ## Science World catalog
 
-The homepage Science World tile opens the six-unit catalog at "/scienceworld". The catalog shares the English World card layout and responsive grid. Six owner-provided illustrations are cropped and converted to lossless WebP. Each card links to a unit preview with a return link. Activities are pending.
+The homepage Science World tile opens the six-unit catalog at "/scienceworld". The catalog shares the English World card layout and responsive grid. Six owner-provided illustrations are cropped and converted to lossless WebP. My Amazing Body! opens the body-parts mission. The five other cards open unit previews.
