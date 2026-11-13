@@ -14,17 +14,18 @@ for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
     await expect(navigation.getByRole("link", { name: "Home" })).toHaveCount(0);
     await expect(navigation.getByText("My Profile", { exact: false })).toHaveCount(0);
     await expect(navigation.getByText("Science", { exact: true })).toHaveCount(0);
-    // Contact Us and About Chispitas lead to friendly "coming soon" pages.
+    // Contact Us opens the form and About Chispitas retains its placeholder.
     await expect(navigation.getByRole("link", { name: /Contact Us/ })).toBeVisible();
     await expect(navigation.getByRole("link", { name: /About Chispitas/ })).toBeVisible();
-    await expect(navigation.getByText("¡Muy pronto!", { exact: false })).toHaveCount(2);
+    await expect(navigation.getByRole("link", { name: /Contact Us/ })).toContainText("Contacto");
+    await expect(navigation.getByText("¡Muy pronto!", { exact: false })).toHaveCount(1);
     await expect(navigation.getByRole("link", { name: /Log in\/Register/ })).toBeVisible();
     const subtitleColors = await navigation.locator("small").evaluateAll((elements) =>
       elements.map((element) => getComputedStyle(element).color),
     );
     expect(new Set(subtitleColors)).toEqual(new Set(["rgb(94, 112, 138)"]));
 
-    const contactArt = navigation.locator('img[src*="contact-dragon"]');
+    const contactArt = navigation.locator('img[src*="contact-dragon-envelope"]');
     await expect.poll(() => contactArt.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
 
     const layout = await page.evaluate(() => {
@@ -279,7 +280,6 @@ test("feeding the dragon plays the lossless WebP animations and returns to sleep
   }
 });
 for (const [link, path, heading, text] of [
-  ["Contact Us", /\/contact\/?$/, "Contacto", "buzón mágico"],
   ["About Chispitas", /\/about\/?$/, "Sobre Chispitas", "Pequeñas chispas, grandes descubrimientos"],
 ] as const) {
   test(`the ${link} tile opens a friendly coming-soon page`, async ({ page }) => {

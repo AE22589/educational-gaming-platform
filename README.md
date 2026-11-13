@@ -86,3 +86,20 @@ the project. Keep documentation in English and the product UI in Spanish.
 Every change that alters visible behavior, assets, rules or workflow must update
 the documentation in the same pull request. See "Documentation synchronization"
 in `AGENTS.md`. CI enforces the minimum through `scripts/check-docs-impact.mjs`.
+
+### Configure contact email
+
+1. Create a Chispitas form in [Formspree](https://formspree.io/). Verify
+   `feridetastan@gmail.com` in the account and select it as the target in the
+   form's Email workflow action. The form includes Formspree's `_gotcha`
+   spam trap.
+2. Copy the public ID at the end of the form endpoint
+   (`https://formspree.io/f/<id>`). For local testing, create `.env.local`
+   with `NEXT_PUBLIC_FORMSPREE_FORM_ID=<id>`, then restart the dev server
+   or rebuild the static export. For GitHub Pages, set an Actions repository
+   variable named `NEXT_PUBLIC_FORMSPREE_FORM_ID` before the next build.
+   This value is public. Keep account credentials in Formspree.
+3. Send a test from the Contact Us page using another email address you own.
+   Check the Formspree submissions dashboard and Gmail inbox or Spam. Click
+   Reply and verify the visitor's address is selected. The notification's
+   From address belongs to Formspree and the visitor's address is Reply-To.

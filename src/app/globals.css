@@ -226,10 +226,11 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 body:has(.chispitas-home) {
   min-height: 100dvh;
   background-image: var(--home-background);
-  background-position: center 25%;
+  background-position: center top calc(140px - 29vw);
   background-size: cover;
   background-repeat: no-repeat;
 }
+body:has(.chispitas-home) .chispitas-header { background: rgba(185, 233, 255, .68); }
 .chispitas-home { padding-bottom: 8px; }
 body:has(.chispitas-home) .chispitas-footer {
   color: white;
@@ -540,7 +541,7 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .chispitas-header-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
   .chispitas-nav { width: 100%; }
   .chispitas-nav-item { min-height: 66px; }
-  body:has(.chispitas-home) { background-position: center top; }
+  body:has(.chispitas-home) { background-position: 38% top; }
   .chispitas-hero { min-height: max(260px, calc(100dvh - 390px)); }
   .chispitas-hero-copy { width: min(31%, 290px); margin: 6px auto; padding: clamp(10px, 1.2vw, 15px); border-radius: 28px; }
   .chispitas-hero h1 { font-size: clamp(1.4rem, 3.3vw, 1.85rem); }

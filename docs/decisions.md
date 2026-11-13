@@ -1,5 +1,14 @@
 # Project decisions
 
+## Spanish contact form — 2026-11-13
+
+Implemented locally. The Contact Us navigation icon and Spanish contact page show the little friend dragon holding an envelope. The form opens at
+`/contact`. The GitHub Pages export submits to Formspree using a public form ID
+set at build time. The verified target is configured in Formspree, which uses
+the visitor's email as Reply-To. The form includes the service's `_gotcha` spam
+trap. Account setup and a real inbox test are pending (see README).
+
+
 ## Scrolling homepage illustration - 2026-11-11
 
 Implemented. The owner's taller valley illustration is
@@ -65,6 +74,8 @@ CI still runs after the push and a failing run stops the deployment. Larger chan
 the full lane with a pull request and all checks. The rule is in AGENTS.md.
 
 ## Placeholder pages behind Contact Us and About Chispitas — 2026-11-05
+
+The Contact Us placeholder was superseded by the contact form on 2026-11-13.
 
 Status: decided by the owner; implemented in the pull request that introduces it.
 

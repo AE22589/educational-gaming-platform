@@ -47,6 +47,7 @@ jobs:
       pull-requests: read
     env:
       NEXT_TELEMETRY_DISABLED: '1'
+      NEXT_PUBLIC_FORMSPREE_FORM_ID: ${{ vars.NEXT_PUBLIC_FORMSPREE_FORM_ID }}
     steps:
       - uses: actions/checkout@v7
 

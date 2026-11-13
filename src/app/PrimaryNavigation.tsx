@@ -44,13 +44,13 @@ export function PrimaryNavigation({ assetBasePath }: { assetBasePath: string }) 
       <Link href="/contact" className="chispitas-nav-item chispitas-nav-item--contact">
         <Image
           className="chispitas-nav-art"
-          src={`${assetBasePath}/homepage/contact-dragon.webp`}
+          src={`${assetBasePath}/homepage/contact-dragon-envelope.webp`}
           alt=""
           width={64}
           height={64}
           unoptimized
         />
-        <span>Contact Us<small>Contacto · ¡Muy pronto!</small></span>
+        <span>Contact Us<small>Contacto</small></span>
       </Link>
       <Link href="/login-register" className="chispitas-nav-item chispitas-nav-item--login">
         <Image

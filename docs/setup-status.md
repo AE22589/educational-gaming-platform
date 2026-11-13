@@ -75,8 +75,9 @@ improvements are listed in `docs/backlog.md`.
   shows "About Chispitas", "Contact Us" and "Log in/Register" on the home page;
   other pages prepend a "Home" link. "My Profile" and
   the "Science" preview are no longer in the top navigation. "Contact Us"
-  opens `/contact` and "About Chispitas" opens `/about`, friendly "¡Muy pronto!"
-  placeholder pages. "Log in/Register" opens `/login-register`, a UI-only sign-in
+  opens the Spanish contact form at `/contact`. Email delivery requires a configured
+  Formspree form ID (see README). "About Chispitas" opens the `/about` placeholder.
+  "Log in/Register" opens `/login-register`, a UI-only sign-in
   and registration screen with English and Spanish labels; there is no authentication
   or account creation service.
   The learning and shop pages are reached through the home page tiles

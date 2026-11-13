@@ -1,0 +1,122 @@
+.card {
+  width: min(100%, 740px);
+  margin: clamp(20px, 4vw, 42px) auto;
+  padding: clamp(18px, 4vw, 36px);
+  border: 2px solid white;
+  border-radius: 28px;
+  background: #f8fbff;
+  box-shadow: 0 12px 28px rgba(25, 73, 139, .14);
+  color: #173777;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 4vw, 30px);
+}
+
+.intro img {
+  width: clamp(88px, 18vw, 136px);
+  height: auto;
+}
+
+.intro h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+}
+
+.intro p {
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.hint {
+  color: #385780;
+  font-size: .94rem;
+}
+
+.form, .field {
+  display: grid;
+}
+
+.form {
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.field {
+  gap: 6px;
+}
+
+.field label, .submit, .feedback {
+  font-weight: 800;
+}
+
+.field input, .field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 2px solid #9eb8d7;
+  border-radius: 15px;
+  background: white;
+  color: #173777;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field [aria-invalid="true"], .feedback[data-status="error"],
+.feedback[data-status="email"], .feedback[data-status="message"] {
+  border-color: #a52d2d;
+  color: #a52d2d;
+}
+
+.field input:focus-visible, .field textarea:focus-visible, .submit:focus-visible {
+  outline: 3px solid #356fbc;
+  outline-offset: 2px;
+}
+
+.submit {
+  justify-self: start;
+  min-height: 52px;
+  padding: 9px 24px;
+  border: 2px solid white;
+  border-radius: 999px;
+  background: #29771e;
+  box-shadow: 0 4px 0 #215e18;
+  color: white;
+  cursor: pointer;
+}
+
+.submit:hover:not(:disabled) {
+  background: #215e18;
+}
+
+.submit:disabled {
+  background: #536777;
+  box-shadow: none;
+  cursor: wait;
+}
+
+.hint {
+  margin: 0;
+}
+
+.feedback:empty {
+  margin-top: -16px;
+}
+
+@media (max-width: 540px) {
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .submit {
+    width: 100%;
+  }
+}
