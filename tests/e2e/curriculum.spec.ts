@@ -61,6 +61,9 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   await page.getByRole("article").filter({ hasText: "Healthy Habits, Happy Life!" }).getByRole("link").click();
   await expect(page).toHaveURL(`${base}/unit/science-2-b2-s02/`);
   const menu = page.getByRole("region", { name: "Juegos de ciencias" });
+  await expect(menu).toHaveCount(0);
+  await page.getByRole("link", { name: /La salud y el cuerpo/ }).click();
+  await expect(page).toHaveURL(`${base}/unit/science-2-b2-s02/subsection/health-and-the-body/`);
   const games = [
     "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It", "Letter Scramble", "Word Hunt",
   ];
@@ -89,10 +92,11 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   await expect(page.getByText("Ronda 1 de 4")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/healthy-habits-mobile.png", fullPage: true });
-  await page.getByRole("link", { name: "Volver a las secciones" }).click();
-  await expect(page).toHaveURL(`${base}/scienceworld/`);
+  await page.getByRole("link", { name: "Volver a las subsecciones" }).click();
+  await expect(page).toHaveURL(`${base}/unit/science-2-b2-s02/`);
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(`${base}/scienceworld/healthy-habits/`);
+  await page.getByRole("link", { name: /La salud y el cuerpo/ }).click();
   await expect(menu.getByRole("button")).toHaveCount(games.length);
   await menu.getByRole("button", { name: "Build a Phrase" }).click();
   await page.screenshot({ path: "test-results/healthy-habits-desktop.png", fullPage: true });
@@ -117,8 +121,8 @@ for (const unit of [
 }
 
 for (const section of [
-  { world: "englishworld", id: "english-2-b1-s00", title: "Let's Learn the Basics!", first: "Colors", slug: "colors", count: 6 },
-  { world: "scienceworld", id: "science-2-b2-s02", title: "Healthy Habits, Happy Life!", first: "Health and the body", slug: "health-and-the-body", count: 9 },
+  { world: "englishworld", id: "english-2-b1-s00", title: "Let's Learn the Basics!", topic: "Colors", spanish: "Colores", slug: "colors", count: 6 },
+  { world: "scienceworld", id: "science-2-b2-s02", title: "Healthy Habits, Happy Life!", topic: "Food and drinks", spanish: "Alimentos y bebidas", slug: "food-and-drinks", count: 9 },
 ]) {
   test(`${section.world} opens subsections and their game pages`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -126,16 +130,21 @@ for (const section of [
     await page.getByRole("article").filter({ hasText: section.title }).getByRole("link").click();
     const unitUrl = `${base}/unit/${section.id}/`;
     await expect(page).toHaveURL(unitUrl);
-    const cards = page.getByRole("region", { name: "Subsecciones" }).getByRole("article");
-    await expect(cards).toHaveCount(section.count);
-    await expect(cards.first().getByRole("heading")).toHaveText(section.first);
-    await cards.first().getByRole("link", { name: "Ver juegos" }).click();
+    const topics = page.getByRole("region", { name: "Subsecciones" });
+    await expect(topics.getByRole("link")).toHaveCount(section.count);
+    await expect(topics.locator("img")).toHaveCount(0);
+    await topics.getByRole("link", { name: `${section.topic} ${section.spanish}` }).click();
     await expect(page).toHaveURL(`${unitUrl}subsection/${section.slug}/`);
     expect((await page.reload())?.ok()).toBe(true);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(section.first);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(section.topic);
+    await expect(page.getByText(section.spanish, { exact: true })).toBeVisible();
+    await expect(topics).toHaveCount(0);
+    const breadcrumb = page.getByRole("navigation", { name: "Ruta de navegación" });
+    await expect(breadcrumb.getByRole("link", { name: section.title })).toBeVisible();
+    await expect(breadcrumb.locator('[aria-current="page"]')).toContainText(section.topic);
     await expect(page.getByText("¡Las actividades estarán disponibles pronto!")).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
-    await page.getByRole("link", { name: "Volver a las subsecciones" }).click();
+    await breadcrumb.getByRole("link", { name: section.title }).click();
     await expect(page).toHaveURL(unitUrl);
   });
 }

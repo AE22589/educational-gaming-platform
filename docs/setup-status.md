@@ -165,9 +165,9 @@ navigation and reloads in the same browser session.
 Science World shows two rows of three cards on desktop with the existing card
 width. Both world catalogs include a pill-shaped link back to the homepage.
 
-Section pages center the main artwork and link back with “Volver a las secciones.”
-They show the activity menu or coming-soon message. Workbook vocabulary
-is used by compatible games and is not listed separately on unit pages.
+Section pages without subsections center the main artwork and show the activity
+menu or an availability message. Section pages link back with "Volver a las
+secciones." Compatible games use workbook vocabulary.
 
 Sports and Seasons game icons, picture clues and affected labels use corrected
 UTF-8 text. Sports still uses the registered WebP equipment and park art.
@@ -180,10 +180,12 @@ English World section headers match their catalog card colors.
 Science World Section 2 opens Healthy Habits, Happy Life! from its catalog
 card. Its six games use the four terms and existing artwork recorded in the
 curriculum. The section page returns to the Science World catalog and the
-legacy Healthy Habits URL opens the same activities.
+legacy Healthy Habits URL opens the same topic list.
 
-The world catalogs expose sections with subsections even when their game
-menus are pending. Basics has six subsections and Healthy Habits has nine,
-in workbook order. Each subsection card opens its game page and a return
-link leads back to the section. The existing Healthy Habits starter games
-are below its subsection cards.
+The world catalogs open a separate, image-free topic list for sections with
+subsections. Basics has six topics and Healthy Habits has nine, in workbook
+order. Numbered cards use soft rainbow colors and show English above the
+smaller Spanish translation. Each card opens a dedicated game page with a
+breadcrumb back to the topic list. Health and the body
+contains the six Healthy Habits starter games. Other subsection game pages
+show an availability message.

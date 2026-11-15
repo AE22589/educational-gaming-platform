@@ -60,3 +60,7 @@ and `out/` out of Git. The reference workbook is stored under `docs/`
 and stays outside the Pages artifact.
 
 Sections with subsections use the Yes/No flag and the ordered List of Sub Sections column. For older workbooks without the list, the importer uses the order of the vocabulary groups. The world catalog links to the section, which links to each subsection’s game page.
+
+The ordered subsection names and slugs come from the workbook. The UI uses
+`src/features/curriculum/section-translations.ts` for Spanish section and topic
+labels, keyed by stable IDs. Add translations there when adding topics.

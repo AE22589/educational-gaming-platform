@@ -35,10 +35,9 @@ type SectionCard = Pick<CurriculumUnit, "id" | "title" | "language" | "descripti
   href: string;
 };
 
-export function SectionCards({ world, cards, subsections = false }: {
+function SectionCards({ world, cards }: {
   world: World;
   cards: SectionCard[];
-  subsections?: boolean;
 }) {
   return (
     <div className={`${world === "englishworld" ? "english-unit-grid" : "science-unit-grid"} ${styles.grid}${world === "scienceworld" ? ` ${styles.scienceGrid}` : ""}`}>
@@ -54,8 +53,8 @@ export function SectionCards({ world, cards, subsections = false }: {
             {unit.description && <p className="home-tile-description">{unit.description}</p>}
             {unit.href ? (
               <Link href={unit.href} className={`home-tile-button ${styles.button} ${styles.sectionLink}`}
-                aria-describedby={`unit-${unit.id}`} lang={subsections ? "es" : "en"}>
-                {subsections ? "Ver juegos" : "Explore this topic"} <span aria-hidden="true">→</span>
+                aria-describedby={`unit-${unit.id}`} lang="en">
+                Explore this topic <span aria-hidden="true">→</span>
               </Link>
             ) : <span className={`home-tile-button is-muted ${styles.button}`}>Próximamente</span>}
           </div>

@@ -518,7 +518,10 @@ practice feedback. The activities do not award profile rewards.
 
 The workbook subject chooses the world. A section marked Yes uses the
 ordered List of Sub Sections to build its cards and static game pages.
-Subsection cards and game pages reuse the section design. New subsection
-game pages show availability status until games are assigned. The earlier
-Healthy Habits starter games remain available at section level while the
-workbook has no game assignments.
+Sections with subsections show a bilingual, image-free topic list on the
+section route. Number topics in workbook order and use a pastel rainbow palette
+for the cards. Show the English title above the smaller Spanish translation
+on both screens. Selecting a topic opens a separate game page with a breadcrumb
+back to its parent section. The six existing Healthy Habits
+starter games are assigned to Health and the body. Topics with no assigned
+activities show an availability message.
