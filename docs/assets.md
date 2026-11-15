@@ -146,3 +146,18 @@ Six owner-provided illustrations cropped from the supplied educational sticker s
 | Growing Plants | `public/scienceworld/plants.webp` | Decorative unit illustration | Growing plant, sun and watering can; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
 | Save Our Planet | `public/scienceworld/planet.webp` | Decorative unit illustration | Earth held in hands with a recycling symbol; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
 | Everyday Technology | `public/scienceworld/technology.webp` | Decorative unit illustration | Robot with computer devices; the adjacent unit title identifies the card. | Owner-provided source, converted and cropped to lossless WebP. Third-party rights not independently assessed. |
+
+## Primary grade card illustrations
+
+Original artwork generated for Chispitas using the owner's supplied image as a
+style reference. The six square crops are lossless WebP at 512 × 512 pixels.
+Each illustration is decorative because the card carries a visible grade label.
+
+| Asset | Local path | Subject |
+|---|---|---|
+| Primaria 1 | `public/homepage/grades/primaria-1.webp` | Enchanted pencil and building blocks |
+| Primaria 2 | `public/homepage/grades/primaria-2.webp` | Storybook, wizard hat and star wand |
+| Primaria 3 | `public/homepage/grades/primaria-3.webp` | Headphones and crystal microphone |
+| Primaria 4 | `public/homepage/grades/primaria-4.webp` | Microscope and glowing flask |
+| Primaria 5 | `public/homepage/grades/primaria-5.webp` | Treasure map, compass and ruby |
+| Primaria 6 | `public/homepage/grades/primaria-6.webp` | Telescope, ringed planet and crystals |

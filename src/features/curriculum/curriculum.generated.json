@@ -1,0 +1,2117 @@
+{
+  "books": [
+    {
+      "id": "english-2-b1",
+      "world": "englishworld",
+      "grade": 2,
+      "title": "Libro 1"
+    },
+    {
+      "id": "science-2-b2",
+      "world": "scienceworld",
+      "grade": 2,
+      "title": "Libro 2"
+    }
+  ],
+  "units": [
+    {
+      "id": "english-2-b1-s00",
+      "bookId": "english-2-b1",
+      "title": "Let's Learn the Basics!",
+      "language": "en",
+      "description": "Practica saludos, colores y números en inglés.",
+      "image": "/englishworld/basics.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Red",
+          "translation": "Rojo",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Blue",
+          "translation": "Azul",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Yellow",
+          "translation": "Amarillo",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Green",
+          "translation": "Verde",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Orange",
+          "translation": "Naranja",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Pink",
+          "translation": "Rosa",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Purple",
+          "translation": "Morado",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Brown",
+          "translation": "Marrón",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Black",
+          "translation": "Negro",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "White",
+          "translation": "Blanco",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Grey",
+          "translation": "Gris",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Light blue",
+          "translation": "Azul claro",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "Dark blue",
+          "translation": "Azul oscuro",
+          "subsection": "Colors",
+          "image": ""
+        },
+        {
+          "word": "One",
+          "translation": "Uno",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Two",
+          "translation": "Dos",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Three",
+          "translation": "Tres",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Four",
+          "translation": "Cuatro",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Five",
+          "translation": "Cinco",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Six",
+          "translation": "Seis",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Seven",
+          "translation": "Siete",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Eight",
+          "translation": "Ocho",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Nine",
+          "translation": "Nueve",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Ten",
+          "translation": "Diez",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Eleven",
+          "translation": "Once",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Twelve",
+          "translation": "Doce",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Thirteen",
+          "translation": "Trece",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Fourteen",
+          "translation": "Catorce",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Fifteen",
+          "translation": "Quince",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Sixteen",
+          "translation": "Dieciséis",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Seventeen",
+          "translation": "Diecisiete",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Eighteen",
+          "translation": "Dieciocho",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Nineteen",
+          "translation": "Diecinueve",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Twenty",
+          "translation": "Veinte",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Thirty",
+          "translation": "Treinta",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Forty",
+          "translation": "Cuarenta",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Fifty",
+          "translation": "Cincuenta",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Sixty",
+          "translation": "Sesenta",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Seventy",
+          "translation": "Setenta",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Eighty",
+          "translation": "Ochenta",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Ninety",
+          "translation": "Noventa",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "One hundred",
+          "translation": "Cien",
+          "subsection": "Numbers",
+          "image": ""
+        },
+        {
+          "word": "Monday",
+          "translation": "Lunes",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Tuesday",
+          "translation": "Martes",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Wednesday",
+          "translation": "Miércoles",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Thursday",
+          "translation": "Jueves",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Friday",
+          "translation": "Viernes",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Saturday",
+          "translation": "Sábado",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Sunday",
+          "translation": "Domingo",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Today",
+          "translation": "Hoy",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Tomorrow",
+          "translation": "Mañana",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Yesterday",
+          "translation": "Ayer",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Weekend",
+          "translation": "Fin de semana",
+          "subsection": "Days of the week",
+          "image": ""
+        },
+        {
+          "word": "Mother / Mum",
+          "translation": "Madre / Mamá",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Father / Dad",
+          "translation": "Padre / Papá",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Parents",
+          "translation": "Padres",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Brother",
+          "translation": "Hermano",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Sister",
+          "translation": "Hermana",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Baby",
+          "translation": "Bebé",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Grandmother / Grandma",
+          "translation": "Abuela",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Grandfather / Grandpa",
+          "translation": "Abuelo",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Grandparents",
+          "translation": "Abuelos",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Aunt",
+          "translation": "Tía",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Uncle",
+          "translation": "Tío",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Cousin",
+          "translation": "Primo / Prima",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Son",
+          "translation": "Hijo",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Daughter",
+          "translation": "Hija",
+          "subsection": "Family",
+          "image": ""
+        },
+        {
+          "word": "Dog",
+          "translation": "Perro",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Cat",
+          "translation": "Gato",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Rabbit",
+          "translation": "Conejo",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Hamster",
+          "translation": "Hámster",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Guinea pig",
+          "translation": "Cobaya",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Fish",
+          "translation": "Pez",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Bird",
+          "translation": "Pájaro",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Parrot",
+          "translation": "Loro",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Turtle",
+          "translation": "Tortuga",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Tortoise",
+          "translation": "Tortuga terrestre",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Mouse",
+          "translation": "Ratón",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Snake",
+          "translation": "Serpiente",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Lizard",
+          "translation": "Lagarto",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Puppy",
+          "translation": "Cachorro de perro",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Kitten",
+          "translation": "Gatito",
+          "subsection": "Animals",
+          "image": ""
+        },
+        {
+          "word": "Happy",
+          "translation": "Feliz",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Sad",
+          "translation": "Triste",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Angry",
+          "translation": "Enfadado",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Scared",
+          "translation": "Asustado",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Tired",
+          "translation": "Cansado",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Excited",
+          "translation": "Emocionado",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Bored",
+          "translation": "Aburrido",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Hungry",
+          "translation": "Hambriento",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Thirsty",
+          "translation": "Sediento",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Sleepy",
+          "translation": "Soñoliento",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Surprised",
+          "translation": "Sorprendido",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Worried",
+          "translation": "Preocupado",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Hot",
+          "translation": "Tener calor",
+          "subsection": "Emotions",
+          "image": ""
+        },
+        {
+          "word": "Cold",
+          "translation": "Tener frío",
+          "subsection": "Emotions",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s01",
+      "bookId": "english-2-b1",
+      "title": "Let's Play Sports!",
+      "language": "en",
+      "description": "Aprende los nombres de tus deportes favoritos.",
+      "image": "/englishworld/sports.webp",
+      "games": [
+        "Picture Match",
+        "Mystery Word",
+        "Build a Phrase",
+        "See It, Hear It, Spell It",
+        "Letter Scramble",
+        "Word Hunt",
+        "Look & Find",
+        "Play, Go, Do, Wear?"
+      ],
+      "vocabulary": [
+        {
+          "word": "Hockey",
+          "translation": "Hockey",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Football",
+          "translation": "Fútbol",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Basketball",
+          "translation": "Baloncesto",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Tennis",
+          "translation": "Tenis",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Table tennis",
+          "translation": "Tenis de mesa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Badminton",
+          "translation": "Bádminton",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Baseball",
+          "translation": "Béisbol",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Swimming",
+          "translation": "Natación",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Cycling",
+          "translation": "Ciclismo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Skateboarding",
+          "translation": "Monopatín",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Bat",
+          "translation": "Bate",
+          "subsection": "",
+          "image": "/englishworld/sports-equipment/bat.webp"
+        },
+        {
+          "word": "Racket",
+          "translation": "Raqueta",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Helmet",
+          "translation": "Casco",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Gloves",
+          "translation": "Guantes",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Knee pads",
+          "translation": "Rodilleras",
+          "subsection": "",
+          "image": "/englishworld/sports-equipment/knee.webp"
+        },
+        {
+          "word": "Elbow pads",
+          "translation": "Coderas",
+          "subsection": "",
+          "image": "/englishworld/sports-equipment/elbow.webp"
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s02",
+      "bookId": "english-2-b1",
+      "title": "Discover the Seasons!",
+      "language": "en",
+      "description": "Descubre las cuatro estaciones y cómo cambia el tiempo.",
+      "image": "/englishworld/seasons.webp",
+      "games": [
+        "Picture Match",
+        "Mystery Word",
+        "Build a Phrase",
+        "See It, Hear It, Spell It",
+        "Letter Scramble",
+        "Word Hunt",
+        "Look & Find",
+        "Weather, Season or Activity?"
+      ],
+      "vocabulary": [
+        {
+          "word": "Sunny",
+          "translation": "Soleado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Rainy",
+          "translation": "Lluvioso",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Cloudy",
+          "translation": "Nublado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Windy",
+          "translation": "Ventoso",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Stormy",
+          "translation": "Tormentoso",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Snowy",
+          "translation": "Nevado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Foggy",
+          "translation": "Con niebla",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Icy",
+          "translation": "Helado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Wet",
+          "translation": "Mojado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Dry",
+          "translation": "Seco",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Spring",
+          "translation": "Primavera",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Summer",
+          "translation": "Verano",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Autumn",
+          "translation": "Otoño",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Winter",
+          "translation": "Invierno",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Have a picnic",
+          "translation": "Hacer un picnic",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Plant flowers",
+          "translation": "Plantar flores",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Ride a bike",
+          "translation": "Montar en bicicleta",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Go swimming",
+          "translation": "Ir a nadar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Fly a kite",
+          "translation": "Volar una cometa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Read a book",
+          "translation": "Leer un libro",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Draw a picture",
+          "translation": "Hacer un dibujo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Paint pictures",
+          "translation": "Pintar cuadros",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s03",
+      "bookId": "english-2-b1",
+      "title": "Amazing Animal World!",
+      "language": "en",
+      "description": "Conoce animales y aprende sus nombres en inglés.",
+      "image": "/englishworld/animals.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Bear",
+          "translation": "Oso",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Donkey",
+          "translation": "Burro",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Eagle",
+          "translation": "Águila",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Fox",
+          "translation": "Zorro",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Swan",
+          "translation": "Cisne",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Crocodile",
+          "translation": "Cocodrilo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Elephant",
+          "translation": "Elefante",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Giraffe",
+          "translation": "Jirafa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Monkey",
+          "translation": "Mono",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Snake",
+          "translation": "Serpiente",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Zebra",
+          "translation": "Cebra",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Beak",
+          "translation": "Pico",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Fur",
+          "translation": "Pelaje",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Neck",
+          "translation": "Cuello",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Tail",
+          "translation": "Cola",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Wings",
+          "translation": "Alas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mouth",
+          "translation": "Boca",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Ears",
+          "translation": "Orejas",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s04",
+      "bookId": "english-2-b1",
+      "title": "Around the World and Healthy Fruit",
+      "language": "en",
+      "description": "Explora el mundo y aprende los nombres de las frutas.",
+      "image": "/englishworld/world-and-fruit.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Brazil",
+          "translation": "Brasil",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Canada",
+          "translation": "Canadá",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "China",
+          "translation": "China",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mexico",
+          "translation": "México",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Spain",
+          "translation": "España",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Poland",
+          "translation": "Polonia",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "United Kingdom",
+          "translation": "Reino Unido",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "USA",
+          "translation": "Estados Unidos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "New Zealand",
+          "translation": "Nueva Zelanda",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Coconut",
+          "translation": "Coco",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Kiwi",
+          "translation": "Kiwi",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Lime",
+          "translation": "Lima",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mango",
+          "translation": "Mango",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Pineapple",
+          "translation": "Piña",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Watermelon",
+          "translation": "Sandía",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Rugby",
+          "translation": "Rugby",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Dancing",
+          "translation": "Bailar",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s05",
+      "bookId": "english-2-b1",
+      "title": "Places to Go and Things to Do",
+      "language": "en",
+      "description": "Descubre lugares y qué puedes hacer en ellos.",
+      "image": "/englishworld/places-and-activities.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Mountain",
+          "translation": "Montaña",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sports centre",
+          "translation": "Polideportivo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Forest",
+          "translation": "Bosque",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "River",
+          "translation": "Río",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Swimming pool",
+          "translation": "Piscina",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Cinema",
+          "translation": "Cine",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Countryside",
+          "translation": "Campo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Restaurant",
+          "translation": "Restaurante",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Lake",
+          "translation": "Lago",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Café",
+          "translation": "Cafetería",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Go cycling",
+          "translation": "Montar en bicicleta",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Climb",
+          "translation": "Escalar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Run",
+          "translation": "Correr",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Play basketball",
+          "translation": "Jugar al baloncesto",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Go swimming",
+          "translation": "Ir a nadar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Go to the cinema",
+          "translation": "Ir al cine",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Walk the dog",
+          "translation": "Pasear al perro",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Read comics",
+          "translation": "Leer cómics",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sing",
+          "translation": "Cantar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Dance",
+          "translation": "Bailar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Play board games",
+          "translation": "Jugar a juegos de mesa",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s06",
+      "bookId": "english-2-b1",
+      "title": "A Day at the Beach!",
+      "language": "en",
+      "description": "Aprende palabras para un día de juegos en la playa.",
+      "image": "/englishworld/beach.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Beach",
+          "translation": "Playa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sand",
+          "translation": "Arena",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sea",
+          "translation": "Mar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Waves",
+          "translation": "Olas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Shells",
+          "translation": "Conchas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sandcastle",
+          "translation": "Castillo de arena",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sandals",
+          "translation": "Sandalias",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Towels",
+          "translation": "Toallas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Ice lollies",
+          "translation": "Polos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Collect shells",
+          "translation": "Recoger conchas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Look for fish",
+          "translation": "Buscar peces",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Swim in the sea",
+          "translation": "Nadar en el mar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Play volleyball",
+          "translation": "Jugar al voleibol",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Draw in the sand",
+          "translation": "Dibujar en la arena",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Make a sandcastle",
+          "translation": "Hacer un castillo de arena",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s07",
+      "bookId": "english-2-b1",
+      "title": "Let's Travel Safely!",
+      "language": "en",
+      "description": "Conoce los medios de transporte y cómo viajar con cuidado.",
+      "image": "/englishworld/safe-travel.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Car",
+          "translation": "Coche",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Bus",
+          "translation": "Autobús",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Train",
+          "translation": "Tren",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Lorry",
+          "translation": "Camión",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Motorbike",
+          "translation": "Motocicleta",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Helicopter",
+          "translation": "Helicóptero",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Plane",
+          "translation": "Avión",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Traffic",
+          "translation": "Tráfico",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Traffic lights",
+          "translation": "Semáforos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Crossing",
+          "translation": "Paso de peatones",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Road sign",
+          "translation": "Señal de tráfico",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Seat belt",
+          "translation": "Cinturón de seguridad",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Stop",
+          "translation": "Parar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Look",
+          "translation": "Mirar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Walk",
+          "translation": "Caminar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Run",
+          "translation": "Correr",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Cross",
+          "translation": "Cruzar",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s08",
+      "bookId": "english-2-b1",
+      "title": "My Home and My Favourite Things",
+      "language": "en",
+      "description": "Describe tu casa y tus cosas favoritas en inglés.",
+      "image": "/englishworld/home.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "House",
+          "translation": "Casa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Roof",
+          "translation": "Tejado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Garden",
+          "translation": "Jardín",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Balcony",
+          "translation": "Balcón",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Windows",
+          "translation": "Ventanas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Door",
+          "translation": "Puerta",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Stairs",
+          "translation": "Escaleras",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Lift",
+          "translation": "Ascensor",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mobile phone",
+          "translation": "Teléfono móvil",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Camera",
+          "translation": "Cámara",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Tablet",
+          "translation": "Tableta",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Headphones",
+          "translation": "Auriculares",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Watch",
+          "translation": "Reloj",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Glasses",
+          "translation": "Gafas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Bag",
+          "translation": "Bolsa / mochila",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mat",
+          "translation": "Esterilla / alfombrilla",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Picture",
+          "translation": "Dibujo / fotografía",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mine",
+          "translation": "Mío / mía",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Yours",
+          "translation": "Tuyo / tuya",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "His",
+          "translation": "Suyo (de él)",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Hers",
+          "translation": "Suyo (de ella)",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Ours",
+          "translation": "Nuestro / nuestra",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Theirs",
+          "translation": "Suyo (de ellos)",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "english-2-b1-s09",
+      "bookId": "english-2-b1",
+      "title": "Family Adventures and Memories!",
+      "language": "en",
+      "description": "Habla de tu familia y de los momentos que compartís.",
+      "image": "/englishworld/family.webp",
+      "games": [],
+      "vocabulary": [
+        {
+          "word": "Mother",
+          "translation": "Madre",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Father",
+          "translation": "Padre",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Aunt",
+          "translation": "Tía",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Uncle",
+          "translation": "Tío",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Cousin",
+          "translation": "Primo / prima",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Grandma",
+          "translation": "Abuela",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Grandpa",
+          "translation": "Abuelo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Grandparents",
+          "translation": "Abuelos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Cinema",
+          "translation": "Cine",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Beach",
+          "translation": "Playa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Shopping centre",
+          "translation": "Centro comercial",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Train station",
+          "translation": "Estación de tren",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Supermarket",
+          "translation": "Supermercado",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Home",
+          "translation": "Casa",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Went swimming",
+          "translation": "Fui a nadar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Went to the cinema",
+          "translation": "Fui al cine",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Visited grandparents",
+          "translation": "Visité a los abuelos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Yesterday",
+          "translation": "Ayer",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Last night",
+          "translation": "Anoche",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Last weekend",
+          "translation": "El fin de semana pasado",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "science-2-b2-s01",
+      "bookId": "science-2-b2",
+      "title": "My Amazing Body!",
+      "language": "en",
+      "description": "Descubre las partes del cuerpo y cómo trabajan juntas.",
+      "image": "/scienceworld/body.webp",
+      "games": [
+        "Misión: partes del cuerpo"
+      ],
+      "vocabulary": [
+        {
+          "word": "Life Processes",
+          "translation": "Procesos vitales",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sensitivity",
+          "translation": "Sensibilidad",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Body",
+          "translation": "Cuerpo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Senses",
+          "translation": "Sentidos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Sight",
+          "translation": "Vista",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Smell",
+          "translation": "Olfato",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Hearing",
+          "translation": "Oído",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Taste",
+          "translation": "Gusto",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Touch",
+          "translation": "Tacto",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Nutrition",
+          "translation": "Nutrición",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Breathe in air",
+          "translation": "Inspirar aire",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Take in food",
+          "translation": "Ingerir alimentos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Reproduction",
+          "translation": "Reproducción",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Children",
+          "translation": "Crías",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Bones",
+          "translation": "Huesos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Joints",
+          "translation": "Articulaciones",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Muscles",
+          "translation": "Músculos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Skeleton",
+          "translation": "Esqueleto",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Bend",
+          "translation": "Doblar / Flexionar",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Skull",
+          "translation": "Cráneo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Ribs",
+          "translation": "Costillas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Elbow",
+          "translation": "Codo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Backbone",
+          "translation": "Columna vertebral",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Knee",
+          "translation": "Rodilla",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Femur",
+          "translation": "Fémur",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Ankle",
+          "translation": "Tobillo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Tibia",
+          "translation": "Tibia",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Biceps",
+          "translation": "Bíceps",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Pectoral",
+          "translation": "Pectoral",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Gluteus",
+          "translation": "Glúteo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Abdominals",
+          "translation": "Abdominales",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Calf muscle",
+          "translation": "Gemelo",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Elastic",
+          "translation": "Elástico",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Rigid",
+          "translation": "Rígido",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Nose",
+          "translation": "Nariz",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Mouth",
+          "translation": "Boca",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Trachea",
+          "translation": "Tráquea",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Lungs",
+          "translation": "Pulmones",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Breathe out",
+          "translation": "Espirar aire",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Breathe in air",
+          "translation": "Inspirar aire",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Food",
+          "translation": "Alimentos / Comida",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Nutrients",
+          "translation": "Nutrientes",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Substances",
+          "translation": "Sustancias",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Energy",
+          "translation": "Energía",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Teeth",
+          "translation": "Dientes",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Oesophagus",
+          "translation": "Esófago",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Stomach",
+          "translation": "Estómago",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Intestines",
+          "translation": "Intestinos",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Anus",
+          "translation": "Ano",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Stone",
+          "translation": "Piedra",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Shells",
+          "translation": "Conchas",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Walnut",
+          "translation": "Nuez",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Apple",
+          "translation": "Manzana",
+          "subsection": "",
+          "image": ""
+        },
+        {
+          "word": "Peg",
+          "translation": "Pinza / Clavija",
+          "subsection": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "id": "science-2-b2-s02",
+      "bookId": "science-2-b2",
+      "title": "Healthy Habits, Happy Life!",
+      "language": "en",
+      "description": "Explora cómo la comida, el agua y el movimiento te ayudan a cuidarte.",
+      "image": "/scienceworld/healthy-habits.webp",
+      "games": [],
+      "vocabulary": []
+    },
+    {
+      "id": "science-2-b2-s03",
+      "bookId": "science-2-b2",
+      "title": "Discover the Animal Kingdom!",
+      "language": "en",
+      "description": "Conoce diferentes animales y descubre dónde viven.",
+      "image": "/scienceworld/animal-kingdom.webp",
+      "games": [],
+      "vocabulary": []
+    },
+    {
+      "id": "science-2-b2-s04",
+      "bookId": "science-2-b2",
+      "title": "Let's Make Plants Grow!",
+      "language": "en",
+      "description": "Averigua qué necesitan las plantas para crecer.",
+      "image": "/scienceworld/plants.webp",
+      "games": [],
+      "vocabulary": []
+    },
+    {
+      "id": "science-2-b2-s05",
+      "bookId": "science-2-b2",
+      "title": "Let's Save Our Planet!",
+      "language": "en",
+      "description": "Descubre cómo reciclar y cuidar nuestro planeta.",
+      "image": "/scienceworld/planet.webp",
+      "games": [],
+      "vocabulary": []
+    },
+    {
+      "id": "science-2-b2-s06",
+      "bookId": "science-2-b2",
+      "title": "Technology All Around Us!",
+      "language": "en",
+      "description": "Descubre la tecnología que usamos cada día.",
+      "image": "/scienceworld/technology.webp",
+      "games": [],
+      "vocabulary": []
+    }
+  ]
+}

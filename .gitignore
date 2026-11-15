@@ -11,3 +11,6 @@ test-results/
 *.tsbuildinfo
 *.log
 next-env.d.ts
+
+*.xlsx
+__pycache__/

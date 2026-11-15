@@ -78,6 +78,7 @@ for (const width of [360, 768, 1280]) {
       ),
     ).toBe(true);
     await expect(page.getByText("La primera aventura de animales está en preparación.")).toHaveCount(0);
+    await page.getByRole("button", { name: /Primaria 2/ }).click();
     await page.getByRole("link", { name: "Jugar la misión" }).click();
     await expect(page).toHaveURL(/\/scienceworld\/body\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
@@ -99,6 +100,7 @@ for (const width of [360, 768, 1280]) {
       has: page.getByRole("heading", { name: "My Amazing Body!", exact: true }),
     });
     await bodyUnit.getByRole("link", { name: "Explore this topic" }).click();
+    await page.getByRole("link", { name: "Misión: partes del cuerpo" }).click();
     await expect(page).toHaveURL(/\/scienceworld\/body\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "Misión: partes del cuerpo",

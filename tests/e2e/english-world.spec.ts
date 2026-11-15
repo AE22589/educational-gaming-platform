@@ -1,11 +1,11 @@
 import { expect, test } from "@playwright/test";
 
-test("English World has four desktop cards above five and links to the unit vocabulary", async ({ page }) => {
+test("English World has two rows of five desktop cards and keeps upcoming units inactive", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/englishworld/");
   const cards = page.locator(".english-unit-grid article");
-  await expect(cards).toHaveCount(9);
-  await expect(page.getByText("Let's Learn the Basics!")).toHaveCount(0);
+  await expect(cards).toHaveCount(10);
+  await expect(page.getByText("Let's Learn the Basics!")).toBeVisible();
   const rowSizes = await cards.evaluateAll((items) => {
     const rows = new Map<number, number>();
     for (const item of items) {
@@ -14,15 +14,12 @@ test("English World has four desktop cards above five and links to the unit voca
     }
     return Array.from(rows.values());
   });
-  expect(rowSizes).toEqual([4, 5]);
+  expect(rowSizes).toEqual([5, 5]);
   const bounds = await cards.evaluateAll((items) => items.map((item) => {
     const { left, right, width, height } = item.getBoundingClientRect();
     return { left, right, width, height };
   }));
-  const topInset = bounds[0]!.left - bounds[4]!.left;
-  const rightInset = bounds[8]!.right - bounds[3]!.right;
-  expect(topInset).toBeGreaterThan(0);
-  expect(topInset).toBeCloseTo(rightInset, 1);
+  expect(bounds[0]!.left).toBeCloseTo(bounds[5]!.left, 1);
   for (const card of bounds) {
     expect(card.width).toBeCloseTo(bounds[0]!.width, 1);
     expect(card.height).toBeCloseTo(bounds[0]!.height, 1);
@@ -33,26 +30,26 @@ test("English World has four desktop cards above five and links to the unit voca
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/english-world-mobile.png", fullPage: true });
-  await cards.filter({ hasText: "Amazing Animal World!" }).getByRole("link").click();
-  await expect(page.locator("dt")).toHaveCount(18);
-  await expect(page.getByText("Águila", { exact: true })).toBeVisible();
+  const animals = cards.filter({ hasText: "Amazing Animal World!" });
+  await expect(animals.getByText("Próximamente")).toBeVisible();
+  await expect(animals.getByRole("link")).toHaveCount(0);
 });
 
-test("Sports sorting covers exactly the workbook's 16 terms", async ({ page }) => {
+test("Sports sorting covers 16 workbook terms plus gymnastics", async ({ page }) => {
   await page.goto("/englishworld/sports/");
   await page.getByRole("button", { name: /Play, Go, Do, Wear/ }).click();
   const play = page.locator("#unit-game");
   const expectedGroups = [
     ...Array<string>(7).fill("Play"), "Go", "Go", "Go", "Play", "Play",
-    ...Array<string>(4).fill("Wear"),
+    ...Array<string>(4).fill("Wear"), "Do",
   ];
   for (const [round, group] of expectedGroups.entries()) {
-    await expect(play.getByText(`Ronda ${round + 1} de 16`)).toBeVisible();
+    await expect(play.getByText(`Ronda ${round + 1} de 17`)).toBeVisible();
     await play.getByRole("button", { name: group, exact: true }).click();
     await play.getByRole("button", { name: "Next →" }).click();
   }
   await expect(play.getByText("Juego completado")).toBeVisible();
-  await expect(page.getByRole("img", { name: /Best score: 16 of 16/ })).toBeVisible();
+  await expect(page.getByRole("img", { name: /Best score: 17 of 17/ })).toBeVisible();
 });
 
 test("Seasons opens all eight games and uses its own workbook vocabulary", async ({ page }) => {

@@ -6,24 +6,18 @@ import { WordHunt } from "./WordHunt";
 import { SpellAndSpot } from "./SpellAndSpot";
 import { SortWords } from "./SortWords";
 import { SportsPicture } from "./SportsPicture";
+import { gameName, getPracticeGames, type Game } from "./game-menu";
 import { playAnswerSound } from "./answer-sound";
 import styles from "./sports.module.css";
 
-const games = [
-  { id: "match", name: "Picture Match", description: "Une cada dibujo con su palabra.", art: "🖼️ ⚽", color: "blue" },
-  { id: "mystery", name: "Mystery Word", description: "Adivina la letra que falta.", art: "🔤 ✏️", color: "green" },
-  { id: "phrase", name: "Build a Phrase", description: "Ordena las palabras de la frase.", art: "💬 🧩", color: "pink" },
-  { id: "spell", name: "See It, Hear It, Spell It", description: "Mira o escucha y escribe.", art: "🎧 ⌨️", color: "sky" },
-  { id: "scramble", name: "Letter Scramble", description: "Pon las letras en orden.", art: "🔠 🔀", color: "lime" },
-  { id: "hunt", name: "Word Hunt", description: "Encuentra palabras en la cuadrícula.", art: "🔡 🔎", color: "lavender" },
-  { id: "spot", name: "Look & Find", description: "Completa la palabra y toca el objeto.", art: "✏️ 👀", color: "peach" },
-  { id: "sort", name: "Play, Go, Do, Wear?", description: "Clasifica deportes y objetos.", art: "⚽ 🧢", color: "mint" },
-] as const;
+const gymnastics: VocabularyItem = {
+  word: "gymnastics", translation: "gimnasia", picture: "🤸", group: "Do",
+  phrase: "I do gymnastics", sortPhrase: "do gymnastics",
+};
 
-type Game = Omit<(typeof games)[number], "name"> & { name: string };
-
-export function UnitGames({ vocabulary, unit }: {
+export function UnitGames({ vocabulary, unit, availableGames }: {
   vocabulary: VocabularyItem[];
+  availableGames: string[];
   unit: "sports" | "seasons";
 }) {
   const [game, setGame] = useState<Game | null>(null);
@@ -65,14 +59,19 @@ export function UnitGames({ vocabulary, unit }: {
     }
   }
 
+  const menu = getPracticeGames(availableGames, unit);
+  const sorting = unit === "sports" && !vocabulary.some(({ word }) => word === gymnastics.word)
+    ? [...vocabulary, gymnastics] : vocabulary;
+  if (!menu.length) return <p>¡Las actividades estarán disponibles pronto!</p>;
+
   return (
     <>
       <section className={styles.catalog} aria-label="Juegos de inglés">
-        {games.map((entry) => {
+        {menu.map((entry) => {
           const best = bestScores[entry.id];
-          const questions = vocabulary.length;
+          const questions = entry.id === "sort" ? sorting.length : vocabulary.length;
           const seasonalSort = unit === "seasons" && entry.id === "sort";
-          const name = seasonalSort ? "Weather, Season or Activity?" : entry.name;
+          const name = gameName(entry, unit);
           const description = seasonalSort ? "Clasifica el tiempo, las estaciones y las actividades." : entry.description;
           const art = unit === "seasons" && entry.id === "match" ? "🖼️ ☀️"
             : seasonalSort ? "☀️ 🍂" : entry.art;
@@ -108,7 +107,7 @@ export function UnitGames({ vocabulary, unit }: {
         {game && (
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
-            <Activity key={selection} game={game} matchOrder={matchOrder} vocabulary={vocabulary} unit={unit}
+            <Activity key={selection} game={game} matchOrder={matchOrder} vocabulary={game.id === "sort" ? sorting : vocabulary} unit={unit}
               onComplete={(score) => complete(game.id, score)} onMatchAnswer={scoreMatch}
               onStar={() => setStars((count) => count + 1)} />
           </>
