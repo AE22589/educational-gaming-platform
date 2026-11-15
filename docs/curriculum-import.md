@@ -1,7 +1,8 @@
 # Workbook curriculum
 
-Keep the editable Excel source outside the repository. From the repository root,
-using Python 3.10 or later, run:
+The public reference workbook is `docs/SectionList.xlsx`. Copy it outside the
+repository before editing or importing. From the repository root, using Python
+3.10 or later, run:
 
 ```powershell
 python -X utf8 scripts/import-curriculum.py "C:\path\to\SectionList.xlsx"
@@ -54,7 +55,6 @@ For a Pages preview in PowerShell, set `$env:GITHUB_ACTIONS = "true"`, run
 `npm run build`, then `npm run start`. Open
 http://127.0.0.1:3000/educational-gaming-platform/englishworld/. Commit the
 generated JSON with its code and registered assets when approved. GitHub Actions
-builds and publishes `out/` from the repository. Keep the workbook and the
-generated `out/` folder out of Git. Remove any already tracked workbook copies
-from the public repository in the release that switches to the generated data.
-A tracked-file removal leaves earlier Git history intact.
+builds and publishes `out/` from the repository. Keep private workbook copies
+and `out/` out of Git. The reference workbook is stored under `docs/`
+and stays outside the Pages artifact.

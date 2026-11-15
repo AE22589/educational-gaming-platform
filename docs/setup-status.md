@@ -153,7 +153,7 @@ After selection, the cards hide and the navigation displays the grade.
 Each world opens the book for that subject and grade automatically. The shared unit page uses the workbook
 ID. Sports and Seasons use workbook vocabulary and game menus. My Amazing Body!
 opens the existing body-parts mission. See [Workbook curriculum](curriculum-import.md)
-for source editing, import and preview. Source workbooks are kept outside the public working tree.
+for source editing, import and preview. A public reference copy is available at `docs/SectionList.xlsx`. Keep editable workbooks outside the repository.
 
 The six primary grade cards use original fantasy artwork registered in
 [the asset register](assets.md). Only Primaria 2 is currently available.
