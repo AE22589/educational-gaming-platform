@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSelectedGrade } from "@/features/homepage/grade-selection";
 
 export function PrimaryNavigation({ assetBasePath }: { assetBasePath: string }) {
   const pathname = usePathname();
+  const grade = useSelectedGrade();
   const pathWithoutBase = assetBasePath && pathname?.startsWith(assetBasePath)
     ? pathname.slice(assetBasePath.length) || "/"
     : pathname;
@@ -63,6 +65,7 @@ export function PrimaryNavigation({ assetBasePath }: { assetBasePath: string }) 
         />
         <span>Log in/Register<small>Iniciar sesión/Registrarse</small></span>
       </Link>
+      {grade !== null && <span className="chispitas-nav-grade">Primaria {grade}</span>}
     </nav>
   );
 }

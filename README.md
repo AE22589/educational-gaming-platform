@@ -103,3 +103,8 @@ in `AGENTS.md`. CI enforces the minimum through `scripts/check-docs-impact.mjs`.
    Check the Formspree submissions dashboard and Gmail inbox or Spam. Click
    Reply and verify the visitor's address is selected. The notification's
    From address belongs to Formspree and the visitor's address is Reply-To.
+
+## Workbook curriculum
+
+For the private workbook import and GitHub Pages preview, see
+[Workbook curriculum](docs/curriculum-import.md).

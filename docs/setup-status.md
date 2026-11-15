@@ -6,9 +6,9 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 `npm run lint`, `npm run typecheck`, `npm test` (42 tests), `npm run build` and
 `npm run test:e2e` (8 tests).
 
-## Homepage illustration - 2026-11-11
+## Homepage illustration preview - 2026-11-11
 
-The homepage uses the owner's taller valley illustration on
+The local homepage preview uses the owner's taller valley illustration on
 desktop and mobile. The artwork scrolls with the page and covers the
 welcome, world, support, and footer sections. The welcome panel sits just
 above the world cards.
@@ -133,15 +133,46 @@ separate from completed units. Real units, games and scores remain pending.
 ## English World and home welcome
 
 The home screen displays updated English welcome copy in its existing panel. The
-English World tile opens a nine-unit catalog at /englishworld. The desktop layout centers four cards above five with matching card sizes and retains the responsive card styles on smaller screens. Each card has a Spanish description and a separate generated WebP illustration.
-Sports and Seasons each open a menu with eight playable activities. The selected game opens below the menu. The seven other English World units show their vocabulary and Spanish translations on their preview pages.
-
-English World reads the English rows of the `vocabulary_list` sheet in [List.xlsx](List.xlsx) with `read-excel-file` during the static build. To update the terms, edit the workbook and rebuild the site. Game targets and vocabulary choices come from the active unit. Sports currently has 16 entries and Seasons has 22.
-Each game menu shows the total stars earned on first tries and each completed
+English World tile opens a ten-unit catalog at /englishworld. Each card has a Spanish description and a separate generated WebP illustration.
+Sports opens a game menu with eight playable activities that use the unit's 16 English vocabulary terms.
+The selected game opens below the menu. Other English World units open their preview routes.
+The Sports menu shows the total stars earned on first tries and each completed
 game's best score as a proportionally filled star. Each game shows correct
 answers and mistakes. Picture Match plays sound feedback and reshuffles after
 completion.
 
 ## Science World catalog
 
-The homepage Science World tile opens the six-unit catalog at "/scienceworld". The catalog shares the English World card layout and responsive grid. Six owner-provided illustrations are cropped and converted to lossless WebP. My Amazing Body! opens the body-parts mission. The five other cards open unit previews.
+The homepage Science World tile opens the six-unit catalog at "/scienceworld". The catalog shares the English World card layout and responsive grid. Six owner-provided illustrations are cropped and converted to lossless WebP. My Amazing Body! opens the workbook section and links to the body-parts mission. The five other cards are marked as coming soon.
+
+## Workbook curriculum - 2026-11-15
+
+Both world catalogs read the generated public curriculum. The current export
+contains 16 units across two Primaria 2 books. Six illustrated homepage cards offer grades 1–6 with only Primaria 2 enabled.
+After selection, the cards hide and the navigation displays the grade.
+Each world opens the book for that subject and grade automatically. The shared unit page uses the workbook
+ID. Sports and Seasons use workbook vocabulary and game menus. My Amazing Body!
+opens the existing body-parts mission. See [Workbook curriculum](curriculum-import.md)
+for source editing, import and preview. Source workbooks are kept outside the public working tree.
+
+The six primary grade cards use original fantasy artwork registered in
+[the asset register](assets.md). Only Primaria 2 is currently available.
+
+The Spanish grade picker appears on a fresh homepage visit. Selecting Primaria 2
+hides the picker, reveals the activity cards, and shows the grade tag across
+navigation and reloads in the same browser session.
+
+Science World shows two rows of three cards on desktop with the existing card
+width. Both world catalogs include a pill-shaped link back to the homepage.
+
+Section pages center the main artwork and link back with “Volver a las secciones.”
+They show the activity menu or coming-soon message. Workbook vocabulary
+is used by compatible games and is not listed separately on unit pages.
+
+Sports and Seasons game icons, picture clues and affected labels use corrected
+UTF-8 text. Sports still uses the registered WebP equipment and park art.
+
+Playable section cards open their section and lift on hover. Sections without
+a playable activity stay in the catalog with a coming-soon label.
+
+English World section headers match their catalog card colors.

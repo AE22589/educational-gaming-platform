@@ -1,5 +1,4 @@
-import { getUnitVocabulary } from "../workbook";
-import { englishUnits } from "../units";
+import type { CurriculumUnit } from "@/features/curriculum/catalog";
 import type { VocabularyItem } from "./vocabulary";
 
 type PracticeUnit = "sports" | "seasons";
@@ -7,8 +6,8 @@ type PracticeUnit = "sports" | "seasons";
 const sportPictures: Record<string, string> = {
   hockey: "🏒", football: "⚽", basketball: "🏀", tennis: "🎾",
   "table tennis": "🏓", badminton: "🏸", baseball: "⚾", swimming: "🏊",
-  cycling: "🚲", skateboarding: "🛹", bat: "bat", racket: "racket",
-  helmet: "⛑️", gloves: "🧤", "knee pads": "knee", "elbow pads": "elbow",
+  cycling: "🚲", skateboarding: "🛹", bat: "🏏", racket: "racket",
+  helmet: "⛑️", gloves: "🧤", "knee pads": "🛡️", "elbow pads": "🛡️",
 };
 
 const sportPhrases: Record<string, [group: string, phrase: string, sortPhrase?: string]> = {
@@ -33,25 +32,25 @@ const seasonPictures: Record<string, string> = {
   "draw a picture": "✏️", "paint pictures": "🎨",
 };
 
-export async function getPracticeUnit(slug: PracticeUnit) {
-  const unit = englishUnits.find((entry) => entry.slug === slug)!;
-  const rows = await getUnitVocabulary(unit.title);
-  const vocabulary = rows.map((item): VocabularyItem => {
+export function getPracticeVocabulary(unit: CurriculumUnit, slug: PracticeUnit) {
+  const seen = new Set<string>();
+  return unit.vocabulary.flatMap((item): VocabularyItem[] => {
     const word = item.word.toLowerCase();
+    if (seen.has(word)) return [];
+    seen.add(word);
     if (slug === "sports") {
       const [group, phrase, sortPhrase] =
         sportPhrases[word] ?? ["Play", `I play ${word}`];
-      return { ...item, word, picture: sportPictures[word], group, phrase, sortPhrase: sortPhrase ?? phrase.replace(/^I /, "") };
+      return [{ ...item, word, picture: item.image || sportPictures[word], group, phrase, sortPhrase: sortPhrase ?? phrase.replace(/^I /, "") }];
     }
 
     const group = seasons.has(word) ? "Season" : word.includes(" ") ? "Activity" : "Weather";
-    return {
+    return [{
       ...item,
       word,
-      picture: seasonPictures[word],
+      picture: item.image || seasonPictures[word],
       group,
       phrase: group === "Activity" ? `I like to ${word}` : `It is ${word}`,
-    };
+    }];
   });
-  return { title: unit.title, vocabulary };
 }

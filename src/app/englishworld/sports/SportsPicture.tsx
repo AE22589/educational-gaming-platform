@@ -7,9 +7,9 @@ export function SportsPicture({ item }: { item: VocabularyItem }) {
   if (!picture) return <span className={styles.picture}>{translation}</span>;
   return (
     <span className={styles.picture} role="img" aria-label={translation}>
-      {picture === "bat" || picture === "knee" || picture === "elbow"
+      {picture.startsWith("/")
         ? <Image className={styles.equipmentPicture} alt="" width={96} height={96} unoptimized
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/englishworld/sports-equipment/${picture}.webp`} />
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}${picture}`} />
         : picture === "racket"
         ? <span className={styles.racket} aria-hidden="true" />
         : <span aria-hidden="true">{picture}</span>}

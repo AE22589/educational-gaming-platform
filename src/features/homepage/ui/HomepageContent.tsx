@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { availableGrade } from "@/features/curriculum/catalog";
 import { ProfileSummary } from "@/features/profile/ui/ProfileSummary";
+
+import { GradePicker } from "./GradePicker";
+import { HomepageActivities } from "./HomepageActivities";
 
 type TileTone = "lime" | "lilac" | "orange" | "cyan";
 
@@ -75,71 +79,75 @@ export function HomepageContent() {
         </div>
       </section>
 
-      <section aria-label="Mundos para explorar" className="home-world-grid">
-        <WorldTile
-          title="Science World"
-          description="Descubre la naturaleza y sus maravillas."
-          image={assetPath("/homepage/science-garden.webp")}
-          tone="lime"
-          href="/scienceworld"
-          action="Explorar"
-        />
-        <WorldTile
-          title="English World"
-          description="Practica palabras nuevas mientras juegas."
-          image={assetPath("/homepage/english-book.webp")}
-          tone="lilac"
-          href="/englishworld"
-          action="Explorar"
-        />
-        <WorldTile
-          title="My Little Friend"
-          description="Conoce a tu compañero de aventuras."
-          image={assetPath("/homepage/my-little-friend-dragon.webp")}
-          tone="orange"
-          href="/avatar"
-          action="Ver amigo"
-        />
-        <WorldTile
-          title="Adventure Map"
-          description="Elige un camino y descubre nuevos lugares."
-          image={assetPath("/homepage/adventure-map.webp")}
-          tone="cyan"
-          href="/adventuremap"
-          action="Explorar el mapa"
-        />
-      </section>
+      <GradePicker assetBasePath={basePath} availableGrade={availableGrade} />
 
-      <section aria-label="Tu aventura" className="home-support-grid">
-        <article className="home-support-card support-missions">
-          <div className="home-support-copy">
-            <p className="home-support-kicker">Pequeños pasos</p>
-            <h2>Your next adventure</h2>
-            <p>Practica las partes del cuerpo en inglés y acompaña al dragón.</p>
-            <Link href="/scienceworld/body" className="home-text-link">Jugar la misión <Arrow /></Link>
-          </div>
-          <Image src={assetPath("/homepage/daily-missions.webp")} alt="" width={152} height={152} unoptimized />
-        </article>
+      <HomepageActivities availableGrade={availableGrade}>
+        <section id="home-worlds" aria-label="Mundos para explorar" tabIndex={-1} className="home-world-grid home-section-width">
+          <WorldTile
+            title="Science World"
+            description="Descubre la naturaleza y sus maravillas."
+            image={assetPath("/homepage/science-garden.webp")}
+            tone="lime"
+            href="/scienceworld"
+            action="Explorar"
+          />
+          <WorldTile
+            title="English World"
+            description="Practica palabras nuevas mientras juegas."
+            image={assetPath("/homepage/english-book.webp")}
+            tone="lilac"
+            href="/englishworld"
+            action="Explorar"
+          />
+          <WorldTile
+            title="My Little Friend"
+            description="Conoce a tu compañero de aventuras."
+            image={assetPath("/homepage/my-little-friend-dragon.webp")}
+            tone="orange"
+            href="/avatar"
+            action="Ver amigo"
+          />
+          <WorldTile
+            title="Adventure Map"
+            description="Elige un camino y descubre nuevos lugares."
+            image={assetPath("/homepage/adventure-map.webp")}
+            tone="cyan"
+            href="/adventuremap"
+            action="Explorar el mapa"
+          />
+        </section>
 
-        <article className="home-support-card support-stars">
-          <div className="home-support-copy">
-            <p className="home-support-kicker">Sigue brillando</p>
-            <h2>Star Shop</h2>
-            <p>Más adelante podrás canjearlas por sorpresas.</p>
-            <Link href="/shop" className="home-text-link">Visitar tienda <Arrow /></Link>
-          </div>
-          <Image src={assetPath("/homepage/star-chest.webp")} alt="" width={164} height={142} unoptimized />
-        </article>
+        <section aria-label="Tu aventura" className="home-support-grid">
+          <article className="home-support-card support-missions">
+            <div className="home-support-copy">
+              <p className="home-support-kicker">Pequeños pasos</p>
+              <h2>Your next adventure</h2>
+              <p>Practica las partes del cuerpo en inglés y acompaña al dragón.</p>
+              <Link href="/scienceworld/body" className="home-text-link">Jugar la misión <Arrow /></Link>
+            </div>
+            <Image src={assetPath("/homepage/daily-missions.webp")} alt="" width={152} height={152} unoptimized />
+          </article>
 
-        <article className="home-support-card support-encourage">
-          <div className="home-support-copy">
-            <p className="home-support-kicker">A tu ritmo, paso a paso</p>
-            <h2>¡Sigue explorando!</h2>
-            <p>Cada pequeño descubrimiento cuenta.</p>
-          </div>
-          <Image src={assetPath("/homepage/turtle-companion.webp")} alt="" width={146} height={146} unoptimized />
-        </article>
-      </section>
+          <article className="home-support-card support-stars">
+            <div className="home-support-copy">
+              <p className="home-support-kicker">Sigue brillando</p>
+              <h2>Star Shop</h2>
+              <p>Más adelante podrás canjearlas por sorpresas.</p>
+              <Link href="/shop" className="home-text-link">Visitar tienda <Arrow /></Link>
+            </div>
+            <Image src={assetPath("/homepage/star-chest.webp")} alt="" width={164} height={142} unoptimized />
+          </article>
+
+          <article className="home-support-card support-encourage">
+            <div className="home-support-copy">
+              <p className="home-support-kicker">A tu ritmo, paso a paso</p>
+              <h2>¡Sigue explorando!</h2>
+              <p>Cada pequeño descubrimiento cuenta.</p>
+            </div>
+            <Image src={assetPath("/homepage/turtle-companion.webp")} alt="" width={146} height={146} unoptimized />
+          </article>
+        </section>
+      </HomepageActivities>
     </div>
   );
 }

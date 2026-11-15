@@ -1,13 +1,5 @@
-import { WorldCatalog } from "../_components/WorldCatalog";
-import { scienceUnits } from "./units";
+import { WorldPage } from "../_components/WorldPage";
 
-export default function ScienceWorldPage() {
-  return (
-    <WorldCatalog
-      world="scienceworld"
-      title="Science World"
-      description="Explora seis unidades y descubre cómo funciona el mundo."
-      units={scienceUnits}
-    />
-  );
+export default function Page() {
+  return <WorldPage world="scienceworld" title="Science World" />;
 }
