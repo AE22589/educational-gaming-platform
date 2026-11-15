@@ -1,7 +1,14 @@
 import type { CurriculumUnit } from "@/features/curriculum/catalog";
 import type { VocabularyItem } from "./vocabulary";
 
-type PracticeUnit = "sports" | "seasons";
+import type { PracticeUnit } from "./game-menu";
+
+const healthyPhrases: Record<string, string> = {
+  apple: "I eat an apple",
+  water: "I drink water",
+  sport: "I play a sport",
+  sleep: "I sleep at night",
+};
 
 const sportPictures: Record<string, string> = {
   hockey: "🏒", football: "⚽", basketball: "🏀", tennis: "🎾",
@@ -38,6 +45,9 @@ export function getPracticeVocabulary(unit: CurriculumUnit, slug: PracticeUnit) 
     const word = item.word.toLowerCase();
     if (seen.has(word)) return [];
     seen.add(word);
+    if (slug === "healthy-habits") {
+      return [{ ...item, word, picture: item.image, group: "", phrase: healthyPhrases[word] ?? word }];
+    }
     if (slug === "sports") {
       const [group, phrase, sortPhrase] =
         sportPhrases[word] ?? ["Play", `I play ${word}`];

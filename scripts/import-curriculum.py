@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import re
 import sys
+import unicodedata
 from tempfile import NamedTemporaryFile
 from zipfile import BadZipFile
 
@@ -21,6 +22,7 @@ COMMON_GAMES = {
 IMPLEMENTED = {
     "english-2-b1-s01": COMMON_GAMES | {"Play, Go, Do, Wear?"},
     "english-2-b1-s02": COMMON_GAMES | {"Weather, Season or Activity?"},
+    "science-2-b2-s02": COMMON_GAMES - {"Look & Find"},
     "science-2-b2-s01": {"Misión: partes del cuerpo"},
 }
 
@@ -69,8 +71,17 @@ def export(workbook):
         raise ValueError(f"Missing worksheet {CATALOG}")
     books, units = {}, {}
     required = ("Subject", "Path", "Book Reference", "Book ID", "Grade", "Section ID", "Section Name")
-    optional = ("Section Description in Spanish", "Section ImagePath", "GameTypes", "Content Language")
-    for fields, at in records(sheets[CATALOG], CATALOG, required, optional):
+    flag_column = "Sub Section Yes/No"
+    list_column = "List of Sub Sections"
+    optional = ("Section Description in Spanish", "Section ImagePath", "GameTypes", "Content Language",
+                flag_column, list_column)
+    catalog_rows = sheets[CATALOG].copy()
+    subsection_headers = {name.casefold(): name for name in (flag_column, list_column)}
+    catalog_rows[1] = {column: subsection_headers.get(name.casefold(), name)
+                       for column, name in catalog_rows.get(1, {}).items()}
+    has_subsection_list = list_column in catalog_rows[1].values()
+    legacy_subsections = set()
+    for fields, at in records(catalog_rows, CATALOG, required, optional):
         subject, path, reference, book_id, grade, unit_id, title = (fields[key] for key in required)
         world = WORLDS.get(subject)
         if world is None or world != path:
@@ -96,11 +107,19 @@ def export(workbook):
         for game in games:
             if game not in IMPLEMENTED.get(unit_id, ()):
                 print(f"{at('GameTypes')}: game has no implementation: {game}", file=sys.stderr)
+        flag = fields.get(flag_column, "").casefold()
+        if flag not in {"", "yes", "no"}:
+            raise ValueError(f"{at(flag_column)}: use Yes or No")
+        subsection_names = [name.strip() for name in re.split(r"[;,\n]+", fields.get(list_column, "")) if name.strip()]
+        if flag == "yes" and not has_subsection_list:
+            legacy_subsections.add(unit_id)
+        elif flag == "yes" and not subsection_names:
+            raise ValueError(f"{at(list_column)}: list the subsection names")
         units[unit_id] = {
             "id": unit_id, "bookId": book_id, "title": title, "language": language,
             "description": fields.get("Section Description in Spanish", ""),
             "image": image_path(fields.get("Section ImagePath"), at("Section ImagePath")),
-            "games": games, "vocabulary": [],
+            "games": games, "subsections": subsection_names if flag == "yes" else [], "vocabulary": [],
         }
 
     seen = set()
@@ -121,7 +140,20 @@ def export(workbook):
                 "subsection": subsection, "image": image_path(fields.get("ImagePath"), at("ImagePath")),
             })
     for unit in units.values():
-        if unit["id"] in {"english-2-b1-s01", "english-2-b1-s02"} and unit["games"]:
+        names = unit["subsections"]
+        if unit["id"] in legacy_subsections:
+            names = list(dict.fromkeys(row["subsection"] for row in unit["vocabulary"] if row["subsection"]))
+        subsections = []
+        slugs = set()
+        for name in names:
+            normalized = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
+            slug = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+            if not slug or slug in slugs:
+                raise ValueError(f"{unit['id']}: subsection name {name!r} must have a unique URL")
+            slugs.add(slug)
+            subsections.append({"id": slug, "title": name})
+        unit["subsections"] = subsections
+        if unit["id"] in {"english-2-b1-s01", "english-2-b1-s02", "science-2-b2-s02"} and unit["games"]:
             if len({row["word"].casefold() for row in unit["vocabulary"]}) < 4:
                 raise ValueError(f"{VOCABULARY}: add at least four distinct terms for {unit['id']}")
     return {"books": list(books.values()), "units": list(units.values())}

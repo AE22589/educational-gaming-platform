@@ -6,7 +6,7 @@ import { WordHunt } from "./WordHunt";
 import { SpellAndSpot } from "./SpellAndSpot";
 import { SortWords } from "./SortWords";
 import { SportsPicture } from "./SportsPicture";
-import { gameName, getPracticeGames, type Game } from "./game-menu";
+import { gameName, getPracticeGames, type Game, type PracticeUnit } from "./game-menu";
 import { playAnswerSound } from "./answer-sound";
 import styles from "./sports.module.css";
 
@@ -18,7 +18,7 @@ const gymnastics: VocabularyItem = {
 export function UnitGames({ vocabulary, unit, availableGames }: {
   vocabulary: VocabularyItem[];
   availableGames: string[];
-  unit: "sports" | "seasons";
+  unit: PracticeUnit;
 }) {
   const [game, setGame] = useState<Game | null>(null);
   const [selection, setSelection] = useState(0);
@@ -59,6 +59,7 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
     }
   }
 
+  const science = unit === "healthy-habits";
   const menu = getPracticeGames(availableGames, unit);
   const sorting = unit === "sports" && !vocabulary.some(({ word }) => word === gymnastics.word)
     ? [...vocabulary, gymnastics] : vocabulary;
@@ -66,7 +67,7 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
 
   return (
     <>
-      <section className={styles.catalog} aria-label="Juegos de inglés">
+      <section className={styles.catalog} aria-label={science ? "Juegos de ciencias" : "Juegos de inglés"}>
         {menu.map((entry) => {
           const best = bestScores[entry.id];
           const questions = entry.id === "sort" ? sorting.length : vocabulary.length;
@@ -86,7 +87,7 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
               <span className={styles.cardCopy}>
                 <strong className={styles.cardTitle} lang="en">
                   {name}
-                  {best !== undefined && (
+                  {!science && best !== undefined && (
                     <span className={styles.medal} role="img"
                       aria-label={`Best score: ${best} of ${questions} correct on the first try`}>
                       ★<span aria-hidden="true" style={{ width: `${best / questions * 100}%` }}>★</span>
@@ -100,16 +101,16 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
           );
         })}
       </section>
-      <div className={styles.starCounter} role="status">
+      {!science && <div className={styles.starCounter} role="status">
         <span aria-hidden="true">⭐</span> Estrellas <strong>{stars}</strong>
-      </div>
+      </div>}
       <section id="unit-game" className={styles.play} hidden={!game} aria-labelledby="unit-game-title">
         {game && (
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
             <Activity key={selection} game={game} matchOrder={matchOrder} vocabulary={game.id === "sort" ? sorting : vocabulary} unit={unit}
               onComplete={(score) => complete(game.id, score)} onMatchAnswer={scoreMatch}
-              onStar={() => setStars((count) => count + 1)} />
+              onStar={science ? undefined : () => setStars((count) => count + 1)} />
           </>
         )}
       </section>
@@ -121,10 +122,10 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
   game: Game;
   matchOrder: VocabularyItem[];
   vocabulary: VocabularyItem[];
-  unit: "sports" | "seasons";
+  unit: PracticeUnit;
   onComplete: (score: number) => void;
   onMatchAnswer: (correct: boolean) => void;
-  onStar: () => void;
+  onStar: (() => void) | undefined;
 }) {
   const [round, setRound] = useState(0);
   const [words, setWords] = useState(matchOrder);
@@ -140,7 +141,7 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
     if (correct) {
       if (!score.missed) {
         score.firstTry += 1;
-        onStar();
+        onStar?.();
       }
       score.missed = false;
       score.solved += 1;
@@ -182,26 +183,28 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
       ) : game.id === "hunt" ? (
         <WordHunt key={round} vocabulary={vocabulary} {...roundProps} />
       ) : game.id === "spot" ? (
-        <SpellAndSpot key={round} vocabulary={vocabulary} unit={unit} {...roundProps} />
+        unit !== "healthy-habits" && <SpellAndSpot key={round} vocabulary={vocabulary} unit={unit} {...roundProps} />
       ) : game.id === "sort" ? (
-        <SortWords key={round} item={vocabulary[round]!} unit={unit} {...roundProps} />
+        unit !== "healthy-habits" && <SortWords key={round} item={vocabulary[round]!} unit={unit} {...roundProps} />
       ) : (
         <VocabularyRound key={round} id={game.id}
-          vocabulary={vocabulary} item={(game.id === "match" ? words : vocabulary)[round]!} {...roundProps} />
+          vocabulary={vocabulary} item={(game.id === "match" ? words : vocabulary)[round]!}
+          spanishControls={unit === "healthy-habits"} {...roundProps} />
       )}
       <div className={styles.results} role="status">
-        <span lang="en">✓ Correct <strong>{correctCount}</strong></span>
-        <span lang="en">✕ Mistakes <strong>{mistakes}</strong></span>
+        <span lang={unit === "healthy-habits" ? "es" : "en"}>✓ {unit === "healthy-habits" ? "Aciertos" : "Correct"} <strong>{correctCount}</strong></span>
+        <span lang={unit === "healthy-habits" ? "es" : "en"}>✕ {unit === "healthy-habits" ? "Errores" : "Mistakes"} <strong>{mistakes}</strong></span>
       </div>
     </>
   );
 }
 
-function VocabularyRound({ id, round, item, vocabulary, onAnswer, onNext }: {
+function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswer, onNext }: {
   id: Exclude<Game["id"], "hunt" | "spot" | "sort">;
   round: number;
   item: VocabularyItem;
   vocabulary: VocabularyItem[];
+  spanishControls: boolean;
   onAnswer: (correct: boolean) => void;
   onNext: () => void;
 }) {
@@ -258,7 +261,7 @@ function VocabularyRound({ id, round, item, vocabulary, onAnswer, onNext }: {
       <p className={styles.prompt}>{{
         match: "¿Qué palabra va con el dibujo?",
         mystery: "Elige la letra que falta.",
-        phrase: "Arrastra o toca las palabras y pulsa Check.",
+        phrase: spanishControls ? "Arrastra o toca las palabras y pulsa Comprobar." : "Arrastra o toca las palabras y pulsa Check.",
         spell: "Mira el dibujo o escucha la palabra. Escríbela en inglés.",
         scramble: "Toca las letras en el orden correcto. Junta las palabras si hay más de una.",
       }[id]}</p>
@@ -306,6 +309,7 @@ function VocabularyRound({ id, round, item, vocabulary, onAnswer, onNext }: {
       {(id === "phrase" || id === "scramble") && (
         <OrderTiles tokens={id === "phrase" ? item.phrase.split(" ") : item.word.replaceAll(" ", "").split("")}
           isPhrase={id === "phrase"} seed={round + 2} correct={correct}
+          spanishControls={spanishControls}
           onEdit={() => setFeedback(null)} onCheck={check} />
       )}
       <p className={styles.feedback} role="status">
@@ -317,11 +321,12 @@ function VocabularyRound({ id, round, item, vocabulary, onAnswer, onNext }: {
   );
 }
 
-function OrderTiles({ tokens, isPhrase, seed, correct, onEdit, onCheck }: {
+function OrderTiles({ tokens, isPhrase, seed, correct, spanishControls, onEdit, onCheck }: {
   tokens: string[];
   isPhrase: boolean;
   seed: number;
   correct: boolean;
+  spanishControls: boolean;
   onEdit: () => void;
   onCheck: (value: string, expected: string) => void;
 }) {
@@ -329,6 +334,7 @@ function OrderTiles({ tokens, isPhrase, seed, correct, onEdit, onCheck }: {
   const dragged = useRef<number | null>(null);
   const tileButtons = useRef<(HTMLButtonElement | null)[]>([]);
   const separator = isPhrase ? " " : "";
+  const englishCheck = isPhrase && !spanishControls;
   const available = scramble(tokens.map((_, index) => index), seed)
     .filter((index) => !ordered.includes(index));
 
@@ -393,10 +399,10 @@ function OrderTiles({ tokens, isPhrase, seed, correct, onEdit, onCheck }: {
           setOrdered([]);
           onEdit();
         }}>{isPhrase ? <span className={styles.eraserIcon} aria-hidden="true" /> : "Borrar"}</button>
-        <button className={styles.primary} lang={isPhrase ? "en" : undefined}
+        <button className={styles.primary} lang={englishCheck ? "en" : undefined}
           disabled={correct || ordered.length !== tokens.length}
           onClick={() => onCheck(ordered.map((index) => tokens[index]).join(separator), tokens.join(separator))}>
-          {isPhrase ? "Check" : "Comprobar"}
+          {englishCheck ? "Check" : "Comprobar"}
         </button>
       </div>
     </>

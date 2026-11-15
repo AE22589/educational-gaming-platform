@@ -11,10 +11,15 @@ const games = [
 
 export type Game = Omit<(typeof games)[number], "name"> & { name: string };
 
-export function gameName(game: (typeof games)[number], unit: "sports" | "seasons") {
+export type PracticeUnit = "sports" | "seasons" | "healthy-habits";
+
+export function gameName(game: (typeof games)[number], unit: PracticeUnit) {
   return unit === "seasons" && game.id === "sort" ? "Weather, Season or Activity?" : game.name;
 }
 
-export function getPracticeGames(availableGames: readonly string[], unit: "sports" | "seasons") {
-  return availableGames.flatMap((name) => games.filter((entry) => gameName(entry, unit) === name));
+export function getPracticeGames(availableGames: readonly string[], unit: PracticeUnit) {
+  return availableGames.flatMap((name) => games.filter((entry) => {
+    if (unit === "healthy-habits" && (entry.id === "spot" || entry.id === "sort")) return false;
+    return gameName(entry, unit) === name;
+  }));
 }

@@ -505,3 +505,20 @@ Position the background star just below the navigation.
 
 Science World centers three equal-width cards per desktop row. Both world
 catalogs use the existing back-link treatment for a direct return home.
+
+## Science World Healthy Habits activities - 2026-11-15
+
+Healthy Habits, Happy Life! uses the shared curriculum unit page and six
+existing practice formats. The starter set uses four English terms and short
+phrases about eating, drinking water, movement and sleep. Instructions and
+run feedback are in Spanish. Runs show correct answers and mistakes as
+practice feedback. The activities do not award profile rewards.
+
+## Workbook subsection navigation - 2026-11-15
+
+The workbook subject chooses the world. A section marked Yes uses the
+ordered List of Sub Sections to build its cards and static game pages.
+Subsection cards and game pages reuse the section design. New subsection
+game pages show availability status until games are assigned. The earlier
+Healthy Habits starter games remain available at section level while the
+workbook has no game assignments.

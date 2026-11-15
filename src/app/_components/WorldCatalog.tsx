@@ -8,7 +8,7 @@ import { getUnitActivity } from "./unit-activity";
 export function WorldCatalog({ world, title, units }: {
   world: World;
   title: string;
-  units: Pick<CurriculumUnit, "id" | "bookId" | "title" | "language" | "description" | "image" | "games">[];
+  units: CurriculumUnit[];
 }) {
   const titleId = `${world}-title`;
 
@@ -21,30 +21,47 @@ export function WorldCatalog({ world, title, units }: {
         <h1 id={titleId} lang="en">{title}</h1>
       </header>
       {!units.length && <p role="status">Pronto habrá unidades disponibles.</p>}
-      <div className={`${world === "englishworld" ? "english-unit-grid" : "science-unit-grid"} ${styles.grid}${world === "scienceworld" ? ` ${styles.scienceGrid}` : ""}`}>
-        {units.map((unit) => {
-          const playable = getUnitActivity(unit) !== null;
-          return (
-            <article className={`home-tile ${styles.sectionTone} ${styles.unitCard} ${world === "scienceworld" ? scienceStyles.card : ""}`} key={unit.id} data-playable={playable} data-section-tone={getSectionTone(unit)}>
-              <div className={styles.art}>
-                {unit.image
-                  ? <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${unit.image}`} alt="" width={330} height={345} unoptimized />
-                  : <span className={scienceStyles.illustration} aria-hidden="true">📚</span>}
-              </div>
-              <div className={`home-tile-copy ${styles.copy} ${scienceStyles.copy}`}>
-                <h2 id={`unit-${unit.id}`} className="home-tile-title" lang={unit.language}>{unit.title}</h2>
-                {unit.description && <p className="home-tile-description">{unit.description}</p>}
-                {playable ? (
-                  <Link href={`/unit/${unit.id}/`} className={`home-tile-button ${styles.button} ${styles.sectionLink}`}
-                    aria-describedby={`unit-${unit.id}`} lang="en">
-                    Explore this topic <span aria-hidden="true">→</span>
-                  </Link>
-                ) : <span className={`home-tile-button is-muted ${styles.button}`}>Próximamente</span>}
-              </div>
-            </article>
-          );
-        })}
-      </div>
+      <SectionCards world={world} cards={units.map((unit) => ({
+        ...unit,
+        tone: getSectionTone(unit),
+        href: unit.subsections.length || getUnitActivity(unit) ? `/unit/${unit.id}/` : "",
+      }))} />
     </section>
   );
 }
+
+type SectionCard = Pick<CurriculumUnit, "id" | "title" | "language" | "description" | "image"> & {
+  tone: ReturnType<typeof getSectionTone>;
+  href: string;
+};
+
+export function SectionCards({ world, cards, subsections = false }: {
+  world: World;
+  cards: SectionCard[];
+  subsections?: boolean;
+}) {
+  return (
+    <div className={`${world === "englishworld" ? "english-unit-grid" : "science-unit-grid"} ${styles.grid}${world === "scienceworld" ? ` ${styles.scienceGrid}` : ""}`}>
+      {cards.map((unit) => (
+        <article className={`home-tile ${styles.sectionTone} ${styles.unitCard} ${world === "scienceworld" ? scienceStyles.card : ""}`} key={unit.id} data-playable={Boolean(unit.href)} data-section-tone={unit.tone}>
+          <div className={styles.art}>
+            {unit.image
+              ? <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${unit.image}`} alt="" width={330} height={345} unoptimized />
+              : <span className={scienceStyles.illustration} aria-hidden="true">📚</span>}
+          </div>
+          <div className={`home-tile-copy ${styles.copy} ${scienceStyles.copy}`}>
+            <h2 id={`unit-${unit.id}`} className="home-tile-title" lang={unit.language}>{unit.title}</h2>
+            {unit.description && <p className="home-tile-description">{unit.description}</p>}
+            {unit.href ? (
+              <Link href={unit.href} className={`home-tile-button ${styles.button} ${styles.sectionLink}`}
+                aria-describedby={`unit-${unit.id}`} lang={subsections ? "es" : "en"}>
+                {subsections ? "Ver juegos" : "Explore this topic"} <span aria-hidden="true">→</span>
+              </Link>
+            ) : <span className={`home-tile-button is-muted ${styles.button}`}>Próximamente</span>}
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+

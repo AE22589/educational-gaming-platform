@@ -1,11 +1,15 @@
 import data from "./curriculum.generated.json";
 
 export type World = "englishworld" | "scienceworld";
-export type CurriculumUnit = (typeof data.units)[number];
+export type CurriculumUnit = Omit<(typeof data.units)[number], "games" | "subsections"> & {
+  games: string[];
+  subsections: { id: string; title: string }[];
+};
 
 export const availableGrade = 2;
 
-export const { books, units } = data;
+export const { books } = data;
+export const units: CurriculumUnit[] = data.units;
 
 export function getBookUnits(bookId: string) {
   return units.filter((unit) => unit.bookId === bookId);
@@ -18,14 +22,17 @@ export function getSectionTone(unit: Pick<CurriculumUnit, "id" | "bookId">) {
   return sectionTones[position % sectionTones.length];
 }
 
-export function getBook(bookId: string) {
+export function getBook(bookId: string): Omit<(typeof books)[number], "world"> & { world: World } {
   const book = books.find((entry) => entry.id === bookId);
-  if (!book) throw new Error(`Unknown curriculum book ${bookId}`);
-  return book;
+  if (!book || (book.world !== "englishworld" && book.world !== "scienceworld")) {
+    throw new Error(`Unknown curriculum book ${bookId}`);
+  }
+  return { ...book, world: book.world };
 }
 
 export const practiceIds = {
   sports: "english-2-b1-s01",
   seasons: "english-2-b1-s02",
   body: "science-2-b2-s01",
+  healthyHabits: "science-2-b2-s02",
 } as const;

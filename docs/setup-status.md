@@ -176,3 +176,14 @@ Playable section cards open their section and lift on hover. Sections without
 a playable activity stay in the catalog with a coming-soon label.
 
 English World section headers match their catalog card colors.
+
+Science World Section 2 opens Healthy Habits, Happy Life! from its catalog
+card. Its six games use the four terms and existing artwork recorded in the
+curriculum. The section page returns to the Science World catalog and the
+legacy Healthy Habits URL opens the same activities.
+
+The world catalogs expose sections with subsections even when their game
+menus are pending. Basics has six subsections and Healthy Habits has nine,
+in workbook order. Each subsection card opens its game page and a return
+link leads back to the section. The existing Healthy Habits starter games
+are below its subsection cards.

@@ -22,6 +22,32 @@
       "description": "Practica saludos, colores y números en inglés.",
       "image": "/englishworld/basics.webp",
       "games": [],
+      "subsections": [
+        {
+          "id": "colors",
+          "title": "Colors"
+        },
+        {
+          "id": "numbers",
+          "title": "Numbers"
+        },
+        {
+          "id": "days-of-the-week",
+          "title": "Days of the week"
+        },
+        {
+          "id": "family",
+          "title": "Family"
+        },
+        {
+          "id": "animals",
+          "title": "Animals"
+        },
+        {
+          "id": "emotions",
+          "title": "Emotions"
+        }
+      ],
       "vocabulary": [
         {
           "word": "Red",
@@ -612,6 +638,7 @@
         "Look & Find",
         "Play, Go, Do, Wear?"
       ],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Hockey",
@@ -728,6 +755,7 @@
         "Look & Find",
         "Weather, Season or Activity?"
       ],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Sunny",
@@ -871,6 +899,7 @@
       "description": "Conoce animales y aprende sus nombres en inglés.",
       "image": "/englishworld/animals.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Bear",
@@ -990,6 +1019,7 @@
       "description": "Explora el mundo y aprende los nombres de las frutas.",
       "image": "/englishworld/world-and-fruit.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Brazil",
@@ -1103,6 +1133,7 @@
       "description": "Descubre lugares y qué puedes hacer en ellos.",
       "image": "/englishworld/places-and-activities.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Mountain",
@@ -1240,6 +1271,7 @@
       "description": "Aprende palabras para un día de juegos en la playa.",
       "image": "/englishworld/beach.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Beach",
@@ -1341,6 +1373,7 @@
       "description": "Conoce los medios de transporte y cómo viajar con cuidado.",
       "image": "/englishworld/safe-travel.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Car",
@@ -1454,6 +1487,7 @@
       "description": "Describe tu casa y tus cosas favoritas en inglés.",
       "image": "/englishworld/home.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "House",
@@ -1603,6 +1637,7 @@
       "description": "Habla de tu familia y de los momentos que compartís.",
       "image": "/englishworld/family.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Mother",
@@ -1736,6 +1771,7 @@
       "games": [
         "Misión: partes del cuerpo"
       ],
+      "subsections": [],
       "vocabulary": [
         {
           "word": "Life Processes",
@@ -2071,7 +2107,1180 @@
       "description": "Explora cómo la comida, el agua y el movimiento te ayudan a cuidarte.",
       "image": "/scienceworld/healthy-habits.webp",
       "games": [],
-      "vocabulary": []
+      "subsections": [
+        {
+          "id": "health-and-the-body",
+          "title": "Health and the body"
+        },
+        {
+          "id": "healthcare-and-illnesses",
+          "title": "Healthcare and illnesses"
+        },
+        {
+          "id": "healthy-habits-and-hygiene",
+          "title": "Healthy habits and hygiene"
+        },
+        {
+          "id": "food-and-drinks",
+          "title": "Food and drinks"
+        },
+        {
+          "id": "food-groups-and-nutrition",
+          "title": "Food groups and nutrition"
+        },
+        {
+          "id": "meals-and-menus",
+          "title": "Meals and menus"
+        },
+        {
+          "id": "accidents-and-safety",
+          "title": "Accidents and safety"
+        },
+        {
+          "id": "feelings-and-emotions",
+          "title": "Feelings and emotions"
+        },
+        {
+          "id": "time-and-frequency-expressions",
+          "title": "Time and frequency expressions"
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "Body",
+          "translation": "Cuerpo",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Healthy",
+          "translation": "Sano/a",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Health",
+          "translation": "Salud",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Health centre",
+          "translation": "Centro de salud",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Health centres",
+          "translation": "Centros de salud",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Look after our body",
+          "translation": "Cuidar nuestro cuerpo",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Keep healthy",
+          "translation": "Mantenerse sano/a",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Ill",
+          "translation": "Enfermo/a",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Illness",
+          "translation": "Enfermedad",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Illnesses",
+          "translation": "Enfermedades",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Physically",
+          "translation": "Físicamente",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Emotionally",
+          "translation": "Emocionalmente",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Emotional problems",
+          "translation": "Problemas emocionales",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Powerful mind",
+          "translation": "Mente poderosa",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Muscles",
+          "translation": "Músculos",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Strong muscles",
+          "translation": "Músculos fuertes",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Bones",
+          "translation": "Huesos",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Joint",
+          "translation": "Articulación",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Sense organ",
+          "translation": "Órgano de los sentidos",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Digestive system",
+          "translation": "Aparato digestivo",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Life processes",
+          "translation": "Procesos vitales",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Stage of life",
+          "translation": "Etapa de la vida",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Doctor",
+          "translation": "Médico/a",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Nurse",
+          "translation": "Enfermero/a",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Psychologist",
+          "translation": "Psicólogo/a",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Healthcare workers",
+          "translation": "Personal sanitario",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Check-up",
+          "translation": "Revisión médica",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Prescribes",
+          "translation": "Receta",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Medicine",
+          "translation": "Medicina",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Medicines",
+          "translation": "Medicamentos",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Vaccination",
+          "translation": "Vacunación",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Vaccinations",
+          "translation": "Vacunaciones",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Vaccines",
+          "translation": "Vacunas",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Cold",
+          "translation": "Resfriado",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Flu",
+          "translation": "Gripe",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Chickenpox",
+          "translation": "Varicela",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "COVID-19",
+          "translation": "COVID-19",
+          "subsection": "Healthcare and illnesses",
+          "image": ""
+        },
+        {
+          "word": "Healthy habits",
+          "translation": "Hábitos saludables",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Hygiene",
+          "translation": "Higiene",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Germs",
+          "translation": "Gérmenes",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Exercise and sport",
+          "translation": "Ejercicio y deporte",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Exercise",
+          "translation": "Ejercicio",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Sport",
+          "translation": "Deporte",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Sleep",
+          "translation": "Dormir",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Rest",
+          "translation": "Descansar",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Posture",
+          "translation": "Postura",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Good posture",
+          "translation": "Buena postura",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Back pain",
+          "translation": "Dolor de espalda",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Straight back",
+          "translation": "Espalda recta",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Towel",
+          "translation": "Toalla",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Toothbrush",
+          "translation": "Cepillo de dientes",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Soap",
+          "translation": "Jabón",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Hairbrush",
+          "translation": "Cepillo para el pelo",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Shampoo",
+          "translation": "Champú",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Wash our hands",
+          "translation": "Lavarnos las manos",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Have regular showers",
+          "translation": "Ducharnos regularmente",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Brush our teeth",
+          "translation": "Cepillarnos los dientes",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "After every meal",
+          "translation": "Después de cada comida",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Sleep 10 hours",
+          "translation": "Dormir 10 horas",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Every night",
+          "translation": "Todas las noches",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Strong muscles and bones",
+          "translation": "Músculos y huesos fuertes",
+          "subsection": "Healthy habits and hygiene",
+          "image": ""
+        },
+        {
+          "word": "Food",
+          "translation": "Alimentos",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Healthy diet",
+          "translation": "Dieta saludable",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Healthy meal",
+          "translation": "Comida saludable",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Healthy breakfast",
+          "translation": "Desayuno saludable",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Favourite food",
+          "translation": "Comida favorita",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Water",
+          "translation": "Agua",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Milk",
+          "translation": "Leche",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Milkshake",
+          "translation": "Batido",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Fizzy drink",
+          "translation": "Refresco",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Fizzy drinks",
+          "translation": "Refrescos",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Lettuce",
+          "translation": "Lechuga",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Bread",
+          "translation": "Pan",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Potatoes",
+          "translation": "Patatas",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Watermelon",
+          "translation": "Sandía",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Tomato",
+          "translation": "Tomate",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Olive oil",
+          "translation": "Aceite de oliva",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Rice",
+          "translation": "Arroz",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Orange",
+          "translation": "Naranja",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Broccoli",
+          "translation": "Brócoli",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Pasta",
+          "translation": "Pasta",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Eggs",
+          "translation": "Huevos",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Lentils",
+          "translation": "Lentejas",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Fish",
+          "translation": "Pescado",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Pepper",
+          "translation": "Pimiento",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Apple",
+          "translation": "Manzana",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Meat",
+          "translation": "Carne",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Banana",
+          "translation": "Plátano",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Cheese",
+          "translation": "Queso",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Fruits",
+          "translation": "Frutas",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Vegetables",
+          "translation": "Verduras",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Cereals",
+          "translation": "Cereales",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Cake",
+          "translation": "Pastel",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Chips",
+          "translation": "Patatas fritas",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Pear",
+          "translation": "Pera",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Ham",
+          "translation": "Jamón",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Sandwich",
+          "translation": "Bocadillo",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Yogurt",
+          "translation": "Yogur",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Soup",
+          "translation": "Sopa",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Omelette",
+          "translation": "Tortilla",
+          "subsection": "Food and drinks",
+          "image": ""
+        },
+        {
+          "word": "Food groups",
+          "translation": "Grupos de alimentos",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Variety of foods",
+          "translation": "Variedad de alimentos",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Adequate quantities",
+          "translation": "Cantidades adecuadas",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Food portions",
+          "translation": "Porciones de alimentos",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Energy",
+          "translation": "Energía",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Fibre",
+          "translation": "Fibra",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Vitamin",
+          "translation": "Vitamina",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Vitamins",
+          "translation": "Vitaminas",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Grow",
+          "translation": "Crecer",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Provide energy",
+          "translation": "Proporcionar energía",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Help us to grow",
+          "translation": "Ayudarnos a crecer",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Provide vitamins and fibre",
+          "translation": "Proporcionar vitaminas y fibra",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Fruits and vegetables",
+          "translation": "Frutas y verduras",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Cereals, pasta and potatoes",
+          "translation": "Cereales, pasta y patatas",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Meat, fish, eggs, dairy products and pulses",
+          "translation": "Carne, pescado, huevos, productos lácteos y legumbres",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Dairy products",
+          "translation": "Productos lácteos",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Pulses",
+          "translation": "Legumbres",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Wholegrain foods",
+          "translation": "Alimentos integrales",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Wholegrains",
+          "translation": "Cereales integrales",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Fresh foods",
+          "translation": "Alimentos frescos",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Sugary foods",
+          "translation": "Alimentos azucarados",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Balanced diet",
+          "translation": "Dieta equilibrada",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Eat five meals a day",
+          "translation": "Comer cinco veces al día",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Drink plenty of water",
+          "translation": "Beber mucha agua",
+          "subsection": "Food groups and nutrition",
+          "image": ""
+        },
+        {
+          "word": "Breakfast",
+          "translation": "Desayuno",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Lunch",
+          "translation": "Comida",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Dinner",
+          "translation": "Cena",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Snack",
+          "translation": "Tentempié",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Main meals",
+          "translation": "Comidas principales",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Daily menu",
+          "translation": "Menú diario",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Weekly menu",
+          "translation": "Menú semanal",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Wholegrain toast",
+          "translation": "Tostada integral",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Glass of milk",
+          "translation": "Vaso de leche",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Ham and cheese sandwich",
+          "translation": "Bocadillo de jamón y queso",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Hamburger",
+          "translation": "Hamburguesa",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Natural yogurt",
+          "translation": "Yogur natural",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "An omelette",
+          "translation": "Una tortilla",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "A piece of cake",
+          "translation": "Un trozo de pastel",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Five meals a day",
+          "translation": "Cinco comidas al día",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Three meals a day",
+          "translation": "Tres comidas al día",
+          "subsection": "Meals and menus",
+          "image": ""
+        },
+        {
+          "word": "Accident",
+          "translation": "Accidente",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Accidents",
+          "translation": "Accidentes",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Accident prevention",
+          "translation": "Prevención de accidentes",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Fall",
+          "translation": "Caída",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Protection",
+          "translation": "Protección",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Protective equipment",
+          "translation": "Equipo de protección",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Safety rules",
+          "translation": "Normas de seguridad",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "At home",
+          "translation": "En casa",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Outdoors",
+          "translation": "Al aire libre",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Objects",
+          "translation": "Objetos",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Floor",
+          "translation": "Suelo",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Electric cables",
+          "translation": "Cables eléctricos",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Sockets",
+          "translation": "Enchufes",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Shower",
+          "translation": "Ducha",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Slip",
+          "translation": "Resbalar",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Tidy up",
+          "translation": "Recoger",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Be careful",
+          "translation": "Tener cuidado",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Road safety rules",
+          "translation": "Normas de seguridad vial",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Stairs",
+          "translation": "Escaleras",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Knee pads",
+          "translation": "Rodilleras",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Goggles",
+          "translation": "Gafas protectoras",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Helmet",
+          "translation": "Casco",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Swimming pool",
+          "translation": "Piscina",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Bike",
+          "translation": "Bicicleta",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Skating",
+          "translation": "Patinaje",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Wear protection",
+          "translation": "Llevar protección",
+          "subsection": "Accidents and safety",
+          "image": ""
+        },
+        {
+          "word": "Feelings",
+          "translation": "Sentimientos",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Sad",
+          "translation": "Triste",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Happy",
+          "translation": "Feliz",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Scared",
+          "translation": "Asustado/a",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Angry",
+          "translation": "Enfadado/a",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Surprised",
+          "translation": "Sorprendido/a",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Different feelings",
+          "translation": "Diferentes sentimientos",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Control them",
+          "translation": "Controlarlos",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Calm down",
+          "translation": "Calmarse",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Understand",
+          "translation": "Entender",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Feel better",
+          "translation": "Sentirse mejor",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Feel good",
+          "translation": "Sentirse bien",
+          "subsection": "Feelings and emotions",
+          "image": ""
+        },
+        {
+          "word": "Every day",
+          "translation": "Todos los días",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Every night",
+          "translation": "Todas las noches",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Three times a day",
+          "translation": "Tres veces al día",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Twice a day",
+          "translation": "Dos veces al día",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Twice a week",
+          "translation": "Dos veces a la semana",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Four times a week",
+          "translation": "Cuatro veces a la semana",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Almost never",
+          "translation": "Casi nunca",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Sometimes",
+          "translation": "A veces",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Never",
+          "translation": "Nunca",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "All the time",
+          "translation": "Todo el tiempo",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        },
+        {
+          "word": "Occasionally",
+          "translation": "Ocasionalmente",
+          "subsection": "Time and frequency expressions",
+          "image": ""
+        }
+      ]
     },
     {
       "id": "science-2-b2-s03",
@@ -2081,6 +3290,7 @@
       "description": "Conoce diferentes animales y descubre dónde viven.",
       "image": "/scienceworld/animal-kingdom.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": []
     },
     {
@@ -2091,6 +3301,7 @@
       "description": "Averigua qué necesitan las plantas para crecer.",
       "image": "/scienceworld/plants.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": []
     },
     {
@@ -2101,6 +3312,7 @@
       "description": "Descubre cómo reciclar y cuidar nuestro planeta.",
       "image": "/scienceworld/planet.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": []
     },
     {
@@ -2111,6 +3323,7 @@
       "description": "Descubre la tecnología que usamos cada día.",
       "image": "/scienceworld/technology.webp",
       "games": [],
+      "subsections": [],
       "vocabulary": []
     }
   ]

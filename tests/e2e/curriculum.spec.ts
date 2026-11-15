@@ -44,7 +44,7 @@ test("English and Science catalogs use their own book and export unit links", as
   await expect(page.getByRole("article")).toHaveCount(6);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/curriculum-mobile.png" });
-  const upcoming = page.getByRole("article").filter({ hasText: "Healthy Habits, Happy Life!" });
+  const upcoming = page.getByRole("article").filter({ hasText: "Discover the Animal Kingdom!" });
   await expect(upcoming.getByText("Próximamente")).toBeVisible();
   await expect(upcoming.getByRole("link")).toHaveCount(0);
   await upcoming.click();
@@ -53,6 +53,49 @@ test("English and Science catalogs use their own book and export unit links", as
   await expect(page.getByText("Vocabulario", { exact: true })).toHaveCount(0);
   await page.getByRole("link", { name: "Misión: partes del cuerpo" }).click();
   await expect(page).toHaveURL(`${base}/scienceworld/body/`);
+});
+
+test("Healthy Habits opens from Science World and runs the shared practice games", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${base}/scienceworld/`);
+  await page.getByRole("article").filter({ hasText: "Healthy Habits, Happy Life!" }).getByRole("link").click();
+  await expect(page).toHaveURL(`${base}/unit/science-2-b2-s02/`);
+  const menu = page.getByRole("region", { name: "Juegos de ciencias" });
+  const games = [
+    "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It", "Letter Scramble", "Word Hunt",
+  ];
+  await expect(menu.getByRole("button")).toHaveCount(games.length);
+  for (const name of games) {
+    await menu.getByRole("button", { name }).click();
+    await expect(page.getByRole("heading", { name, exact: true })).toBeFocused();
+  }
+  await expect(page.getByRole("button", { name: "Word Hunt" })).toHaveAttribute("aria-expanded", "true");
+  await expect(page.getByText("Ronda 1 de 1")).toBeVisible();
+  await menu.getByRole("button", { name: "Picture Match" }).click();
+  const play = page.getByRole("region", { name: "Picture Match" });
+  await play.getByRole("button", { name: "water", exact: true }).click();
+  await expect(play.getByText("Errores 1")).toBeVisible();
+  const clues = [["apple", "manzana"], ["water", "agua"], ["sport", "deporte"], ["sleep", "dormir"]] as const;
+  for (const [word, clue] of clues) {
+    const image = play.getByRole("img", { name: clue }).locator("img");
+    await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.naturalWidth)).toBeGreaterThan(0);
+    await play.getByRole("button", { name: word, exact: true }).click();
+    await play.getByRole("button", { name: "Continuar" }).click();
+  }
+  await expect(play.getByText("Aciertos 4")).toBeVisible();
+  await expect(page.getByText("Juego completado")).toBeVisible();
+  await page.getByRole("button", { name: "Volver a jugar" }).click();
+  await expect(play.getByText("Aciertos 0")).toBeVisible();
+  await expect(page.getByText("Ronda 1 de 4")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.screenshot({ path: "test-results/healthy-habits-mobile.png", fullPage: true });
+  await page.getByRole("link", { name: "Volver a las secciones" }).click();
+  await expect(page).toHaveURL(`${base}/scienceworld/`);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(`${base}/scienceworld/healthy-habits/`);
+  await expect(menu.getByRole("button")).toHaveCount(games.length);
+  await menu.getByRole("button", { name: "Build a Phrase" }).click();
+  await page.screenshot({ path: "test-results/healthy-habits-desktop.png", fullPage: true });
 });
 
 for (const unit of [
@@ -70,5 +113,29 @@ for (const unit of [
       await menu.getByRole("button", { name: name, exact: false }).click();
       await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
     }
+  });
+}
+
+for (const section of [
+  { world: "englishworld", id: "english-2-b1-s00", title: "Let's Learn the Basics!", first: "Colors", slug: "colors", count: 6 },
+  { world: "scienceworld", id: "science-2-b2-s02", title: "Healthy Habits, Happy Life!", first: "Health and the body", slug: "health-and-the-body", count: 9 },
+]) {
+  test(`${section.world} opens subsections and their game pages`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${base}/${section.world}/`);
+    await page.getByRole("article").filter({ hasText: section.title }).getByRole("link").click();
+    const unitUrl = `${base}/unit/${section.id}/`;
+    await expect(page).toHaveURL(unitUrl);
+    const cards = page.getByRole("region", { name: "Subsecciones" }).getByRole("article");
+    await expect(cards).toHaveCount(section.count);
+    await expect(cards.first().getByRole("heading")).toHaveText(section.first);
+    await cards.first().getByRole("link", { name: "Ver juegos" }).click();
+    await expect(page).toHaveURL(`${unitUrl}subsection/${section.slug}/`);
+    expect((await page.reload())?.ok()).toBe(true);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(section.first);
+    await expect(page.getByText("¡Las actividades estarán disponibles pronto!")).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+    await page.getByRole("link", { name: "Volver a las subsecciones" }).click();
+    await expect(page).toHaveURL(unitUrl);
   });
 }
