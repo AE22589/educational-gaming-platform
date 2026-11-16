@@ -38,6 +38,7 @@ export default function RootLayout({
           </main>
           <footer className="chispitas-footer">
             Un pequeño paso, una gran aventura.
+            <span className="icon-credit"> Iconos de vocabulario: <a href="https://openmoji.org/">OpenMoji</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></span>
           </footer>
         </ProfileProvider>
       </body>

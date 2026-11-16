@@ -65,7 +65,7 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   await page.getByRole("link", { name: /La salud y el cuerpo/ }).click();
   await expect(page).toHaveURL(`${base}/unit/science-2-b2-s02/subsection/health-and-the-body/`);
   const games = [
-    "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It", "Letter Scramble", "Word Hunt",
+    "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It", "Letter Scramble", "Word Hunt",
   ];
   await expect(menu.getByRole("button")).toHaveCount(games.length);
   await expect(menu.getByRole("button").locator("strong")).toHaveText(games);
@@ -75,7 +75,10 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   }
   await expect(page.getByRole("button", { name: "Word Hunt" })).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByRole("group", { name: "Cuadrícula de letras" })).toBeVisible();
-  await expect(menu.getByRole("button", { name: "Picture Match" })).toHaveCount(0);
+  await menu.getByRole("button", { name: "Picture Match" }).click();
+  const healthMatch = page.getByRole("region", { name: "Picture Match" });
+  await expect(healthMatch.getByText("Ronda 1 de 3")).toBeVisible();
+  await expect(healthMatch.locator("img")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/healthy-habits-mobile.png", fullPage: true });
   await page.getByRole("link", { name: "Volver a las subsecciones" }).click();
@@ -134,8 +137,7 @@ for (const section of [
       await menu.getByRole("button", { name: "Picture Match" }).click();
       const match = page.getByRole("region", { name: "Picture Match" });
       await expect(match.locator("img")).toBeVisible();
-      await expect(match.getByText("Ronda 1 de 2")).toBeVisible();
-      await expect(match.getByRole("button", { name: "milk", exact: true })).toHaveCount(0);
+      await expect(match.getByText("Ronda 1 de 23")).toBeVisible();
     } else {
       await expect(page.getByText("¡Las actividades estarán disponibles pronto!")).toBeVisible();
     }

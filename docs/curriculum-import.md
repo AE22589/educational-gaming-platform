@@ -81,3 +81,5 @@ paths use the Spanish clue in practice games other than Picture Match. Keep
 each English word filled in.
 
 Vocabulary `ImagePath` values use `/vocabulary/<subject>/<Section ID>/<subsection-slug>/<word-slug>.webp`. Use `general` for section-level words. `No image` and `Find` export an empty image path; `Find` means a matching picture is still needed. Picture Match uses only words with public WebP paths and is hidden when a topic has none. Other games keep Spanish clue fallback.
+
+The current public [image path mapping](vocabulary-image-map.md) lists 46 sourced OpenMoji icons and their workbook row numbers. The public export includes these paths. Keep the source workbook outside the repository unless its private columns are reviewed and upload is explicitly authorized.

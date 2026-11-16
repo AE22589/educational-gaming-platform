@@ -521,3 +521,7 @@ the Spanish translation as a clue when a vocabulary image is absent. The
 source workbook has one blank English term in row 327, which is excluded
 until corrected. The games continue to give practice feedback without profile
 rewards.
+
+## Vocabulary icon sourcing - 2026-11-16
+
+The Sports fallback pictures are emoji or a CSS drawing, not downloaded workbook assets. For the `Find` entries with clear icon clues, use 46 OpenMoji 72 x 72 PNG sources converted to lossless WebP without resizing. Credit OpenMoji on the site and in the asset register under CC BY-SA 4.0. Keep 22 uncertain entries as `Find`. Publish the safe public export and path mapping while the source workbook awaits explicit authorization for GitHub upload.

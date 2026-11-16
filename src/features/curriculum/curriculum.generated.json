@@ -2222,7 +2222,7 @@
           "word": "Body",
           "translation": "Cuerpo",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/body.webp"
         },
         {
           "word": "Healthy",
@@ -2264,7 +2264,7 @@
           "word": "Sick person",
           "translation": "Enfermo/a",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/sick-person.webp"
         },
         {
           "word": "Illness",
@@ -2318,7 +2318,7 @@
           "word": "Bones",
           "translation": "Huesos",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/bones.webp"
         },
         {
           "word": "Joint",
@@ -2354,13 +2354,13 @@
           "word": "Doctor",
           "translation": "Médico/a",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/doctor.webp"
         },
         {
           "word": "Nurse",
           "translation": "Enfermero/a",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/nurse.webp"
         },
         {
           "word": "Psychologist",
@@ -2390,7 +2390,7 @@
           "word": "Medicine",
           "translation": "Medicina",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/medicine.webp"
         },
         {
           "word": "Medicines",
@@ -2402,7 +2402,7 @@
           "word": "Vaccination",
           "translation": "Vacunación",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/vaccination.webp"
         },
         {
           "word": "Vaccinations",
@@ -2480,7 +2480,7 @@
           "word": "Sleep",
           "translation": "Dormir",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/sleep.webp"
         },
         {
           "word": "Rest",
@@ -2504,7 +2504,7 @@
           "word": "Back pain",
           "translation": "Dolor de espalda",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/back-pain.webp"
         },
         {
           "word": "Straight back",
@@ -2522,13 +2522,13 @@
           "word": "Toothbrush",
           "translation": "Cepillo de dientes",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/toothbrush.webp"
         },
         {
           "word": "Soap",
           "translation": "Jabón",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/soap.webp"
         },
         {
           "word": "Hairbrush",
@@ -2624,7 +2624,7 @@
           "word": "Milk",
           "translation": "Leche",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/milk.webp"
         },
         {
           "word": "Milkshake",
@@ -2648,31 +2648,31 @@
           "word": "Lettuce",
           "translation": "Lechuga",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/lettuce.webp"
         },
         {
           "word": "Bread",
           "translation": "Pan",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/bread.webp"
         },
         {
           "word": "Potatoes",
           "translation": "Patatas",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/potatoes.webp"
         },
         {
           "word": "Watermelon",
           "translation": "Sandía",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon.webp"
         },
         {
           "word": "Tomato",
           "translation": "Tomate",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/tomato.webp"
         },
         {
           "word": "Olive oil",
@@ -2684,31 +2684,31 @@
           "word": "Rice",
           "translation": "Arroz",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/rice.webp"
         },
         {
           "word": "Orange",
           "translation": "Naranja",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/orange.webp"
         },
         {
           "word": "Broccoli",
           "translation": "Brócoli",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/broccoli.webp"
         },
         {
           "word": "Pasta",
           "translation": "Pasta",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pasta.webp"
         },
         {
           "word": "Eggs",
           "translation": "Huevos",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/eggs.webp"
         },
         {
           "word": "Lentils",
@@ -2720,13 +2720,13 @@
           "word": "Fish",
           "translation": "Pescado",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fish.webp"
         },
         {
           "word": "Pepper",
           "translation": "Pimiento",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pepper.webp"
         },
         {
           "word": "Apple",
@@ -2738,19 +2738,19 @@
           "word": "Meat",
           "translation": "Carne",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/meat.webp"
         },
         {
           "word": "Banana",
           "translation": "Plátano",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/banana.webp"
         },
         {
           "word": "Cheese",
           "translation": "Queso",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cheese.webp"
         },
         {
           "word": "Fruits",
@@ -2774,19 +2774,19 @@
           "word": "Cake",
           "translation": "Pastel",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cake.webp"
         },
         {
           "word": "Chips",
           "translation": "Patatas fritas",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/chips.webp"
         },
         {
           "word": "Pear",
           "translation": "Pera",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pear.webp"
         },
         {
           "word": "Ham",
@@ -2798,7 +2798,7 @@
           "word": "Sandwich",
           "translation": "Bocadillo",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/sandwich.webp"
         },
         {
           "word": "Yogurt",
@@ -2810,7 +2810,7 @@
           "word": "Soup",
           "translation": "Sopa",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/soup.webp"
         },
         {
           "word": "Omelette",
@@ -3026,7 +3026,7 @@
           "word": "Hamburger",
           "translation": "Hamburguesa",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/hamburger.webp"
         },
         {
           "word": "Natural yogurt",
@@ -3044,7 +3044,7 @@
           "word": "A piece of cake",
           "translation": "Un trozo de pastel",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/a-piece-of-cake.webp"
         },
         {
           "word": "Five meals a day",
@@ -3128,7 +3128,7 @@
           "word": "Electric cables",
           "translation": "Cables eléctricos",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/electric-cables.webp"
         },
         {
           "word": "Sockets",
@@ -3140,7 +3140,7 @@
           "word": "Shower",
           "translation": "Ducha",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/shower.webp"
         },
         {
           "word": "Slip",
@@ -3170,7 +3170,7 @@
           "word": "Stairs",
           "translation": "Escaleras",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs.webp"
         },
         {
           "word": "Knee pads",
@@ -3182,13 +3182,13 @@
           "word": "Goggles",
           "translation": "Gafas protectoras",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/goggles.webp"
         },
         {
           "word": "Helmet",
           "translation": "Casco",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet.webp"
         },
         {
           "word": "Swimming pool",
@@ -3200,13 +3200,13 @@
           "word": "Bike",
           "translation": "Bicicleta",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/bike.webp"
         },
         {
           "word": "Skating",
           "translation": "Patinaje",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/skating.webp"
         },
         {
           "word": "Wear protection",
@@ -3224,31 +3224,31 @@
           "word": "Sad",
           "translation": "Triste",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad.webp"
         },
         {
           "word": "Happy",
           "translation": "Feliz",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy.webp"
         },
         {
           "word": "Scared",
           "translation": "Asustado/a",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared.webp"
         },
         {
           "word": "Angry",
           "translation": "Enfadado/a",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry.webp"
         },
         {
           "word": "Surprised",
           "translation": "Sorprendido/a",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised.webp"
         },
         {
           "word": "Different feelings",

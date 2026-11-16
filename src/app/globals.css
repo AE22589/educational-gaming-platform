@@ -856,3 +856,5 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
   body:has(.chispitas-home) { --home-art-lift: 145px; }
   body:has(.home-grade-panel) { --home-art-lift: 0px; }
 }
+.icon-credit { display: block; margin-top: 4px; font-size: .75rem; }
+.icon-credit a { color: inherit; text-decoration: underline; }

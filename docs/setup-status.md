@@ -195,4 +195,4 @@ display the Spanish translation as a clue. One incomplete vocabulary row
 without an English term is skipped. Game formats retain practice feedback
 without profile rewards.
 
-The latest workbook assigns seven vocabulary images to exact public paths and marks 68 additional rows `Find`. Their matching individual images are not yet available. Picture Match uses only words with WebP paths and is omitted for topics without them; other games retain Spanish clues.
+The public curriculum now assigns seven existing pictures plus 46 lossless OpenMoji icons to vocabulary image paths. A separate row-by-row mapping in `docs/vocabulary-image-map.md` records the new paths. Twenty-two `Find` rows still lack confident pictures. Picture Match uses only words with WebP paths; other games retain Spanish clues. The updated source workbook remains local pending explicit approval for GitHub upload.

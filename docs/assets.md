@@ -175,3 +175,56 @@ Existing lossless WebP artwork copied without recompression into curriculum-spec
 | Water | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/water.webp` | Vocabulary picture | Blue bottle of water with a cork and water droplet charm. |
 | Apple | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/apple.webp` | Vocabulary picture | Red apple with a green leaf. |
 | Knee pads | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/knee-pads.webp` | Vocabulary picture | Blue and black protective knee pads, one worn on a leg. |
+
+## OpenMoji vocabulary icons
+
+These 46 transparent icons come from [OpenMoji](https://openmoji.org/) and are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The original 72 x 72 PNGs were converted without resizing to lossless WebP with `scripts/to-lossless-webp.mjs`; the WebP adaptations retain that license. Source filenames use the OpenMoji code points listed below. The website footer carries the attribution.
+
+| Word | Local path | Type | Accessible description | Source |
+|---|---|---|---|---|
+| Body | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/body.webp` | Vocabulary picture | Standing person. | [OpenMoji 1F9CD](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F9CD.png) |
+| Sick person | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/sick-person.webp` | Vocabulary picture | Face with thermometer. | [OpenMoji 1F912](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F912.png) |
+| Bones | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/bones.webp` | Vocabulary picture | Bone. | [OpenMoji 1F9B4](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F9B4.png) |
+| Doctor | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/doctor.webp` | Vocabulary picture | Doctor with stethoscope. | [OpenMoji E300](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/E300.png) |
+| Nurse | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/nurse.webp` | Vocabulary picture | Nurse in uniform. | [OpenMoji E302](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/E302.png) |
+| Medicine | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/medicine.webp` | Vocabulary picture | Pill. | [OpenMoji 1F48A](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F48A.png) |
+| Vaccination | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/vaccination.webp` | Vocabulary picture | Syringe. | [OpenMoji 1F489](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F489.png) |
+| Sleep | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/sleep.webp` | Vocabulary picture | Sleeping face. | [OpenMoji 1F634](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F634.png) |
+| Back pain | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/back-pain.webp` | Vocabulary picture | Person holding a painful back. | [OpenMoji E321](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/E321.png) |
+| Toothbrush | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/toothbrush.webp` | Vocabulary picture | Toothbrush. | [OpenMoji 1FAA5](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1FAA5.png) |
+| Soap | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/soap.webp` | Vocabulary picture | Soap. | [OpenMoji 1F9FC](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F9FC.png) |
+| Milk | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/milk.webp` | Vocabulary picture | Glass of milk. | [OpenMoji 1F95B](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F95B.png) |
+| Lettuce | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/lettuce.webp` | Vocabulary picture | Leafy green. | [OpenMoji 1F96C](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F96C.png) |
+| Bread | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/bread.webp` | Vocabulary picture | Bread. | [OpenMoji 1F35E](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F35E.png) |
+| Potatoes | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/potatoes.webp` | Vocabulary picture | Potato. | [OpenMoji 1F954](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F954.png) |
+| Watermelon | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon.webp` | Vocabulary picture | Watermelon. | [OpenMoji 1F349](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F349.png) |
+| Tomato | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/tomato.webp` | Vocabulary picture | Tomato. | [OpenMoji 1F345](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F345.png) |
+| Rice | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/rice.webp` | Vocabulary picture | Cooked rice. | [OpenMoji 1F35A](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F35A.png) |
+| Orange | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/orange.webp` | Vocabulary picture | Orange. | [OpenMoji 1F34A](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F34A.png) |
+| Broccoli | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/broccoli.webp` | Vocabulary picture | Broccoli. | [OpenMoji 1F966](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F966.png) |
+| Pasta | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/pasta.webp` | Vocabulary picture | Spaghetti. | [OpenMoji 1F35D](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F35D.png) |
+| Eggs | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/eggs.webp` | Vocabulary picture | Egg. | [OpenMoji 1F95A](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F95A.png) |
+| Fish | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/fish.webp` | Vocabulary picture | Fish. | [OpenMoji 1F41F](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F41F.png) |
+| Pepper | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/pepper.webp` | Vocabulary picture | Bell pepper. | [OpenMoji 1FAD1](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1FAD1.png) |
+| Meat | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/meat.webp` | Vocabulary picture | Meat on bone. | [OpenMoji 1F356](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F356.png) |
+| Banana | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/banana.webp` | Vocabulary picture | Banana. | [OpenMoji 1F34C](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F34C.png) |
+| Cheese | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/cheese.webp` | Vocabulary picture | Cheese wedge. | [OpenMoji 1F9C0](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F9C0.png) |
+| Cake | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/cake.webp` | Vocabulary picture | Slice of cake. | [OpenMoji 1F370](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F370.png) |
+| Chips | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/chips.webp` | Vocabulary picture | French fries. | [OpenMoji 1F35F](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F35F.png) |
+| Pear | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/pear.webp` | Vocabulary picture | Pear. | [OpenMoji 1F350](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F350.png) |
+| Sandwich | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/sandwich.webp` | Vocabulary picture | Sandwich. | [OpenMoji 1F96A](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F96A.png) |
+| Soup | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/soup.webp` | Vocabulary picture | Pot of food. | [OpenMoji 1F372](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F372.png) |
+| Hamburger | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/hamburger.webp` | Vocabulary picture | Hamburger. | [OpenMoji 1F354](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F354.png) |
+| A piece of cake | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/a-piece-of-cake.webp` | Vocabulary picture | Slice of cake. | [OpenMoji 1F370](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F370.png) |
+| Electric cables | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/electric-cables.webp` | Vocabulary picture | Electrical wire. | [OpenMoji E1D4](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/E1D4.png) |
+| Shower | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/shower.webp` | Vocabulary picture | Shower. | [OpenMoji 1F6BF](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F6BF.png) |
+| Stairs | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs.webp` | Vocabulary picture | Person descending stairs. | [OpenMoji E087](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/E087.png) |
+| Goggles | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/goggles.webp` | Vocabulary picture | Safety goggles. | [OpenMoji 1F97D](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F97D.png) |
+| Helmet | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet.webp` | Vocabulary picture | Bicycle helmet. | [OpenMoji E159](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/E159.png) |
+| Bike | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/bike.webp` | Vocabulary picture | Bicycle. | [OpenMoji 1F6B2](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F6B2.png) |
+| Skating | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/skating.webp` | Vocabulary picture | Roller skate. | [OpenMoji 1F6FC](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F6FC.png) |
+| Sad | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad.webp` | Vocabulary picture | Crying face. | [OpenMoji 1F622](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F622.png) |
+| Happy | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy.webp` | Vocabulary picture | Grinning face. | [OpenMoji 1F600](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F600.png) |
+| Scared | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared.webp` | Vocabulary picture | Fearful face. | [OpenMoji 1F628](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F628.png) |
+| Angry | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry.webp` | Vocabulary picture | Angry face. | [OpenMoji 1F620](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F620.png) |
+| Surprised | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised.webp` | Vocabulary picture | Face with open mouth. | [OpenMoji 1F62E](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F62E.png) |
