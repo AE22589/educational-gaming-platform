@@ -18,7 +18,7 @@ export function scramble<T>(items: T[], seed: number) {
     const swap = seed % (index + 1);
     [shuffled[index], shuffled[swap]] = [shuffled[swap]!, shuffled[index]!];
   }
-  if (shuffled.every((item, index) => item === items[index])) {
+  if (shuffled.length > 1 && shuffled.every((item, index) => item === items[index])) {
     shuffled.push(shuffled.shift()!);
   }
   return shuffled;

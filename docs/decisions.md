@@ -1,14 +1,5 @@
 # Project decisions
 
-## Spanish contact form — 2026-11-13
-
-Implemented locally. The Contact Us navigation icon and Spanish contact page show the little friend dragon holding an envelope. The form opens at
-`/contact`. The GitHub Pages export submits to Formspree using a public form ID
-set at build time. The verified target is configured in Formspree, which uses
-the visitor's email as Reply-To. The form includes the service's `_gotcha` spam
-trap. Account setup and a real inbox test are pending (see README).
-
-
 ## Scrolling homepage illustration - 2026-11-11
 
 Implemented locally for review. The owner's taller valley illustration is
@@ -74,8 +65,6 @@ CI still runs after the push and a failing run stops the deployment. Larger chan
 the full lane with a pull request and all checks. The rule is in AGENTS.md.
 
 ## Placeholder pages behind Contact Us and About Chispitas — 2026-11-05
-
-The Contact Us placeholder was superseded by the contact form on 2026-11-13.
 
 Status: decided by the owner; implemented in the pull request that introduces it.
 
@@ -508,11 +497,8 @@ catalogs use the existing back-link treatment for a direct return home.
 
 ## Science World Healthy Habits activities - 2026-11-15
 
-Healthy Habits, Happy Life! uses the shared curriculum unit page and six
-existing practice formats. The starter set uses four English terms and short
-phrases about eating, drinking water, movement and sleep. Instructions and
-run feedback are in Spanish. Runs show correct answers and mistakes as
-practice feedback. The activities do not award profile rewards.
+Superseded by Healthy Habits subsection games - 2026-11-16. The initial
+four-term starter set is replaced by workbook vocabulary for each subsection.
 
 ## Workbook subsection navigation - 2026-11-15
 
@@ -522,6 +508,16 @@ Sections with subsections show a bilingual, image-free topic list on the
 section route. Number topics in workbook order and use a pastel rainbow palette
 for the cards. Show the English title above the smaller Spanish translation
 on both screens. Selecting a topic opens a separate game page with a breadcrumb
-back to its parent section. The six existing Healthy Habits
-starter games are assigned to Health and the body. Topics with no assigned
-activities show an availability message.
+back to its parent section. The initial Health and the body starter assignment
+is superseded by Healthy Habits subsection games - 2026-11-16. Topics with no
+assigned activities show an availability message.
+
+## Healthy Habits subsection games - 2026-11-16
+
+Use `subsection_games` to assign ordered game menus to individual subsections.
+Healthy Habits uses the six existing practice formats in each of its nine
+subsections, with vocabulary limited to the matching workbook group. Show
+the Spanish translation as a clue when a vocabulary image is absent. The
+source workbook has one blank English term in row 327, which is excluded
+until corrected. The games continue to give practice feedback without profile
+rewards.

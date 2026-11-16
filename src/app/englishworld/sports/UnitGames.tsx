@@ -15,6 +15,16 @@ const gymnastics: VocabularyItem = {
   phrase: "I do gymnastics", sortPhrase: "do gymnastics",
 };
 
+function scienceVocabulary(vocabulary: VocabularyItem[], game: Game["id"]) {
+  if (game === "phrase") {
+    return vocabulary.filter(({ phrase }) => phrase.includes(" ") && phrase.split(" ").length <= 6);
+  }
+  if (game === "hunt") {
+    return vocabulary.filter(({ word }) => /^[a-z]{2,12}$/.test(word.replaceAll(" ", "")));
+  }
+  return vocabulary;
+}
+
 export function UnitGames({ vocabulary, unit, availableGames }: {
   vocabulary: VocabularyItem[];
   availableGames: string[];
@@ -60,7 +70,9 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
   }
 
   const science = unit === "healthy-habits";
-  const menu = getPracticeGames(availableGames, unit);
+  const menu = getPracticeGames(availableGames, unit).filter(({ id }) =>
+    !science || scienceVocabulary(vocabulary, id).length > 0);
+  const useSpanishClues = science && vocabulary.some(({ picture }) => !picture);
   const sorting = unit === "sports" && !vocabulary.some(({ word }) => word === gymnastics.word)
     ? [...vocabulary, gymnastics] : vocabulary;
   if (!menu.length) return <p>¡Las actividades estarán disponibles pronto!</p>;
@@ -73,7 +85,9 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
           const questions = entry.id === "sort" ? sorting.length : vocabulary.length;
           const seasonalSort = unit === "seasons" && entry.id === "sort";
           const name = gameName(entry, unit);
-          const description = seasonalSort ? "Clasifica el tiempo, las estaciones y las actividades." : entry.description;
+          const description = seasonalSort ? "Clasifica el tiempo, las estaciones y las actividades."
+            : entry.id === "match" && useSpanishClues ? "Une cada pista con su palabra."
+            : entry.description;
           const art = unit === "seasons" && entry.id === "match" ? "🖼️ ☀️"
             : seasonalSort ? "☀️ 🍂" : entry.art;
           return (
@@ -108,7 +122,8 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
         {game && (
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
-            <Activity key={selection} game={game} matchOrder={matchOrder} vocabulary={game.id === "sort" ? sorting : vocabulary} unit={unit}
+            <Activity key={selection} game={game} matchOrder={matchOrder}
+              vocabulary={science ? scienceVocabulary(vocabulary, game.id) : game.id === "sort" ? sorting : vocabulary} unit={unit}
               onComplete={(score) => complete(game.id, score)} onMatchAnswer={scoreMatch}
               onStar={science ? undefined : () => setStars((count) => count + 1)} />
           </>
@@ -212,6 +227,7 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
   const answered = useRef(false);
   const [answer, setAnswer] = useState("");
   const [audioMessage, setAudioMessage] = useState("");
+  const clue = spanishControls && !item.picture ? "la pista en español" : "el dibujo";
   const correct = feedback === "correct";
   const letters = Array.from(item.word);
   const letterPositions = letters.flatMap((letter, index) => /\p{L}/u.test(letter) ? [index] : []);
@@ -236,7 +252,7 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
 
   function speak() {
     if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
-      setAudioMessage("Puedes usar el dibujo como pista.");
+      setAudioMessage(`Puedes usar ${clue}.`);
       return;
     }
     window.speechSynthesis.cancel();
@@ -246,23 +262,23 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
     const englishVoice = voices.find((voice) => voice.lang === "en-GB" && voice.localService)
       ?? voices.find((voice) => voice.lang.startsWith("en") && voice.localService);
     if (!englishVoice) {
-      setAudioMessage("No hay una voz en inglés disponible. Usa el dibujo como pista.");
+      setAudioMessage(`No hay una voz en inglés disponible. Usa ${clue}.`);
       return;
     }
     speech.voice = englishVoice;
     speech.lang = englishVoice.lang;
     speech.rate = 0.8;
-    speech.onerror = () => setAudioMessage("No se pudo reproducir el audio. Usa el dibujo como pista.");
+    speech.onerror = () => setAudioMessage(`No se pudo reproducir el audio. Usa ${clue}.`);
     window.speechSynthesis.speak(speech);
   }
 
   return (
     <>
       <p className={styles.prompt}>{{
-        match: "¿Qué palabra va con el dibujo?",
+        match: `¿Qué palabra va con ${clue}?`,
         mystery: "Elige la letra que falta.",
         phrase: spanishControls ? "Arrastra o toca las palabras y pulsa Comprobar." : "Arrastra o toca las palabras y pulsa Check.",
-        spell: "Mira el dibujo o escucha la palabra. Escríbela en inglés.",
+        spell: `Mira ${clue} o escucha la palabra. Escríbela en inglés.`,
         scramble: "Toca las letras en el orden correcto. Junta las palabras si hay más de una.",
       }[id]}</p>
       <SportsPicture item={item} />

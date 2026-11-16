@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBook, getSectionTone, practiceIds, units } from "@/features/curriculum/catalog";
-import healthyHabitsPractice from "@/features/curriculum/healthy-habits-practice.json";
 import { getSectionTranslation } from "@/features/curriculum/section-translations";
 import { UnitGames } from "../englishworld/sports/UnitGames";
 import { getPracticeVocabulary } from "../englishworld/sports/unit-content";
@@ -23,9 +22,9 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
   const translation = getSectionTranslation(unit.id);
   if (subsection) {
     const spanishTitle = translation?.topics[subsection.id];
-    const practice = unitId === practiceIds.healthyHabits && subsection.id === "health-and-the-body"
-      ? { ...unit, ...healthyHabitsPractice }
-      : null;
+    const games = unitId === practiceIds.healthyHabits ? subsection.games ?? [] : [];
+    const vocabulary = unit.vocabulary.filter(({ subsection: topic }) =>
+      topic.toLowerCase() === subsection.title.toLowerCase() || topic.toLowerCase() === subsection.id);
 
     return (
       <section className={topicStyles.page} aria-labelledby="curriculum-unit-title">
@@ -40,9 +39,9 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
           {spanishTitle && <p lang="es">{spanishTitle}</p>}
         </header>
         <Link href={sectionHref} className={topicStyles.back}><span aria-hidden="true">←</span> Volver a las subsecciones</Link>
-        {practice ? (
+        {games.length > 0 && vocabulary.length > 0 ? (
           <div className={practiceStyles.page}>
-            <UnitGames unit="healthy-habits" vocabulary={getPracticeVocabulary(practice, "healthy-habits")} availableGames={practice.games} />
+            <UnitGames unit="healthy-habits" vocabulary={getPracticeVocabulary({ ...unit, vocabulary }, "healthy-habits")} availableGames={games} />
           </div>
         ) : (
           <section className={topicStyles.empty} aria-labelledby="subsection-games-title">

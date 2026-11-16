@@ -3,7 +3,7 @@ import data from "./curriculum.generated.json";
 export type World = "englishworld" | "scienceworld";
 export type CurriculumUnit = Omit<(typeof data.units)[number], "games" | "subsections"> & {
   games: string[];
-  subsections: { id: string; title: string }[];
+  subsections: { id: string; title: string; games?: string[] }[];
 };
 
 export const availableGrade = 2;

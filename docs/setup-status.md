@@ -75,9 +75,8 @@ improvements are listed in `docs/backlog.md`.
   shows "About Chispitas", "Contact Us" and "Log in/Register" on the home page;
   other pages prepend a "Home" link. "My Profile" and
   the "Science" preview are no longer in the top navigation. "Contact Us"
-  opens the Spanish contact form at `/contact`. Email delivery requires a configured
-  Formspree form ID (see README). "About Chispitas" opens the `/about` placeholder.
-  "Log in/Register" opens `/login-register`, a UI-only sign-in
+  opens `/contact` and "About Chispitas" opens `/about`, friendly "¡Muy pronto!"
+  placeholder pages. "Log in/Register" opens `/login-register`, a UI-only sign-in
   and registration screen with English and Spanish labels; there is no authentication
   or account creation service.
   The learning and shop pages are reached through the home page tiles
@@ -143,9 +142,9 @@ completion.
 
 ## Science World catalog
 
-The homepage Science World tile opens the six-unit catalog at "/scienceworld". The catalog shares the English World card layout and responsive grid. Six owner-provided illustrations are cropped and converted to lossless WebP. My Amazing Body! opens the workbook section and links to the body-parts mission. The five other cards are marked as coming soon.
+The homepage Science World tile opens the six-unit catalog at "/scienceworld". The catalog shares the English World card layout and responsive grid. Six owner-provided illustrations are cropped and converted to lossless WebP. My Amazing Body! opens the body-parts mission. The five other cards open unit previews.
 
-## Workbook curriculum - 2026-11-15
+## Workbook curriculum - local review, 2026-11-14
 
 Both world catalogs read the generated public curriculum. The current export
 contains 16 units across two Primaria 2 books. Six illustrated homepage cards offer grades 1–6 with only Primaria 2 enabled.
@@ -153,7 +152,8 @@ After selection, the cards hide and the navigation displays the grade.
 Each world opens the book for that subject and grade automatically. The shared unit page uses the workbook
 ID. Sports and Seasons use workbook vocabulary and game menus. My Amazing Body!
 opens the existing body-parts mission. See [Workbook curriculum](curriculum-import.md)
-for source editing, import and preview. A public reference copy is available at `docs/SectionList.xlsx`. Keep editable workbooks outside the repository.
+for source editing, import and preview. No new public artwork is included.
+Remove tracked source workbook copies before the release.
 
 The six primary grade cards use original fantasy artwork registered in
 [the asset register](assets.md). Only Primaria 2 is currently available.
@@ -178,14 +178,19 @@ a playable activity stay in the catalog with a coming-soon label.
 English World section headers match their catalog card colors.
 
 Science World Section 2 opens Healthy Habits, Happy Life! from its catalog
-card. Its six games use the four terms and existing artwork recorded in the
-curriculum. The section page returns to the Science World catalog and the
-legacy Healthy Habits URL opens the same topic list.
+card. The section page returns to the Science World catalog and the legacy
+Healthy Habits URL opens the same topic list.
 
 The world catalogs open a separate, image-free topic list for sections with
 subsections. Basics has six topics and Healthy Habits has nine, in workbook
 order. Numbered cards use soft rainbow colors and show English above the
 smaller Spanish translation. Each card opens a dedicated game page with a
-breadcrumb back to the topic list. Health and the body
-contains the six Healthy Habits starter games. Other subsection game pages
-show an availability message.
+breadcrumb back to the topic list. Topic pages show an availability message
+when no games are assigned.
+
+The latest workbook assigns six existing games to each of the nine Healthy
+Habits subsections. The importer exports their order from `subsection_games`.
+Each game page uses its own `vocabulary_list` group. Missing image paths
+display the Spanish translation as a clue. One incomplete vocabulary row
+without an English term is skipped. Game formats retain practice feedback
+without profile rewards.

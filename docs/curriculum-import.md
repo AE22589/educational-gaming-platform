@@ -1,8 +1,7 @@
 # Workbook curriculum
 
-The public reference workbook is `docs/SectionList.xlsx`. Copy it outside the
-repository before editing or importing. From the repository root, using Python
-3.10 or later, run:
+Keep the editable Excel source outside the repository. From the repository root,
+using Python 3.10 or later, run:
 
 ```powershell
 python -X utf8 scripts/import-curriculum.py "C:\path\to\SectionList.xlsx"
@@ -43,6 +42,13 @@ diff before committing, especially free-text cells.
    The importer reports names without an implementation. Units without a
    playable game show a coming-soon message. The existing body-parts mission
    retains its original vocabulary, interactive targets and saved progress.
+   Set `Sub Section Yes/No` to `Yes` and list the subsection titles in
+   `List of Sub Sections` in display order. Separate names with commas,
+   semicolons or line breaks. Use those titles in `vocabulary_list.Sub Section`.
+   Each title maps to a static game page at
+   `/unit/<Section ID>/subsection/<subsection slug>/`. Older workbooks
+   without the list column use their vocabulary group names for rows marked
+   `Yes`.
 6. Run the import again and preview with `npm run dev` at
    http://127.0.0.1:3000/englishworld/ or /scienceworld/. The current workbook
    has one grade and one book per subject. Students choose from the illustrated homepage
@@ -55,12 +61,22 @@ For a Pages preview in PowerShell, set `$env:GITHUB_ACTIONS = "true"`, run
 `npm run build`, then `npm run start`. Open
 http://127.0.0.1:3000/educational-gaming-platform/englishworld/. Commit the
 generated JSON with its code and registered assets when approved. GitHub Actions
-builds and publishes `out/` from the repository. Keep private workbook copies
-and `out/` out of Git. The reference workbook is stored under `docs/`
-and stays outside the Pages artifact.
-
-Sections with subsections use the Yes/No flag and the ordered List of Sub Sections column. For older workbooks without the list, the importer uses the order of the vocabulary groups. The world catalog links to the section, which links to each subsection’s game page.
+builds and publishes `out/` from the repository. Keep the workbook and the
+generated `out/` folder out of Git. Remove any already tracked workbook copies
+from the public repository in the release that switches to the generated data.
+A tracked-file removal leaves earlier Git history intact.
 
 The ordered subsection names and slugs come from the workbook. The UI uses
 `src/features/curriculum/section-translations.ts` for Spanish section and topic
 labels, keyed by stable IDs. Add translations there when adding topics.
+
+The optional `subsection_games` sheet assigns games to individual topics.
+Use `Section ID`, `Subsection ID`, `Game Type ID`, and `Display Order`.
+Subsection ID accepts the displayed English title or its URL slug. Game Type ID
+accepts a supported game name or its short ID. Use a positive, unique order
+within each topic. The importer validates the assignment and exports the menu
+in that order. Rows in `vocabulary_list` with the same Section ID and Sub
+Section supply that topic's English prompts and Spanish clues. Missing image
+paths use the Spanish clue. Keep each English word filled in. The source has
+one blank English term at `vocabulary_list!C327`; it is skipped pending a
+correction in the workbook.

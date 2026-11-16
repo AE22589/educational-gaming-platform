@@ -2110,39 +2110,111 @@
       "subsections": [
         {
           "id": "health-and-the-body",
-          "title": "Health and the body"
+          "title": "Health and the body",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "healthcare-and-illnesses",
-          "title": "Healthcare and illnesses"
+          "title": "Healthcare and illnesses",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "healthy-habits-and-hygiene",
-          "title": "Healthy habits and hygiene"
+          "title": "Healthy habits and hygiene",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "food-and-drinks",
-          "title": "Food and drinks"
+          "title": "Food and drinks",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "food-groups-and-nutrition",
-          "title": "Food groups and nutrition"
+          "title": "Food groups and nutrition",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "meals-and-menus",
-          "title": "Meals and menus"
+          "title": "Meals and menus",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "accidents-and-safety",
-          "title": "Accidents and safety"
+          "title": "Accidents and safety",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "feelings-and-emotions",
-          "title": "Feelings and emotions"
+          "title": "Feelings and emotions",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         },
         {
           "id": "time-and-frequency-expressions",
-          "title": "Time and frequency expressions"
+          "title": "Time and frequency expressions",
+          "games": [
+            "Picture Match",
+            "Mystery Word",
+            "Build a Phrase",
+            "See It, Hear It, Spell It",
+            "Letter Scramble",
+            "Word Hunt"
+          ]
         }
       ],
       "vocabulary": [
@@ -2185,12 +2257,6 @@
         {
           "word": "Keep healthy",
           "translation": "Mantenerse sano/a",
-          "subsection": "Health and the body",
-          "image": ""
-        },
-        {
-          "word": "Ill",
-          "translation": "Enfermo/a",
           "subsection": "Health and the body",
           "image": ""
         },

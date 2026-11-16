@@ -14,20 +14,25 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "src/features/curriculum/curriculum.generated.json"
 CATALOG = "Books_sections_games"
 VOCABULARY = "vocabulary_list"
+SUBSECTION_GAMES = "subsection_games"
 WORLDS = {"English": "englishworld", "Science": "scienceworld"}
+HEALTHY_HABITS = "science-2-b2-s02"
+PRACTICE_GAMES = {
+    "match": "Picture Match", "mystery": "Mystery Word", "phrase": "Build a Phrase",
+    "spell": "See It, Hear It, Spell It", "scramble": "Letter Scramble", "hunt": "Word Hunt",
+}
 COMMON_GAMES = {
-    "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It",
-    "Letter Scramble", "Word Hunt", "Look & Find",
+    *PRACTICE_GAMES.values(), "Look & Find",
 }
 IMPLEMENTED = {
     "english-2-b1-s01": COMMON_GAMES | {"Play, Go, Do, Wear?"},
     "english-2-b1-s02": COMMON_GAMES | {"Weather, Season or Activity?"},
-    "science-2-b2-s02": COMMON_GAMES - {"Look & Find"},
+    HEALTHY_HABITS: set(PRACTICE_GAMES.values()),
     "science-2-b2-s01": {"Misión: partes del cuerpo"},
 }
 
 
-def records(rows, sheet, required, optional):
+def records(rows, sheet, required, optional, allow_empty=()):
     headers = {}
     for column, name in rows.get(1, {}).items():
         if name in required or name in optional:
@@ -48,7 +53,7 @@ def records(rows, sheet, required, optional):
             return f"{sheet}!{headers.get(name, '')}{number} ({name})"
 
         for name in required:
-            if not fields[name]:
+            if not fields[name] and name not in allow_empty:
                 raise ValueError(f"{location(name)}: required value")
         yield fields, location
 
@@ -63,6 +68,36 @@ def image_path(value, location):
     if not asset.is_relative_to(ROOT / "public") or not asset.is_file():
         raise ValueError(f"{location}: image file does not exist: {value}")
     return "/" + value
+
+
+def subsection_slug(name):
+    text = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", text).strip("-")
+
+
+def assign_subsection_games(rows, units):
+    required = ("Section ID", "Subsection ID", "Game Type ID", "Display Order")
+    topics = {(unit["id"], topic["id"]): topic for unit in units.values() for topic in unit["subsections"]}
+    assignments = {}
+    for fields, at in records(rows, SUBSECTION_GAMES, required, ()):
+        unit_id, topic_name, game_id, order = (fields[key] for key in required)
+        key = (unit_id, subsection_slug(topic_name))
+        if key not in topics:
+            raise ValueError(f"{at('Subsection ID')}: unknown subsection {topic_name!r} for {unit_id!r}")
+        game = PRACTICE_GAMES.get(game_id, game_id)
+        if game not in PRACTICE_GAMES.values():
+            raise ValueError(f"{at('Game Type ID')}: unsupported subsection game {game_id!r}")
+        if not re.fullmatch(r"[1-9][0-9]*", order):
+            raise ValueError(f"{at('Display Order')}: use a positive integer")
+        order = int(order)
+        menu = assignments.setdefault(key, {})
+        if order in menu:
+            raise ValueError(f"{at('Display Order')}: duplicate order for this subsection")
+        if game in menu.values():
+            raise ValueError(f"{at('Game Type ID')}: duplicate game for this subsection")
+        menu[order] = game
+    for key, menu in assignments.items():
+        topics[key]["games"] = [menu[order] for order in sorted(menu)]
 
 
 def export(workbook):
@@ -125,11 +160,17 @@ def export(workbook):
     seen = set()
     if VOCABULARY in sheets:
         for fields, at in records(sheets[VOCABULARY], VOCABULARY, ("Section ID", "English word"),
-                                  ("Sub Section", "Spanish translation", "ImagePath")):
+                                  ("Sub Section", "Spanish translation", "ImagePath"),
+                                  allow_empty=("English word",)):
             unit_id = fields["Section ID"]
             if unit_id not in units:
                 raise ValueError(f"{at('Section ID')}: unknown unit ID {unit_id!r}")
             word = " ".join(fields["English word"].split())
+            if not word:
+                if unit_id != HEALTHY_HABITS or SUBSECTION_GAMES not in sheets:
+                    raise ValueError(f"{at('English word')}: required value")
+                print(f"{at('English word')}: skipped vocabulary row without an English term", file=sys.stderr)
+                continue
             subsection = fields.get("Sub Section", "")
             key = (unit_id, subsection.casefold(), word.casefold())
             if key in seen:
@@ -146,8 +187,7 @@ def export(workbook):
         subsections = []
         slugs = set()
         for name in names:
-            normalized = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
-            slug = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+            slug = subsection_slug(name)
             if not slug or slug in slugs:
                 raise ValueError(f"{unit['id']}: subsection name {name!r} must have a unique URL")
             slugs.add(slug)
@@ -156,6 +196,8 @@ def export(workbook):
         if unit["id"] in {"english-2-b1-s01", "english-2-b1-s02", "science-2-b2-s02"} and unit["games"]:
             if len({row["word"].casefold() for row in unit["vocabulary"]}) < 4:
                 raise ValueError(f"{VOCABULARY}: add at least four distinct terms for {unit['id']}")
+    if SUBSECTION_GAMES in sheets:
+        assign_subsection_games(sheets[SUBSECTION_GAMES], units)
     return {"books": list(books.values()), "units": list(units.values())}
 
 
