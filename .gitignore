@@ -13,4 +13,5 @@ test-results/
 next-env.d.ts
 
 *.xlsx
+!docs/SectionList.xlsx
 __pycache__/

@@ -1,10 +1,10 @@
 # Workbook curriculum
 
-Keep the editable Excel source outside the repository. From the repository root,
+The owner approved tracking the complete editable source at `docs/SectionList.xlsx`. From the repository root,
 using Python 3.10 or later, run:
 
 ```powershell
-python -X utf8 scripts/import-curriculum.py "C:\path\to\SectionList.xlsx"
+python -X utf8 scripts/import-curriculum.py docs/SectionList.xlsx
 ```
 
 The importer reads a standard, unencrypted XLSX. It validates IDs, book
@@ -12,7 +12,8 @@ references, subject/route pairs and local WebP paths, and joins vocabulary to un
 by `Section ID`. Errors name the workbook cell when available and leave the previous
 export in place. The only generated file to track is
 `src/features/curriculum/curriculum.generated.json`. It contains a fixed set of
-public fields. Add private columns only to the private source. Review the generated
+public fields. The complete owner-approved source workbook is tracked in Git;
+review any private columns before making further public releases. Review the generated
 diff before committing, especially free-text cells.
 
 ## Add a unit
@@ -61,10 +62,9 @@ For a Pages preview in PowerShell, set `$env:GITHUB_ACTIONS = "true"`, run
 `npm run build`, then `npm run start`. Open
 http://127.0.0.1:3000/educational-gaming-platform/englishworld/. Commit the
 generated JSON with its code and registered assets when approved. GitHub Actions
-builds and publishes `out/` from the repository. Keep the workbook and the
-generated `out/` folder out of Git. Remove any already tracked workbook copies
-from the public repository in the release that switches to the generated data.
-A tracked-file removal leaves earlier Git history intact.
+builds and publishes `out/` from the repository. Keep the generated `out/`
+folder out of Git. The owner has explicitly approved tracking
+`docs/SectionList.xlsx` alongside the generated public JSON.
 
 The ordered subsection names and slugs come from the workbook. The UI uses
 `src/features/curriculum/section-translations.ts` for Spanish section and topic
@@ -82,4 +82,4 @@ each English word filled in.
 
 Vocabulary `ImagePath` values use `/vocabulary/<subject>/<Section ID>/<subsection-slug>/<word-slug>.webp`. Use `general` for section-level words. `No image` and `Find` export an empty image path; `Find` means a matching picture is still needed. Picture Match uses only words with public WebP paths and is hidden when a topic has none. Other games keep Spanish clue fallback.
 
-The current public [image path mapping](vocabulary-image-map.md) lists 46 sourced OpenMoji icons and their workbook row numbers. The public export includes these paths. Keep the source workbook outside the repository unless its private columns are reviewed and upload is explicitly authorized.
+The current public [image path mapping](vocabulary-image-map.md) lists 46 sourced OpenMoji icons and their workbook row numbers. The public export includes these paths. The owner explicitly approved uploading the complete workbook. The remaining 22 `Find` values await suitable pictures.

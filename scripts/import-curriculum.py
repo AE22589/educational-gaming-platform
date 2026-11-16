@@ -206,8 +206,6 @@ def main():
     parser.add_argument("workbook", type=Path)
     args = parser.parse_args()
     workbook = args.workbook.resolve()
-    if workbook.is_relative_to(ROOT):
-        parser.error("Store the source workbook outside the repository.")
     try:
         data = export(workbook)
         OUTPUT.parent.mkdir(parents=True, exist_ok=True)

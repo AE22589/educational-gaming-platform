@@ -525,3 +525,7 @@ rewards.
 ## Vocabulary icon sourcing - 2026-11-16
 
 The Sports fallback pictures are emoji or a CSS drawing, not downloaded workbook assets. For the `Find` entries with clear icon clues, use 46 OpenMoji 72 x 72 PNG sources converted to lossless WebP without resizing. Credit OpenMoji on the site and in the asset register under CC BY-SA 4.0. Keep 22 uncertain entries as `Find`. Publish the safe public export and path mapping while the source workbook awaits explicit authorization for GitHub upload.
+
+## Approved source workbook upload - 2026-11-16
+
+The owner explicitly authorized uploading the complete Excel workbook, including any private columns, to the public GitHub repository. Track `docs/SectionList.xlsx` and allow the importer to read it directly. The public generated JSON still exports only the fixed curriculum fields.

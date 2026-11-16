@@ -153,7 +153,7 @@ Each world opens the book for that subject and grade automatically. The shared u
 ID. Sports and Seasons use workbook vocabulary and game menus. My Amazing Body!
 opens the existing body-parts mission. See [Workbook curriculum](curriculum-import.md)
 for source editing, import and preview. No new public artwork is included.
-Remove tracked source workbook copies before the release.
+The owner later approved tracking the complete source workbook at `docs/SectionList.xlsx`.
 
 The six primary grade cards use original fantasy artwork registered in
 [the asset register](assets.md). Only Primaria 2 is currently available.
@@ -195,4 +195,4 @@ display the Spanish translation as a clue. One incomplete vocabulary row
 without an English term is skipped. Game formats retain practice feedback
 without profile rewards.
 
-The public curriculum now assigns seven existing pictures plus 46 lossless OpenMoji icons to vocabulary image paths. A separate row-by-row mapping in `docs/vocabulary-image-map.md` records the new paths. Twenty-two `Find` rows still lack confident pictures. Picture Match uses only words with WebP paths; other games retain Spanish clues. The updated source workbook remains local pending explicit approval for GitHub upload.
+The public curriculum now assigns seven existing pictures plus 46 lossless OpenMoji icons to vocabulary image paths. A separate row-by-row mapping in `docs/vocabulary-image-map.md` records the new paths. Twenty-two `Find` rows still lack confident pictures. Picture Match uses only words with WebP paths; other games retain Spanish clues. The complete owner-approved source workbook is now tracked at `docs/SectionList.xlsx`.

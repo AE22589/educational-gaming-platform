@@ -106,5 +106,5 @@ in `AGENTS.md`. CI enforces the minimum through `scripts/check-docs-impact.mjs`.
 
 ## Workbook curriculum
 
-For the private workbook import and GitHub Pages preview, see
+For the owner-approved workbook import and GitHub Pages preview, see
 [Workbook curriculum](docs/curriculum-import.md).
