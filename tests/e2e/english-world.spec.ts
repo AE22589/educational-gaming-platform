@@ -52,16 +52,17 @@ test("Sports sorting covers 16 workbook terms plus gymnastics", async ({ page })
   await expect(page.getByRole("img", { name: /Best score: 17 of 17/ })).toBeVisible();
 });
 
-test("Seasons opens all eight games and uses its own workbook vocabulary", async ({ page }) => {
+test("Seasons opens seven eligible games and uses its own workbook vocabulary", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/englishworld/seasons/");
   const menu = page.getByRole("region", { name: "Juegos de inglés" });
-  await expect(menu.getByRole("button")).toHaveCount(8);
+  await expect(menu.getByRole("button")).toHaveCount(7);
+  await expect(menu.getByRole("button", { name: "Picture Match" })).toHaveCount(0);
   await page.screenshot({ path: "test-results/seasons-mobile.png", fullPage: true });
 
   const play = page.locator("#unit-game");
   for (const name of [
-    "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It",
+    "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It",
     "Letter Scramble", "Word Hunt", "Look & Find", "Weather, Season or Activity?",
   ]) {
     await menu.getByRole("button", { name: new RegExp(name.replace("?", "\\?")) }).click();
