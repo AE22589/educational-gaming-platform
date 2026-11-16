@@ -16,6 +16,9 @@ const gymnastics: VocabularyItem = {
 };
 
 function scienceVocabulary(vocabulary: VocabularyItem[], game: Game["id"]) {
+  if (game === "match") {
+    return vocabulary.filter(({ picture }) => picture?.startsWith("/"));
+  }
   if (game === "phrase") {
     return vocabulary.filter(({ phrase }) => phrase.includes(" ") && phrase.split(" ").length <= 6);
   }
@@ -34,7 +37,8 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
   const [selection, setSelection] = useState(0);
   const [stars, setStars] = useState(0);
   const [bestScores, setBestScores] = useState<Partial<Record<Game["id"], number>>>({});
-  const [matchOrder, setMatchOrder] = useState<VocabularyItem[]>(() => [...vocabulary]);
+  const [matchOrder, setMatchOrder] = useState<VocabularyItem[]>(() =>
+    vocabulary.filter(({ picture }) => picture?.startsWith("/")));
   const audio = useRef<AudioContext | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
 
@@ -70,8 +74,9 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
   }
 
   const science = unit === "healthy-habits";
+  const imageVocabulary = vocabulary.filter(({ picture }) => picture?.startsWith("/"));
   const menu = getPracticeGames(availableGames, unit).filter(({ id }) =>
-    !science || scienceVocabulary(vocabulary, id).length > 0);
+    id === "match" ? imageVocabulary.length > 0 : !science || scienceVocabulary(vocabulary, id).length > 0);
   const useSpanishClues = science && vocabulary.some(({ picture }) => !picture);
   const sorting = unit === "sports" && !vocabulary.some(({ word }) => word === gymnastics.word)
     ? [...vocabulary, gymnastics] : vocabulary;
@@ -82,11 +87,12 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
       <section className={styles.catalog} aria-label={science ? "Juegos de ciencias" : "Juegos de inglés"}>
         {menu.map((entry) => {
           const best = bestScores[entry.id];
-          const questions = entry.id === "sort" ? sorting.length : vocabulary.length;
+          const questions = entry.id === "sort" ? sorting.length
+            : entry.id === "match" ? imageVocabulary.length : vocabulary.length;
           const seasonalSort = unit === "seasons" && entry.id === "sort";
           const name = gameName(entry, unit);
           const description = seasonalSort ? "Clasifica el tiempo, las estaciones y las actividades."
-            : entry.id === "match" && useSpanishClues ? "Une cada pista con su palabra."
+            : entry.id === "match" && useSpanishClues ? "Une cada imagen con su palabra."
             : entry.description;
           const art = unit === "seasons" && entry.id === "match" ? "🖼️ ☀️"
             : seasonalSort ? "☀️ 🍂" : entry.art;
@@ -123,7 +129,8 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
             <Activity key={selection} game={game} matchOrder={matchOrder}
-              vocabulary={science ? scienceVocabulary(vocabulary, game.id) : game.id === "sort" ? sorting : vocabulary} unit={unit}
+              vocabulary={game.id === "match" ? imageVocabulary
+                : science ? scienceVocabulary(vocabulary, game.id) : game.id === "sort" ? sorting : vocabulary} unit={unit}
               onComplete={(score) => complete(game.id, score)} onMatchAnswer={scoreMatch}
               onStar={science ? undefined : () => setStars((count) => count + 1)} />
           </>

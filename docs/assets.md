@@ -161,3 +161,17 @@ Each illustration is decorative because the card carries a visible grade label.
 | Primaria 4 | `public/homepage/grades/primaria-4.webp` | Microscope and glowing flask |
 | Primaria 5 | `public/homepage/grades/primaria-5.webp` | Treasure map, compass and ruby |
 | Primaria 6 | `public/homepage/grades/primaria-6.webp` | Telescope, ringed planet and crystals |
+
+## Vocabulary pictures
+
+Existing lossless WebP artwork copied without recompression into curriculum-specific paths. `general` denotes section-level vocabulary without a subsection. The original paths remain in use elsewhere.
+
+| Asset | Local path | Type | Accessible description |
+|---|---|---|---|
+| Bat | `public/vocabulary/english/english-2-b1-s01/general/bat.webp` | Vocabulary picture | Wooden sports bat with a black grip. |
+| Knee pads | `public/vocabulary/english/english-2-b1-s01/general/knee-pads.webp` | Vocabulary picture | Blue and black protective knee pads, one worn on a leg. |
+| Elbow pads | `public/vocabulary/english/english-2-b1-s01/general/elbow-pads.webp` | Vocabulary picture | Black and orange protective elbow pads, one worn on an arm. |
+| Apple | `public/vocabulary/science/science-2-b2-s01/general/apple.webp` | Vocabulary picture | Red apple with a green leaf. |
+| Water | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/water.webp` | Vocabulary picture | Blue bottle of water with a cork and water droplet charm. |
+| Apple | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/apple.webp` | Vocabulary picture | Red apple with a green leaf. |
+| Knee pads | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/knee-pads.webp` | Vocabulary picture | Blue and black protective knee pads, one worn on a leg. |

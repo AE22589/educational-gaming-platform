@@ -77,6 +77,7 @@ accepts a supported game name or its short ID. Use a positive, unique order
 within each topic. The importer validates the assignment and exports the menu
 in that order. Rows in `vocabulary_list` with the same Section ID and Sub
 Section supply that topic's English prompts and Spanish clues. Missing image
-paths use the Spanish clue. Keep each English word filled in. The source has
-one blank English term at `vocabulary_list!C327`; it is skipped pending a
-correction in the workbook.
+paths use the Spanish clue in practice games other than Picture Match. Keep
+each English word filled in.
+
+Vocabulary `ImagePath` values use `/vocabulary/<subject>/<Section ID>/<subsection-slug>/<word-slug>.webp`. Use `general` for section-level words. `No image` and `Find` export an empty image path; `Find` means a matching picture is still needed. Picture Match uses only words with public WebP paths and is hidden when a topic has none. Other games keep Spanish clue fallback.

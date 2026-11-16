@@ -194,3 +194,5 @@ Each game page uses its own `vocabulary_list` group. Missing image paths
 display the Spanish translation as a clue. One incomplete vocabulary row
 without an English term is skipped. Game formats retain practice feedback
 without profile rewards.
+
+The latest workbook assigns seven vocabulary images to exact public paths and marks 68 additional rows `Find`. Their matching individual images are not yet available. Picture Match uses only words with WebP paths and is omitted for topics without them; other games retain Spanish clues.

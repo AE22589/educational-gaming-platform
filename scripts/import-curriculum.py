@@ -59,7 +59,7 @@ def records(rows, sheet, required, optional, allow_empty=()):
 
 
 def image_path(value, location):
-    if not value:
+    if not value or value.strip().casefold() in {"no image", "find"}:
         return ""
     value = value.removeprefix("/")
     if not re.fullmatch(r"[a-z0-9_-]+(?:/[a-z0-9_-]+)*\.webp", value):

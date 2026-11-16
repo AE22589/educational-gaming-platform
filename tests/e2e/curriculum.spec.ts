@@ -65,7 +65,7 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   await page.getByRole("link", { name: /La salud y el cuerpo/ }).click();
   await expect(page).toHaveURL(`${base}/unit/science-2-b2-s02/subsection/health-and-the-body/`);
   const games = [
-    "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It", "Letter Scramble", "Word Hunt",
+    "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It", "Letter Scramble", "Word Hunt",
   ];
   await expect(menu.getByRole("button")).toHaveCount(games.length);
   await expect(menu.getByRole("button").locator("strong")).toHaveText(games);
@@ -75,15 +75,7 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   }
   await expect(page.getByRole("button", { name: "Word Hunt" })).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByRole("group", { name: "Cuadrícula de letras" })).toBeVisible();
-  await menu.getByRole("button", { name: "Picture Match" }).click();
-  const play = page.getByRole("region", { name: "Picture Match" });
-  await expect(play.getByText("Cuerpo", { exact: true })).toBeVisible();
-  await play.getByRole("button", { name: /^(?!body$).+/ }).first().click();
-  await expect(play.getByText("Errores 1")).toBeVisible();
-  await play.getByRole("button", { name: "body", exact: true }).click();
-  await expect(play.getByText("Aciertos 1")).toBeVisible();
-  await play.getByRole("button", { name: "Continuar" }).click();
-  await expect(play.getByText("Sano/a", { exact: true })).toBeVisible();
+  await expect(menu.getByRole("button", { name: "Picture Match" })).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/healthy-habits-mobile.png", fullPage: true });
   await page.getByRole("link", { name: "Volver a las subsecciones" }).click();
@@ -97,15 +89,15 @@ test("Healthy Habits opens from Science World and runs the shared practice games
 });
 
 for (const unit of [
-  { slug: "sports", last: "Play, Go, Do, Wear?" },
-  { slug: "seasons", last: "Weather, Season or Activity?" },
+  { slug: "sports", last: "Play, Go, Do, Wear?", imageMatch: true },
+  { slug: "seasons", last: "Weather, Season or Activity?", imageMatch: false },
 ]) {
-  test(`${unit.slug} legacy link opens all eight games`, async ({ page }) => {
+  test(`${unit.slug} legacy link opens eligible games`, async ({ page }) => {
     await page.goto(`${base}/englishworld/${unit.slug}/`);
     const menu = page.getByRole("region", { name: "Juegos de inglés" });
-    await expect(menu.getByRole("button")).toHaveCount(8);
+    await expect(menu.getByRole("button")).toHaveCount(unit.imageMatch ? 8 : 7);
     for (const name of [
-      "Picture Match", "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It",
+      ...(unit.imageMatch ? ["Picture Match"] : []), "Mystery Word", "Build a Phrase", "See It, Hear It, Spell It",
       "Letter Scramble", "Word Hunt", "Look & Find", unit.last,
     ]) {
       await menu.getByRole("button", { name: name, exact: false }).click();
@@ -140,7 +132,10 @@ for (const section of [
       const menu = page.getByRole("region", { name: "Juegos de ciencias" });
       await expect(menu.getByRole("button")).toHaveCount(6);
       await menu.getByRole("button", { name: "Picture Match" }).click();
-      await expect(page.getByRole("region", { name: "Picture Match" }).getByText("Alimentos", { exact: true })).toBeVisible();
+      const match = page.getByRole("region", { name: "Picture Match" });
+      await expect(match.locator("img")).toBeVisible();
+      await expect(match.getByText("Ronda 1 de 2")).toBeVisible();
+      await expect(match.getByRole("button", { name: "milk", exact: true })).toHaveCount(0);
     } else {
       await expect(page.getByText("¡Las actividades estarán disponibles pronto!")).toBeVisible();
     }

@@ -704,7 +704,7 @@
           "word": "Bat",
           "translation": "Bate",
           "subsection": "",
-          "image": "/englishworld/sports-equipment/bat.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/bat.webp"
         },
         {
           "word": "Racket",
@@ -728,13 +728,13 @@
           "word": "Knee pads",
           "translation": "Rodilleras",
           "subsection": "",
-          "image": "/englishworld/sports-equipment/knee.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp"
         },
         {
           "word": "Elbow pads",
           "translation": "Coderas",
           "subsection": "",
-          "image": "/englishworld/sports-equipment/elbow.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/elbow-pads.webp"
         }
       ]
     },
@@ -2089,7 +2089,7 @@
           "word": "Apple",
           "translation": "Manzana",
           "subsection": "",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s01/general/apple.webp"
         },
         {
           "word": "Peg",
@@ -2257,6 +2257,12 @@
         {
           "word": "Keep healthy",
           "translation": "Mantenerse sano/a",
+          "subsection": "Health and the body",
+          "image": ""
+        },
+        {
+          "word": "Sick person",
+          "translation": "Enfermo/a",
           "subsection": "Health and the body",
           "image": ""
         },
@@ -2612,7 +2618,7 @@
           "word": "Water",
           "translation": "Agua",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/water.webp"
         },
         {
           "word": "Milk",
@@ -2726,7 +2732,7 @@
           "word": "Apple",
           "translation": "Manzana",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/apple.webp"
         },
         {
           "word": "Meat",
@@ -3170,7 +3176,7 @@
           "word": "Knee pads",
           "translation": "Rodilleras",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/knee-pads.webp"
         },
         {
           "word": "Goggles",
