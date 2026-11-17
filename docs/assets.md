@@ -228,3 +228,20 @@ These 46 transparent icons come from [OpenMoji](https://openmoji.org/) and are l
 | Scared | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared.webp` | Vocabulary picture | Fearful face. | [OpenMoji 1F628](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F628.png) |
 | Angry | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry.webp` | Vocabulary picture | Angry face. | [OpenMoji 1F620](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F620.png) |
 | Surprised | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised.webp` | Vocabulary picture | Face with open mouth. | [OpenMoji 1F62E](https://github.com/hfg-gmuend/openmoji/blob/master/color/72x72/1F62E.png) |
+
+## Supplied vocabulary illustrations — 2026-11-17
+
+Original illustrations supplied by the owner, cropped with transparency and saved as lossless WebP without resizing.
+
+| Word | File | Source |
+| --- | --- | --- |
+| Joint | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/joint.webp` | Owner-supplied vocabulary illustration |
+| Good posture | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/good-posture.webp` | Owner-supplied vocabulary illustration |
+| Hairbrush | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/hairbrush.webp` | Owner-supplied vocabulary illustration |
+| Fizzy drink | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/fizzy-drink.webp` | Owner-supplied vocabulary illustration |
+| Lentils | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/lentils.webp` | Owner-supplied vocabulary illustration |
+| Fruits | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/fruits.webp` | Owner-supplied vocabulary illustration |
+| Cereals | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/cereals.webp` | Owner-supplied vocabulary illustration |
+| Ham | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/ham.webp` | Owner-supplied vocabulary illustration |
+| Breakfast | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/breakfast.webp` | Owner-supplied vocabulary illustration |
+| An omelette | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/an-omelette.webp` | Owner-supplied vocabulary illustration |

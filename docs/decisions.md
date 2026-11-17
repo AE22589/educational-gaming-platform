@@ -529,3 +529,7 @@ The Sports fallback pictures are emoji or a CSS drawing, not downloaded workbook
 ## Approved source workbook upload - 2026-11-16
 
 The owner explicitly authorized uploading the complete Excel workbook, including any private columns, to the public GitHub repository. Track `docs/SectionList.xlsx` and allow the importer to read it directly. The public generated JSON still exports only the fixed curriculum fields.
+
+## Supplied vocabulary artwork — 2026-11-17
+
+Use the ten owner-supplied illustrations for An omelette, Breakfast, Cereals, Fizzy drink, Fruits, Good posture, Hairbrush, Ham, Joint and Lentils. Store transparent lossless WebP under the existing curriculum subsection folders, update the source workbook ImagePath cells, and regenerate curriculum data. Existing game image rendering uses these paths.

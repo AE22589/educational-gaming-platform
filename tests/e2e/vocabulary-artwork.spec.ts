@@ -1,0 +1,33 @@
+import { expect, test } from "@playwright/test";
+import data from "../../src/features/curriculum/curriculum.generated.json" with { type: "json" };
+
+const base = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
+const supplied = new Set(["An omelette", "Breakfast", "Cereals", "Fizzy drink", "Fruits",
+  "Good posture", "Hairbrush", "Ham", "Joint", "Lentils"]);
+const unit = data.units.find(({ id }) => id === "science-2-b2-s02")!;
+
+test("all supplied vocabulary illustrations load during Picture Match", async ({ page }) => {
+  test.setTimeout(120000);
+  const seen = new Set<string>();
+  for (const topic of unit.subsections) {
+    const words = unit.vocabulary.filter(({ subsection, image }) => subsection === topic.title && image);
+    if (!words.some(({ word }) => supplied.has(word))) continue;
+    await page.goto(`${base}/unit/${unit.id}/subsection/${topic.id}/`);
+    await page.getByRole("button", { name: "Picture Match" }).click();
+    const game = page.getByRole("region", { name: "Picture Match" });
+    for (let round = 0; round < words.length; round++) {
+      const image = game.locator("img");
+      await expect(image).toBeVisible();
+      await expect(image).toHaveJSProperty("complete", true);
+      expect(await image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+      const src = await image.getAttribute("src");
+      const entry = words.find(({ image }) => src === `${base}${image}`)!;
+      expect(entry).toBeDefined();
+      if (supplied.has(entry.word)) seen.add(entry.word);
+      await game.getByRole("button", { name: entry.word.toLowerCase(), exact: true }).click();
+      await game.getByRole("button", { name: "Continuar →", exact: true }).click();
+    }
+    await expect(game.getByText("Juego completado", { exact: true })).toBeVisible();
+  }
+  expect([...seen].sort()).toEqual([...supplied].sort());
+});

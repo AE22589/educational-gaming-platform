@@ -196,3 +196,7 @@ without an English term is skipped. Game formats retain practice feedback
 without profile rewards.
 
 The public curriculum now assigns seven existing pictures plus 46 lossless OpenMoji icons to vocabulary image paths. A separate row-by-row mapping in `docs/vocabulary-image-map.md` records the new paths. Twenty-two `Find` rows still lack confident pictures. Picture Match uses only words with WebP paths; other games retain Spanish clues. The complete owner-approved source workbook is now tracked at `docs/SectionList.xlsx`.
+
+## Vocabulary artwork — 2026-11-17
+
+Ten supplied illustrations are cropped to transparent lossless WebP and connected through docs/SectionList.xlsx and the public curriculum export. Existing image-based games display these pictures; missing vocabulary images retain translation clues.
