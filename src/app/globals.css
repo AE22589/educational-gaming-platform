@@ -224,50 +224,43 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 
 .chispitas-main { --main-gutter: clamp(10px, 1.8vw, 30px); width: 100%; margin: 0 auto; padding: 0 var(--main-gutter) 28px; }
 body:has(.chispitas-home) {
+  --home-star-y: clamp(51.5px, 7vw, 138px);
   position: relative;
   isolation: isolate;
   min-height: 100dvh;
 }
 body:has(.chispitas-home)::before {
-  position: absolute;
+  position: fixed;
   z-index: -1;
-  inset: calc(-1 * var(--home-art-lift, 105px)) 0 0;
+  inset: 0;
   content: "";
   pointer-events: none;
   background-image: var(--home-background);
-  background-position: center 25%;
+  /* The illustrated star sits 23.4% down the source image. */
+  background-position: center calc(23.4% - 23.4dvh + var(--home-star-y));
   background-size: cover;
   background-repeat: no-repeat;
 }
-body:has(.chispitas-home) .chispitas-header { background: rgba(185, 233, 255, .68); }
-
-body:has(.home-grade-panel) { --home-art-lift: 0px; }
-.chispitas-home { padding-bottom: 8px; }
+.chispitas-home {
+  display: grid;
+  gap: clamp(8px, 1.5svh, 16px);
+  width: min(100%, 1080px);
+  margin-inline: auto;
+  padding-top: clamp(7px, 1.6svh, 16px);
+}
+body:has(.chispitas-home) .chispitas-main { padding-bottom: 6px; }
 body:has(.chispitas-home) .chispitas-footer {
   color: white;
   text-shadow: 0 1px 3px #102c69, 0 0 4px #102c69;
 }
-.chispitas-hero {
-  position: relative;
-  display: flex;
-  min-height: max(250px, calc(100dvh - 280px));
-  align-items: flex-end;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
 .chispitas-hero-copy {
-  position: relative;
-  z-index: 1;
-  width: min(46%, 460px);
-  margin: 6px auto;
-  padding: clamp(12px, 1.5vw, 18px);
-  border: 2px solid rgba(255,255,255,.95);
-  border-radius: 38px;
-  background: rgba(255, 253, 247, .94);
-  box-shadow: 0 14px 28px rgba(31,72,119,.2), inset 0 2px 0 white;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 10px clamp(14px, 4vw, 40px);
+  border: 2px solid white;
+  border-radius: 24px;
+  background: #fffdf5f5;
+  box-shadow: 0 6px 18px #153e7c30;
   text-align: center;
 }
 .coming-soon { width: min(100%, 860px); margin: 0 auto; padding: 28px 0 8px; text-align: center; }
@@ -278,7 +271,6 @@ body:has(.chispitas-home) .chispitas-footer {
 .coming-soon-copy h2 { margin: 0 0 10px; color: #123777; font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 900; }
 .coming-soon-copy p { margin: 0 0 10px; line-height: 1.5; }
 .coming-soon .action { display: inline-flex; margin-top: 22px; }
-.chispitas-eyebrow { margin: 0 0 6px; color: #945000; font-size: .72rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
 .chispitas-hero h1 { margin: 0; color: #123d87; font-size: clamp(1.85rem, 3vw, 2.6rem); font-weight: 1000; letter-spacing: -.04em; line-height: 1.03; text-wrap: balance; }
 .chispitas-hero-subtitle { display: block; margin: 7px 0 0; color: #243b70; font-size: clamp(.95rem, 1.55vw, 1.2rem); font-weight: 800; }
 .home-star-pill {
@@ -287,7 +279,7 @@ body:has(.chispitas-home) .chispitas-footer {
   align-items: center;
   justify-content: center;
   gap: 9px;
-  margin: 8px 0 0;
+  margin: 8px 0 3px;
   padding: 3px 11px;
   border: 2px solid #ffc81f;
   border-radius: 99px;
@@ -303,19 +295,18 @@ body:has(.chispitas-home) .chispitas-footer {
 .home-profile-recovery { margin-top: 16px; padding: 17px; border: 2px solid #ad5c00; border-radius: 22px; background: white; text-align: left; }
 .home-profile-recovery .action { margin-top: 6px; }
 
-.home-section-width { width: min(66.666%, 1320px); margin-inline: auto; }
+
 .home-world-grid {
   position: relative;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(10px, 1.2vw, 18px);
-  margin-block: 18px;
 }
 .home-tile {
   display: flex;
   min-width: 0;
-  min-height: clamp(255px, 24vw, 360px);
+  min-height: 0;
   flex-direction: column;
   overflow: hidden;
   border: 3px solid white;
@@ -327,11 +318,11 @@ body:has(.chispitas-home) .chispitas-footer {
   transition: transform .16s ease, box-shadow .16s ease;
 }
 .home-tile:is([href], [data-playable="true"]):hover { transform: translateY(-4px); box-shadow: 0 11px 20px rgba(21,62,124,.25); }
-.home-tile-art { position: relative; display: block; height: clamp(140px, 14vw, 210px); flex: 0 0 auto; overflow: hidden; }
+.home-tile-art { position: relative; display: block; height: clamp(60px, 13svh, 134px); flex: 0 0 auto; overflow: hidden; }
 .home-tile-art img { object-fit: contain; object-position: center; }
 .home-tile-copy { display: flex; flex: 1; flex-direction: column; align-items: center; padding: 8px 10px 10px; border-radius: 23px 23px 0 0; background: rgba(255,255,255,.9); }
 .home-tile-title { font-size: clamp(1.1rem, 1.8vw, 1.6rem); font-weight: 1000; line-height: 1.1; }
-.home-tile-description { min-height: 48px; margin-top: 5px; color: #1f3151; font-size: clamp(.88rem, 1vw, 1rem); line-height: 1.35; }
+.home-tile-description { min-height: 2.7em; margin-block: 4px 7px; color: #1f3151; font-size: clamp(.88rem, 1vw, 1rem); line-height: 1.35; }
 .home-tile-button { display: inline-flex; min-height: 42px; min-width: 75%; align-items: center; justify-content: center; gap: 8px; margin-top: auto; padding: 7px 14px; border-radius: 999px; background: #34b94c; box-shadow: 0 3px 0 rgba(19,96,43,.34); color: white; font-size: .95rem; font-weight: 900; }
 .home-tile-button svg, .home-text-link svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px; }
 .tone-lime { background: #bdf06d; }
@@ -344,18 +335,19 @@ body:has(.chispitas-home) .chispitas-footer {
 .home-tile.is-coming-soon { opacity: .88; }
 .home-tile-button.is-muted { background: #6d7891; box-shadow: none; }
 
-.home-support-grid { display: grid; width: min(66.666%, 1320px); grid-template-columns: 1.14fr 1fr 1.05fr; gap: clamp(10px, 1.2vw, 18px); margin: 0 auto; }
-.home-support-card { display: flex; min-height: 168px; align-items: center; justify-content: space-between; gap: 10px; overflow: hidden; padding: 12px 16px 12px 20px; border: 2px solid white; border-radius: 26px; box-shadow: 0 5px 13px rgba(21,62,124,.16); }
+.home-support-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.2vw, 18px); margin: clamp(8px, 1.5svh, 16px) auto 0; }
+.home-support-card { display: flex; min-height: 0; align-items: center; justify-content: space-between; gap: 10px; overflow: hidden; padding: 12px 16px 12px 20px; border: 2px solid white; border-radius: 26px; box-shadow: 0 5px 13px rgba(21,62,124,.16); }
 .support-missions { background: linear-gradient(120deg, #fff 0%, #e8f4ff 100%); }
 .support-stars { background: linear-gradient(120deg, #fff6ae 0%, #ffdc56 100%); }
 .support-encourage { background: linear-gradient(120deg, #c6a9ff 0%, #e8d9ff 100%); }
 .home-support-copy { min-width: 0; }
-.home-support-card img { width: clamp(88px, 9vw, 136px); height: clamp(88px, 9vw, 136px); flex: 0 0 auto; object-fit: contain; }
-.home-support-kicker { margin: 0 0 4px; color: #4d5490; font-size: .72rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.home-support-card img { width: clamp(54px, 6vw, 92px); height: clamp(54px, 6vw, 92px); flex: 0 0 auto; object-fit: contain; }
 .home-support-card h2 { margin: 0; color: #132f73; font-size: clamp(1.1rem, 1.8vw, 1.55rem); font-weight: 1000; line-height: 1.12; }
-.home-support-card p:not(.home-support-kicker) { max-width: 280px; margin: 6px 0 0; color: #243751; font-size: clamp(.88rem, 1vw, 1rem); line-height: 1.35; }
+.home-support-card p { max-width: 280px; margin: 6px 0 0; color: #243751; font-size: clamp(.88rem, 1vw, 1rem); line-height: 1.35; }
 .home-text-link { display: inline-flex; min-height: 36px; align-items: center; gap: 5px; margin-top: 5px; color: #183c84; font-size: .79rem; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
 .chispitas-footer { width: min(1760px, 100%); margin: 0 auto; padding: 14px 20px 22px; color: #365887; font-size: .9rem; text-align: center; }
+.icon-credit { display: block; margin-top: 4px; font-size: .75rem; }
+.icon-credit a { color: inherit; text-decoration: underline; }
 
 .body-mission-card,.body-mission { width: min(100%, 1080px); margin: 18px auto; padding: clamp(16px, 3vw, 30px); border: 2px solid white; border-radius: 30px; background: linear-gradient(135deg,#fff 0%,#eef8ff 100%); box-shadow: 0 8px 22px rgba(21,62,124,.14); }
 .body-mission-card h1,.body-mission-heading h1 { margin: 0; color: #123d87; font-size: clamp(1.55rem,3vw,2.4rem); line-height: 1.1; }
@@ -533,7 +525,6 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
 .cave-consumable.is-empty .cave-consumable-count { background: #dfe2ee; color: #59688e; }
 
 @media (min-width: 1351px) {
-  .home-support-card img { width: clamp(88px, 6vw, 104px); height: clamp(88px, 6vw, 104px); }
   .home-support-card h2 { font-size: clamp(1.1rem, 1.5vw, 1.4rem); }
 }
 
@@ -552,25 +543,10 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .chispitas-header-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
   .chispitas-nav { width: 100%; }
   .chispitas-nav-item { min-height: 66px; }
-  body:has(.chispitas-home)::before { background-position: center top; }
-  .chispitas-hero { min-height: max(290px, calc(100dvh - 410px)); }
-  .chispitas-hero-copy { width: min(31%, 290px); margin: 6px auto; padding: clamp(10px, 1.2vw, 15px); border-radius: 28px; }
-  .chispitas-hero h1 { font-size: clamp(1.4rem, 3.3vw, 1.85rem); }
-  .chispitas-hero-subtitle { font-size: clamp(.9rem, 1.5vw, 1rem); }
-  .home-star-pill { margin-top: 7px; font-size: .9rem; }
-  .home-section-width { width: min(66.666%, 900px); }
-  .home-world-grid { margin-block: 0 18px; }
-  .home-world-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-tile { min-height: 270px; }
-  .home-tile-art { height: 145px; }
-  .home-support-grid { width: min(66.666%, 900px); grid-template-columns: 1fr; margin: 0 auto; }
-  .home-support-card:last-child { grid-column: auto; }
-  .home-support-card { padding: 10px 13px; }
-  .home-support-card img { width: 112px; height: 112px; }
+
 }
 @media (min-width: 951px) and (max-width: 1350px) {
-  .home-section-width { width: auto; margin-right: clamp(8px, 2vw, 25px); margin-left: clamp(8px, 2vw, 25px); }
-  .home-support-grid { width: auto; margin-right: clamp(8px, 2vw, 25px); margin-left: clamp(8px, 2vw, 25px); }
+
 }
 @media (max-width: 680px) {
   .shop-scene { padding: 12px 0 18px; }
@@ -618,29 +594,16 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .chispitas-nav-item { min-height: 64px; padding: 5px 4px; border-radius: 16px; font-size: .69rem; }
   .chispitas-nav-art { width: 40px; height: 40px; }
   .chispitas-main { --main-gutter: 9px; padding: 0 var(--main-gutter) 14px; }
-  .chispitas-hero { min-height: max(495px, calc(100dvh - 375px)); }
-  .chispitas-hero-copy { width: min(96%, 365px); margin: 6px auto; padding: 13px 12px 15px; border-radius: 23px; }
-  .chispitas-hero h1 { font-size: clamp(1.4rem, 6vw, 2rem); }
-  .chispitas-hero-subtitle { margin-top: 6px; font-size: .9rem; }
-  .home-star-pill { font-size: .85rem; }
-  .home-section-width { width: auto; margin-inline: 5px; }
-  .home-world-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
-  .home-tile { min-height: 250px; border-radius: 22px; }
-  .home-tile-art { height: 120px; }
+
   .home-tile-copy { padding: 9px 8px 10px; border-radius: 17px 17px 0 0; }
   .home-tile-title { font-size: 1.05rem; }
   .home-tile-description { min-height: 38px; font-size: .74rem; }
   .home-tile-button { min-height: 36px; min-width: 90%; font-size: .78rem; }
-  .home-support-grid { width: auto; grid-template-columns: 1fr; gap: 10px; margin: 0 5px; }
-  .home-support-card:last-child { grid-column: auto; }
-  .home-support-card { min-height: 142px; padding: 12px 16px; }
-  .home-support-card img { width: 115px; height: 115px; }
   .home-support-card h2 { font-size: 1.2rem; }
-  .home-support-card p:not(.home-support-kicker) { font-size: .78rem; }
+  .home-support-card p { font-size: .78rem; }
 }
 @media (max-width: 340px) {
   body:has(.chispitas-home) { min-width: 0; }
-  .chispitas-hero { min-height: max(530px, calc(100dvh - 375px)); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -794,8 +757,7 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 }
 
 .home-grade-panel {
-  margin-block: 12px 18px;
-  padding: clamp(10px, 1.5vw, 20px);
+  padding: clamp(8px, 1.4svh, 14px);
   border: 2px solid white;
   border-radius: 28px;
   background: #fffdf7f7;
@@ -805,7 +767,7 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 }
 
 .home-grade-panel h2 {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   font-size: clamp(1.06rem, 2vw, 1.45rem);
   font-weight: 900;
   text-wrap: balance;
@@ -835,7 +797,7 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 .home-grade-card[data-tone="green"] { --grade-color: #d8f1ba; }
 .home-grade-card[data-tone="gold"] { --grade-color: #ffebad; }
 .home-grade-card[data-tone="rose"] { --grade-color: #fbd7e6; }
-.home-grade-card img { width: 100%; height: clamp(65px, 8.5vw, 112px); object-fit: contain; mix-blend-mode: multiply; }
+.home-grade-card img { width: 100%; height: clamp(40px, 8svh, 85px); object-fit: contain; mix-blend-mode: multiply; }
 .home-grade-card strong { font-size: clamp(.78rem, 1.2vw, 1rem); }
 .home-grade-card span { font-size: .7rem; font-weight: 800; }
 .home-grade-card:disabled { color: #50536b; }
@@ -848,13 +810,103 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 .home-grade-card:enabled:hover { background: #d8bdff; }
 .home-grade-card:focus-visible { outline: 3px solid #123d87; outline-offset: 2px; }
 
-@media (max-width: 950px) {
-  .home-grade-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Keep the header translucent so the valley artwork stays visible. */
+body:has(.chispitas-home) .chispitas-header {
+  background: linear-gradient(90deg, #bceeff75, transparent 34% 62%, #bceeff75);
+}
+.home-support-card { padding: 8px 12px; }
+body:has(.chispitas-home) .chispitas-footer { padding-block: 4px 6px; font-size: .75rem; }
+body:has(.chispitas-home) .icon-credit { display: inline; margin: 0; }
+
+@media (max-width: 700px) {
+  .home-world-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .home-tile { border-radius: 20px; }
+  .home-tile-art { height: clamp(32px, 6svh, 56px); }
+  .home-tile-copy { padding: 5px 6px 7px; }
+  .home-tile-description { min-height: 0; margin-bottom: 4px; }
+  .home-tile-button { min-height: 28px; padding: 3px 7px; }
+  .home-grade-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
+  .home-grade-card { gap: 2px; padding-block: 3px 4px; line-height: 1.2; }
+  .home-grade-card img { height: clamp(24px, 3.8svh, 34px); }
+  .home-support-grid { gap: 5px; }
+  .home-support-card { padding: 8px 6px; border-radius: 15px; }
+  .home-support-card img { display: none; }
+  .home-support-card h2 { font-size: .86rem; }
+  .home-support-card p { font-size: .7rem; }
+  .home-text-link { line-height: 1.1; font-size: .7rem; }
+  .home-text-link svg { display: none; }
 }
 
-@media (max-width: 950px) {
-  body:has(.chispitas-home) { --home-art-lift: 145px; }
-  body:has(.home-grade-panel) { --home-art-lift: 0px; }
+@media (max-width: 480px) {
+  .chispitas-home { padding-top: 9px; }
+  .chispitas-hero h1 { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .chispitas-hero-subtitle { margin-top: 3px; font-size: .9rem; }
 }
-.icon-credit { display: block; margin-top: 4px; font-size: .75rem; }
-.icon-credit a { color: inherit; text-decoration: underline; }
+
+@media (max-width: 1050px) {
+  body:has(.chispitas-home) { --home-star-y: 48px; }
+  body:has(.chispitas-home)::before {
+    background-size: max(180vw, calc(100dvh * 2 / 3)) auto;
+    background-position: calc(45.5% + 32vw) calc(23.4% - 23.4dvh + var(--home-star-y));
+  }
+  .home-support-card img { width: 48px; height: 48px; }
+}
+@media (701px <= width <= 1050px) {
+  body:has(.chispitas-home) { --home-star-y: 55px; }
+  body:has(.chispitas-home)::before {
+    background-size: cover;
+    background-position: center calc(23.4% - 23.4dvh + var(--home-star-y));
+  }
+}
+
+@media (max-height: 740px) and (max-width: 700px) {
+  .home-grade-panel { border-radius: 20px; }
+  .home-grade-card img { height: 24px; }
+  .home-world-grid .home-tile { display: grid; grid-template-columns: 36px minmax(0, 1fr); align-items: stretch; }
+  .home-tile-art { height: auto; min-height: 54px; }
+  .home-tile-copy { border-radius: 12px 0 0 12px; justify-content: center; }
+  .home-tile-title { font-size: .85rem; }
+  .home-tile-description { display: none; }
+  .home-tile-button { min-width: 0; min-height: 20px; margin-top: 3px; font-size: .65rem; }
+  .home-tile-button svg { width: 12px; height: 12px; }
+}
+
+@media (max-width: 700px), (max-height: 780px) {
+  .home-support-card p { display: none; }
+  .home-support-card img { width: 44px; height: 44px; }
+  .home-support-card h2 { font-size: clamp(.82rem, 1.5vw, 1.12rem); }
+  .home-text-link { min-height: 32px; margin-top: 2px; }
+}
+
+
+@media (max-width: 350px) and (max-height: 620px) {
+  .home-support-card { padding: 5px; }
+  .home-support-card:has(a) h2 { display: none; }
+  .home-text-link { min-height: 32px; }
+}
+
+@media (701px <= width <= 950px) and (max-height: 780px) {
+  .chispitas-hero-copy { padding-block: 6px; }
+  .chispitas-hero h1 { font-size: 1.85rem; }
+  .home-tile-art { height: 52px; }
+  .home-support-card { padding-block: 4px; }
+  .home-support-card img { width: 34px; height: 34px; }
+}
+
+@media (max-height: 780px) {
+  body:has(.chispitas-home) .chispitas-footer { padding-block: 2px; }
+}
+
+@media (max-width: 350px) and (max-height: 620px) {
+  .chispitas-home { gap: 5px; padding-top: 4px; }
+  .chispitas-hero-copy { padding-block: 5px; }
+  .chispitas-hero .home-star-pill { min-height: 28px; margin-block: 4px 2px; }
+  .home-support-grid { margin-top: 5px; }
+  body:has(.chispitas-home) .chispitas-footer { font-size: .62rem; line-height: 1.2; }
+  body:has(.chispitas-home) .icon-credit { font-size: inherit; }
+}
+
+@media (max-width: 350px) and (max-height: 620px) {
+  body:has(.chispitas-home) .chispitas-main { padding-bottom: 2px; }
+  .home-support-card { padding-block: 2px; }
+}

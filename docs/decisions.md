@@ -1,13 +1,16 @@
 # Project decisions
 
+## Compact homepage — 2026-11-17
+
+The homepage keeps the standard navigation and positions the valley
+artwork behind the compact welcome panel. The star balance is in the welcome
+panel. The grade picker appears on entry and gives way to the four world
+cards and secondary activities after the available grade is selected.
+
 ## Scrolling homepage illustration - 2026-11-11
 
-Implemented locally for review. The owner's taller valley illustration is
-the scrolling background on desktop and mobile. It covers the homepage
-through the footer without a fade or added ground color. The welcome panel
-sits at the bottom of the hero near the world cards, leaving the illustrated
-star visible above it. The panel and card surfaces keep the text and controls
-readable.
+Superseded by “Compact homepage.” The taller valley illustration was a
+scrolling background with the welcome panel near the bottom of the hero.
 
 ## Adventure Map prototype — 2026-11-08
 

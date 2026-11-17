@@ -72,7 +72,6 @@ export function HomepageContent() {
     <div className="chispitas-home">
       <section aria-labelledby="welcome-title" className="chispitas-hero">
         <div className="chispitas-hero-copy">
-          <p className="chispitas-eyebrow">Una pequeña chispa te espera</p>
           <h1 id="welcome-title" lang="en">Welcome to Chispitas!</h1>
           <p className="chispitas-hero-subtitle" lang="en">Ready to play and learn?</p>
           <ProfileSummary />
@@ -82,7 +81,7 @@ export function HomepageContent() {
       <GradePicker assetBasePath={basePath} availableGrade={availableGrade} />
 
       <HomepageActivities availableGrade={availableGrade}>
-        <section id="home-worlds" aria-label="Mundos para explorar" tabIndex={-1} className="home-world-grid home-section-width">
+        <section id="home-worlds" aria-label="Mundos para explorar" tabIndex={-1} className="home-world-grid">
           <WorldTile
             title="Science World"
             description="Descubre la naturaleza y sus maravillas."
@@ -120,7 +119,6 @@ export function HomepageContent() {
         <section aria-label="Tu aventura" className="home-support-grid">
           <article className="home-support-card support-missions">
             <div className="home-support-copy">
-              <p className="home-support-kicker">Pequeños pasos</p>
               <h2>Your next adventure</h2>
               <p>Practica las partes del cuerpo en inglés y acompaña al dragón.</p>
               <Link href="/scienceworld/body" className="home-text-link">Jugar la misión <Arrow /></Link>
@@ -130,7 +128,6 @@ export function HomepageContent() {
 
           <article className="home-support-card support-stars">
             <div className="home-support-copy">
-              <p className="home-support-kicker">Sigue brillando</p>
               <h2>Star Shop</h2>
               <p>Más adelante podrás canjearlas por sorpresas.</p>
               <Link href="/shop" className="home-text-link">Visitar tienda <Arrow /></Link>
@@ -140,7 +137,6 @@ export function HomepageContent() {
 
           <article className="home-support-card support-encourage">
             <div className="home-support-copy">
-              <p className="home-support-kicker">A tu ritmo, paso a paso</p>
               <h2>¡Sigue explorando!</h2>
               <p>Cada pequeño descubrimiento cuenta.</p>
             </div>

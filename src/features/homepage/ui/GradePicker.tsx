@@ -18,7 +18,7 @@ export function GradePicker({ assetBasePath, availableGrade }: { assetBasePath: 
   if (selected === availableGrade) return null;
 
   return (
-    <section className="home-grade-panel home-section-width" aria-labelledby="home-grade-title">
+    <section className="home-grade-panel" aria-labelledby="home-grade-title">
       <h2 id="home-grade-title">¡Elige tu curso para empezar tu aventura!</h2>
       <div className="home-grade-grid">
         {cards.map(({ grade, tone }) => {
@@ -40,7 +40,7 @@ export function GradePicker({ assetBasePath, availableGrade }: { assetBasePath: 
             >
               <Image src={`${assetBasePath}/homepage/grades/primaria-${grade}.webp`} alt="" width={512} height={512} unoptimized />
               <strong>Primaria {grade}</strong>
-              <span>{available ? "Empezar la aventura →" : "Próximamente"}</span>
+              <span>{available ? "Empezar →" : "Próximamente"}</span>
             </button>
           );
         })}

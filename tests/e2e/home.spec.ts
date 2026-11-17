@@ -1,5 +1,31 @@
 import { expect, test } from "@playwright/test";
 
+for (const viewport of [
+  { width: 320, height: 568 },
+  { width: 768, height: 700 },
+  { width: 1280, height: 720 },
+]) {
+  test(`both home screens fit at ${viewport.width}×${viewport.height}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+
+    const welcome = page.getByRole("region", { name: "Welcome to Chispitas!" });
+    const picker = page.getByRole("region", { name: "¡Elige tu curso para empezar tu aventura!" });
+    const worlds = page.locator("#home-worlds");
+    await expect(welcome.getByText(/Stars/)).toBeVisible();
+    await expect(welcome).toBeInViewport({ ratio: 1 });
+    await expect(picker).toBeInViewport({ ratio: 1 });
+    await expect(worlds).toBeHidden();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
+
+    await picker.getByRole("button", { name: /Primaria 2/ }).click();
+    await expect(picker).toBeHidden();
+    await expect(worlds.getByRole("link")).toHaveCount(4);
+    await expect(worlds).toBeInViewport({ ratio: 1 });
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
+  });
+}
+
 for (const width of [320, 360, 480, 680, 681, 768, 950, 951, 1280, 1920]) {
   test(`home navigation and layout fit at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

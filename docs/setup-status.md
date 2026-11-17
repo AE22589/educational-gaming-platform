@@ -6,12 +6,12 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 `npm run lint`, `npm run typecheck`, `npm test` (42 tests), `npm run build` and
 `npm run test:e2e` (8 tests).
 
-## Homepage illustration preview - 2026-11-11
+## Compact homepage — 2026-11-17
 
-The local homepage preview uses the owner's taller valley illustration on
-desktop and mobile. The artwork scrolls with the page and covers the
-welcome, world, support, and footer sections. The welcome panel sits just
-above the world cards.
+The homepage keeps the standard navigation and positions the valley
+artwork behind the compact welcome panel. The star balance is in the welcome
+panel. The grade picker appears on entry and gives way to the four world
+cards and secondary activities after the available grade is selected.
 
 ## Adventure Map prototype
 
