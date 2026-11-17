@@ -11,7 +11,8 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 The homepage keeps the standard navigation and positions the valley
 artwork behind the compact welcome panel. The star balance is in the welcome
 panel. The grade picker appears on entry and gives way to the four world
-cards and secondary activities after the available grade is selected.
+cards and secondary activities after the available grade is selected. On
+short, narrow screens the welcome subtitle and star balance share a row.
 
 ## Adventure Map prototype
 
