@@ -200,3 +200,7 @@ The public curriculum now assigns seven existing pictures plus 46 lossless OpenM
 ## Vocabulary artwork — 2026-11-17
 
 Ten supplied illustrations are cropped to transparent lossless WebP and connected through docs/SectionList.xlsx and the public curriculum export. Existing image-based games display these pictures; missing vocabulary images retain translation clues.
+
+## Vocabulary batch 2 — 2026-11-17
+
+Thirty-nine supplied illustrations are stored as transparent lossless WebP at 41 curriculum-specific paths. The source workbook and generated curriculum include all mappings. Colors and Animals images are ready in curriculum data; their English activities remain upcoming. Existing Healthy Habits games display the new Science artwork.

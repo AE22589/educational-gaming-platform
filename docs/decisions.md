@@ -533,3 +533,7 @@ The owner explicitly authorized uploading the complete Excel workbook, including
 ## Supplied vocabulary artwork — 2026-11-17
 
 Use the ten owner-supplied illustrations for An omelette, Breakfast, Cereals, Fizzy drink, Fruits, Good posture, Hairbrush, Ham, Joint and Lentils. Store transparent lossless WebP under the existing curriculum subsection folders, update the source workbook ImagePath cells, and regenerate curriculum data. Existing game image rendering uses these paths.
+
+## Supplied vocabulary batch 2 — 2026-11-17
+
+Add 39 supplied illustrations for 11 food/hygiene/safety terms, 13 colors and 15 pets. Update 41 source workbook image cells, including the additional English Snake and Swimming pool entries. Match the word meaning and subsection: color Orange and pet Fish must not overwrite food illustrations. English Colors and Animals remain upcoming activity topics; this asset update does not assign new games. Existing Science games use the new workbook paths. Preserve workbook metadata, filters and formatting.

@@ -137,7 +137,7 @@ for (const section of [
       await menu.getByRole("button", { name: "Picture Match" }).click();
       const match = page.getByRole("region", { name: "Picture Match" });
       await expect(match.locator("img")).toBeVisible();
-      await expect(match.getByText("Ronda 1 de 28")).toBeVisible();
+      await expect(match.getByText("Ronda 1 de 33")).toBeVisible();
     } else {
       await expect(page.getByText("¡Las actividades estarán disponibles pronto!")).toBeVisible();
     }

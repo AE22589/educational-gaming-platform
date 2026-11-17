@@ -245,3 +245,51 @@ Original illustrations supplied by the owner, cropped with transparency and save
 | Ham | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/ham.webp` | Owner-supplied vocabulary illustration |
 | Breakfast | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/breakfast.webp` | Owner-supplied vocabulary illustration |
 | An omelette | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/an-omelette.webp` | Owner-supplied vocabulary illustration |
+
+## Supplied vocabulary batch 2 — 2026-11-17
+
+Owner-supplied sheet 1 contains food, hygiene and safety illustrations; sheet 2 contains color swatches and pets. Cropped without resizing, with transparent backgrounds, and converted through `scripts/to-lossless-webp.mjs`.
+
+| Word | File | Source |
+| --- | --- | --- |
+| Red | `public/vocabulary/english/english-2-b1-s00/colors/red.webp` | Owner-supplied sheet 2 |
+| Blue | `public/vocabulary/english/english-2-b1-s00/colors/blue.webp` | Owner-supplied sheet 2 |
+| Yellow | `public/vocabulary/english/english-2-b1-s00/colors/yellow.webp` | Owner-supplied sheet 2 |
+| Green | `public/vocabulary/english/english-2-b1-s00/colors/green.webp` | Owner-supplied sheet 2 |
+| Orange | `public/vocabulary/english/english-2-b1-s00/colors/orange.webp` | Owner-supplied sheet 2 |
+| Pink | `public/vocabulary/english/english-2-b1-s00/colors/pink.webp` | Owner-supplied sheet 2 |
+| Purple | `public/vocabulary/english/english-2-b1-s00/colors/purple.webp` | Owner-supplied sheet 2 |
+| Brown | `public/vocabulary/english/english-2-b1-s00/colors/brown.webp` | Owner-supplied sheet 2 |
+| Black | `public/vocabulary/english/english-2-b1-s00/colors/black.webp` | Owner-supplied sheet 2 |
+| White | `public/vocabulary/english/english-2-b1-s00/colors/white.webp` | Owner-supplied sheet 2 |
+| Grey | `public/vocabulary/english/english-2-b1-s00/colors/grey.webp` | Owner-supplied sheet 2 |
+| Light blue | `public/vocabulary/english/english-2-b1-s00/colors/light-blue.webp` | Owner-supplied sheet 2 |
+| Dark blue | `public/vocabulary/english/english-2-b1-s00/colors/dark-blue.webp` | Owner-supplied sheet 2 |
+| Dog | `public/vocabulary/english/english-2-b1-s00/animals/dog.webp` | Owner-supplied sheet 2 |
+| Cat | `public/vocabulary/english/english-2-b1-s00/animals/cat.webp` | Owner-supplied sheet 2 |
+| Rabbit | `public/vocabulary/english/english-2-b1-s00/animals/rabbit.webp` | Owner-supplied sheet 2 |
+| Hamster | `public/vocabulary/english/english-2-b1-s00/animals/hamster.webp` | Owner-supplied sheet 2 |
+| Guinea pig | `public/vocabulary/english/english-2-b1-s00/animals/guinea-pig.webp` | Owner-supplied sheet 2 |
+| Fish | `public/vocabulary/english/english-2-b1-s00/animals/fish.webp` | Owner-supplied sheet 2 |
+| Bird | `public/vocabulary/english/english-2-b1-s00/animals/bird.webp` | Owner-supplied sheet 2 |
+| Parrot | `public/vocabulary/english/english-2-b1-s00/animals/parrot.webp` | Owner-supplied sheet 2 |
+| Turtle | `public/vocabulary/english/english-2-b1-s00/animals/turtle.webp` | Owner-supplied sheet 2 |
+| Tortoise | `public/vocabulary/english/english-2-b1-s00/animals/tortoise.webp` | Owner-supplied sheet 2 |
+| Mouse | `public/vocabulary/english/english-2-b1-s00/animals/mouse.webp` | Owner-supplied sheet 2 |
+| Snake | `public/vocabulary/english/english-2-b1-s00/animals/snake.webp` | Owner-supplied sheet 2 |
+| Lizard | `public/vocabulary/english/english-2-b1-s00/animals/lizard.webp` | Owner-supplied sheet 2 |
+| Puppy | `public/vocabulary/english/english-2-b1-s00/animals/puppy.webp` | Owner-supplied sheet 2 |
+| Kitten | `public/vocabulary/english/english-2-b1-s00/animals/kitten.webp` | Owner-supplied sheet 2 |
+| Snake | `public/vocabulary/english/english-2-b1-s03/general/snake.webp` | Owner-supplied sheet 2 |
+| Swimming pool | `public/vocabulary/english/english-2-b1-s05/general/swimming-pool.webp` | Owner-supplied sheet 1 |
+| Towel | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/towel.webp` | Owner-supplied sheet 1 |
+| Shampoo | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/shampoo.webp` | Owner-supplied sheet 1 |
+| Milkshake | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/milkshake.webp` | Owner-supplied sheet 1 |
+| Olive oil | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/olive-oil.webp` | Owner-supplied sheet 1 |
+| Vegetables | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/vegetables.webp` | Owner-supplied sheet 1 |
+| Yogurt | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/yogurt.webp` | Owner-supplied sheet 1 |
+| Omelette | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/omelette.webp` | Owner-supplied sheet 1 |
+| Snack | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/snack.webp` | Owner-supplied sheet 1 |
+| Natural yogurt | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/natural-yogurt.webp` | Owner-supplied sheet 1 |
+| Sockets | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/sockets.webp` | Owner-supplied sheet 1 |
+| Swimming pool | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/swimming-pool.webp` | Owner-supplied sheet 1 |
