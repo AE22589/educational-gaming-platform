@@ -293,3 +293,96 @@ Owner-supplied sheet 1 contains food, hygiene and safety illustrations; sheet 2 
 | Natural yogurt | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/natural-yogurt.webp` | Owner-supplied sheet 1 |
 | Sockets | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/sockets.webp` | Owner-supplied sheet 1 |
 | Swimming pool | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/swimming-pool.webp` | Owner-supplied sheet 1 |
+
+## Supplied Science batch 3 — 2026-11-17
+
+Owner-supplied anatomy, food, hygiene, safety and emotion illustrations, cropped without resizing and converted through `scripts/to-lossless-webp.mjs`. All pre-existing public files are preserved byte for byte, including body-game artwork. Replacements use separate vocabulary paths. Existing custom Apple, Water and Knee pads references are retained; their new supplied variants are saved as alternatives. The provided knee-joint illustration supports both Joints and Knee.
+
+| Word | File | Source |
+| --- | --- | --- |
+| Body | `public/vocabulary/science/science-2-b2-s01/general/body.webp` | Owner-supplied sheet 1 |
+| Breathe in air | `public/vocabulary/science/science-2-b2-s01/general/breathe-in-air.webp` | Owner-supplied sheet 1 |
+| Bones | `public/vocabulary/science/science-2-b2-s01/general/bones.webp` | Owner-supplied sheet 1 |
+| Joints | `public/vocabulary/science/science-2-b2-s01/general/joints.webp` | Owner-supplied sheet 1 |
+| Muscles | `public/vocabulary/science/science-2-b2-s01/general/muscles.webp` | Owner-supplied sheet 2 |
+| Skeleton | `public/vocabulary/science/science-2-b2-s01/general/skeleton.webp` | Owner-supplied sheet 2 |
+| Skull | `public/vocabulary/science/science-2-b2-s01/general/skull.webp` | Owner-supplied sheet 2 |
+| Ribs | `public/vocabulary/science/science-2-b2-s01/general/ribs.webp` | Owner-supplied sheet 2 |
+| Elbow | `public/vocabulary/science/science-2-b2-s01/general/elbow.webp` | Owner-supplied sheet 1 |
+| Backbone | `public/vocabulary/science/science-2-b2-s01/general/backbone.webp` | Owner-supplied sheet 1 |
+| Knee | `public/vocabulary/science/science-2-b2-s01/general/knee.webp` | Owner-supplied sheet 1 |
+| Femur | `public/vocabulary/science/science-2-b2-s01/general/femur.webp` | Owner-supplied sheet 1 |
+| Ankle | `public/vocabulary/science/science-2-b2-s01/general/ankle.webp` | Owner-supplied sheet 1 |
+| Tibia | `public/vocabulary/science/science-2-b2-s01/general/tibia.webp` | Owner-supplied sheet 2 |
+| Biceps | `public/vocabulary/science/science-2-b2-s01/general/biceps.webp` | Owner-supplied sheet 1 |
+| Pectoral | `public/vocabulary/science/science-2-b2-s01/general/pectoral.webp` | Owner-supplied sheet 2 |
+| Gluteus | `public/vocabulary/science/science-2-b2-s01/general/gluteus.webp` | Owner-supplied sheet 1 |
+| Abdominals | `public/vocabulary/science/science-2-b2-s01/general/abdominals.webp` | Owner-supplied sheet 1 |
+| Calf muscle | `public/vocabulary/science/science-2-b2-s01/general/calf-muscle.webp` | Owner-supplied sheet 1 |
+| Nose | `public/vocabulary/science/science-2-b2-s01/general/nose.webp` | Owner-supplied sheet 2 |
+| Mouth | `public/vocabulary/science/science-2-b2-s01/general/mouth.webp` | Owner-supplied sheet 2 |
+| Trachea | `public/vocabulary/science/science-2-b2-s01/general/trachea.webp` | Owner-supplied sheet 2 |
+| Lungs | `public/vocabulary/science/science-2-b2-s01/general/lungs.webp` | Owner-supplied sheet 1 |
+| Breathe out | `public/vocabulary/science/science-2-b2-s01/general/breathe-out.webp` | Owner-supplied sheet 1 |
+| Breathe in air | `public/vocabulary/science/science-2-b2-s01/general/breathe-in-air.webp` | Owner-supplied sheet 1 |
+| Teeth | `public/vocabulary/science/science-2-b2-s01/general/teeth.webp` | Owner-supplied sheet 2 |
+| Oesophagus | `public/vocabulary/science/science-2-b2-s01/general/oesophagus.webp` | Owner-supplied sheet 2 |
+| Stomach | `public/vocabulary/science/science-2-b2-s01/general/stomach.webp` | Owner-supplied sheet 2 |
+| Intestines | `public/vocabulary/science/science-2-b2-s01/general/intestines.webp` | Owner-supplied sheet 1 |
+| Anus | `public/vocabulary/science/science-2-b2-s01/general/anus.webp` | Owner-supplied sheet 1 |
+| Stone | `public/vocabulary/science/science-2-b2-s01/general/stone.webp` | Owner-supplied sheet 2 |
+| Shells | `public/vocabulary/science/science-2-b2-s01/general/shells.webp` | Owner-supplied sheet 2 |
+| Walnut | `public/vocabulary/science/science-2-b2-s01/general/walnut.webp` | Owner-supplied sheet 2 |
+| Peg | `public/vocabulary/science/science-2-b2-s01/general/peg.webp` | Owner-supplied sheet 2 |
+| Body | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/body-supplied.webp` | Owner-supplied sheet 1 |
+| Sick person | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/sick-person-supplied.webp` | Owner-supplied sheet 2 |
+| Muscles | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/muscles.webp` | Owner-supplied sheet 2 |
+| Bones | `public/vocabulary/science/science-2-b2-s02/health-and-the-body/bones-supplied.webp` | Owner-supplied sheet 1 |
+| Doctor | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/doctor-supplied.webp` | Owner-supplied sheet 1 |
+| Nurse | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/nurse-supplied.webp` | Owner-supplied sheet 2 |
+| Medicine | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/medicine-supplied.webp` | Owner-supplied sheet 2 |
+| Vaccination | `public/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/vaccination-supplied.webp` | Owner-supplied sheet 2 |
+| Sleep | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/sleep-supplied.webp` | Owner-supplied sheet 2 |
+| Back pain | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/back-pain-supplied.webp` | Owner-supplied sheet 1 |
+| Toothbrush | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/toothbrush-supplied.webp` | Owner-supplied sheet 2 |
+| Soap | `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/soap-supplied.webp` | Owner-supplied sheet 2 |
+| Milk | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/milk-supplied.webp` | Owner-supplied sheet 2 |
+| Lettuce | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/lettuce-supplied.webp` | Owner-supplied sheet 1 |
+| Bread | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/bread-supplied.webp` | Owner-supplied sheet 1 |
+| Potatoes | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/potatoes-supplied.webp` | Owner-supplied sheet 2 |
+| Watermelon | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon-supplied.webp` | Owner-supplied sheet 2 |
+| Tomato | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/tomato-supplied.webp` | Owner-supplied sheet 2 |
+| Rice | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/rice-supplied.webp` | Owner-supplied sheet 2 |
+| Orange | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/orange-supplied.webp` | Owner-supplied sheet 2 |
+| Broccoli | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/broccoli-supplied.webp` | Owner-supplied sheet 1 |
+| Pasta | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/pasta-supplied.webp` | Owner-supplied sheet 2 |
+| Eggs | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/eggs-supplied.webp` | Owner-supplied sheet 1 |
+| Fish | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/fish-supplied.webp` | Owner-supplied sheet 1 |
+| Pepper | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/pepper-supplied.webp` | Owner-supplied sheet 2 |
+| Meat | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/meat-supplied.webp` | Owner-supplied sheet 2 |
+| Banana | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/banana-supplied.webp` | Owner-supplied sheet 1 |
+| Cheese | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/cheese-supplied.webp` | Owner-supplied sheet 1 |
+| Cake | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/cake-supplied.webp` | Owner-supplied sheet 1 |
+| Chips | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/chips-supplied.webp` | Owner-supplied sheet 1 |
+| Pear | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/pear-supplied.webp` | Owner-supplied sheet 2 |
+| Sandwich | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/sandwich-supplied.webp` | Owner-supplied sheet 2 |
+| Soup | `public/vocabulary/science/science-2-b2-s02/food-and-drinks/soup-supplied.webp` | Owner-supplied sheet 2 |
+| Glass of milk | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/glass-of-milk.webp` | Owner-supplied sheet 1 |
+| Ham and cheese sandwich | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/ham-and-cheese-sandwich.webp` | Owner-supplied sheet 1 |
+| Hamburger | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/hamburger-supplied.webp` | Owner-supplied sheet 1 |
+| A piece of cake | `public/vocabulary/science/science-2-b2-s02/meals-and-menus/a-piece-of-cake-supplied.webp` | Owner-supplied sheet 1 |
+| Electric cables | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/electric-cables-supplied.webp` | Owner-supplied sheet 1 |
+| Shower | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/shower-supplied.webp` | Owner-supplied sheet 2 |
+| Stairs | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs-supplied.webp` | Owner-supplied sheet 2 |
+| Goggles | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/goggles-supplied.webp` | Owner-supplied sheet 1 |
+| Helmet | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp` | Owner-supplied sheet 1 |
+| Bike | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/bike-supplied.webp` | Owner-supplied sheet 1 |
+| Skating | `public/vocabulary/science/science-2-b2-s02/accidents-and-safety/skating-supplied.webp` | Owner-supplied sheet 2 |
+| Sad | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad-supplied.webp` | Owner-supplied sheet 2 |
+| Happy | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy-supplied.webp` | Owner-supplied sheet 1 |
+| Scared | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared-supplied.webp` | Owner-supplied sheet 2 |
+| Angry | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry-supplied.webp` | Owner-supplied sheet 1 |
+| Surprised | `public/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised-supplied.webp` | Owner-supplied sheet 2 |
+| Knee pads | `public/vocabulary/science/supplied/knee-pads.webp` | Owner-supplied sheet 1; alternative, existing custom reference retained |
+| Water | `public/vocabulary/science/supplied/water.webp` | Owner-supplied sheet 2; alternative, existing custom reference retained |
+| Apple | `public/vocabulary/science/supplied/apple.webp` | Owner-supplied sheet 1; alternative, existing custom reference retained |

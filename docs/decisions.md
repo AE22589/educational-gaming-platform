@@ -537,3 +537,7 @@ Use the ten owner-supplied illustrations for An omelette, Breakfast, Cereals, Fi
 ## Supplied vocabulary batch 2 — 2026-11-17
 
 Add 39 supplied illustrations for 11 food/hygiene/safety terms, 13 colors and 15 pets. Update 41 source workbook image cells, including the additional English Snake and Swimming pool entries. Match the word meaning and subsection: color Orange and pet Fish must not overwrite food illustrations. English Colors and Animals remain upcoming activity topics; this asset update does not assign new games. Existing Science games use the new workbook paths. Preserve workbook metadata, filters and formatting.
+
+## Science artwork protection and Spanish clues — 2026-11-17
+
+Use new supplied vocabulary illustrations to replace sourced icons, retaining existing developer-created artwork and all body-game assets. Add new vocabulary files rather than overwriting or deleting any pre-existing public asset. Keep current custom Apple, Water and Knee pads references, saving new variants separately. Update 83 source workbook cells and regenerate curriculum data. Spanish fallback clues use a dedicated responsive text style, with wrapping and content-driven height instead of the fixed icon font and height. This applies to all shared practice games; body mission artwork and game logic remain unchanged.

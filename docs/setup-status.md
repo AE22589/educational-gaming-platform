@@ -204,3 +204,7 @@ Ten supplied illustrations are cropped to transparent lossless WebP and connecte
 ## Vocabulary batch 2 — 2026-11-17
 
 Thirty-nine supplied illustrations are stored as transparent lossless WebP at 41 curriculum-specific paths. The source workbook and generated curriculum include all mappings. Colors and Animals images are ready in curriculum data; their English activities remain upcoming. Existing Healthy Habits games display the new Science artwork.
+
+## Science batch 3 and clue layout — 2026-11-17
+
+Eighty-two listed vocabulary terms have supplied artwork prepared; 83 workbook image cells are updated across relevant Science sections. Three new alternatives preserve current custom Apple, Water and Knee pads references. Every pre-existing public file is retained unchanged. Shared Spanish translation clues now wrap at readable text size and grow vertically, keeping subsequent controls below the text.

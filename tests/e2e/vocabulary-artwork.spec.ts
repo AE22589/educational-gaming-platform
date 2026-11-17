@@ -2,13 +2,11 @@ import { expect, test } from "@playwright/test";
 import data from "../../src/features/curriculum/curriculum.generated.json" with { type: "json" };
 
 const base = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
-const supplied = new Set(["An omelette", "Breakfast", "Cereals", "Fizzy drink", "Fruits",
-  "Good posture", "Hairbrush", "Ham", "Joint", "Lentils", "Milkshake", "Natural yogurt",
-  "Olive oil", "Omelette", "Shampoo", "Snack", "Sockets", "Swimming pool", "Towel", "Vegetables", "Yogurt"]);
 const unit = data.units.find(({ id }) => id === "science-2-b2-s02")!;
+const supplied = new Set(unit.vocabulary.filter(({ image }) => image).map(({ word }) => word));
 
 test("all supplied Science illustrations load during Picture Match", async ({ page }) => {
-  test.setTimeout(120000);
+  test.setTimeout(180000);
   const seen = new Set<string>();
   for (const topic of unit.subsections) {
     const words = unit.vocabulary.filter(({ subsection, image }) => subsection === topic.title && image);
