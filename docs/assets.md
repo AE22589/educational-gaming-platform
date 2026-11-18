@@ -94,6 +94,7 @@ independently assessed; review the assets before any child pilot.
 | Mission clipboard | `public/homepage/daily-missions.webp` | Support illustration | None | Decorative checked clipboard; adjacent HTML links to the body-parts mission. | Owner visual review pending. |
 | Star chest | `public/homepage/star-chest.webp` | Support illustration | None | Decorative chest of stars; adjacent HTML describes future collection use without inventing a balance. | Owner visual review pending. |
 | Turtle companion | `public/homepage/turtle-companion.webp` | Support illustration | None | Decorative smiling turtle mascot; adjacent HTML provides the encouragement message. | Owner visual review pending. |
+| Printable worksheet activities | `public/homepage/worksheet-activities.webp` | Homepage card and worksheets page illustration | None | Decorative illustration of a parent and child doing printed activities together. | AI-generated for Chispitas from the owner-provided visual reference. |
 
 ## Navigation illustrations
 

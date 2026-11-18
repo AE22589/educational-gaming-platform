@@ -1,5 +1,9 @@
 # Current setup status — 2026-11-05
 
+The homepage links to `/worksheets` from the printable activities card.
+The destination displays a coming-soon message for printable PDFs.
+
+
 This file describes the state of `main`. Update it in every pull request that
 changes visible behavior, deployment, checks or repository settings. Last full
 verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,

@@ -831,6 +831,8 @@ body:has(.chispitas-home) .icon-credit { display: inline; margin: 0; }
   .home-support-grid { gap: 5px; }
   .home-support-card { padding: 8px 6px; border-radius: 15px; }
   .home-support-card img { display: none; }
+  .home-support-card.support-encourage { flex-direction: column-reverse; justify-content: center; gap: 4px; }
+  .home-support-card.support-encourage img { display: block; width: 36px; height: 36px; }
   .home-support-card h2 { font-size: .86rem; }
   .home-support-card p { font-size: .7rem; }
   .home-text-link { line-height: 1.1; font-size: .7rem; }
@@ -880,12 +882,16 @@ body:has(.chispitas-home) .icon-credit { display: inline; margin: 0; }
 
 
 @media (max-width: 350px) and (max-height: 620px) {
+  .home-support-card.support-encourage { flex-direction: row-reverse; }
+  .home-support-card.support-encourage img { width: 26px; height: 26px; }
   .home-support-card { padding: 5px; }
   .home-support-card:has(a) h2 { display: none; }
   .home-text-link { min-height: 32px; }
 }
 
 @media (701px <= width <= 950px) and (max-height: 780px) {
+  .home-support-card.support-encourage { padding-block: 1px; }
+  .support-encourage .home-text-link { min-height: 18px; margin-top: 0; }
   .chispitas-hero-copy { padding-block: 6px; }
   .chispitas-hero h1 { font-size: 1.85rem; }
   .home-tile-art { height: 52px; }

@@ -137,10 +137,10 @@ export function HomepageContent() {
 
           <article className="home-support-card support-encourage">
             <div className="home-support-copy">
-              <h2>¡Sigue explorando!</h2>
-              <p>Cada pequeño descubrimiento cuenta.</p>
+              <h2>Fichas de actividades para niños</h2>
+              <Link href="/worksheets" className="home-text-link">Descargar fichas <Arrow /></Link>
             </div>
-            <Image src={assetPath("/homepage/turtle-companion.webp")} alt="" width={146} height={146} unoptimized />
+            <Image src={assetPath("/homepage/worksheet-activities.webp")} alt="" width={146} height={146} unoptimized />
           </article>
         </section>
       </HomepageActivities>

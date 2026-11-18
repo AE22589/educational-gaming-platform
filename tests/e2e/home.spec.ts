@@ -333,3 +333,26 @@ for (const [link, path, heading, text] of [
     await expect(page).toHaveURL(/\/$/);
   });
 }
+
+for (const width of [360, 1280]) {
+  test(`printable worksheets open from the home card at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    await page.getByRole("button", { name: /Primaria 2/ }).click();
+
+    const card = page.getByRole("article").filter({
+      has: page.getByRole("heading", { name: "Fichas de actividades para niños" }),
+    });
+    const artwork = card.locator('img[src$="/homepage/worksheet-activities.webp"]');
+    await expect(artwork).toBeVisible();
+    await artwork.scrollIntoViewIfNeeded();
+    await expect.poll(() => artwork.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+    await card.getByRole("link", { name: "Descargar fichas" }).click();
+
+    await expect(page).toHaveURL(/\/worksheets\/?$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fichas de actividades para niños");
+    await expect(page.getByText(/Pronto podrás descargar aquí fichas en PDF/)).toBeVisible();
+    await expect(page.getByRole("link", { name: "Volver al inicio" })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+}

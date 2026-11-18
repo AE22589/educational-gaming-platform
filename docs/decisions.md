@@ -1,5 +1,12 @@
 # Project decisions
 
+## Printable worksheets — 2026-11-18
+
+The homepage activity card links to `/worksheets` with the Spanish label
+“Descargar fichas.” The page uses the shared Chispitas placeholder layout
+until the printable PDFs are supplied.
+
+
 ## Compact homepage — 2026-11-17
 
 The homepage keeps the standard navigation and positions the valley
