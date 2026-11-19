@@ -24,6 +24,8 @@ test("English and Science catalogs use their own book and export unit links", as
   await expect(page.getByRole("combobox")).toHaveCount(0);
   await expect(nav.getByText("Primaria 2")).toBeVisible();
   await expect(page.getByRole("article")).toHaveCount(10);
+  await expect(page.getByRole("heading", { name: "0 Let's Learn the Basics!" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "1 Let's Play Sports!" })).toBeVisible();
   await page.screenshot({ path: "test-results/curriculum-desktop.png" });
   await page.getByRole("article").filter({ hasText: "Let's Play Sports!" }).getByRole("link").click();
   await expect(page).toHaveURL(`${base}/unit/english-2-b1-s01/`);
@@ -42,6 +44,8 @@ test("English and Science catalogs use their own book and export unit links", as
   await page.goto(`${base}/scienceworld/`);
   await expect(page.getByRole("combobox")).toHaveCount(0);
   await expect(page.getByRole("article")).toHaveCount(6);
+  await expect(page.getByRole("heading", { name: "1 My Amazing Body!" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "2 Healthy Habits, Happy Life!" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/curriculum-mobile.png" });
   const upcoming = page.getByRole("article").filter({ hasText: "Discover the Animal Kingdom!" });

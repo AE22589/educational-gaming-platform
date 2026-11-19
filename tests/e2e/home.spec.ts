@@ -123,7 +123,7 @@ for (const width of [360, 768, 1280]) {
     await page.getByRole("link", { name: "‹ Volver a las unidades" }).click();
     await expect(page).toHaveURL(/\/scienceworld\/?$/);
     const bodyUnit = page.getByRole("article").filter({
-      has: page.getByRole("heading", { name: "My Amazing Body!", exact: true }),
+      has: page.getByRole("heading", { name: "1 My Amazing Body!", exact: true }),
     });
     await bodyUnit.getByRole("link", { name: "Explore this topic" }).click();
     await page.getByRole("link", { name: "Misión: partes del cuerpo" }).click();
@@ -351,7 +351,52 @@ for (const width of [360, 1280]) {
 
     await expect(page).toHaveURL(/\/worksheets\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fichas de actividades para niños");
-    await expect(page.getByText(/Pronto podrás descargar aquí fichas en PDF/)).toBeVisible();
+    await expect(page.getByRole("button", { name: "Inglés" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Ciencias" })).toBeVisible();
+    await page.getByRole("button", { name: "Inglés" }).click();
+    await expect(page.getByLabel("Curso")).toHaveValue("2");
+    await expect(page.getByLabel("Libro")).toHaveValue("english-2-b1");
+    await expect(page.getByRole("list").filter({ hasText: "¡Practiquemos deportes!" }).getByRole("button"))
+      .toHaveText([
+        "¡Aprendamos lo básico!", "¡Practiquemos deportes!", "¡Descubre las estaciones!",
+        "¡El increíble mundo de los animales!", "Alrededor del mundo y frutas saludables",
+        "Lugares para visitar y cosas que hacer", "¡Un día en la playa!", "¡Viajemos con seguridad!",
+        "Mi casa y mis cosas favoritas", "¡Aventuras y recuerdos en familia!",
+      ]);
+    await page.getByRole("button", { name: "¡Practiquemos deportes!" }).click();
+    await expect(page.getByText(/Todavía no hay fichas para esta sección/)).toBeVisible();
+    await page.getByRole("button", { name: "Volver a secciones" }).click();
+    await page.getByRole("button", { name: "Volver a asignaturas" }).click();
+    await page.getByRole("button", { name: "Ciencias" }).click();
+    await expect(page.getByLabel("Libro")).toHaveValue("science-2-b2");
+    await page.getByRole("button", { name: "¡Hábitos saludables, vida feliz!" }).click();
+    const topics = page.getByLabel("Tema");
+    await expect(topics.getByRole("option")).toHaveText([
+      "Toda la sección", "La salud y el cuerpo", "Atención sanitaria y enfermedades",
+      "Hábitos saludables e higiene", "Alimentos y bebidas", "Grupos de alimentos y nutrición",
+      "Comidas y menús", "Accidentes y seguridad", "Sentimientos y emociones",
+      "Expresiones de tiempo y frecuencia",
+    ]);
+    const open = page.getByRole("link", { name: /Abrir e imprimir/ });
+    await expect(open).toBeVisible();
+    await topics.selectOption("science-2-b2-s02-01");
+    await expect(page.getByText(/Todavía no hay fichas para este tema/)).toBeVisible();
+    await expect(open).toHaveCount(0);
+    await topics.selectOption("science-2-b2-s02-02");
+    await expect(open).toBeVisible();
+    await expect(open).toHaveAttribute("target", "_blank");
+    const href = await open.getAttribute("href");
+    const base = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
+    expect(href).toBe(`${base}/worksheets/science/science-2-b2-s02/healthcare-and-illnesses/healthcare-and-illnesses.pdf`);
+    const pdf = await page.request.get(new URL(href!, page.url()).href);
+    expect(pdf.ok()).toBe(true);
+    expect(pdf.headers()["content-type"]).toBe("application/pdf");
+    expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+    const [download] = await Promise.all([
+      page.waitForEvent("download"), page.getByRole("link", { name: /Descargar PDF/ }).click(),
+    ]);
+    expect(download.suggestedFilename()).toBe("healthcare-and-illnesses.pdf");
+    expect(await download.failure()).toBeNull();
     await expect(page.getByRole("link", { name: "Volver al inicio" })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });

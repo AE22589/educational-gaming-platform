@@ -1,85 +1,89 @@
 # Workbook curriculum
 
-The owner approved tracking the complete editable source at `docs/SectionList.xlsx`. From the repository root,
-using Python 3.10 or later, run:
+The editable source is `docs/SectionList.xlsx`. Run `npm run import:curriculum`
+from the repository root with Python 3.10 or later on PATH. `npm run build` runs
+the same import before the static export, including for GitHub Pages.
 
-```powershell
-python -X utf8 scripts/import-curriculum.py docs/SectionList.xlsx
-```
+Errors identify the workbook cell where possible and leave the previous
+`src/features/curriculum/curriculum.generated.json` in place. Review the workbook
+and generated public fields before release.
 
-The importer reads a standard, unencrypted XLSX. It validates IDs, book
-references, subject/route pairs and local WebP paths, and joins vocabulary to units
-by `Section ID`. Errors name the workbook cell when available and leave the previous
-export in place. The only generated file to track is
-`src/features/curriculum/curriculum.generated.json`. It contains a fixed set of
-public fields. The complete owner-approved source workbook is tracked in Git;
-review any private columns before making further public releases. Review the generated
-diff before committing, especially free-text cells.
+## Sections and subsections
 
-## Add a unit
+Use the `Books_main_sub_sections` tab and keep rows in display order.
 
-1. Add a row to `Books_sections_games`. Use `English` with `englishworld` or
-   `Science` with `scienceworld`. Set `Grade` to `Primary 1` through `Primary 6`,
-   `Book Reference` to e.g. `Book1`, and `Book ID` to the matching
-   subject-grade-book ID, e.g. `english-2-b1`. Books are inferred from these
-   columns because the workbook has no independent book table.
-2. Set a unique, stable `Section ID` prefixed with the book ID and a hyphen.
-   Fill in `Section Name` and optionally `Section Description in Spanish`.
-   Arrange rows in display order within each book. The workbook has no order
-   column. Titles default to English, independently of `Subject`. Add the
-   optional `Content Language` column with `es` for Spanish titles or `en`
-   for English.
-3. Place a lossless WebP in the matching `public/englishworld/` or
-   `public/scienceworld/` directory and register it in `docs/assets.md`.
-   Enter its public path, e.g. `/englishworld/my-unit.webp`, in `Section ImagePath`.
-   This column is optional. For vocabulary, enter individual image paths in
-   `vocabulary_list.ImagePath`. A composite illustration does not identify a
-   single vocabulary item.
-4. Add vocabulary rows to `vocabulary_list` with the unit's `Section ID`,
-   the `English word`, and optional `Spanish translation` and `Sub Section`.
-   Existing records also include full phrases. Correct the repeated entry at
-   `vocabulary_list!C305` if it is unintended.
-5. List implemented game names in `GameTypes`, separated by semicolons.
-   The importer reports names without an implementation. Units without a
-   playable game show a coming-soon message. The existing body-parts mission
-   retains its original vocabulary, interactive targets and saved progress.
-   Set `Sub Section Yes/No` to `Yes` and list the subsection titles in
-   `List of Sub Sections` in display order. Separate names with commas,
-   semicolons or line breaks. Use those titles in `vocabulary_list.Sub Section`.
-   Each title maps to a static game page at
-   `/unit/<Section ID>/subsection/<subsection slug>/`. Older workbooks
-   without the list column use their vocabulary group names for rows marked
-   `Yes`.
-6. Run the import again and preview with `npm run dev` at
-   http://127.0.0.1:3000/englishworld/ or /scienceworld/. The current workbook
-   has one grade and one book per subject. Students choose from the illustrated homepage
-   grade cards, with only Primaria 2 enabled. The navigation shows their choice. Each world opens its matching
-   book automatically. Each imported unit is statically
-   exported at `/unit/<Section ID>/`. Existing subject and legacy game links
-   continue to work.
+1. Add a main row for each section. Set `Subject` and `Path` to `English` and
+   `englishworld`, or `Science` and `scienceworld`. Enter the `Grade`
+   (for example, `Primary 2`), `Book Reference` (for example, `Book1`), and
+   matching `Book ID` (for example, `english-2-b1`).
+2. Set a stable `Section ID` starting with the book ID and a hyphen. Enter
+   `Section Number`, `Section Name English`, `Section Name Spanish` and
+   optionally `Section Description in Spanish`. Set `Sub Section Yes/No` to
+   `No` and leave the subsection fields blank. Both world catalogs show
+   `Section Number` on their cards. Zero is valid.
+3. For each subsection, add a row with the same book and section details.
+   Set `Sub Section Yes/No` to `Yes` and fill in `Sub Section ID`,
+   `Sub Section Name English` and `Sub Section Name Spanish`. Keep the
+   subsection ID stable, for example `science-2-b2-s02-02`. The worksheets
+   page uses the available Spanish names in workbook row order.
+4. Enter a public WebP path in `ImagePath` for a section card or subsection
+   page, for example `/scienceworld/healthy-habits.webp`. Leave the cell blank
+   if there is no image. Register new assets in [the asset register](assets.md).
+5. Enter supported games in `GameTypes` on the section or subsection row.
+   Separate them with semicolons in the order they should appear. Older
+   workbooks with no inline subsection games can still use `subsection_games`.
 
-For a Pages preview in PowerShell, set `$env:GITHUB_ACTIONS = "true"`, run
-`npm run build`, then `npm run start`. Open
-http://127.0.0.1:3000/educational-gaming-platform/englishworld/. Commit the
-generated JSON with its code and registered assets when approved. GitHub Actions
-builds and publishes `out/` from the repository. Keep the generated `out/`
-folder out of Git. The owner has explicitly approved tracking
-`docs/SectionList.xlsx` alongside the generated public JSON.
+Units export at `/unit/<Section ID>/`. Topic game pages use
+`/unit/<Section ID>/subsection/<English-title-slug>/`. The current world
+catalogs display their corresponding Primaria 2 book.
 
-The ordered subsection names and slugs come from the workbook. The UI uses
-`src/features/curriculum/section-translations.ts` for Spanish section and topic
-labels, keyed by stable IDs. Add translations there when adding topics.
+## Vocabulary and pictures
 
-The optional `subsection_games` sheet assigns games to individual topics.
-Use `Section ID`, `Subsection ID`, `Game Type ID`, and `Display Order`.
-Subsection ID accepts the displayed English title or its URL slug. Game Type ID
-accepts a supported game name or its short ID. Use a positive, unique order
-within each topic. The importer validates the assignment and exports the menu
-in that order. Rows in `vocabulary_list` with the same Section ID and Sub
-Section supply that topic's English prompts and Spanish clues. Missing image
-paths use the Spanish clue in practice games other than Picture Match. Keep
-each English word filled in.
+In `vocabulary_list`, use `Section ID`, `Sub Section ID`,
+`Sub Section Name English`, `English word`, `Spanish translation` and
+`ImagePath`. The subsection ID links a vocabulary row to its topic. Leave
+the subsection fields blank for general section vocabulary.
 
-Vocabulary `ImagePath` values use `/vocabulary/<subject>/<Section ID>/<subsection-slug>/<word-slug>.webp`. Use `general` for section-level words. `No image` and `Find` export an empty image path; `Find` means a matching picture is still needed. Picture Match uses only words with public WebP paths and is hidden when a topic has none. Other games keep Spanish clue fallback.
+Use public WebP paths such as `/vocabulary/<subject>/<Section ID>/<topic-or-general>/<word>.webp`.
+Blank, `No image` and `Find` provide no image of their own. Picture Match uses
+entries with images. Other practice games can use the Spanish clue. See the
+[OpenMoji image mapping](vocabulary-image-map.md) for earlier sourced artwork.
+Keep duplicate vocabulary rows. Reuse the same image path for the same word
+and meaning. The importer shares the first available image across rows with
+the same English term and Spanish translation, ignoring case and alternatives
+such as `Enfadado/a` versus `Enfadado`. Distinct senses use distinct translations,
+for example `Naranja (color)` and `Naranja`.
 
-The current public [image path mapping](vocabulary-image-map.md) lists 46 sourced OpenMoji icons and their workbook row numbers. The public export includes these paths. The owner explicitly approved uploading the complete workbook. The remaining 22 `Find` values await suitable pictures.
+## Printable worksheets
+
+Put files in `public/worksheets/<subject>/<Section ID>/<topic-or-general>/`
+and register them in [the asset register](assets.md). Use `english` or
+`science` for the subject and lowercase `.pdf` or `.docx` filenames with
+letters, digits, hyphens or underscores.
+
+Fill in `Worksheets Path` on the main section row or subsection row. Leave
+it blank when no file is available. Separate multiple paths with semicolons
+or line breaks. The site adds the GitHub Pages base path.
+
+| Section ID | Sub Section ID | Worksheets Path |
+| --- | --- | --- |
+| `science-2-b2-s02` | `science-2-b2-s02-02` | `/worksheets/science/science-2-b2-s02/healthcare-and-illnesses/healthcare-and-illnesses.pdf` |
+| `science-2-b2-s02` | *(blank)* | `/worksheets/science/science-2-b2-s02/general/repaso-habitos.pdf` |
+| `english-2-b1-s01` | *(blank)* | `/worksheets/english/english-2-b1-s01/general/deportes.docx` |
+
+The first example is in the workbook. Add the other paths only after the
+files exist. Use the topic's English-title slug or stable subsection ID
+as its folder. Use `general` on a main section row.
+
+The whole-section view includes all topic worksheets and files assigned
+directly to the section. Each topic view shows its own files. PDFs open
+in the browser's print-capable viewer. Word files download for opening
+and printing in a compatible editor.
+
+Older workbooks using `Books_sections_games` can still be imported.
+Their optional `worksheets` tab uses `Section ID`, `Subsection ID`,
+`Worksheet Title` and `Worksheet Path`.
+
+To preview the GitHub Pages export in PowerShell, set
+`$env:GITHUB_ACTIONS = "true"`, run `npm run build`, then `npm run start`.
+Open http://127.0.0.1:3000/educational-gaming-platform/worksheets/.

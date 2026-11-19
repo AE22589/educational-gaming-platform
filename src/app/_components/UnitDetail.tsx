@@ -21,7 +21,7 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
   const sectionHref = `/unit/${unit.id}/`;
   const translation = getSectionTranslation(unit.id);
   if (subsection) {
-    const spanishTitle = translation?.topics[subsection.id];
+    const spanishTitle = subsection.spanishTitle || translation?.topics[subsection.id];
     const games = unitId === practiceIds.healthyHabits ? subsection.games ?? [] : [];
     const vocabulary = unit.vocabulary.filter(({ subsection: topic }) =>
       topic.toLowerCase() === subsection.title.toLowerCase() || topic.toLowerCase() === subsection.id);
@@ -37,6 +37,8 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
         <header className={topicStyles.heading}>
           <h1 id="curriculum-unit-title" lang={unit.language}>{subsection.title}</h1>
           {spanishTitle && <p lang="es">{spanishTitle}</p>}
+          {subsection.image && <Image className={styles.unitImage} src={`${assetBase}${subsection.image}`}
+            alt="" width={330} height={345} unoptimized />}
         </header>
         <Link href={sectionHref} className={topicStyles.back}><span aria-hidden="true">←</span> Volver a las subsecciones</Link>
         {games.length > 0 && vocabulary.length > 0 ? (
@@ -59,13 +61,13 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
         <Link href={`/${world}/`} className={topicStyles.back}><span aria-hidden="true">←</span> Volver a las secciones</Link>
         <header className={topicStyles.heading}>
           <h1 id="curriculum-unit-title" lang={unit.language}>{unit.title}</h1>
-          {translation && <p lang="es">{translation.title}</p>}
+          {(unit.spanishTitle || translation?.title) && <p lang="es">{unit.spanishTitle || translation?.title}</p>}
         </header>
         <section aria-label="Subsecciones" className={topicStyles.topics}>
           <h2>Elige un tema</h2>
           <ol role="list">
-            {unit.subsections.map(({ id, title }, index) => {
-              const spanish = translation?.topics[id];
+            {unit.subsections.map(({ id, title, spanishTitle }, index) => {
+              const spanish = spanishTitle || translation?.topics[id];
               return (
                 <li key={id}>
                   <Link href={`${sectionHref}subsection/${id}/`} className={topicStyles.topic}>

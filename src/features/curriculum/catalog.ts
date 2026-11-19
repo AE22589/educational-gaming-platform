@@ -1,15 +1,19 @@
 import data from "./curriculum.generated.json";
 
 export type World = "englishworld" | "scienceworld";
-export type CurriculumUnit = Omit<(typeof data.units)[number], "games" | "subsections"> & {
+export type CurriculumUnit = Omit<(typeof data.units)[number], "games" | "subsections" | "number" | "spanishTitle"> & {
   games: string[];
-  subsections: { id: string; title: string; games?: string[] }[];
+  number?: number;
+  spanishTitle?: string;
+  subsections: { id: string; title: string; stableId?: string; spanishTitle?: string; image?: string; games?: string[] }[];
 };
 
 export const availableGrade = 2;
 
 export const { books } = data;
 export const units: CurriculumUnit[] = data.units;
+export type Worksheet = { sectionId: string; subsectionId: string; title: string; path: string };
+export const worksheets: Worksheet[] = data.worksheets;
 
 export function getBookUnits(bookId: string) {
   return units.filter((unit) => unit.bookId === bookId);

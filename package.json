@@ -15,6 +15,8 @@
     "test": "vitest run",
     "playwright": "node scripts/playwright.mjs",
     "test:e2e": "npm run playwright -- test",
+    "import:curriculum": "python -X utf8 scripts/import-curriculum.py docs/SectionList.xlsx",
+    "prebuild": "npm run import:curriculum",
     "build": "next build --webpack",
     "check:docs": "node scripts/validate-repository.mjs && node scripts/check-assets.mjs",
     "test:scripts": "node --test scripts/*.test.mjs"

@@ -3,8 +3,10 @@
 ## Printable worksheets — 2026-11-18
 
 The homepage activity card links to `/worksheets` with the Spanish label
-“Descargar fichas.” The page uses the shared Chispitas placeholder layout
-until the printable PDFs are supplied.
+“Descargar fichas.” The worksheets page uses the curriculum workbook for
+section and topic order. The `Books_main_sub_sections` tab supplies bilingual
+names, section numbers, stable subsection IDs, game menus and worksheet paths.
+Repeated vocabulary rows share the first available image for their meaning.
 
 
 ## Compact homepage — 2026-11-17

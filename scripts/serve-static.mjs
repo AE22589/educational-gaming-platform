@@ -8,12 +8,14 @@ const basePath =
   process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
 const mimeTypes = new Map([
   [".css", "text/css; charset=utf-8"],
+  [".docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
   [".html", "text/html; charset=utf-8"],
   [".ico", "image/x-icon"],
   [".jpeg", "image/jpeg"],
   [".jpg", "image/jpeg"],
   [".js", "text/javascript; charset=utf-8"],
   [".json", "application/json; charset=utf-8"],
+  [".pdf", "application/pdf"],
   [".png", "image/png"],
   [".svg", "image/svg+xml"],
   [".txt", "text/plain; charset=utf-8"],

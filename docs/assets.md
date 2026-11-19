@@ -1,5 +1,11 @@
 # Asset Register
 
+## Printable worksheets
+
+| Public file | Source |
+| --- | --- |
+| `public/worksheets/science/science-2-b2-s02/healthcare-and-illnesses/healthcare-and-illnesses.pdf` | Existing revised Chispitas worksheet. OpenMoji illustrations are credited on the page under CC BY-SA 4.0. |
+
 ## Rules for artwork and media in `public/`
 
 - **Format:** raster images are WebP. GIF, PNG and JPEG files are not allowed in

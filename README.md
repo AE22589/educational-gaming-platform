@@ -108,3 +108,4 @@ in `AGENTS.md`. CI enforces the minimum through `scripts/check-docs-impact.mjs`.
 
 For the owner-approved workbook import and GitHub Pages preview, see
 [Workbook curriculum](docs/curriculum-import.md).
+Production builds require Python 3.10 or later on PATH to import the workbook.

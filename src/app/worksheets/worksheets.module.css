@@ -1,0 +1,88 @@
+.page :global(.coming-soon-card) {
+  align-items: flex-start;
+}
+
+.browser {
+  display: grid;
+  gap: 14px;
+}
+
+.browser h2, .browser h3, .browser h4, .browser p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.choices, .filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filters label {
+  display: grid;
+  flex: 1 1 130px;
+  min-width: 0;
+  gap: 4px;
+  font-weight: 750;
+}
+
+.filters .topicFilter {
+  flex-basis: 100%;
+}
+
+.browser button, .browser a, .filters select {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #adc5e7;
+  border-radius: 12px;
+  background: #edf5ff;
+  color: #123777;
+  font-weight: 750;
+}
+
+.browser button {
+  cursor: pointer;
+  text-align: left;
+}
+
+.browser button:hover, .browser a:hover {
+  background: #dbeaff;
+}
+
+.browser a {
+  text-decoration: underline;
+}
+
+.filters select {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+.sections, .files {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sections {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+}
+
+.sections button {
+  width: 100%;
+  height: 100%;
+  overflow-wrap: anywhere;
+}
+
+.files li {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #adc5e7;
+  border-radius: 16px;
+}

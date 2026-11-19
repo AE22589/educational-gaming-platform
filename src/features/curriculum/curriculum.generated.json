@@ -25,27 +25,51 @@
       "subsections": [
         {
           "id": "colors",
-          "title": "Colors"
+          "title": "Colors",
+          "stableId": "english-2-b1-s00-01",
+          "spanishTitle": "Colores",
+          "image": "",
+          "games": []
         },
         {
           "id": "numbers",
-          "title": "Numbers"
+          "title": "Numbers",
+          "stableId": "english-2-b1-s00-02",
+          "spanishTitle": "Números",
+          "image": "",
+          "games": []
         },
         {
           "id": "days-of-the-week",
-          "title": "Days of the week"
+          "title": "Days of the week",
+          "stableId": "english-2-b1-s00-03",
+          "spanishTitle": "Días de la semana",
+          "image": "",
+          "games": []
         },
         {
           "id": "family",
-          "title": "Family"
+          "title": "Family",
+          "stableId": "english-2-b1-s00-04",
+          "spanishTitle": "Familia",
+          "image": "",
+          "games": []
         },
         {
           "id": "animals",
-          "title": "Animals"
+          "title": "Animals",
+          "stableId": "english-2-b1-s00-05",
+          "spanishTitle": "Animales",
+          "image": "",
+          "games": []
         },
         {
           "id": "emotions",
-          "title": "Emotions"
+          "title": "Emotions",
+          "stableId": "english-2-b1-s00-06",
+          "spanishTitle": "Emociones",
+          "image": "",
+          "games": []
         }
       ],
       "vocabulary": [
@@ -75,7 +99,7 @@
         },
         {
           "word": "Orange",
-          "translation": "Naranja",
+          "translation": "Naranja (color)",
           "subsection": "Colors",
           "image": "/vocabulary/english/english-2-b1-s00/colors/orange.webp"
         },
@@ -539,25 +563,25 @@
           "word": "Happy",
           "translation": "Feliz",
           "subsection": "Emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy-supplied.webp"
         },
         {
           "word": "Sad",
           "translation": "Triste",
           "subsection": "Emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad-supplied.webp"
         },
         {
           "word": "Angry",
           "translation": "Enfadado",
           "subsection": "Emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry-supplied.webp"
         },
         {
           "word": "Scared",
           "translation": "Asustado",
           "subsection": "Emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared-supplied.webp"
         },
         {
           "word": "Tired",
@@ -599,7 +623,7 @@
           "word": "Surprised",
           "translation": "Sorprendido",
           "subsection": "Emotions",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised-supplied.webp"
         },
         {
           "word": "Worried",
@@ -619,7 +643,9 @@
           "subsection": "Emotions",
           "image": ""
         }
-      ]
+      ],
+      "number": 0,
+      "spanishTitle": "¡Aprendamos lo básico!"
     },
     {
       "id": "english-2-b1-s01",
@@ -716,7 +742,7 @@
           "word": "Helmet",
           "translation": "Casco",
           "subsection": "",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp"
         },
         {
           "word": "Gloves",
@@ -736,7 +762,9 @@
           "subsection": "",
           "image": "/vocabulary/english/english-2-b1-s01/general/elbow-pads.webp"
         }
-      ]
+      ],
+      "number": 1,
+      "spanishTitle": "¡Practiquemos deportes!"
     },
     {
       "id": "english-2-b1-s02",
@@ -889,7 +917,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 2,
+      "spanishTitle": "¡Descubre las estaciones!"
     },
     {
       "id": "english-2-b1-s03",
@@ -959,7 +989,7 @@
           "word": "Snake",
           "translation": "Serpiente",
           "subsection": "",
-          "image": "/vocabulary/english/english-2-b1-s03/general/snake.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp"
         },
         {
           "word": "Zebra",
@@ -1001,7 +1031,7 @@
           "word": "Mouth",
           "translation": "Boca",
           "subsection": "",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s01/general/mouth.webp"
         },
         {
           "word": "Ears",
@@ -1009,7 +1039,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 3,
+      "spanishTitle": "¡El increíble mundo de los animales!"
     },
     {
       "id": "english-2-b1-s04",
@@ -1109,7 +1141,7 @@
           "word": "Watermelon",
           "translation": "Sandía",
           "subsection": "",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon-supplied.webp"
         },
         {
           "word": "Rugby",
@@ -1123,7 +1155,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 4,
+      "spanishTitle": "Alrededor del mundo y frutas saludables"
     },
     {
       "id": "english-2-b1-s05",
@@ -1261,7 +1295,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 5,
+      "spanishTitle": "Lugares para visitar y cosas que hacer"
     },
     {
       "id": "english-2-b1-s06",
@@ -1301,7 +1337,7 @@
           "word": "Shells",
           "translation": "Conchas",
           "subsection": "",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s01/general/shells.webp"
         },
         {
           "word": "Sandcastle",
@@ -1363,7 +1399,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 6,
+      "spanishTitle": "¡Un día en la playa!"
     },
     {
       "id": "english-2-b1-s07",
@@ -1477,7 +1515,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 7,
+      "spanishTitle": "¡Viajemos con seguridad!"
     },
     {
       "id": "english-2-b1-s08",
@@ -1529,7 +1569,7 @@
           "word": "Stairs",
           "translation": "Escaleras",
           "subsection": "",
-          "image": ""
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs-supplied.webp"
         },
         {
           "word": "Lift",
@@ -1627,7 +1667,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 8,
+      "spanishTitle": "Mi casa y mis cosas favoritas"
     },
     {
       "id": "english-2-b1-s09",
@@ -1759,7 +1801,9 @@
           "subsection": "",
           "image": ""
         }
-      ]
+      ],
+      "number": 9,
+      "spanishTitle": "¡Aventuras y recuerdos en familia!"
     },
     {
       "id": "science-2-b2-s01",
@@ -2097,7 +2141,9 @@
           "subsection": "",
           "image": "/vocabulary/science/science-2-b2-s01/general/peg.webp"
         }
-      ]
+      ],
+      "number": 1,
+      "spanishTitle": "¡Mi cuerpo es increíble!"
     },
     {
       "id": "science-2-b2-s02",
@@ -2111,6 +2157,9 @@
         {
           "id": "health-and-the-body",
           "title": "Health and the body",
+          "stableId": "science-2-b2-s02-01",
+          "spanishTitle": "La salud y el cuerpo",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2123,6 +2172,9 @@
         {
           "id": "healthcare-and-illnesses",
           "title": "Healthcare and illnesses",
+          "stableId": "science-2-b2-s02-02",
+          "spanishTitle": "Atención sanitaria y enfermedades",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2135,6 +2187,9 @@
         {
           "id": "healthy-habits-and-hygiene",
           "title": "Healthy habits and hygiene",
+          "stableId": "science-2-b2-s02-03",
+          "spanishTitle": "Hábitos saludables e higiene",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2147,6 +2202,9 @@
         {
           "id": "food-and-drinks",
           "title": "Food and drinks",
+          "stableId": "science-2-b2-s02-04",
+          "spanishTitle": "Alimentos y bebidas",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2159,6 +2217,9 @@
         {
           "id": "food-groups-and-nutrition",
           "title": "Food groups and nutrition",
+          "stableId": "science-2-b2-s02-05",
+          "spanishTitle": "Grupos de alimentos y nutrición",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2171,6 +2232,9 @@
         {
           "id": "meals-and-menus",
           "title": "Meals and menus",
+          "stableId": "science-2-b2-s02-06",
+          "spanishTitle": "Comidas y menús",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2183,6 +2247,9 @@
         {
           "id": "accidents-and-safety",
           "title": "Accidents and safety",
+          "stableId": "science-2-b2-s02-07",
+          "spanishTitle": "Accidentes y seguridad",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2195,6 +2262,9 @@
         {
           "id": "feelings-and-emotions",
           "title": "Feelings and emotions",
+          "stableId": "science-2-b2-s02-08",
+          "spanishTitle": "Sentimientos y emociones",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2207,6 +2277,9 @@
         {
           "id": "time-and-frequency-expressions",
           "title": "Time and frequency expressions",
+          "stableId": "science-2-b2-s02-09",
+          "spanishTitle": "Expresiones de tiempo y frecuencia",
+          "image": "",
           "games": [
             "Picture Match",
             "Mystery Word",
@@ -2222,7 +2295,7 @@
           "word": "Body",
           "translation": "Cuerpo",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/body-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/body.webp"
         },
         {
           "word": "Healthy",
@@ -2306,7 +2379,7 @@
           "word": "Muscles",
           "translation": "Músculos",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/muscles.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/muscles.webp"
         },
         {
           "word": "Strong muscles",
@@ -2318,7 +2391,7 @@
           "word": "Bones",
           "translation": "Huesos",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/bones-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/bones.webp"
         },
         {
           "word": "Joint",
@@ -2732,7 +2805,7 @@
           "word": "Apple",
           "translation": "Manzana",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/apple.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/apple.webp"
         },
         {
           "word": "Meat",
@@ -3176,7 +3249,7 @@
           "word": "Knee pads",
           "translation": "Rodilleras",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/knee-pads.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp"
         },
         {
           "word": "Goggles",
@@ -3194,7 +3267,7 @@
           "word": "Swimming pool",
           "translation": "Piscina",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/swimming-pool.webp"
+          "image": "/vocabulary/english/english-2-b1-s05/general/swimming-pool.webp"
         },
         {
           "word": "Bike",
@@ -3352,7 +3425,9 @@
           "subsection": "Time and frequency expressions",
           "image": ""
         }
-      ]
+      ],
+      "number": 2,
+      "spanishTitle": "¡Hábitos saludables, vida feliz!"
     },
     {
       "id": "science-2-b2-s03",
@@ -3363,7 +3438,9 @@
       "image": "/scienceworld/animal-kingdom.webp",
       "games": [],
       "subsections": [],
-      "vocabulary": []
+      "vocabulary": [],
+      "number": 3,
+      "spanishTitle": "¡Descubre el reino animal!"
     },
     {
       "id": "science-2-b2-s04",
@@ -3374,7 +3451,9 @@
       "image": "/scienceworld/plants.webp",
       "games": [],
       "subsections": [],
-      "vocabulary": []
+      "vocabulary": [],
+      "number": 4,
+      "spanishTitle": "¡Cultivemos plantas!"
     },
     {
       "id": "science-2-b2-s05",
@@ -3385,7 +3464,9 @@
       "image": "/scienceworld/planet.webp",
       "games": [],
       "subsections": [],
-      "vocabulary": []
+      "vocabulary": [],
+      "number": 5,
+      "spanishTitle": "¡Salvemos nuestro planeta!"
     },
     {
       "id": "science-2-b2-s06",
@@ -3396,7 +3477,17 @@
       "image": "/scienceworld/technology.webp",
       "games": [],
       "subsections": [],
-      "vocabulary": []
+      "vocabulary": [],
+      "number": 6,
+      "spanishTitle": "¡La tecnología que nos rodea!"
+    }
+  ],
+  "worksheets": [
+    {
+      "sectionId": "science-2-b2-s02",
+      "subsectionId": "science-2-b2-s02-02",
+      "title": "Atención sanitaria y enfermedades",
+      "path": "/worksheets/science/science-2-b2-s02/healthcare-and-illnesses/healthcare-and-illnesses.pdf"
     }
   ]
 }

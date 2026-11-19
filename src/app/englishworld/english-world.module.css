@@ -44,6 +44,19 @@
 }
 
 .unitCard { position: relative; }
+.sectionNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.55em;
+  height: 1.55em;
+  margin-inline-end: .15em;
+  padding-inline: .2em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: .72em;
+  vertical-align: .11em;
+}
 
 .sectionLink::after {
   position: absolute;

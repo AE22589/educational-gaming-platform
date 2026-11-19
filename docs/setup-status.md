@@ -1,7 +1,11 @@
 # Current setup status — 2026-11-05
 
 The homepage links to `/worksheets` from the printable activities card.
-The destination displays a coming-soon message for printable PDFs.
+Parents can browse worksheet files by subject, grade, book, section and topic.
+The first mapped PDF is under Science, Primary 2, Book 2, Healthy Habits,
+Healthcare and illnesses. The build imports the workbook before the static export.
+English World and Science World show the workbook's section numbers in circular
+badges on their cards. Subsection games are read from the first sheet.
 
 
 This file describes the state of `main`. Update it in every pull request that

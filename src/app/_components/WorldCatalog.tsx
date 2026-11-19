@@ -30,7 +30,7 @@ export function WorldCatalog({ world, title, units }: {
   );
 }
 
-type SectionCard = Pick<CurriculumUnit, "id" | "title" | "language" | "description" | "image"> & {
+type SectionCard = Pick<CurriculumUnit, "id" | "title" | "language" | "description" | "image" | "number"> & {
   tone: ReturnType<typeof getSectionTone>;
   href: string;
 };
@@ -49,7 +49,10 @@ function SectionCards({ world, cards }: {
               : <span className={scienceStyles.illustration} aria-hidden="true">📚</span>}
           </div>
           <div className={`home-tile-copy ${styles.copy} ${scienceStyles.copy}`}>
-            <h2 id={`unit-${unit.id}`} className="home-tile-title" lang={unit.language}>{unit.title}</h2>
+            <h2 id={`unit-${unit.id}`} className="home-tile-title" lang={unit.language}>
+              {unit.number !== undefined && <><span className={styles.sectionNumber}>{unit.number}</span>{" "}</>}
+              {unit.title}
+            </h2>
             {unit.description && <p className="home-tile-description">{unit.description}</p>}
             {unit.href ? (
               <Link href={unit.href} className={`home-tile-button ${styles.button} ${styles.sectionLink}`}
