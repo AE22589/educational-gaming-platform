@@ -567,3 +567,11 @@ My Little Friend reuses the Star Shop cream panel and botanical title artwork, w
 All routes share the same responsive primary header dimensions and colors. The homepage keeps its three existing destinations in the shared four-column grid. My Little Friend leaves a small gap below the shared header.
 
 Use the previous homepage's navigation tile height, artwork size and corner radius at each breakpoint across the site. Four equal columns keep tile widths consistent across routes and retain the interior-page Home link.
+
+## Worksheet shortcuts — 2026-11-20
+
+Use the workbook's worksheet registry for “Imprimir fichas” on section and topic
+pages. A section includes all PDFs in its topics. A topic uses its stable
+workbook ID to select its own PDFs. Hide the action when there are zero PDFs,
+open a single PDF in a new tab, and open the prefiltered Worksheets list when
+there are multiple PDFs.

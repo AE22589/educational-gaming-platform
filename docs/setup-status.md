@@ -4,6 +4,9 @@ The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.
 The first mapped PDF is under Science, Primary 2, Book 2, Healthy Habits,
 Healthcare and illnesses. The build imports the workbook before the static export.
+Section and topic pages show an “Imprimir fichas” action when matching PDFs exist.
+One PDF opens in a new tab. Multiple PDFs open the Worksheets page with the
+section and, when applicable, the topic already selected.
 English World and Science World show the workbook's section numbers in circular
 badges on their cards. Subsection games are read from the first sheet.
 

@@ -7,6 +7,7 @@ import { UnitGames } from "../englishworld/sports/UnitGames";
 import { getPracticeVocabulary } from "../englishworld/sports/unit-content";
 import practiceStyles from "../englishworld/sports/sports.module.css";
 import styles from "../englishworld/english-world.module.css";
+import { PrintWorksheetsLink } from "./PrintWorksheetsLink";
 import { bodyGame, getUnitActivity } from "./unit-activity";
 import topicStyles from "./subsections.module.css";
 
@@ -20,6 +21,7 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
   const { world } = getBook(unit.bookId);
   const sectionHref = `/unit/${unit.id}/`;
   const translation = getSectionTranslation(unit.id);
+  const printWorksheets = <PrintWorksheetsLink sectionId={unit.id} subsectionId={subsection?.stableId ?? subsection?.id} />;
   if (subsection) {
     const spanishTitle = subsection.spanishTitle || translation?.topics[subsection.id];
     const games = unitId === practiceIds.healthyHabits ? subsection.games ?? [] : [];
@@ -39,6 +41,7 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
           {spanishTitle && <p lang="es">{spanishTitle}</p>}
           {subsection.image && <Image className={styles.unitImage} src={`${assetBase}${subsection.image}`}
             alt="" width={330} height={345} unoptimized />}
+          {printWorksheets}
         </header>
         <Link href={sectionHref} className={topicStyles.back}><span aria-hidden="true">←</span> Volver a las subsecciones</Link>
         {games.length > 0 && vocabulary.length > 0 ? (
@@ -62,6 +65,7 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
         <header className={topicStyles.heading}>
           <h1 id="curriculum-unit-title" lang={unit.language}>{unit.title}</h1>
           {(unit.spanishTitle || translation?.title) && <p lang="es">{unit.spanishTitle || translation?.title}</p>}
+          {printWorksheets}
         </header>
         <section aria-label="Subsecciones" className={topicStyles.topics}>
           <h2>Elige un tema</h2>
@@ -100,6 +104,7 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
         {unit.image && <Image className={styles.unitImage} src={`${assetBase}${unit.image}`} alt="" width={330} height={345} unoptimized />}
         <h1 id="curriculum-unit-title" lang={unit.language}>{unit.title}</h1>
         {unit.description && <p>{unit.description}</p>}
+        {printWorksheets}
       </header>
       {activity === "body" ? <Link className={`home-tile-button ${styles.button}`} href="/scienceworld/body/">{bodyGame}</Link>
         : activity ? <UnitGames unit={activity} vocabulary={getPracticeVocabulary(unit, activity)} availableGames={unit.games} />

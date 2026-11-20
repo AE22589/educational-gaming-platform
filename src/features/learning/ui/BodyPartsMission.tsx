@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { useProfile } from "@/features/profile/ui/ProfileProvider";
 import { BODY_PARTS_TEXT, BODY_PARTS_WORDS, completedAdventureStations, roundWords, type BodyWord } from "../body-parts-mission";
 
@@ -52,7 +52,7 @@ function DragonMarker() {
   </svg>;
 }
 
-export function BodyPartsMission() {
+export function BodyPartsMission({ worksheetLink }: { worksheetLink: ReactNode }) {
   const { service, state } = useProfile();
   const progress = state.status === "ready" ? state.snapshot.bodyMissionProgress : null;
   const canStartRun = state.status === "ready" && state.ownership === "exclusive";
@@ -189,7 +189,7 @@ export function BodyPartsMission() {
   if (state.status === "ready" && state.ownership === "read-only") return <section className="body-mission-card"><h1>{BODY_PARTS_TEXT.title}</h1><p>{BODY_PARTS_TEXT.readOnly}</p></section>;
 
   return <section className="body-mission" aria-labelledby="body-mission-title">
-    <header className="body-mission-heading"><div><div className="body-heading-topline"><Link className="body-back-link" href="/scienceworld">{BODY_PARTS_TEXT.backToScienceWorld}</Link><p className="body-mission-kicker">{BODY_PARTS_TEXT.eyebrow}</p></div><h1 id="body-mission-title">{BODY_PARTS_TEXT.title}</h1><p>{BODY_PARTS_TEXT.instructions} {BODY_PARTS_TEXT.alternative}</p></div><button type="button" className="body-help-button" aria-label={BODY_PARTS_TEXT.helpLabel} onClick={() => { setDemo(true); setDemoStep(0); }}>?</button></header>
+    <header className="body-mission-heading"><div><div className="body-heading-topline"><Link className="body-back-link" href="/scienceworld">{BODY_PARTS_TEXT.backToScienceWorld}</Link><p className="body-mission-kicker">{BODY_PARTS_TEXT.eyebrow}</p></div><h1 id="body-mission-title">{BODY_PARTS_TEXT.title}</h1><p>{BODY_PARTS_TEXT.instructions} {BODY_PARTS_TEXT.alternative}</p>{worksheetLink}</div><button type="button" className="body-help-button" aria-label={BODY_PARTS_TEXT.helpLabel} onClick={() => { setDemo(true); setDemoStep(0); }}>?</button></header>
     <div className="body-progress-wrap">
       <div className="body-progress-path" style={{ backgroundImage: `url("${assetBase}/learning/adventure-progress-path.webp")` }} role="progressbar" aria-label="Camino de juegos" aria-valuemin={0} aria-valuemax={7} aria-valuenow={gamesCompleted}>
         <span className="body-path-dragon" style={{ left: `${dragonPoint[0]}%`, top: `${dragonPoint[1]}%` }} aria-hidden="true"><Image className="body-dragon-gif" src={`${assetBase}/learning/dragon-progress.webp`} alt="" width={64} height={64} unoptimized/><span className="body-dragon-still"><DragonMarker/></span></span>

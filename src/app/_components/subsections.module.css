@@ -57,6 +57,23 @@
   font-weight: 650;
 }
 
+.printWorksheets {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  min-height: 44px;
+  margin-block-start: 0.35rem;
+  color: #2e1d69;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.printWorksheets:hover {
+  color: #532d93;
+}
+
 .topics h2,
 .empty h2 {
   margin: 0 0 0.75rem;

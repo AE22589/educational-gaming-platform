@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getSectionTone, type CurriculumUnit, type World } from "@/features/curriculum/catalog";
+import { getSectionTone, worksheets, type CurriculumUnit, type World } from "@/features/curriculum/catalog";
+import { isWorksheetPdf } from "@/features/curriculum/worksheet-files";
 import styles from "../englishworld/english-world.module.css";
 import scienceStyles from "../scienceworld/science-world.module.css";
 import { getUnitActivity } from "./unit-activity";
@@ -24,7 +25,9 @@ export function WorldCatalog({ world, title, units }: {
       <SectionCards world={world} cards={units.map((unit) => ({
         ...unit,
         tone: getSectionTone(unit),
-        href: unit.subsections.length || getUnitActivity(unit) ? `/unit/${unit.id}/` : "",
+        href: unit.subsections.length || getUnitActivity(unit) ||
+          worksheets.some(({ sectionId, path }) => sectionId === unit.id && isWorksheetPdf(path))
+          ? `/unit/${unit.id}/` : "",
       }))} />
     </section>
   );
