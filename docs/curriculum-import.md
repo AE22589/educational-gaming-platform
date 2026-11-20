@@ -34,6 +34,8 @@ Use the `Books_main_sub_sections` tab and keep rows in display order.
 5. Enter supported games in `GameTypes` on the section or subsection row.
    Separate them with semicolons in the order they should appear. Older
    workbooks with no inline subsection games can still use `subsection_games`.
+   When implementing a new game, add its display name once to `list_of_games`
+   and assign it in the relevant `GameTypes` cell.
 
 Units export at `/unit/<Section ID>/`. Topic game pages use
 `/unit/<Section ID>/subsection/<English-title-slug>/`. The current world

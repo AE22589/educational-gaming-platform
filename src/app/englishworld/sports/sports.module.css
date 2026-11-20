@@ -175,7 +175,7 @@
   pointer-events: none;
 }
 
-.sceneObject .equipmentPicture { width: 87%; height: auto; }
+.sceneObject .equipmentPicture { width: 87%; height: 87%; }
 .sceneObject .racket { scale: .8; }
 .page .sceneObject[data-found="true"] {
   border-color: #25804a;
@@ -263,8 +263,10 @@
 
 .picture {
   display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   width: 126px;
+  max-width: 100%;
   height: 106px;
   margin: 0 auto 15px;
   border-radius: 23px;
@@ -295,7 +297,13 @@
   line-height: 1.15;
 }
 
-.equipmentPicture { object-fit: contain; }
+.equipmentPicture {
+  width: 96px;
+  height: 96px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 .racket {
   position: relative;
   display: block;
@@ -316,6 +324,32 @@
   height: 26px;
   border-radius: 4px;
   background: #56338d;
+}
+
+.foodChoices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 480px;
+  margin: 10px auto;
+}
+
+.page .foodChoices .foodChoice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  padding-inline: 5px;
+  justify-items: center;
+  gap: 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+.foodChoice .picture {
+  width: 100%;
+  max-width: 126px;
+  height: auto;
+  aspect-ratio: 126 / 106;
+  margin: 0;
 }
 
 .choices, .answerTray, .actions, .targets {
@@ -373,7 +407,12 @@
 }
 .results span { padding: 5px 12px; border-radius: 999px; background: #dff6e2; color: #23542e; }
 .results span + span { background: #ffebef; color: #732f49; }
-.missing { font-size: clamp(1.25rem, 5.6vw, 2.15rem); letter-spacing: .08em; font-weight: 900; }
+.missing {
+  font-size: clamp(1.25rem, 5.6vw, 2.15rem);
+  letter-spacing: .08em;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
 .answerTray { min-height: 70px; max-width: 650px; padding: 9px; border: 2px dashed #ad92de; border-radius: 15px; background: #faf7ff; }
 .answerTray > span { font-size: .92rem; color: #564570; }
 .input { min-height: 44px; width: min(100%, 255px); padding: 8px 12px; border: 2px solid #a888dd; border-radius: 12px; color: var(--ink); font: inherit; }

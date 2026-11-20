@@ -59,6 +59,54 @@ test("English and Science catalogs use their own book and export unit links", as
   await expect(page).toHaveURL(`${base}/scienceworld/body/`);
 });
 
+test("Food and Drinks offers both food group games", async ({ page }) => {
+  await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
+  await page.getByRole("button", { name: "Food Group Sort" }).click();
+  const game = page.getByRole("region", { name: "Food Group Sort" });
+  await expect(game.getByText("bread", { exact: true })).toBeVisible();
+  await expect(game.locator("img")).toHaveCount(1);
+  await game.getByRole("button", { name: "Growth" }).click();
+  await expect(game.getByText("Casi. ¡Inténtalo otra vez!")).toBeVisible();
+  await game.getByRole("button", { name: "Energy" }).click();
+  await game.getByRole("button", { name: "Continuar" }).click();
+  await expect(game.getByText("Ronda 2 de 18", { exact: true })).toBeVisible();
+
+  await page.getByRole("button", { name: "Find the Food" }).click();
+  const find = page.getByRole("region", { name: "Find the Food" });
+  await expect(find.getByText("Ronda 1 de 18", { exact: true })).toBeVisible();
+  await expect(find.getByText("Energy", { exact: true })).toBeVisible();
+  await expect(find.locator("img")).toHaveCount(3);
+  await find.getByRole("button", { name: /\bbread\b/ }).click();
+  await expect(find.getByText("¡Muy bien!")).toBeVisible();
+});
+
+test("Mystery Word keeps the tall milk picture above the word on desktop and mobile", async ({ page }) => {
+  await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
+  await page.getByRole("button", { name: "Mystery Word" }).click();
+  const game = page.getByRole("region", { name: "Mystery Word" });
+  for (const [round, word] of ["food", "healthy diet", "healthy meal", "healthy breakfast", "favourite food", "water"].entries()) {
+    const letters = word.replaceAll(" ", "");
+    const missing = letters[(round + 1) % letters.length]!;
+    await game.getByRole("button", { name: missing, exact: true }).click();
+    await game.getByRole("button", { name: "Continuar" }).click();
+  }
+
+  const picture = game.getByRole("img", { name: "Leche", exact: true });
+  const word = game.getByLabel("m i l blank", { exact: true });
+  for (const width of [1280, 360]) {
+    await page.setViewportSize({ width, height: 900 });
+    const imageBox = await picture.locator("img").boundingBox();
+    const frameBox = await picture.boundingBox();
+    const wordBox = await word.boundingBox();
+    expect(imageBox).not.toBeNull();
+    expect(frameBox).not.toBeNull();
+    expect(wordBox).not.toBeNull();
+    expect(imageBox!.y).toBeGreaterThanOrEqual(frameBox!.y);
+    expect(imageBox!.y + imageBox!.height).toBeLessThanOrEqual(frameBox!.y + frameBox!.height);
+    expect(frameBox!.y + frameBox!.height).toBeLessThan(wordBox!.y);
+  }
+});
+
 test("Healthy Habits opens from Science World and runs the shared practice games", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${base}/scienceworld/`);
@@ -137,7 +185,7 @@ for (const section of [
     await expect(breadcrumb.locator('[aria-current="page"]')).toContainText(section.topic);
     if (section.world === "scienceworld") {
       const menu = page.getByRole("region", { name: "Juegos de ciencias" });
-      await expect(menu.getByRole("button")).toHaveCount(6);
+      await expect(menu.getByRole("button")).toHaveCount(8);
       await menu.getByRole("button", { name: "Picture Match" }).click();
       const match = page.getByRole("region", { name: "Picture Match" });
       await expect(match.locator("img")).toBeVisible();

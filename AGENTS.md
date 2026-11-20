@@ -22,6 +22,10 @@ The detailed rules follow below.
 - This rule does not change the Spanish product UI or English learning vocabulary/audio.
 
 ## Product
+- When adding a game, register its display name in the `list_of_games` tab of
+  `docs/SectionList.xlsx`, update the relevant `GameTypes` assignment, and
+  regenerate the curriculum.
+
 - Treat docs/mvp.md and docs/mvp-development-plan-1.1.md as the recommended starting scope, not a binding product boundary.
 - Master-plan features and other expansions may be implemented when selected by the owner; clarify scope only when the requested outcome is genuinely ambiguous.
 - UI Spanish; animal vocabulary/audio English; code English.

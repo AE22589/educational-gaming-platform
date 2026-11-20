@@ -567,3 +567,9 @@ My Little Friend reuses the Star Shop cream panel and botanical title artwork, w
 All routes share the same responsive primary header dimensions and colors. The homepage keeps its three existing destinations in the shared four-column grid. My Little Friend leaves a small gap below the shared header.
 
 Use the previous homepage's navigation tile height, artwork size and corner radius at each breakpoint across the site. Four equal columns keep tile widths consistent across routes and retain the interior-page Home link.
+
+## Food and Drinks categorization games - 2026-11-20
+
+Food and Drinks adds Food Group Sort and Find the Food. Both use the shared practice interface and the subsection's illustrated vocabulary. The groups are Energy, Vitamins & Fibre, and Growth.
+
+Both games use the 18 foods in the three groups from the supplied curriculum chart. Water is shown separately in the chart and is outside the three sorting groups.

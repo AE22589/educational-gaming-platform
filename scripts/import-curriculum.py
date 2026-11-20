@@ -26,6 +26,7 @@ PRACTICE_GAMES = {
 COMMON_GAMES = {
     *PRACTICE_GAMES.values(), "Look & Find",
 }
+FOOD_GROUP_GAMES = {"Food Group Sort", "Find the Food"}
 IMPLEMENTED = {
     "english-2-b1-s01": COMMON_GAMES | {"Play, Go, Do, Wear?"},
     "english-2-b1-s02": COMMON_GAMES | {"Weather, Season or Activity?"},
@@ -230,10 +231,13 @@ def assign_subsection_games(rows, units):
         topics[key]["games"] = [menu[order] for order in sorted(menu)]
 
 
-def inline_subsection_games(value, location):
+def inline_subsection_games(value, location, subsection_id):
     names = [name.strip() for name in value.split(";") if name.strip()]
     games = [PRACTICE_GAMES.get(name, name) for name in names]
-    if any(game not in PRACTICE_GAMES.values() for game in games):
+    allowed = set(PRACTICE_GAMES.values())
+    if subsection_id == "science-2-b2-s02-04":
+        allowed.update(FOOD_GROUP_GAMES)
+    if any(game not in allowed for game in games):
         raise ValueError(f"{location}: unsupported subsection game")
     if len(set(games)) != len(games):
         raise ValueError(f"{location}: duplicate subsection game")
@@ -367,7 +371,8 @@ def export(workbook):
                 subsections[-1].update(stableId=stable_id, spanishTitle=fields["Sub Section Name Spanish"],
                                        image=image_path(fields["ImagePath"], at("ImagePath")))
                 if has_inline_games:
-                    subsections[-1]["games"] = inline_subsection_games(fields.get("GameTypes", ""), at("GameTypes"))
+                    subsections[-1]["games"] = inline_subsection_games(
+                        fields.get("GameTypes", ""), at("GameTypes"), subsections[-1]["stableId"])
         unit["subsections"] = subsections
         if unit["id"] in {"english-2-b1-s01", "english-2-b1-s02", "science-2-b2-s02"} and unit["games"]:
             if len({row["word"].casefold() for row in unit["vocabulary"]}) < 4:
