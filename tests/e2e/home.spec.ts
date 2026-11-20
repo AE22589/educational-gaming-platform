@@ -154,6 +154,9 @@ for (const width of [360, 768, 1280]) {
     await page
       .getByRole("link", { name: "My Little Friend: Ver amigo", exact: true })
       .click();
+    await page.getByLabel("¿Cómo se llamará tu amigo?").fill("Draco");
+    await page.getByRole("button", { name: "Save" }).click();
+    await page.getByRole("link", { name: "Visitar la cueva" }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "La cueva de Chispitas",
     );

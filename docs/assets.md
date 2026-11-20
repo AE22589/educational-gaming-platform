@@ -393,3 +393,19 @@ Owner-supplied anatomy, food, hygiene, safety and emotion illustrations, cropped
 | Knee pads | `public/vocabulary/science/supplied/knee-pads.webp` | Owner-supplied sheet 1; alternative, existing custom reference retained |
 | Water | `public/vocabulary/science/supplied/water.webp` | Owner-supplied sheet 2; alternative, existing custom reference retained |
 | Apple | `public/vocabulary/science/supplied/apple.webp` | Owner-supplied sheet 1; alternative, existing custom reference retained |
+
+## My Little Friend portraits
+
+The following lossless WebP crops use the owner-supplied My Avatar reference. The Little Dragon uses the existing homepage artwork.
+
+| Public file | Character |
+| --- | --- |
+| `public/myfriend/water-creature.webp` | Water Creature |
+| `public/myfriend/kitten.webp` | Kitten |
+| `public/myfriend/fairy.webp` | Fairy |
+| `public/myfriend/fox.webp` | Fox |
+| `public/myfriend/panda.webp` | Panda |
+| `public/myfriend/unicorn.webp` | Unicorn |
+| `public/myfriend/dog.webp` | Dog |
+| `public/myfriend/griffin.webp` | Griffin |
+| `public/myfriend/dino.webp` | Dino |

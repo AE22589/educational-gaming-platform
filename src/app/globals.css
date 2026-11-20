@@ -31,17 +31,17 @@ p { line-height: 1.45; }
 .chispitas-header {
   position: relative;
   z-index: 3;
-  background: rgba(116, 220, 255, .5);
+  background: #aee9fc;
   border-bottom: 1px solid rgba(18, 60, 121, .12);
 }
 .chispitas-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 5px 14px;
   width: min(1760px, 100%);
   margin: 0 auto;
-  padding: 12px clamp(14px, 2.5vw, 34px);
+  padding: 5px clamp(8px, 2vw, 24px);
 }
 .chispitas-brand {
   display: flex;
@@ -51,11 +51,11 @@ p { line-height: 1.45; }
   color: #102c69;
   text-decoration: none;
 }
-.chispitas-mark { width: clamp(60px, 5vw, 78px); height: clamp(60px, 5vw, 78px); flex: 0 0 auto; filter: drop-shadow(0 3px 0 rgba(23, 59, 120, .18)); }
+.chispitas-mark { width: 36px; height: 36px; flex: 0 0 auto; filter: drop-shadow(0 3px 0 rgba(23, 59, 120, .18)); }
 .chispitas-brand-copy { display: flex; flex-direction: column; align-items: flex-start; }
 .chispitas-wordmark {
   color: #ffdf35;
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
   font-weight: 1000;
   letter-spacing: -.04em;
   line-height: .96;
@@ -63,9 +63,9 @@ p { line-height: 1.45; }
   paint-order: stroke fill;
   text-shadow: 0 3px 0 #15377b, 2px 5px 0 rgba(21, 55, 123, .25);
 }
-.chispitas-tagline { margin-top: 6px; font-size: clamp(.63rem, .75vw, .78rem); font-weight: 900; letter-spacing: .045em; }
-.chispitas-nav { display: grid; grid-template-columns: repeat(4, minmax(86px, 1fr)); gap: 8px; align-items: stretch; }
-.chispitas-nav[data-home="true"] { grid-template-columns: repeat(3, minmax(86px, 1fr)); }
+.chispitas-tagline { margin-top: 3px; font-size: .53rem; font-weight: 900; letter-spacing: .045em; }
+.chispitas-nav { display: grid; width: min(65%, 680px); grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; align-items: stretch; }
+.chispitas-nav[data-home="true"] .chispitas-nav-item--about { grid-column: 2; }
 .chispitas-nav-item {
   display: flex;
   min-height: 90px;
@@ -96,6 +96,31 @@ p { line-height: 1.45; }
 .chispitas-nav-item.is-soon { cursor: default; }
 .chispitas-nav-item.is-soon small { color: #5e708a; }
 .chispitas-nav-item.is-soon:hover { transform: none; }
+
+@media (max-width: 950px) {
+  .chispitas-nav-item { min-height: 66px; }
+}
+
+@media (max-width: 680px) {
+  .chispitas-nav { gap: 7px; }
+  .chispitas-nav-item { min-height: 64px; gap: 2px; padding: 5px 4px; border-radius: 16px; font-size: .69rem; }
+  .chispitas-nav-art { width: 40px; height: 40px; }
+}
+
+@media (max-width: 550px) {
+  .chispitas-header-inner { flex-direction: column; }
+  .chispitas-nav { width: 100%; }
+}
+
+@media (max-width: 700px), (max-height: 490px) {
+  .chispitas-nav-item small {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
 
 .shop-scene { position: relative; isolation: isolate; min-height: 100%; padding: clamp(18px, 3vw, 40px) 0 30px; }
 .shop-scene::before { position: fixed; z-index: -1; inset: 0; background: radial-gradient(ellipse at 15% 12%, rgba(255,255,255,.72), transparent 38%), radial-gradient(ellipse at 90% 42%, rgba(134,224,255,.5), transparent 45%), linear-gradient(180deg,#bcecff,#e8f7ff 72%); content: ""; }
@@ -155,27 +180,8 @@ p { line-height: 1.45; }
 @keyframes auth-form-in { from { opacity: .45; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) { .auth-form { animation: none; } }
 
-/* Login/Register uses the same navigation dimensions as the homepage. */
-body:has(.auth-scene) .chispitas-nav-item { min-height: 90px; padding: 8px 10px; border-radius: 20px; font-size: clamp(.78rem, .9vw, .95rem); }
-body:has(.auth-scene) .chispitas-nav-art { width: 50px; height: 50px; }
-body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .65rem; }
-@media (max-width: 950px) {
-  body:has(.auth-scene) .chispitas-nav-item { min-height: 66px; }
-}
-@media (max-width: 680px) {
-  body:has(.auth-scene) .chispitas-nav-item { min-height: 64px; padding: 5px 4px; border-radius: 16px; font-size: .69rem; }
-  body:has(.auth-scene) .chispitas-nav-art { width: 40px; height: 40px; }
-}
 
 @media (min-width: 951px) and (max-height: 900px) {
-  body:has(.shop-scene) .chispitas-header-inner { gap: 12px; padding-block: 5px; }
-  body:has(.shop-scene) .chispitas-mark { width: 50px; height: 50px; }
-  body:has(.shop-scene) .chispitas-wordmark { font-size: 2.45rem; }
-  body:has(.shop-scene) .chispitas-tagline { margin-top: 2px; font-size: .58rem; }
-  body:has(.shop-scene) .chispitas-nav { gap: 6px; }
-  body:has(.shop-scene) .chispitas-nav-item { min-height: 76px; gap: 2px; padding: 4px 7px; border-radius: 16px; font-size: .8rem; }
-  body:has(.shop-scene) .chispitas-nav-art { width: 36px; height: 36px; }
-  body:has(.shop-scene) .chispitas-nav-item small { margin-top: 1px; font-size: .58rem; }
   body:has(.shop-scene) .shop-scene { padding: 8px 0 0; }
   body:has(.shop-scene) .shop-window { padding: 18px 24px; border-radius: 32px; }
   body:has(.shop-scene) .shop-kicker { margin-bottom: 1px; font-size: .68rem; }
@@ -201,11 +207,6 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 }
 
 @media (min-width: 951px) and (max-height: 700px) {
-  body:has(.shop-scene) .chispitas-header-inner { padding-block: 3px; }
-  body:has(.shop-scene) .chispitas-mark { width: 42px; height: 42px; }
-  body:has(.shop-scene) .chispitas-wordmark { font-size: 2rem; }
-  body:has(.shop-scene) .chispitas-nav-item { min-height: 64px; padding: 3px 6px; }
-  body:has(.shop-scene) .chispitas-nav-art { width: 30px; height: 30px; }
   body:has(.shop-scene) .shop-scene { padding-top: 4px; }
   body:has(.shop-scene) .shop-window { padding: 12px 18px; border-radius: 26px; }
   body:has(.shop-scene) .shop-heading h1 { font-size: clamp(1.5rem, 2.2vw, 2rem); }
@@ -400,12 +401,6 @@ body:has(.chispitas-home) .chispitas-footer {
 .body-target.is-recent::before { transform:translateX(-50%) scale(1.28); }.body-target.is-recent { background-color:rgba(255,247,182,.78); }
 body:has(.body-mission) .chispitas-main { padding-bottom:0; }
 body:has(.body-mission) .chispitas-footer { display:none; }
-body:has(.body-mission) .chispitas-header-inner { justify-content:space-between;padding-block:4px; }
-body:has(.body-mission) .chispitas-nav { display:grid; }
-body:has(.body-mission) .chispitas-brand { gap:6px; }
-body:has(.body-mission) .chispitas-mark { width:36px;height:36px; }
-body:has(.body-mission) .chispitas-wordmark { font-size:1.7rem; }
-body:has(.body-mission) .chispitas-tagline { display:none; }
 body:has(.body-mission) .body-heading-topline { display:flex;align-items:center;gap:9px;margin-bottom:3px; }
 body:has(.body-mission) .body-back-link { display:inline-flex;min-height:25px;align-items:center;padding:2px 8px;border:1px solid white;border-radius:999px;background:#fff;box-shadow:0 2px 0 rgba(21,62,124,.12);color:#24477e;font-size:.72rem;font-weight:900;text-decoration:none;white-space:nowrap; }
 body:has(.body-mission) .body-mission-kicker { margin:0; }
@@ -418,14 +413,6 @@ body:has(.body-mission) .body-dragon-still { align-items:center;justify-content:
 body:has(.body-mission) .body-word-summary>span { display:inline-flex;align-items:center;gap:7px; }
 body:has(.body-mission) .body-word-icon { font-size:1.35rem; }
 @media (max-width:620px) {
-  body:has(.body-mission) .chispitas-header-inner { align-items:center;flex-direction:column;gap:3px;padding:3px 8px; }
-  body:has(.body-mission) .chispitas-brand { align-self:center;justify-content:center;gap:5px; }
-  body:has(.body-mission) .chispitas-mark { width:31px;height:31px; }
-  body:has(.body-mission) .chispitas-wordmark { font-size:1.5rem; }
-  body:has(.body-mission) .chispitas-nav { width:100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px; }
-  body:has(.body-mission) .chispitas-nav-item { min-width:0;min-height:58px;gap:1px;padding:3px 1px;font-size:.58rem; }
-  body:has(.body-mission) .chispitas-nav-art { width:28px;height:28px; }
-  body:has(.body-mission) .chispitas-nav-item small { font-size:.42rem; }
   body:has(.body-mission) .body-mission { margin:2px auto;padding:7px 9px;border-radius:18px; }
   body:has(.body-mission) .body-mission-heading h1 { font-size:clamp(1.22rem,4.8vw,1.55rem); }
   body:has(.body-mission) .body-mission-heading p:last-child { margin-top:4px;font-size:.76rem; }
@@ -547,12 +534,6 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .shop-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .shop-product-card { min-height: 300px; }
   .shop-product-art { --shop-product-art-size: 160px; }
-  .chispitas-header-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
-  .chispitas-nav { width: 100%; }
-  .chispitas-nav-item { min-height: 66px; }
-
-}
-@media (min-width: 951px) and (max-width: 1350px) {
 
 }
 @media (max-width: 680px) {
@@ -592,14 +573,6 @@ body:has(.body-mission) .body-word-card { width:auto; min-width:76px; flex:0 0 a
   .cave-consumable img { width: 40px; height: 48px; }
   .cave-consumable-name { font-size: .85rem; }
   .cave-consumable-count { top: 3px; right: 3px; min-width: 22px; height: 22px; font-size: .72rem; }
-  .chispitas-header-inner { padding: 9px 10px 12px; }
-  .chispitas-brand { align-self: center; }
-  .chispitas-mark { width: 47px; height: 47px; }
-  .chispitas-wordmark { font-size: 2.2rem; }
-  .chispitas-tagline { font-size: .52rem; }
-  .chispitas-nav, .chispitas-nav[data-home="true"] { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; padding: 1px 2px 4px; }
-  .chispitas-nav-item { min-height: 64px; padding: 5px 4px; border-radius: 16px; font-size: .69rem; }
-  .chispitas-nav-art { width: 40px; height: 40px; }
   .chispitas-main { --main-gutter: 9px; padding: 0 var(--main-gutter) 14px; }
 
   .home-tile-copy { padding: 9px 8px 10px; border-radius: 17px 17px 0 0; }
@@ -623,7 +596,6 @@ body:has(.cave-page) {
   flex-direction: column;
   overflow: hidden;
 }
-body:has(.cave-page) .chispitas-header { flex: 0 0 auto; }
 body:has(.cave-page) .chispitas-main {
   flex: 1 1 0;
   min-height: 0;
@@ -670,33 +642,6 @@ body:has(.cave-page) .cave-art-window {
     height: auto;
     aspect-ratio: 1 / 1;
   }
-  body:has(.cave-page) .chispitas-header-inner {
-    align-items: center;
-    flex-direction: row;
-    gap: 6px;
-    padding: 5px 7px;
-  }
-  body:has(.cave-page) .chispitas-brand { min-width: 0; gap: 3px; }
-  body:has(.cave-page) .chispitas-mark { width: 35px; height: 35px; }
-  body:has(.cave-page) .chispitas-wordmark { font-size: clamp(1.05rem, 4vw, 1.35rem); }
-  body:has(.cave-page) .chispitas-tagline { font-size: .34rem; }
-  body:has(.cave-page) .chispitas-nav {
-    min-width: 0;
-    flex: 1 1 auto;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 3px;
-    padding: 0;
-  }
-  body:has(.cave-page) .chispitas-nav-item {
-    min-width: 0;
-    min-height: 48px;
-    gap: 1px;
-    padding: 3px 1px;
-    border-radius: 10px;
-    font-size: .48rem;
-  }
-  body:has(.cave-page) .chispitas-nav-art { width: 25px; height: 25px; }
-  body:has(.cave-page) .chispitas-nav-item small { font-size: .4rem; }
 }
 
 @media (max-height: 620px) {
@@ -708,58 +653,20 @@ body:has(.cave-page) .cave-art-window {
   body:has(.cave-page) .cave-back-link { min-height: 38px; padding: 5px 12px; }
 }
 
-@media (max-height: 620px) and (min-width: 681px) {
-  body:has(.cave-page) .chispitas-header-inner {
-    align-items: center;
-    flex-direction: row;
-    gap: 8px;
-    padding: 5px 10px;
-  }
-  body:has(.cave-page) .chispitas-brand { min-width: 0; gap: 5px; }
-  body:has(.cave-page) .chispitas-mark { width: 44px; height: 44px; }
-  body:has(.cave-page) .chispitas-wordmark { font-size: clamp(1.35rem, 3vw, 1.8rem); }
-  body:has(.cave-page) .chispitas-tagline { font-size: .43rem; }
-  body:has(.cave-page) .chispitas-nav {
-    min-width: 0;
-    flex: 1 1 auto;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 4px;
-  }
-  body:has(.cave-page) .chispitas-nav-item {
-    min-width: 0;
-    min-height: 52px;
-    gap: 2px;
-    padding: 3px 2px;
-    border-radius: 12px;
-    font-size: .62rem;
-  }
-  body:has(.cave-page) .chispitas-nav-art { width: 28px; height: 28px; }
-  body:has(.cave-page) .chispitas-nav-item small { font-size: .52rem; }
-}
 
-/* Keep Login/Register aligned with the Contact page title spacing and homepage navigation. */
+/* Match the Contact page title spacing. */
 body:has(.auth-scene) .auth-scene { padding-top: 28px; }
-body:has(.auth-scene) .chispitas-nav-item { min-height: 90px; gap: 4px; padding: 8px 10px; border-radius: 20px; font-size: clamp(.78rem, .9vw, .95rem); }
-body:has(.auth-scene) .chispitas-nav-art { width: 50px; height: 50px; }
-body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .65rem; }
-@media (max-width: 950px) {
-  body:has(.auth-scene) .chispitas-nav-item { min-height: 66px; }
-}
-@media (max-width: 680px) {
-  body:has(.auth-scene) .chispitas-nav-item { min-height: 64px; padding: 5px 4px; border-radius: 16px; font-size: .69rem; }
-  body:has(.auth-scene) .chispitas-nav-art { width: 40px; height: 40px; }
-}
 
 .chispitas-nav-grade {
   grid-column: 1 / -1;
   justify-self: end;
-  padding: 4px 12px;
+  padding: 0 8px;
   border: 2px solid #fff8dc;
   border-radius: 99px;
   background: #ffe586;
   box-shadow: 0 2px 5px #153e7c33;
   color: #243b70;
-  font-size: .8rem;
+  font-size: .67rem;
   font-weight: 900;
 }
 
@@ -817,10 +724,6 @@ body:has(.auth-scene) .chispitas-nav-item small { margin-top: 2px; font-size: .6
 .home-grade-card:enabled:hover { background: #d8bdff; }
 .home-grade-card:focus-visible { outline: 3px solid #123d87; outline-offset: 2px; }
 
-/* Keep the header translucent so the valley artwork stays visible. */
-body:has(.chispitas-home) .chispitas-header {
-  background: linear-gradient(90deg, #bceeff75, transparent 34% 62%, #bceeff75);
-}
 .home-support-card { padding: 8px 12px; }
 body:has(.chispitas-home) .chispitas-footer { padding-block: 4px 6px; font-size: .75rem; }
 body:has(.chispitas-home) .icon-credit { display: inline; margin: 0; }

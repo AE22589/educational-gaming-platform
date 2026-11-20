@@ -553,3 +553,17 @@ Add 39 supplied illustrations for 11 food/hygiene/safety terms, 13 colors and 15
 ## Science artwork protection and Spanish clues — 2026-11-17
 
 Use new supplied vocabulary illustrations to replace sourced icons, retaining existing developer-created artwork and all body-game assets. Add new vocabulary files rather than overwriting or deleting any pre-existing public asset. Keep current custom Apple, Water and Knee pads references, saving new variants separately. Update 83 source workbook cells and regenerate curriculum data. Spanish fallback clues use a dedicated responsive text style, with wrapping and content-driven height instead of the fixed icon font and height. This applies to all shared practice games; body mission artwork and game logic remain unchanged.
+
+## My Little Friend — 2026-11-20
+
+Save one chosen avatar, name, and first-save local calendar date per browser. Editing the name or avatar preserves the birthday. Happiness and cleanliness start full and hunger starts empty. The indicators display starting values. Reuse existing artwork and link the Little Dragon profile to the existing cave.
+
+The picker uses ten choices from the supplied reference. The existing Little Dragon artwork is retained and nine portraits are cropped from the supplied image. Previously saved characters remain valid. The Save button, care labels and birthday use English.
+
+Use a compact two-row picker on a plain page background. Keep the shared navigation and footer compact on this route, and label the edit form's dismissal button Cancel.
+
+My Little Friend reuses the Star Shop cream panel and botanical title artwork, with compact spacing and the existing avatar controls.
+
+All routes share the same responsive primary header dimensions and colors. The homepage keeps its three existing destinations in the shared four-column grid. My Little Friend leaves a small gap below the shared header.
+
+Use the previous homepage's navigation tile height, artwork size and corner radius at each breakpoint across the site. Four equal columns keep tile widths consistent across routes and retain the interior-page Home link.
