@@ -18,8 +18,8 @@ export default function WorksheetsPage() {
         <div className="coming-soon-copy">
           <WorksheetBrowser
             books={books}
-            sections={units.map(({ id, bookId, title, language, spanishTitle, subsections }) => ({
-              id, bookId, title: spanishTitle || title, language: spanishTitle ? "es" : language,
+            sections={units.map(({ id, bookId, title, language, spanishTitle = "", subsections }) => ({
+              id, bookId, title, language, spanishTitle,
               subsections: subsections.map((topic) => ({
                 id: topic.stableId ?? topic.id,
                 title: topic.spanishTitle || topic.title,

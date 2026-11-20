@@ -7,6 +7,18 @@
   gap: 14px;
 }
 
+.page [data-world="scienceworld"] {
+  --worksheet-world-color: var(--science-world-color);
+  --worksheet-world-border: var(--science-world-action);
+  --worksheet-translation: #27624e;
+}
+
+.page [data-world="englishworld"] {
+  --worksheet-world-color: var(--english-world-color);
+  --worksheet-world-border: var(--english-world-action);
+  --worksheet-translation: #633696;
+}
+
 .browser h2, .browser h3, .browser h4, .browser p {
   margin: 0;
   overflow-wrap: anywhere;
@@ -35,9 +47,9 @@
   align-items: center;
   min-height: 44px;
   padding: 8px 12px;
-  border: 1px solid #adc5e7;
+  border: 1px solid var(--worksheet-world-border, #adc5e7);
   border-radius: 12px;
-  background: #edf5ff;
+  background: color-mix(in srgb, var(--worksheet-world-color, #cbe4ff) 35%, white);
   color: #123777;
   font-weight: 750;
 }
@@ -48,7 +60,15 @@
 }
 
 .browser button:hover, .browser a:hover {
-  background: #dbeaff;
+  background: color-mix(in srgb, var(--worksheet-world-color, #cbe4ff) 65%, white);
+}
+
+.browser .subjectButton {
+  background: var(--worksheet-world-color);
+}
+
+.browser .subjectButton:hover {
+  background: color-mix(in srgb, var(--worksheet-world-color) 90%, var(--worksheet-world-border));
 }
 
 .browser a {
@@ -79,10 +99,17 @@
   overflow-wrap: anywhere;
 }
 
+.englishTitle {
+  display: block;
+  margin-top: 3px;
+  color: var(--worksheet-translation, #27624e);
+  font-size: .85em;
+}
+
 .files li {
   display: grid;
   gap: 8px;
   padding: 12px;
-  border: 1px solid #adc5e7;
+  border: 1px solid var(--worksheet-world-border, #adc5e7);
   border-radius: 16px;
 }

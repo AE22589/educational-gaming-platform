@@ -351,25 +351,30 @@ for (const width of [360, 1280]) {
 
     await expect(page).toHaveURL(/\/worksheets\/?$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fichas de actividades para niños");
-    await expect(page.getByRole("button", { name: "Inglés" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Ciencias" })).toBeVisible();
+    await page.mouse.move(0, 0);
+    await expect(page.getByRole("button", { name: "Inglés" })).toHaveCSS("background-color", "rgb(184, 160, 255)");
+    await expect(page.getByRole("button", { name: "Ciencias" })).toHaveCSS("background-color", "rgb(189, 240, 109)");
     await page.getByRole("button", { name: "Inglés" }).click();
     await expect(page.getByLabel("Curso")).toHaveValue("2");
-    await expect(page.getByLabel("Libro")).toHaveValue("english-2-b1");
-    await expect(page.getByRole("list").filter({ hasText: "¡Practiquemos deportes!" }).getByRole("button"))
+    await expect(page.getByLabel("Libro")).toHaveCount(0);
+    const sectionButtons = page.getByRole("list").filter({ hasText: "¡Practiquemos deportes!" }).getByRole("button");
+    await expect(sectionButtons.locator('span[lang="es"]'))
       .toHaveText([
         "¡Aprendamos lo básico!", "¡Practiquemos deportes!", "¡Descubre las estaciones!",
         "¡El increíble mundo de los animales!", "Alrededor del mundo y frutas saludables",
         "Lugares para visitar y cosas que hacer", "¡Un día en la playa!", "¡Viajemos con seguridad!",
         "Mi casa y mis cosas favoritas", "¡Aventuras y recuerdos en familia!",
       ]);
+    await expect(sectionButtons.nth(1).locator('span[lang="en"]')).toHaveText("Let's Play Sports!");
     await page.getByRole("button", { name: "¡Practiquemos deportes!" }).click();
     await expect(page.getByText(/Todavía no hay fichas para esta sección/)).toBeVisible();
     await page.getByRole("button", { name: "Volver a secciones" }).click();
     await page.getByRole("button", { name: "Volver a asignaturas" }).click();
     await page.getByRole("button", { name: "Ciencias" }).click();
-    await expect(page.getByLabel("Libro")).toHaveValue("science-2-b2");
+    await expect(page.getByLabel("Libro")).toHaveCount(0);
     await page.getByRole("button", { name: "¡Hábitos saludables, vida feliz!" }).click();
+    await expect(page.getByRole("heading", { level: 2 }).locator('span[lang="en"]'))
+      .toHaveText("Healthy Habits, Happy Life!");
     const topics = page.getByLabel("Tema");
     await expect(topics.getByRole("option")).toHaveText([
       "Toda la sección", "La salud y el cuerpo", "Atención sanitaria y enfermedades",

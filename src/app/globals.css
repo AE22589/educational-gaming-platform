@@ -325,9 +325,16 @@ body:has(.chispitas-home) .chispitas-footer {
 .home-tile-description { min-height: 2.7em; margin-block: 4px 7px; color: #1f3151; font-size: clamp(.88rem, 1vw, 1rem); line-height: 1.35; }
 .home-tile-button { display: inline-flex; min-height: 42px; min-width: 75%; align-items: center; justify-content: center; gap: 8px; margin-top: auto; padding: 7px 14px; border-radius: 999px; background: #34b94c; box-shadow: 0 3px 0 rgba(19,96,43,.34); color: white; font-size: .95rem; font-weight: 900; }
 .home-tile-button svg, .home-text-link svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px; }
-.tone-lime { background: #bdf06d; }
-.tone-lilac { background: #b8a0ff; }
-.tone-lilac .home-tile-button { background: #7952d0; }
+:root {
+  --science-world-color: #bdf06d;
+  --science-world-action: #34b94c;
+  --english-world-color: #b8a0ff;
+  --english-world-action: #7952d0;
+}
+.tone-lime { background: var(--science-world-color); }
+.tone-lime .home-tile-button { background: var(--science-world-action); }
+.tone-lilac { background: var(--english-world-color); }
+.tone-lilac .home-tile-button { background: var(--english-world-action); }
 .tone-orange { background: #ffc156; }
 .tone-orange .home-tile-button { background: #f27b10; }
 .tone-cyan { background: #50dfe9; }

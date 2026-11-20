@@ -25,7 +25,9 @@ Use the `Books_main_sub_sections` tab and keep rows in display order.
    Set `Sub Section Yes/No` to `Yes` and fill in `Sub Section ID`,
    `Sub Section Name English` and `Sub Section Name Spanish`. Keep the
    subsection ID stable, for example `science-2-b2-s02-02`. The worksheets
-   page uses the available Spanish names in workbook row order.
+   page shows section titles in Spanish and English in workbook row order.
+   It selects the book automatically when the grade has only one available.
+   Its subject and section buttons use the homepage's Science green and English purple.
 4. Enter a public WebP path in `ImagePath` for a section card or subsection
    page, for example `/scienceworld/healthy-habits.webp`. Leave the cell blank
    if there is no image. Register new assets in [the asset register](assets.md).
