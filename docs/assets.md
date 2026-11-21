@@ -410,7 +410,7 @@ The following lossless WebP crops use the owner-supplied My Avatar reference. Th
 | `public/myfriend/griffin.webp` | Griffin |
 | `public/myfriend/dino.webp` | Dino |
 
-## British English vocabulary audio pilot
+## British English vocabulary audio
 
 Generated with Piper and the [Cori high voice model](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/cori/high/MODEL_CARD) at a slightly faster pace. The model card identifies [LibriVox](https://librivox.org/) public-domain recordings as the voice source. Speaker credit: Cori Samuel.
 
@@ -436,3 +436,456 @@ Generated with Piper and the [Cori high voice model](https://huggingface.co/rhas
 | `public/audio/en-gb/windy.mp3` | windy |
 | `public/audio/en-gb/broccoli.mp3` | broccoli |
 | `public/audio/en-gb/vaccination.mp3` | vaccination |
+| `public/audio/en-gb/a-piece-of-cake.mp3` | a piece of cake |
+| `public/audio/en-gb/abdominals.mp3` | abdominals |
+| `public/audio/en-gb/accident-prevention.mp3` | accident prevention |
+| `public/audio/en-gb/accident.mp3` | accident |
+| `public/audio/en-gb/accidents.mp3` | accidents |
+| `public/audio/en-gb/adequate-quantities.mp3` | adequate quantities |
+| `public/audio/en-gb/after-every-meal.mp3` | after every meal |
+| `public/audio/en-gb/all-the-time.mp3` | all the time |
+| `public/audio/en-gb/almost-never.mp3` | almost never |
+| `public/audio/en-gb/an-omelette.mp3` | an omelette |
+| `public/audio/en-gb/angry.mp3` | angry |
+| `public/audio/en-gb/ankle.mp3` | ankle |
+| `public/audio/en-gb/anus.mp3` | anus |
+| `public/audio/en-gb/at-home.mp3` | at home |
+| `public/audio/en-gb/aunt.mp3` | aunt |
+| `public/audio/en-gb/baby.mp3` | baby |
+| `public/audio/en-gb/back-pain.mp3` | back pain |
+| `public/audio/en-gb/backbone.mp3` | backbone |
+| `public/audio/en-gb/badminton.mp3` | badminton |
+| `public/audio/en-gb/bag.mp3` | bag |
+| `public/audio/en-gb/balanced-diet.mp3` | balanced diet |
+| `public/audio/en-gb/balcony.mp3` | balcony |
+| `public/audio/en-gb/baseball.mp3` | baseball |
+| `public/audio/en-gb/basketball.mp3` | basketball |
+| `public/audio/en-gb/bat.mp3` | bat |
+| `public/audio/en-gb/be-careful.mp3` | be careful |
+| `public/audio/en-gb/beach.mp3` | beach |
+| `public/audio/en-gb/beak.mp3` | beak |
+| `public/audio/en-gb/bear.mp3` | bear |
+| `public/audio/en-gb/bend.mp3` | bend |
+| `public/audio/en-gb/biceps.mp3` | biceps |
+| `public/audio/en-gb/bike.mp3` | bike |
+| `public/audio/en-gb/bird.mp3` | bird |
+| `public/audio/en-gb/black.mp3` | black |
+| `public/audio/en-gb/blue.mp3` | blue |
+| `public/audio/en-gb/body.mp3` | body |
+| `public/audio/en-gb/bones.mp3` | bones |
+| `public/audio/en-gb/bored.mp3` | bored |
+| `public/audio/en-gb/brazil.mp3` | brazil |
+| `public/audio/en-gb/bread.mp3` | bread |
+| `public/audio/en-gb/breakfast.mp3` | breakfast |
+| `public/audio/en-gb/breathe-in-air.mp3` | breathe in air |
+| `public/audio/en-gb/breathe-out.mp3` | breathe out |
+| `public/audio/en-gb/brother.mp3` | brother |
+| `public/audio/en-gb/brown.mp3` | brown |
+| `public/audio/en-gb/brush-our-teeth.mp3` | brush our teeth |
+| `public/audio/en-gb/bus.mp3` | bus |
+| `public/audio/en-gb/cafe.mp3` | café |
+| `public/audio/en-gb/cake.mp3` | cake |
+| `public/audio/en-gb/calf-muscle.mp3` | calf muscle |
+| `public/audio/en-gb/calm-down.mp3` | calm down |
+| `public/audio/en-gb/camera.mp3` | camera |
+| `public/audio/en-gb/canada.mp3` | canada |
+| `public/audio/en-gb/car.mp3` | car |
+| `public/audio/en-gb/cat.mp3` | cat |
+| `public/audio/en-gb/cereals-pasta-and-potatoes.mp3` | cereals, pasta and potatoes |
+| `public/audio/en-gb/cereals.mp3` | cereals |
+| `public/audio/en-gb/check-up.mp3` | check-up |
+| `public/audio/en-gb/cheese.mp3` | cheese |
+| `public/audio/en-gb/chickenpox.mp3` | chickenpox |
+| `public/audio/en-gb/children.mp3` | children |
+| `public/audio/en-gb/china.mp3` | china |
+| `public/audio/en-gb/chips.mp3` | chips |
+| `public/audio/en-gb/cinema.mp3` | cinema |
+| `public/audio/en-gb/climb.mp3` | climb |
+| `public/audio/en-gb/cloudy.mp3` | cloudy |
+| `public/audio/en-gb/coconut.mp3` | coconut |
+| `public/audio/en-gb/cold.mp3` | cold |
+| `public/audio/en-gb/collect-shells.mp3` | collect shells |
+| `public/audio/en-gb/control-them.mp3` | control them |
+| `public/audio/en-gb/countryside.mp3` | countryside |
+| `public/audio/en-gb/cousin.mp3` | cousin |
+| `public/audio/en-gb/covid-19.mp3` | covid-19 |
+| `public/audio/en-gb/crocodile.mp3` | crocodile |
+| `public/audio/en-gb/cross.mp3` | cross |
+| `public/audio/en-gb/crossing.mp3` | crossing |
+| `public/audio/en-gb/cycling.mp3` | cycling |
+| `public/audio/en-gb/daily-menu.mp3` | daily menu |
+| `public/audio/en-gb/dairy-products.mp3` | dairy products |
+| `public/audio/en-gb/dance.mp3` | dance |
+| `public/audio/en-gb/dancing.mp3` | dancing |
+| `public/audio/en-gb/dark-blue.mp3` | dark blue |
+| `public/audio/en-gb/daughter.mp3` | daughter |
+| `public/audio/en-gb/different-feelings.mp3` | different feelings |
+| `public/audio/en-gb/digestive-system.mp3` | digestive system |
+| `public/audio/en-gb/dinner.mp3` | dinner |
+| `public/audio/en-gb/dog.mp3` | dog |
+| `public/audio/en-gb/donkey.mp3` | donkey |
+| `public/audio/en-gb/door.mp3` | door |
+| `public/audio/en-gb/draw-a-picture.mp3` | draw a picture |
+| `public/audio/en-gb/draw-in-the-sand.mp3` | draw in the sand |
+| `public/audio/en-gb/drink-plenty-of-water.mp3` | drink plenty of water |
+| `public/audio/en-gb/dry.mp3` | dry |
+| `public/audio/en-gb/eagle.mp3` | eagle |
+| `public/audio/en-gb/ears.mp3` | ears |
+| `public/audio/en-gb/eat-five-meals-a-day.mp3` | eat five meals a day |
+| `public/audio/en-gb/eggs.mp3` | eggs |
+| `public/audio/en-gb/eight.mp3` | eight |
+| `public/audio/en-gb/eighteen.mp3` | eighteen |
+| `public/audio/en-gb/eighty.mp3` | eighty |
+| `public/audio/en-gb/elastic.mp3` | elastic |
+| `public/audio/en-gb/elbow-pads.mp3` | elbow pads |
+| `public/audio/en-gb/elbow.mp3` | elbow |
+| `public/audio/en-gb/electric-cables.mp3` | electric cables |
+| `public/audio/en-gb/elephant.mp3` | elephant |
+| `public/audio/en-gb/eleven.mp3` | eleven |
+| `public/audio/en-gb/emotional-problems.mp3` | emotional problems |
+| `public/audio/en-gb/emotionally.mp3` | emotionally |
+| `public/audio/en-gb/energy.mp3` | energy |
+| `public/audio/en-gb/every-day.mp3` | every day |
+| `public/audio/en-gb/every-night.mp3` | every night |
+| `public/audio/en-gb/excited.mp3` | excited |
+| `public/audio/en-gb/exercise-and-sport.mp3` | exercise and sport |
+| `public/audio/en-gb/exercise.mp3` | exercise |
+| `public/audio/en-gb/fall.mp3` | fall |
+| `public/audio/en-gb/father-dad.mp3` | father / dad |
+| `public/audio/en-gb/father.mp3` | father |
+| `public/audio/en-gb/favourite-food.mp3` | favourite food |
+| `public/audio/en-gb/feel-better.mp3` | feel better |
+| `public/audio/en-gb/feel-good.mp3` | feel good |
+| `public/audio/en-gb/feelings.mp3` | feelings |
+| `public/audio/en-gb/femur.mp3` | femur |
+| `public/audio/en-gb/fibre.mp3` | fibre |
+| `public/audio/en-gb/fifteen.mp3` | fifteen |
+| `public/audio/en-gb/fifty.mp3` | fifty |
+| `public/audio/en-gb/fish.mp3` | fish |
+| `public/audio/en-gb/five-meals-a-day.mp3` | five meals a day |
+| `public/audio/en-gb/five.mp3` | five |
+| `public/audio/en-gb/fizzy-drink.mp3` | fizzy drink |
+| `public/audio/en-gb/fizzy-drinks.mp3` | fizzy drinks |
+| `public/audio/en-gb/floor.mp3` | floor |
+| `public/audio/en-gb/flu.mp3` | flu |
+| `public/audio/en-gb/fly-a-kite.mp3` | fly a kite |
+| `public/audio/en-gb/foggy.mp3` | foggy |
+| `public/audio/en-gb/food-groups.mp3` | food groups |
+| `public/audio/en-gb/food-portions.mp3` | food portions |
+| `public/audio/en-gb/food.mp3` | food |
+| `public/audio/en-gb/forest.mp3` | forest |
+| `public/audio/en-gb/forty.mp3` | forty |
+| `public/audio/en-gb/four-times-a-week.mp3` | four times a week |
+| `public/audio/en-gb/four.mp3` | four |
+| `public/audio/en-gb/fourteen.mp3` | fourteen |
+| `public/audio/en-gb/fox.mp3` | fox |
+| `public/audio/en-gb/fresh-foods.mp3` | fresh foods |
+| `public/audio/en-gb/friday.mp3` | friday |
+| `public/audio/en-gb/fruits-and-vegetables.mp3` | fruits and vegetables |
+| `public/audio/en-gb/fruits.mp3` | fruits |
+| `public/audio/en-gb/fur.mp3` | fur |
+| `public/audio/en-gb/garden.mp3` | garden |
+| `public/audio/en-gb/germs.mp3` | germs |
+| `public/audio/en-gb/giraffe.mp3` | giraffe |
+| `public/audio/en-gb/glass-of-milk.mp3` | glass of milk |
+| `public/audio/en-gb/glasses.mp3` | glasses |
+| `public/audio/en-gb/gloves.mp3` | gloves |
+| `public/audio/en-gb/gluteus.mp3` | gluteus |
+| `public/audio/en-gb/go-cycling.mp3` | go cycling |
+| `public/audio/en-gb/go-swimming.mp3` | go swimming |
+| `public/audio/en-gb/go-to-the-cinema.mp3` | go to the cinema |
+| `public/audio/en-gb/goggles.mp3` | goggles |
+| `public/audio/en-gb/good-posture.mp3` | good posture |
+| `public/audio/en-gb/grandfather-grandpa.mp3` | grandfather / grandpa |
+| `public/audio/en-gb/grandma.mp3` | grandma |
+| `public/audio/en-gb/grandmother-grandma.mp3` | grandmother / grandma |
+| `public/audio/en-gb/grandpa.mp3` | grandpa |
+| `public/audio/en-gb/grandparents.mp3` | grandparents |
+| `public/audio/en-gb/green.mp3` | green |
+| `public/audio/en-gb/grey.mp3` | grey |
+| `public/audio/en-gb/grow.mp3` | grow |
+| `public/audio/en-gb/guinea-pig.mp3` | guinea pig |
+| `public/audio/en-gb/hairbrush.mp3` | hairbrush |
+| `public/audio/en-gb/ham-and-cheese-sandwich.mp3` | ham and cheese sandwich |
+| `public/audio/en-gb/ham.mp3` | ham |
+| `public/audio/en-gb/hamburger.mp3` | hamburger |
+| `public/audio/en-gb/hamster.mp3` | hamster |
+| `public/audio/en-gb/have-a-picnic.mp3` | have a picnic |
+| `public/audio/en-gb/have-regular-showers.mp3` | have regular showers |
+| `public/audio/en-gb/headphones.mp3` | headphones |
+| `public/audio/en-gb/health-centre.mp3` | health centre |
+| `public/audio/en-gb/health-centres.mp3` | health centres |
+| `public/audio/en-gb/health.mp3` | health |
+| `public/audio/en-gb/healthcare-workers.mp3` | healthcare workers |
+| `public/audio/en-gb/healthy-breakfast.mp3` | healthy breakfast |
+| `public/audio/en-gb/healthy-diet.mp3` | healthy diet |
+| `public/audio/en-gb/healthy-habits.mp3` | healthy habits |
+| `public/audio/en-gb/healthy-meal.mp3` | healthy meal |
+| `public/audio/en-gb/healthy.mp3` | healthy |
+| `public/audio/en-gb/hearing.mp3` | hearing |
+| `public/audio/en-gb/helicopter.mp3` | helicopter |
+| `public/audio/en-gb/help-us-to-grow.mp3` | help us to grow |
+| `public/audio/en-gb/hers.mp3` | hers |
+| `public/audio/en-gb/his.mp3` | his |
+| `public/audio/en-gb/hockey.mp3` | hockey |
+| `public/audio/en-gb/home.mp3` | home |
+| `public/audio/en-gb/hot.mp3` | hot |
+| `public/audio/en-gb/house.mp3` | house |
+| `public/audio/en-gb/hungry.mp3` | hungry |
+| `public/audio/en-gb/hygiene.mp3` | hygiene |
+| `public/audio/en-gb/ice-lollies.mp3` | ice lollies |
+| `public/audio/en-gb/icy.mp3` | icy |
+| `public/audio/en-gb/illness.mp3` | illness |
+| `public/audio/en-gb/illnesses.mp3` | illnesses |
+| `public/audio/en-gb/intestines.mp3` | intestines |
+| `public/audio/en-gb/joint.mp3` | joint |
+| `public/audio/en-gb/joints.mp3` | joints |
+| `public/audio/en-gb/keep-healthy.mp3` | keep healthy |
+| `public/audio/en-gb/kitten.mp3` | kitten |
+| `public/audio/en-gb/kiwi.mp3` | kiwi |
+| `public/audio/en-gb/knee.mp3` | knee |
+| `public/audio/en-gb/lake.mp3` | lake |
+| `public/audio/en-gb/last-night.mp3` | last night |
+| `public/audio/en-gb/last-weekend.mp3` | last weekend |
+| `public/audio/en-gb/lentils.mp3` | lentils |
+| `public/audio/en-gb/lettuce.mp3` | lettuce |
+| `public/audio/en-gb/life-processes.mp3` | life processes |
+| `public/audio/en-gb/lift.mp3` | lift |
+| `public/audio/en-gb/light-blue.mp3` | light blue |
+| `public/audio/en-gb/lime.mp3` | lime |
+| `public/audio/en-gb/lizard.mp3` | lizard |
+| `public/audio/en-gb/look-after-our-body.mp3` | look after our body |
+| `public/audio/en-gb/look-for-fish.mp3` | look for fish |
+| `public/audio/en-gb/look.mp3` | look |
+| `public/audio/en-gb/lorry.mp3` | lorry |
+| `public/audio/en-gb/lunch.mp3` | lunch |
+| `public/audio/en-gb/lungs.mp3` | lungs |
+| `public/audio/en-gb/main-meals.mp3` | main meals |
+| `public/audio/en-gb/make-a-sandcastle.mp3` | make a sandcastle |
+| `public/audio/en-gb/mango.mp3` | mango |
+| `public/audio/en-gb/mat.mp3` | mat |
+| `public/audio/en-gb/meat-fish-eggs-dairy-products-and-pulses.mp3` | meat, fish, eggs, dairy products and pulses |
+| `public/audio/en-gb/meat.mp3` | meat |
+| `public/audio/en-gb/medicine.mp3` | medicine |
+| `public/audio/en-gb/medicines.mp3` | medicines |
+| `public/audio/en-gb/mexico.mp3` | mexico |
+| `public/audio/en-gb/milk.mp3` | milk |
+| `public/audio/en-gb/milkshake.mp3` | milkshake |
+| `public/audio/en-gb/mine.mp3` | mine |
+| `public/audio/en-gb/mobile-phone.mp3` | mobile phone |
+| `public/audio/en-gb/monday.mp3` | monday |
+| `public/audio/en-gb/monkey.mp3` | monkey |
+| `public/audio/en-gb/mother-mum.mp3` | mother / mum |
+| `public/audio/en-gb/mother.mp3` | mother |
+| `public/audio/en-gb/motorbike.mp3` | motorbike |
+| `public/audio/en-gb/mountain.mp3` | mountain |
+| `public/audio/en-gb/mouse.mp3` | mouse |
+| `public/audio/en-gb/mouth.mp3` | mouth |
+| `public/audio/en-gb/muscles.mp3` | muscles |
+| `public/audio/en-gb/natural-yogurt.mp3` | natural yogurt |
+| `public/audio/en-gb/neck.mp3` | neck |
+| `public/audio/en-gb/never.mp3` | never |
+| `public/audio/en-gb/new-zealand.mp3` | new zealand |
+| `public/audio/en-gb/nine.mp3` | nine |
+| `public/audio/en-gb/nineteen.mp3` | nineteen |
+| `public/audio/en-gb/ninety.mp3` | ninety |
+| `public/audio/en-gb/nose.mp3` | nose |
+| `public/audio/en-gb/nutrients.mp3` | nutrients |
+| `public/audio/en-gb/nutrition.mp3` | nutrition |
+| `public/audio/en-gb/objects.mp3` | objects |
+| `public/audio/en-gb/occasionally.mp3` | occasionally |
+| `public/audio/en-gb/oesophagus.mp3` | oesophagus |
+| `public/audio/en-gb/olive-oil.mp3` | olive oil |
+| `public/audio/en-gb/omelette.mp3` | omelette |
+| `public/audio/en-gb/one-hundred.mp3` | one hundred |
+| `public/audio/en-gb/one.mp3` | one |
+| `public/audio/en-gb/ours.mp3` | ours |
+| `public/audio/en-gb/outdoors.mp3` | outdoors |
+| `public/audio/en-gb/paint-pictures.mp3` | paint pictures |
+| `public/audio/en-gb/parents.mp3` | parents |
+| `public/audio/en-gb/parrot.mp3` | parrot |
+| `public/audio/en-gb/pasta.mp3` | pasta |
+| `public/audio/en-gb/pear.mp3` | pear |
+| `public/audio/en-gb/pectoral.mp3` | pectoral |
+| `public/audio/en-gb/peg.mp3` | peg |
+| `public/audio/en-gb/pepper.mp3` | pepper |
+| `public/audio/en-gb/physically.mp3` | physically |
+| `public/audio/en-gb/picture.mp3` | picture |
+| `public/audio/en-gb/pineapple.mp3` | pineapple |
+| `public/audio/en-gb/pink.mp3` | pink |
+| `public/audio/en-gb/plane.mp3` | plane |
+| `public/audio/en-gb/plant-flowers.mp3` | plant flowers |
+| `public/audio/en-gb/play-basketball.mp3` | play basketball |
+| `public/audio/en-gb/play-board-games.mp3` | play board games |
+| `public/audio/en-gb/play-volleyball.mp3` | play volleyball |
+| `public/audio/en-gb/poland.mp3` | poland |
+| `public/audio/en-gb/posture.mp3` | posture |
+| `public/audio/en-gb/potatoes.mp3` | potatoes |
+| `public/audio/en-gb/powerful-mind.mp3` | powerful mind |
+| `public/audio/en-gb/prescribes.mp3` | prescribes |
+| `public/audio/en-gb/protection.mp3` | protection |
+| `public/audio/en-gb/protective-equipment.mp3` | protective equipment |
+| `public/audio/en-gb/provide-energy.mp3` | provide energy |
+| `public/audio/en-gb/provide-vitamins-and-fibre.mp3` | provide vitamins and fibre |
+| `public/audio/en-gb/psychologist.mp3` | psychologist |
+| `public/audio/en-gb/pulses.mp3` | pulses |
+| `public/audio/en-gb/puppy.mp3` | puppy |
+| `public/audio/en-gb/purple.mp3` | purple |
+| `public/audio/en-gb/rabbit.mp3` | rabbit |
+| `public/audio/en-gb/racket.mp3` | racket |
+| `public/audio/en-gb/read-comics.mp3` | read comics |
+| `public/audio/en-gb/red.mp3` | red |
+| `public/audio/en-gb/reproduction.mp3` | reproduction |
+| `public/audio/en-gb/rest.mp3` | rest |
+| `public/audio/en-gb/restaurant.mp3` | restaurant |
+| `public/audio/en-gb/ribs.mp3` | ribs |
+| `public/audio/en-gb/rice.mp3` | rice |
+| `public/audio/en-gb/rigid.mp3` | rigid |
+| `public/audio/en-gb/river.mp3` | river |
+| `public/audio/en-gb/road-safety-rules.mp3` | road safety rules |
+| `public/audio/en-gb/road-sign.mp3` | road sign |
+| `public/audio/en-gb/roof.mp3` | roof |
+| `public/audio/en-gb/rugby.mp3` | rugby |
+| `public/audio/en-gb/run.mp3` | run |
+| `public/audio/en-gb/sad.mp3` | sad |
+| `public/audio/en-gb/safety-rules.mp3` | safety rules |
+| `public/audio/en-gb/sand.mp3` | sand |
+| `public/audio/en-gb/sandals.mp3` | sandals |
+| `public/audio/en-gb/sandcastle.mp3` | sandcastle |
+| `public/audio/en-gb/sandwich.mp3` | sandwich |
+| `public/audio/en-gb/saturday.mp3` | saturday |
+| `public/audio/en-gb/sea.mp3` | sea |
+| `public/audio/en-gb/seat-belt.mp3` | seat belt |
+| `public/audio/en-gb/sense-organ.mp3` | sense organ |
+| `public/audio/en-gb/senses.mp3` | senses |
+| `public/audio/en-gb/sensitivity.mp3` | sensitivity |
+| `public/audio/en-gb/seven.mp3` | seven |
+| `public/audio/en-gb/seventeen.mp3` | seventeen |
+| `public/audio/en-gb/seventy.mp3` | seventy |
+| `public/audio/en-gb/shampoo.mp3` | shampoo |
+| `public/audio/en-gb/shells.mp3` | shells |
+| `public/audio/en-gb/shopping-centre.mp3` | shopping centre |
+| `public/audio/en-gb/shower.mp3` | shower |
+| `public/audio/en-gb/sick-person.mp3` | sick person |
+| `public/audio/en-gb/sight.mp3` | sight |
+| `public/audio/en-gb/sing.mp3` | sing |
+| `public/audio/en-gb/sister.mp3` | sister |
+| `public/audio/en-gb/six.mp3` | six |
+| `public/audio/en-gb/sixteen.mp3` | sixteen |
+| `public/audio/en-gb/sixty.mp3` | sixty |
+| `public/audio/en-gb/skateboarding.mp3` | skateboarding |
+| `public/audio/en-gb/skating.mp3` | skating |
+| `public/audio/en-gb/skeleton.mp3` | skeleton |
+| `public/audio/en-gb/skull.mp3` | skull |
+| `public/audio/en-gb/sleep-10-hours.mp3` | sleep 10 hours |
+| `public/audio/en-gb/sleep.mp3` | sleep |
+| `public/audio/en-gb/sleepy.mp3` | sleepy |
+| `public/audio/en-gb/slip.mp3` | slip |
+| `public/audio/en-gb/smell.mp3` | smell |
+| `public/audio/en-gb/snack.mp3` | snack |
+| `public/audio/en-gb/snake.mp3` | snake |
+| `public/audio/en-gb/snowy.mp3` | snowy |
+| `public/audio/en-gb/soap.mp3` | soap |
+| `public/audio/en-gb/sockets.mp3` | sockets |
+| `public/audio/en-gb/sometimes.mp3` | sometimes |
+| `public/audio/en-gb/son.mp3` | son |
+| `public/audio/en-gb/soup.mp3` | soup |
+| `public/audio/en-gb/spain.mp3` | spain |
+| `public/audio/en-gb/sport.mp3` | sport |
+| `public/audio/en-gb/sports-centre.mp3` | sports centre |
+| `public/audio/en-gb/spring.mp3` | spring |
+| `public/audio/en-gb/stage-of-life.mp3` | stage of life |
+| `public/audio/en-gb/stairs.mp3` | stairs |
+| `public/audio/en-gb/stomach.mp3` | stomach |
+| `public/audio/en-gb/stone.mp3` | stone |
+| `public/audio/en-gb/stop.mp3` | stop |
+| `public/audio/en-gb/stormy.mp3` | stormy |
+| `public/audio/en-gb/straight-back.mp3` | straight back |
+| `public/audio/en-gb/strong-muscles-and-bones.mp3` | strong muscles and bones |
+| `public/audio/en-gb/strong-muscles.mp3` | strong muscles |
+| `public/audio/en-gb/substances.mp3` | substances |
+| `public/audio/en-gb/sugary-foods.mp3` | sugary foods |
+| `public/audio/en-gb/summer.mp3` | summer |
+| `public/audio/en-gb/sunday.mp3` | sunday |
+| `public/audio/en-gb/supermarket.mp3` | supermarket |
+| `public/audio/en-gb/surprised.mp3` | surprised |
+| `public/audio/en-gb/swan.mp3` | swan |
+| `public/audio/en-gb/swim-in-the-sea.mp3` | swim in the sea |
+| `public/audio/en-gb/swimming-pool.mp3` | swimming pool |
+| `public/audio/en-gb/table-tennis.mp3` | table tennis |
+| `public/audio/en-gb/tablet.mp3` | tablet |
+| `public/audio/en-gb/tail.mp3` | tail |
+| `public/audio/en-gb/take-in-food.mp3` | take in food |
+| `public/audio/en-gb/taste.mp3` | taste |
+| `public/audio/en-gb/teeth.mp3` | teeth |
+| `public/audio/en-gb/ten.mp3` | ten |
+| `public/audio/en-gb/tennis.mp3` | tennis |
+| `public/audio/en-gb/theirs.mp3` | theirs |
+| `public/audio/en-gb/thirsty.mp3` | thirsty |
+| `public/audio/en-gb/thirteen.mp3` | thirteen |
+| `public/audio/en-gb/thirty.mp3` | thirty |
+| `public/audio/en-gb/three-meals-a-day.mp3` | three meals a day |
+| `public/audio/en-gb/three-times-a-day.mp3` | three times a day |
+| `public/audio/en-gb/three.mp3` | three |
+| `public/audio/en-gb/thursday.mp3` | thursday |
+| `public/audio/en-gb/tibia.mp3` | tibia |
+| `public/audio/en-gb/tidy-up.mp3` | tidy up |
+| `public/audio/en-gb/tired.mp3` | tired |
+| `public/audio/en-gb/today.mp3` | today |
+| `public/audio/en-gb/tomato.mp3` | tomato |
+| `public/audio/en-gb/tomorrow.mp3` | tomorrow |
+| `public/audio/en-gb/toothbrush.mp3` | toothbrush |
+| `public/audio/en-gb/tortoise.mp3` | tortoise |
+| `public/audio/en-gb/touch.mp3` | touch |
+| `public/audio/en-gb/towel.mp3` | towel |
+| `public/audio/en-gb/towels.mp3` | towels |
+| `public/audio/en-gb/trachea.mp3` | trachea |
+| `public/audio/en-gb/traffic-lights.mp3` | traffic lights |
+| `public/audio/en-gb/traffic.mp3` | traffic |
+| `public/audio/en-gb/train-station.mp3` | train station |
+| `public/audio/en-gb/train.mp3` | train |
+| `public/audio/en-gb/tuesday.mp3` | tuesday |
+| `public/audio/en-gb/turtle.mp3` | turtle |
+| `public/audio/en-gb/twelve.mp3` | twelve |
+| `public/audio/en-gb/twenty.mp3` | twenty |
+| `public/audio/en-gb/twice-a-day.mp3` | twice a day |
+| `public/audio/en-gb/twice-a-week.mp3` | twice a week |
+| `public/audio/en-gb/two.mp3` | two |
+| `public/audio/en-gb/uncle.mp3` | uncle |
+| `public/audio/en-gb/understand.mp3` | understand |
+| `public/audio/en-gb/united-kingdom.mp3` | united kingdom |
+| `public/audio/en-gb/usa.mp3` | usa |
+| `public/audio/en-gb/vaccinations.mp3` | vaccinations |
+| `public/audio/en-gb/vaccines.mp3` | vaccines |
+| `public/audio/en-gb/variety-of-foods.mp3` | variety of foods |
+| `public/audio/en-gb/vegetables.mp3` | vegetables |
+| `public/audio/en-gb/visited-grandparents.mp3` | visited grandparents |
+| `public/audio/en-gb/vitamin.mp3` | vitamin |
+| `public/audio/en-gb/vitamins.mp3` | vitamins |
+| `public/audio/en-gb/walk-the-dog.mp3` | walk the dog |
+| `public/audio/en-gb/walk.mp3` | walk |
+| `public/audio/en-gb/walnut.mp3` | walnut |
+| `public/audio/en-gb/wash-our-hands.mp3` | wash our hands |
+| `public/audio/en-gb/watch.mp3` | watch |
+| `public/audio/en-gb/watermelon.mp3` | watermelon |
+| `public/audio/en-gb/waves.mp3` | waves |
+| `public/audio/en-gb/wear-protection.mp3` | wear protection |
+| `public/audio/en-gb/wednesday.mp3` | wednesday |
+| `public/audio/en-gb/weekend.mp3` | weekend |
+| `public/audio/en-gb/weekly-menu.mp3` | weekly menu |
+| `public/audio/en-gb/went-swimming.mp3` | went swimming |
+| `public/audio/en-gb/went-to-the-cinema.mp3` | went to the cinema |
+| `public/audio/en-gb/wet.mp3` | wet |
+| `public/audio/en-gb/white.mp3` | white |
+| `public/audio/en-gb/wholegrain-foods.mp3` | wholegrain foods |
+| `public/audio/en-gb/wholegrain-toast.mp3` | wholegrain toast |
+| `public/audio/en-gb/wholegrains.mp3` | wholegrains |
+| `public/audio/en-gb/windows.mp3` | windows |
+| `public/audio/en-gb/wings.mp3` | wings |
+| `public/audio/en-gb/winter.mp3` | winter |
+| `public/audio/en-gb/worried.mp3` | worried |
+| `public/audio/en-gb/yellow.mp3` | yellow |
+| `public/audio/en-gb/yesterday.mp3` | yesterday |
+| `public/audio/en-gb/yogurt.mp3` | yogurt |
+| `public/audio/en-gb/yours.mp3` | yours |
+| `public/audio/en-gb/zebra.mp3` | zebra |

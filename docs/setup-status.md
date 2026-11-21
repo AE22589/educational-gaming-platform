@@ -1,9 +1,9 @@
 # Current setup status — 2026-11-05
 
-The pronunciation pilot includes 20 British English MP3s under
-`public/audio/en-gb/`. The workbook has 26 populated vocabulary `AudioPath`
-cells because six terms occur twice. The clips are static assets. Games still
-use their existing playback behavior while the pilot voice is evaluated.
+The pronunciation library includes 473 British English MP3s under
+`public/audio/en-gb/`. All 507 workbook rows with an English term have an
+`AudioPath`. Repeated terms share clips. The clips are static assets, and
+games still use their existing playback behavior.
 
 The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.

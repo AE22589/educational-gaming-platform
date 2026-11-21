@@ -588,3 +588,7 @@ Start with 20 vocabulary clips in a female British English voice. Store the
 MP3s under `public/audio/en-gb/` and link them from `vocabulary_list.AudioPath`.
 Use the same clip for repeated vocabulary with the same pronunciation. Review
 the pilot before expanding the library or changing game playback.
+
+The owner requested the same treatment for the remaining workbook vocabulary.
+The library uses the same Cori voice and pace throughout. Existing clips and
+paths are reused. Playback integration is a separate change.

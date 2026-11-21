@@ -99,9 +99,9 @@ To preview the GitHub Pages export in PowerShell, set
 `$env:GITHUB_ACTIONS = "true"`, run `npm run build`, then `npm run start`.
 Open http://127.0.0.1:3000/educational-gaming-platform/worksheets/.
 
-## Vocabulary audio pilot
+## Vocabulary pronunciation audio
 
-`vocabulary_list.AudioPath` records the pilot pronunciation clip for a term,
-for example `/audio/en-gb/helmet.mp3`. Repeated terms in the pilot share the
-same path. Blank cells are vocabulary outside the pilot. These paths are
-recorded for future game playback and are currently workbook metadata.
+`vocabulary_list.AudioPath` links English terms and phrases to their MP3s,
+for example `/audio/en-gb/helmet.mp3`. Repeated terms with the same
+pronunciation share one path. Rows with no English term have no audio path.
+The paths are currently workbook metadata for future game playback.
