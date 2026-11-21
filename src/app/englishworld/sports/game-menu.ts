@@ -7,6 +7,8 @@ const games = [
   { id: "hunt", name: "Word Hunt", description: "Encuentra palabras en la cuadrícula.", art: "🔡 🔎", color: "lavender" },
   { id: "spot", name: "Look & Find", description: "Completa la palabra y toca el objeto.", art: "✏️ 👀", color: "peach" },
   { id: "sort", name: "Play, Go, Do, Wear?", description: "Clasifica deportes y objetos.", art: "⚽ 🧢", color: "mint" },
+  { id: "food-sort", name: "Food Group Sort", description: "Elige el grupo de cada alimento.", art: "🍞 🥦", color: "mint" },
+  { id: "food-find", name: "Find the Food", description: "Elige el alimento que pertenece al grupo.", art: "🍎 🔎", color: "peach" },
 ] as const;
 
 export type Game = Omit<(typeof games)[number], "name"> & { name: string };
@@ -20,6 +22,7 @@ export function gameName(game: (typeof games)[number], unit: PracticeUnit) {
 export function getPracticeGames(availableGames: readonly string[], unit: PracticeUnit) {
   return availableGames.flatMap((name) => games.filter((entry) => {
     if (unit === "healthy-habits" && (entry.id === "spot" || entry.id === "sort")) return false;
+    if (unit !== "healthy-habits" && (entry.id === "food-sort" || entry.id === "food-find")) return false;
     return gameName(entry, unit) === name;
   }));
 }

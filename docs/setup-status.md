@@ -200,12 +200,16 @@ smaller Spanish translation. Each card opens a dedicated game page with a
 breadcrumb back to the topic list. Topic pages show an availability message
 when no games are assigned.
 
-The latest workbook assigns six existing games to each of the nine Healthy
-Habits subsections. The importer exports their order from `subsection_games`.
+The workbook assigns six shared games to each of the nine Healthy Habits
+subsections. Food and Drinks also includes Food Group Sort and Find the Food.
+The importer exports their order from the subsection's `GameTypes` cell.
 Each game page uses its own `vocabulary_list` group. Missing image paths
 display the Spanish translation as a clue. One incomplete vocabulary row
 without an English term is skipped. Game formats retain practice feedback
 without profile rewards.
+
+Practice pictures fit inside their frames, including tall artwork such as
+milk in Mystery Word. Captions and answer text stay outside the picture frame.
 
 The public curriculum now assigns seven existing pictures plus 46 lossless OpenMoji icons to vocabulary image paths. A separate row-by-row mapping in `docs/vocabulary-image-map.md` records the new paths. Twenty-two `Find` rows still lack confident pictures. Picture Match uses only words with WebP paths; other games retain Spanish clues. The complete owner-approved source workbook is now tracked at `docs/SectionList.xlsx`.
 

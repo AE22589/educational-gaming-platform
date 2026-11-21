@@ -6,6 +6,7 @@ import { WordHunt } from "./WordHunt";
 import { SpellAndSpot } from "./SpellAndSpot";
 import { SortWords } from "./SortWords";
 import { SportsPicture } from "./SportsPicture";
+import { FoodGroupRound, getGroupedFoods } from "./FoodGroupRound";
 import { gameName, getPracticeGames, type Game, type PracticeUnit } from "./game-menu";
 import { playAnswerSound } from "./answer-sound";
 import styles from "./sports.module.css";
@@ -16,6 +17,7 @@ const gymnastics: VocabularyItem = {
 };
 
 function scienceVocabulary(vocabulary: VocabularyItem[], game: Game["id"]) {
+  if (game === "food-sort" || game === "food-find") return getGroupedFoods(vocabulary);
   if (game === "match") {
     return vocabulary.filter(({ picture }) => picture?.startsWith("/"));
   }
@@ -208,6 +210,8 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
         unit !== "healthy-habits" && <SpellAndSpot key={round} vocabulary={vocabulary} unit={unit} {...roundProps} />
       ) : game.id === "sort" ? (
         unit !== "healthy-habits" && <SortWords key={round} item={vocabulary[round]!} unit={unit} {...roundProps} />
+      ) : game.id === "food-sort" || game.id === "food-find" ? (
+        <FoodGroupRound key={round} mode={game.id} vocabulary={vocabulary} {...roundProps} />
       ) : (
         <VocabularyRound key={round} id={game.id}
           vocabulary={vocabulary} item={(game.id === "match" ? words : vocabulary)[round]!}
@@ -222,7 +226,7 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
 }
 
 function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswer, onNext }: {
-  id: Exclude<Game["id"], "hunt" | "spot" | "sort">;
+  id: Exclude<Game["id"], "hunt" | "spot" | "sort" | "food-sort" | "food-find">;
   round: number;
   item: VocabularyItem;
   vocabulary: VocabularyItem[];

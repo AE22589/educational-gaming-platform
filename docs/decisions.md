@@ -575,3 +575,9 @@ pages. A section includes all PDFs in its topics. A topic uses its stable
 workbook ID to select its own PDFs. Hide the action when there are zero PDFs,
 open a single PDF in a new tab, and open the prefiltered Worksheets list when
 there are multiple PDFs.
+
+## Food and Drinks categorization games - 2026-11-20
+
+Food and Drinks adds Food Group Sort and Find the Food. Both use the shared practice interface and the subsection's illustrated vocabulary. The groups are Energy, Vitamins & Fibre, and Growth.
+
+Both games use the 18 foods in the three groups from the supplied curriculum chart. Water is shown separately in the chart and is outside the three sorting groups.
