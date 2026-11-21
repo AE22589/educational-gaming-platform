@@ -28,6 +28,10 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 
 ## Compact homepage — 2026-11-17
 
+On phones, the four main activity cards are taller. The three quick links
+below use a compact layout with visible illustrations. The Chispitas brand
+aligns with the left edge of the stacked mobile header.
+
 The homepage keeps the standard navigation and positions the valley
 artwork behind the compact welcome panel. The star balance is in the welcome
 panel. The grade picker appears on entry and gives way to the four world

@@ -22,6 +22,20 @@ for (const viewport of [
     await expect(picker).toBeHidden();
     await expect(worlds.getByRole("link")).toHaveCount(4);
     await expect(worlds).toBeInViewport({ ratio: 1 });
+    if (viewport.width === 320) {
+      const support = page.getByRole("region", { name: "Tu aventura" });
+      const artwork = support.locator("img");
+      await expect(artwork).toHaveCount(3);
+      await expect.poll(() => artwork.evaluateAll((images) => images.every((image) =>
+        (image as HTMLImageElement).naturalWidth > 0 && image.getBoundingClientRect().width > 0))).toBe(true);
+      const logo = await page.locator(".chispitas-brand").boundingBox();
+      expect(logo?.x).toBeLessThanOrEqual(12);
+      const heights = await worlds.getByRole("link").evaluateAll((cards) =>
+        cards.map((card) => card.getBoundingClientRect().height));
+      expect(Math.min(...heights)).toBeGreaterThanOrEqual(76);
+      expect((await support.boundingBox())?.height).toBeLessThanOrEqual(48);
+      await page.screenshot({ path: "test-results/home-mobile-320.png", fullPage: true });
+    }
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
   });
 }
@@ -352,6 +366,9 @@ for (const width of [360, 1280]) {
     await expect(artwork).toBeVisible();
     await artwork.scrollIntoViewIfNeeded();
     await expect.poll(() => artwork.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+    if (width === 360) {
+      await page.screenshot({ path: "test-results/home-mobile-360.png", fullPage: true });
+    }
     await card.getByRole("link", { name: "Descargar fichas" }).click();
 
     await expect(page).toHaveURL(/\/worksheets\/?$/);

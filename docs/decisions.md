@@ -605,3 +605,7 @@ separate recordings of the full sentences shown in Build a Phrase.
 Pronounce the associated term on correct answers in the remaining shared
 games and on correct placement in the body-parts mission. Keep “Stars”
 between the game list and the active panel.
+
+On the mobile homepage, prioritize the four main activity cards with more
+height. Use a compact illustrated row for the three quick links underneath
+and left-align the brand when the header stacks.
