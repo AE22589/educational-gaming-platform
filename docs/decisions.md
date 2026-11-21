@@ -568,6 +568,14 @@ All routes share the same responsive primary header dimensions and colors. The h
 
 Use the previous homepage's navigation tile height, artwork size and corner radius at each breakpoint across the site. Four equal columns keep tile widths consistent across routes and retain the interior-page Home link.
 
+## Worksheet shortcuts — 2026-11-20
+
+Use the workbook's worksheet registry for “Imprimir fichas” on section and topic
+pages. A section includes all PDFs in its topics. A topic uses its stable
+workbook ID to select its own PDFs. Hide the action when there are zero PDFs,
+open a single PDF in a new tab, and open the prefiltered Worksheets list when
+there are multiple PDFs.
+
 ## Food and Drinks categorization games - 2026-11-20
 
 Food and Drinks adds Food Group Sort and Find the Food. Both use the shared practice interface and the subsection's illustrated vocabulary. The groups are Energy, Vitamins & Fibre, and Growth.

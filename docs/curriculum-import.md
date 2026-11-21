@@ -84,6 +84,13 @@ directly to the section. Each topic view shows its own files. PDFs open
 in the browser's print-capable viewer. Word files download for opening
 and printing in a compatible editor.
 
+Commit the worksheet file and the updated `docs/SectionList.xlsx` together.
+The next site build imports the workbook and lists the worksheet on the
+Worksheets page. Section and topic game screens use that same import for the
+printer icon and “Imprimir fichas” link. One matching PDF opens in a new tab.
+Multiple matching PDFs open the Worksheets page with the section or topic
+already selected.
+
 Older workbooks using `Books_sections_games` can still be imported.
 Their optional `worksheets` tab uses `Section ID`, `Subsection ID`,
 `Worksheet Title` and `Worksheet Path`.

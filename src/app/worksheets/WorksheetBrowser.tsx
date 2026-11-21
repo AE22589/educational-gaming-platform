@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import type { CurriculumUnit, Worksheet, World } from "@/features/curriculum/catalog";
+import { getSectionWorksheets, isWorksheetPdf } from "@/features/curriculum/worksheet-files";
 import { useSelectedGrade } from "@/features/homepage/grade-selection";
 import styles from "./worksheets.module.css";
 
@@ -26,14 +28,29 @@ const subjects = [
   { id: "scienceworld", label: "Ciencias" },
 ] as const;
 
-export function WorksheetBrowser({ books, sections, worksheets }: {
+type BrowserProps = {
   books: Book[]; sections: Section[]; worksheets: Worksheet[];
-}) {
-  const [world, setWorld] = useState<World | null>(null);
-  const [gradeChoice, setGrade] = useState<number>();
-  const [bookChoice, setBook] = useState("");
-  const [sectionId, setSection] = useState("");
-  const [subsectionId, setSubsection] = useState("");
+};
+
+export function WorksheetBrowserFromUrl(props: BrowserProps) {
+  const params = useSearchParams();
+  const sectionId = params.get("section") ?? "";
+  const topicId = params.get("topic") ?? "";
+  return <WorksheetBrowser key={JSON.stringify([sectionId, topicId])} {...props}
+    initialSectionId={sectionId} initialTopicId={topicId} />;
+}
+
+export function WorksheetBrowser({ books, sections, worksheets, initialSectionId, initialTopicId }:
+  BrowserProps & { initialSectionId?: string; initialTopicId?: string }) {
+  const initialSection = sections.find(({ id }) => id === initialSectionId);
+  const initialBook = books.find(({ id }) => id === initialSection?.bookId);
+  const initialWorld = subjects.find(({ id }) => id === initialBook?.world)?.id ?? null;
+  const [world, setWorld] = useState<World | null>(initialWorld);
+  const [gradeChoice, setGrade] = useState(initialBook?.grade);
+  const [bookChoice, setBook] = useState(initialBook?.id ?? "");
+  const [sectionId, setSection] = useState(initialSection?.id ?? "");
+  const [subsectionId, setSubsection] = useState(
+    initialSection?.subsections.find(({ id }) => id === initialTopicId)?.id ?? "");
   const heading = useRef<HTMLHeadingElement>(null);
   const savedGrade = useSelectedGrade();
   const subjectBooks = books.filter((book) => book.world === world);
@@ -43,8 +60,7 @@ export function WorksheetBrowser({ books, sections, worksheets }: {
   const book = gradeBooks.find(({ id }) => id === bookChoice) ?? gradeBooks[0];
   const bookSections = sections.filter(({ bookId }) => bookId === book?.id);
   const section = bookSections.find(({ id }) => id === sectionId);
-  const matches = worksheets.filter((sheet) => sheet.sectionId === section?.id &&
-    (!subsectionId || sheet.subsectionId === subsectionId));
+  const matches = section ? getSectionWorksheets(worksheets, section.id, subsectionId) : [];
 
   function selectSection(id: string) {
     setSection(id);
@@ -129,7 +145,7 @@ export function WorksheetBrowser({ books, sections, worksheets }: {
                   <ul className={styles.files}>
                     {matches.map(({ path, title }) => {
                       const href = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
-                      const pdf = path.endsWith(".pdf");
+                      const pdf = isWorksheetPdf(path);
                       return (
                         <li key={path}>
                           <h4>{title}</h4>
