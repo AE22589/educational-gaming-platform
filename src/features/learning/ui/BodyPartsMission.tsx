@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { useProfile } from "@/features/profile/ui/ProfileProvider";
+import { usePronunciation } from "@/features/curriculum/use-pronunciation";
 import { BODY_PARTS_TEXT, BODY_PARTS_WORDS, completedAdventureStations, roundWords, type BodyWord } from "../body-parts-mission";
 
 type Target = { id: string; x: number; y: number };
@@ -54,6 +55,7 @@ function DragonMarker() {
 
 export function BodyPartsMission({ worksheetLink }: { worksheetLink: ReactNode }) {
   const { service, state } = useProfile();
+  const { play: playPronunciation } = usePronunciation();
   const progress = state.status === "ready" ? state.snapshot.bodyMissionProgress : null;
   const canStartRun = state.status === "ready" && state.ownership === "exclusive";
   const [selected, setSelected] = useState<string | null>(null);
@@ -127,6 +129,7 @@ export function BodyPartsMission({ worksheetLink }: { worksheetLink: ReactNode }
       setMistakes((current) => ({ ...current, [wordId]: (current[wordId] ?? 0) + 1 })); setMessage(BODY_PARTS_TEXT.retry); setSelected(null); return;
     }
     setBusy(true); setSelected(null); setMessage(BODY_PARTS_TEXT.correct);
+    playPronunciation(`/audio/en-gb/${word.term}.mp3`);
     const result = await service?.placeBodyMissionWord(wordId, round, Boolean(hinted === wordId));
     setBusy(false);
       if (!result || result.status === "rejected" || result.status === "unsaved") { setMessage(BODY_PARTS_TEXT.saveRetry); return; }
@@ -136,7 +139,7 @@ export function BodyPartsMission({ worksheetLink }: { worksheetLink: ReactNode }
       setRecentWord(wordId); window.setTimeout(() => setRecentWord(null), 560);
       window.setTimeout(() => document.querySelector<HTMLButtonElement>(".body-word-card:not([disabled])")?.focus(), 50);
     }
-  }, [busy, progress, placed, demo, isPlaying, service, round, hinted]);
+  }, [busy, progress, placed, demo, isPlaying, service, round, hinted, playPronunciation]);
 
   const finishDemo = async () => {
     setDemo(false); setDemoDismissedForRun(true); setMessage(""); await service?.setBodyMissionDemoSeen();

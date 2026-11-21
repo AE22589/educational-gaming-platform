@@ -258,7 +258,9 @@ test("the body mission has a single Empezar button, no Comenzar button, accepts 
     await expect(page.locator(".body-feedback")).toContainText("¡Muy bien!");
   };
 
+  const pronunciation = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/eye.mp3"));
   await dragWord("eye", "eye-left");
+  expect((await pronunciation).ok()).toBe(true);
   await dragWord("mouth", "mouth");
   await dragWord("nose", "nose");
   await page.getByRole("button", { name: "ear", exact: true }).click();

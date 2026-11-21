@@ -61,13 +61,16 @@ test("English and Science catalogs use their own book and export unit links", as
 
 test("Food and Drinks offers both food group games", async ({ page }) => {
   await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
+  await page.route("**/audio/**", (route) => route.continue());
   await page.getByRole("button", { name: "Food Group Sort" }).click();
   const game = page.getByRole("region", { name: "Food Group Sort" });
   await expect(game.getByText("bread", { exact: true })).toBeVisible();
   await expect(game.locator("img")).toHaveCount(1);
   await game.getByRole("button", { name: "Growth" }).click();
   await expect(game.getByText("Casi. ¡Inténtalo otra vez!")).toBeVisible();
+  const breadAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/bread.mp3"));
   await game.getByRole("button", { name: "Energy" }).click();
+  expect((await breadAudio).ok()).toBe(true);
   await game.getByRole("button", { name: "Continuar" }).click();
   await expect(game.getByText("Ronda 2 de 18", { exact: true })).toBeVisible();
 
@@ -76,7 +79,9 @@ test("Food and Drinks offers both food group games", async ({ page }) => {
   await expect(find.getByText("Ronda 1 de 18", { exact: true })).toBeVisible();
   await expect(find.getByText("Energy", { exact: true })).toBeVisible();
   await expect(find.locator("img")).toHaveCount(3);
+  const foundAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/bread.mp3"));
   await find.getByRole("button", { name: /\bbread\b/ }).click();
+  expect((await foundAudio).ok()).toBe(true);
   await expect(find.getByText("¡Muy bien!")).toBeVisible();
 });
 
@@ -85,7 +90,9 @@ test("Picture Match pronounces only a correct answer", async ({ page }) => {
   await page.getByRole("button", { name: "Picture Match" }).click();
   const game = page.getByRole("region", { name: "Picture Match" });
   const clip = game.locator("audio");
-  await expect(game.getByText("Stars 0")).toBeVisible();
+  await expect(page.getByText("Stars 0")).toBeVisible();
+  await expect(game.getByText("Stars 0")).toHaveCount(0);
+  await expect(page.locator("section[aria-label='Juegos de ciencias'] + [role='status'] + #unit-game")).toBeVisible();
   await expect(clip).toHaveAttribute("src", `${base}/audio/en-gb/water.mp3`);
   await game.getByRole("button").filter({ hasNotText: /^water$/ }).first().click();
   await expect(game.getByText("Casi. ¡Inténtalo otra vez!")).toBeVisible();
@@ -102,7 +109,7 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
   await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
   await page.getByRole("button", { name: "Mystery Word" }).click();
   const game = page.getByRole("region", { name: "Mystery Word" });
-  await expect(game.getByText("Stars 0")).toBeVisible();
+  await expect(page.getByText("Stars 0")).toBeVisible();
   for (const [round, word] of ["food", "healthy diet", "healthy meal", "healthy breakfast", "favourite food", "water"].entries()) {
     const letters = word.replaceAll(" ", "");
     const missing = letters[(round + 1) % letters.length]!;
@@ -112,7 +119,7 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
 
   const picture = game.getByRole("img", { name: "Leche", exact: true });
   const word = game.getByLabel("m i l blank", { exact: true });
-  await expect(game.getByText("Stars 6")).toBeVisible();
+  await expect(page.getByText("Stars 6")).toBeVisible();
   await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   expect(await game.locator("audio").evaluate((audio) => (audio as HTMLAudioElement).paused)).toBe(true);
   for (const width of [1280, 360]) {
@@ -130,7 +137,7 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
   const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/milk.mp3"));
   await game.getByRole("button", { name: "k", exact: true }).click();
   expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
-  await expect(game.getByText("Stars 7")).toBeVisible();
+  await expect(page.getByText("Stars 7")).toBeVisible();
   await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   await game.screenshot({ path: "test-results/mystery-word-pronunciation-mobile.png" });
 });
@@ -155,8 +162,43 @@ test("spelling, phrase and scramble games play the matching recording", async ({
     await expect.poll(() => game.locator("audio").evaluate((audio) =>
       (audio as HTMLAudioElement).played.length)).toBeGreaterThan(0);
     if (label === "Check") await expect(game.getByText("¡Muy bien!")).toBeVisible();
+    else {
+      await game.locator("audio").evaluate((audio) => (audio as HTMLAudioElement).pause());
+      await game.getByRole("textbox").fill("hockey");
+      await game.getByRole("button", { name: "Check", exact: true }).click();
+      await expect.poll(() => game.locator("audio").evaluate((audio) =>
+        (audio as HTMLAudioElement).paused)).toBe(false);
+      await expect(game.getByText("¡Muy bien!")).toBeVisible();
+    }
   }
   await page.screenshot({ path: "test-results/letter-scramble-audio.png" });
+});
+
+test("Word Hunt, Look & Find and sports sorting pronounce correct selections", async ({ page }) => {
+  await page.goto(`${base}/unit/english-2-b1-s01/`);
+  await page.route("**/audio/**", (route) => route.continue());
+
+  await page.getByRole("button", { name: "Word Hunt" }).click();
+  const hunt = page.getByRole("region", { name: "Word Hunt" });
+  const huntedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/hockey.mp3"));
+  await hunt.getByRole("button", { name: "H, 3, 1", exact: true }).click();
+  await hunt.getByRole("button", { name: "Y, 8, 1", exact: true }).click();
+  expect((await huntedAudio).ok()).toBe(true);
+
+  await page.getByRole("button", { name: "Look & Find" }).click();
+  const spot = page.getByRole("region", { name: "Look & Find" });
+  await spot.getByRole("textbox").fill("oe");
+  await spot.getByRole("button", { name: "Check", exact: true }).click();
+  const spottedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/hockey.mp3"));
+  await spot.getByRole("button", { name: "Hockey", exact: true }).click();
+  expect((await spottedAudio).ok()).toBe(true);
+
+  await page.getByRole("button", { name: "Play, Go, Do, Wear?" }).click();
+  const sort = page.getByRole("region", { name: "Play, Go, Do, Wear?" });
+  const sortedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/hockey.mp3"));
+  await sort.getByRole("button", { name: "Play", exact: true }).click();
+  expect((await sortedAudio).ok()).toBe(true);
+  await page.screenshot({ path: "test-results/stars-between-games-and-activity.png" });
 });
 
 test("Healthy Habits opens from Science World and runs the shared practice games", async ({ page }) => {
@@ -209,7 +251,7 @@ for (const unit of [
     ]) {
       await menu.getByRole("button", { name: name, exact: false }).click();
       await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
-      await expect(page.getByRole("region", { name, exact: true }).getByText("Stars 0")).toBeVisible();
+      await expect(page.getByText("Stars 0")).toBeVisible();
     }
   });
 }

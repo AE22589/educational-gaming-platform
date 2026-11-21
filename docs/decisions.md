@@ -601,3 +601,7 @@ in English and Science show “Stars” and award one per first-try correct answ
 Spelling uses the workbook recording for “Listen.” Build a Phrase and Letter
 Scramble play the recording after a correct “Check.” Sports and Seasons use
 separate recordings of the full sentences shown in Build a Phrase.
+
+Pronounce the associated term on correct answers in the remaining shared
+games and on correct placement in the body-parts mission. Keep “Stars”
+between the game list and the active panel.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePronunciation } from "@/features/curriculum/use-pronunciation";
 import { normalizeWord, scramble, type VocabularyItem } from "./vocabulary";
 import { WordHunt } from "./WordHunt";
 import { SpellAndSpot } from "./SpellAndSpot";
@@ -13,6 +14,7 @@ import styles from "./sports.module.css";
 
 const gymnastics: VocabularyItem = {
   word: "gymnastics", translation: "gimnasia", picture: "🤸", group: "Do",
+  audioPath: "/audio/en-gb/gymnastics.mp3",
   phrase: "I do gymnastics", sortPhrase: "do gymnastics",
 };
 
@@ -123,13 +125,13 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
           );
         })}
       </section>
+      {game && <div className={styles.starCounter} role="status" lang="en">
+        <span aria-hidden="true">⭐</span> Stars <strong>{stars}</strong>
+      </div>}
       <section id="unit-game" className={styles.play} hidden={!game} aria-labelledby="unit-game-title">
         {game && (
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
-            <div className={styles.starCounter} role="status" lang="en">
-              <span aria-hidden="true">⭐</span> Stars <strong>{stars}</strong>
-            </div>
             <Activity key={selection} game={game} matchOrder={matchOrder}
               vocabulary={game.id === "match" ? imageVocabulary
                 : science ? scienceVocabulary(vocabulary, game.id) : game.id === "sort" ? sorting : vocabulary} unit={unit}
@@ -157,12 +159,14 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchRetry
   const [correctCount, setCorrectCount] = useState(0);
   const run = useRef({ solved: 0, firstTry: 0, missed: false });
   const progress = useRef<HTMLParagraphElement>(null);
+  const { play, stop } = usePronunciation();
   const questions = vocabulary.length;
   const total = game.id === "hunt" ? Math.ceil(questions / 4) : questions;
 
-  function recordAnswer(correct: boolean) {
+  function recordAnswer(correct: boolean, audioPath?: string) {
     const score = run.current;
     if (correct) {
+      play(audioPath);
       if (!score.missed) {
         score.firstTry += 1;
         onStar();
@@ -187,6 +191,7 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchRetry
   }
 
   function advance(next: number) {
+    stop();
     setRound(next);
     progress.current?.focus();
   }
@@ -273,7 +278,7 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
     if (answered.current) return;
     const matches = normalizeWord(value) === normalizeWord(expected);
     answered.current = matches;
-    if (matches && id !== "spell") playPronunciation();
+    if (matches) playPronunciation();
     setFeedback(matches ? "correct" : "retry");
     onAnswer(matches);
   }

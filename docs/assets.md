@@ -934,3 +934,18 @@ Full sentences used in Build a Phrase, generated with the same Piper Cori voice 
 | `public/audio/en-gb/phrases/it-is-wet.mp3` | It is wet |
 | `public/audio/en-gb/phrases/it-is-windy.mp3` | It is windy |
 | `public/audio/en-gb/phrases/it-is-winter.mp3` | It is winter |
+
+### Additional game and mission words
+
+Recorded with the same Piper Cori voice and pace. The body-parts mission also reuses the existing mouth and nose clips.
+
+| Public file | Vocabulary |
+| --- | --- |
+| `public/audio/en-gb/arm.mp3` | arm |
+| `public/audio/en-gb/ear.mp3` | ear |
+| `public/audio/en-gb/eye.mp3` | eye |
+| `public/audio/en-gb/foot.mp3` | foot |
+| `public/audio/en-gb/gymnastics.mp3` | gymnastics |
+| `public/audio/en-gb/hand.mp3` | hand |
+| `public/audio/en-gb/head.mp3` | head |
+| `public/audio/en-gb/leg.mp3` | leg |

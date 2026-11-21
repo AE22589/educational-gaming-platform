@@ -4,9 +4,10 @@ The pronunciation library includes 473 British English MP3s under
 `public/audio/en-gb/`. All 507 workbook rows with an English term have an
 `AudioPath`. Repeated terms share clips. Picture Match plays the word on a
 correct answer, and Mystery Word plays it when the correct letter is selected.
-All shared game panels show their running star count as “Stars.”
-Spelling plays the saved recording through “Listen.” Build a Phrase and
-Letter Scramble play their recording after a correct “Check.”
+The shared games show their running “Stars” count between the game list and the
+active game panel. Correct answers play the associated vocabulary recording.
+Spelling also offers “Listen,” and Build a Phrase plays the full phrase.
+The separate body-parts mission pronounces a word on correct placement.
 
 The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.

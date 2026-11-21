@@ -45,11 +45,11 @@ function lineBetween(start: number, end: number, columns: number) {
 export function WordHunt({ round, vocabulary, onAnswer, onNext }: {
   round: number;
   vocabulary: VocabularyItem[];
-  onAnswer: (correct: boolean) => void;
+  onAnswer: (correct: boolean, audioPath?: string) => void;
   onNext: () => void;
 }) {
-  const targets = vocabulary.slice(round * 4, round * 4 + 4).map(({ word }) => ({
-    word,
+  const targets = vocabulary.slice(round * 4, round * 4 + 4).map(({ word, audioPath }) => ({
+    word, audioPath,
     compact: word.replaceAll(" ", "").toUpperCase(),
   }));
   const { board, columns } = createBoard(round, targets.map(({ compact }) => compact));
@@ -76,7 +76,7 @@ export function WordHunt({ round, vocabulary, onAnswer, onNext }: {
       } else {
         setFound({ ...found, [target.word]: line });
         setFeedback("¡Palabra encontrada!");
-        onAnswer(true);
+        onAnswer(true, target.audioPath);
       }
     } else {
       setFeedback("Prueba otra vez.");

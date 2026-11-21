@@ -23,7 +23,7 @@ export function FoodGroupRound({ mode, vocabulary, round, onAnswer, onNext }: {
   mode: "food-sort" | "food-find";
   vocabulary: VocabularyItem[];
   round: number;
-  onAnswer: (correct: boolean) => void;
+  onAnswer: (correct: boolean, audioPath?: string) => void;
   onNext: () => void;
 }) {
   const answered = useRef(false);
@@ -36,7 +36,7 @@ export function FoodGroupRound({ mode, vocabulary, round, onAnswer, onNext }: {
     if (answered.current) return;
     answered.current = correct;
     setFeedback(correct ? "correct" : "retry");
-    onAnswer(correct);
+    onAnswer(correct, item.audioPath);
   }
 
   return (

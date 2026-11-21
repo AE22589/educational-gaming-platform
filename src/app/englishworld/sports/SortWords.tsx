@@ -8,7 +8,7 @@ const seasonsGroups = ["Weather", "Season", "Activity"];
 export function SortWords({ item, unit, onAnswer, onNext }: {
   item: VocabularyItem;
   unit: "sports" | "seasons";
-  onAnswer: (correct: boolean) => void;
+  onAnswer: (correct: boolean, audioPath?: string) => void;
   onNext: () => void;
 }) {
   const sports = unit === "sports";
@@ -21,7 +21,7 @@ export function SortWords({ item, unit, onAnswer, onNext }: {
     if (correct) return;
     const matches = group === item.group;
     setFeedback(matches ? "correct" : "retry");
-    onAnswer(matches);
+    onAnswer(matches, item.audioPath);
   }
 
   return (

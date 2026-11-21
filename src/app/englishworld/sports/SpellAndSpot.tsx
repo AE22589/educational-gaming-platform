@@ -40,7 +40,7 @@ export function SpellAndSpot({ round, vocabulary, unit, onAnswer, onNext }: {
   round: number;
   vocabulary: VocabularyItem[];
   unit: "sports" | "seasons";
-  onAnswer: (correct: boolean) => void;
+  onAnswer: (correct: boolean, audioPath?: string) => void;
   onNext: () => void;
 }) {
   const item = vocabulary[round]!;
@@ -67,7 +67,7 @@ export function SpellAndSpot({ round, vocabulary, unit, onAnswer, onNext }: {
   function spot(candidate?: VocabularyItem) {
     if (step !== "spot") return;
     const correct = candidate === item;
-    onAnswer(correct);
+    onAnswer(correct, item.audioPath);
     if (correct) {
       setStep("found");
       setFeedback("¡Lo encontraste!");
