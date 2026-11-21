@@ -8,7 +8,7 @@ import { SortWords } from "./SortWords";
 import { SportsPicture } from "./SportsPicture";
 import { FoodGroupRound, getGroupedFoods } from "./FoodGroupRound";
 import { gameName, getPracticeGames, type Game, type PracticeUnit } from "./game-menu";
-import { playAnswerSound } from "./answer-sound";
+import { playRetrySound } from "./answer-sound";
 import styles from "./sports.module.css";
 
 const gymnastics: VocabularyItem = {
@@ -65,11 +65,11 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
     }
   }
 
-  function scoreMatch(correct: boolean) {
+  function playMatchRetry() {
     if (typeof AudioContext === "undefined") return;
     try {
       audio.current ??= new AudioContext();
-      void playAnswerSound(audio.current, correct).catch(() => {});
+      void playRetrySound(audio.current).catch(() => {});
     } catch {
       // The counters and visual feedback still work when audio is unavailable.
     }
@@ -123,18 +123,18 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
           );
         })}
       </section>
-      {!science && <div className={styles.starCounter} role="status">
-        <span aria-hidden="true">⭐</span> Estrellas <strong>{stars}</strong>
-      </div>}
       <section id="unit-game" className={styles.play} hidden={!game} aria-labelledby="unit-game-title">
         {game && (
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
+            <div className={styles.starCounter} role="status" lang="en">
+              <span aria-hidden="true">⭐</span> Stars <strong>{stars}</strong>
+            </div>
             <Activity key={selection} game={game} matchOrder={matchOrder}
               vocabulary={game.id === "match" ? imageVocabulary
                 : science ? scienceVocabulary(vocabulary, game.id) : game.id === "sort" ? sorting : vocabulary} unit={unit}
-              onComplete={(score) => complete(game.id, score)} onMatchAnswer={scoreMatch}
-              onStar={science ? undefined : () => setStars((count) => count + 1)} />
+              onComplete={(score) => complete(game.id, score)} onMatchRetry={playMatchRetry}
+              onStar={() => setStars((count) => count + 1)} />
           </>
         )}
       </section>
@@ -142,14 +142,14 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
   );
 }
 
-function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswer, onStar }: {
+function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchRetry, onStar }: {
   game: Game;
   matchOrder: VocabularyItem[];
   vocabulary: VocabularyItem[];
   unit: PracticeUnit;
   onComplete: (score: number) => void;
-  onMatchAnswer: (correct: boolean) => void;
-  onStar: (() => void) | undefined;
+  onMatchRetry: () => void;
+  onStar: () => void;
 }) {
   const [round, setRound] = useState(0);
   const [words, setWords] = useState(matchOrder);
@@ -165,7 +165,7 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
     if (correct) {
       if (!score.missed) {
         score.firstTry += 1;
-        onStar?.();
+        onStar();
       }
       score.missed = false;
       score.solved += 1;
@@ -174,8 +174,8 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchAnswe
     } else {
       score.missed = true;
       setMistakes((count) => count + 1);
+      if (game.id === "match") onMatchRetry();
     }
-    if (game.id === "match") onMatchAnswer(correct);
   }
 
   function replay() {
@@ -238,6 +238,8 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
   const answered = useRef(false);
   const [answer, setAnswer] = useState("");
   const [audioMessage, setAudioMessage] = useState("");
+  const pronunciation = useRef<HTMLAudioElement>(null);
+  const audioPath = id === "match" || id === "mystery" ? item.audioPath : undefined;
   const clue = spanishControls && !item.picture ? "la pista en español" : "el dibujo";
   const correct = feedback === "correct";
   const letters = Array.from(item.word);
@@ -253,10 +255,23 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
     if (id === "spell") return () => window.speechSynthesis?.cancel();
   }, [id]);
 
+  function playPronunciation() {
+    const clip = pronunciation.current;
+    if (!clip) return;
+    clip.currentTime = 0;
+    void clip.play().catch(() => {});
+  }
+
+  useEffect(() => {
+    const clip = pronunciation.current;
+    return () => clip?.pause();
+  }, []);
+
   function check(value: string, expected: string) {
     if (answered.current) return;
     const matches = normalizeWord(value) === normalizeWord(expected);
     answered.current = matches;
+    if (matches && audioPath) playPronunciation();
     setFeedback(matches ? "correct" : "retry");
     onAnswer(matches);
   }
@@ -293,6 +308,9 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
         scramble: "Toca las letras en el orden correcto. Junta las palabras si hay más de una.",
       }[id]}</p>
       <SportsPicture item={item} />
+      {audioPath && (
+        <audio ref={pronunciation} preload="none" src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${audioPath}`} />
+      )}
       {id === "match" && (
         <div className={styles.choices} lang="en">
           {matchOptions.map(({ word }) => (

@@ -592,3 +592,8 @@ the pilot before expanding the library or changing game playback.
 The owner requested the same treatment for the remaining workbook vocabulary.
 The library uses the same Cori voice and pace throughout. Existing clips and
 paths are reused. Playback integration is a separate change.
+
+Picture Match replaces the correct-answer tone with the pronunciation and
+keeps the retry tone. Mystery Word plays the pronunciation on a correct letter
+selection. Both use the workbook's audio paths. Shared games
+in English and Science show “Stars” and award one per first-try correct answer.

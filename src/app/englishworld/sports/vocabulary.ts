@@ -2,6 +2,7 @@ export type VocabularyItem = {
   word: string;
   translation: string;
   picture: string | undefined;
+  audioPath?: string;
   phrase: string;
   group: string;
   sortPhrase?: string;

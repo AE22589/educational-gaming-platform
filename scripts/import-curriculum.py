@@ -78,6 +78,18 @@ def subsection_slug(name):
     return re.sub(r"[^a-z0-9]+", "-", text).strip("-")
 
 
+def pronunciation_path(value, location):
+    if not value:
+        return ""
+    value = value.removeprefix("/")
+    if not re.fullmatch(r"audio/(?:[a-z0-9_-]+/)*[a-z0-9_-]+\.mp3", value):
+        raise ValueError(f"{location}: use an MP3 path under public/audio/")
+    asset = (ROOT / "public" / value).resolve()
+    if not asset.is_relative_to(ROOT / "public" / "audio") or not asset.is_file():
+        raise ValueError(f"{location}: audio file does not exist: {value}")
+    return "/" + value
+
+
 def export_printables(rows, units, books):
     columns = ("Section ID", "Subsection ID", "Worksheet Title", "Worksheet Path")
     mappings = []
@@ -326,7 +338,7 @@ def export(workbook):
     has_inline_games = any(fields.get("GameTypes") for topics in row_topics.values() for fields, _ in topics.values())
     if VOCABULARY in sheets:
         for fields, at in records(sheets[VOCABULARY], VOCABULARY, ("Section ID", "English word"),
-                                  ("Sub Section", "Sub Section ID", "Sub Section Name English", "Spanish translation", "ImagePath"),
+                                  ("Sub Section", "Sub Section ID", "Sub Section Name English", "Spanish translation", "ImagePath", "AudioPath"),
                                   allow_empty=("English word",)):
             unit_id = fields["Section ID"]
             if unit_id not in units:
@@ -349,6 +361,7 @@ def export(workbook):
             units[unit_id]["vocabulary"].append({
                 "word": word, "translation": fields.get("Spanish translation", ""),
                 "subsection": subsection, "image": image_path(fields.get("ImagePath"), at("ImagePath")),
+                "audioPath": pronunciation_path(fields.get("AudioPath"), at("AudioPath")),
             })
     reuse_vocabulary_images(units)
     for unit in units.values():

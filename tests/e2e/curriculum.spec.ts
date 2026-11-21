@@ -80,10 +80,29 @@ test("Food and Drinks offers both food group games", async ({ page }) => {
   await expect(find.getByText("¡Muy bien!")).toBeVisible();
 });
 
-test("Mystery Word keeps the tall milk picture above the word on desktop and mobile", async ({ page }) => {
+test("Picture Match pronounces only a correct answer", async ({ page }) => {
+  await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
+  await page.getByRole("button", { name: "Picture Match" }).click();
+  const game = page.getByRole("region", { name: "Picture Match" });
+  const clip = game.locator("audio");
+  await expect(game.getByText("Stars 0")).toBeVisible();
+  await expect(clip).toHaveAttribute("src", `${base}/audio/en-gb/water.mp3`);
+  await game.getByRole("button").filter({ hasNotText: /^water$/ }).first().click();
+  await expect(game.getByText("Casi. ¡Inténtalo otra vez!")).toBeVisible();
+  expect(await clip.evaluate((audio) => (audio as HTMLAudioElement).paused)).toBe(true);
+
+  const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/water.mp3"));
+  await game.getByRole("button", { name: "water", exact: true }).click();
+  expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
+  await expect(game.getByRole("button", { name: "Escuchar" })).toHaveCount(0);
+  await game.screenshot({ path: "test-results/picture-match-pronunciation.png" });
+});
+
+test("Mystery Word pronounces a correct answer and keeps the tall picture above the word", async ({ page }) => {
   await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
   await page.getByRole("button", { name: "Mystery Word" }).click();
   const game = page.getByRole("region", { name: "Mystery Word" });
+  await expect(game.getByText("Stars 0")).toBeVisible();
   for (const [round, word] of ["food", "healthy diet", "healthy meal", "healthy breakfast", "favourite food", "water"].entries()) {
     const letters = word.replaceAll(" ", "");
     const missing = letters[(round + 1) % letters.length]!;
@@ -93,6 +112,9 @@ test("Mystery Word keeps the tall milk picture above the word on desktop and mob
 
   const picture = game.getByRole("img", { name: "Leche", exact: true });
   const word = game.getByLabel("m i l blank", { exact: true });
+  await expect(game.getByText("Stars 6")).toBeVisible();
+  await expect(game.getByRole("button", { name: "Escuchar" })).toHaveCount(0);
+  expect(await game.locator("audio").evaluate((audio) => (audio as HTMLAudioElement).paused)).toBe(true);
   for (const width of [1280, 360]) {
     await page.setViewportSize({ width, height: 900 });
     const imageBox = await picture.locator("img").boundingBox();
@@ -105,6 +127,12 @@ test("Mystery Word keeps the tall milk picture above the word on desktop and mob
     expect(imageBox!.y + imageBox!.height).toBeLessThanOrEqual(frameBox!.y + frameBox!.height);
     expect(frameBox!.y + frameBox!.height).toBeLessThan(wordBox!.y);
   }
+  const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/milk.mp3"));
+  await game.getByRole("button", { name: "k", exact: true }).click();
+  expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
+  await expect(game.getByText("Stars 7")).toBeVisible();
+  await expect(game.getByRole("button", { name: "Escuchar" })).toHaveCount(0);
+  await game.screenshot({ path: "test-results/mystery-word-pronunciation-mobile.png" });
 });
 
 test("Healthy Habits opens from Science World and runs the shared practice games", async ({ page }) => {
@@ -157,6 +185,7 @@ for (const unit of [
     ]) {
       await menu.getByRole("button", { name: name, exact: false }).click();
       await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+      await expect(page.getByRole("region", { name, exact: true }).getByText("Stars 0")).toBeVisible();
     }
   });
 }

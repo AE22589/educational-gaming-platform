@@ -77,571 +77,666 @@
           "word": "Red",
           "translation": "Rojo",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/red.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/red.webp",
+          "audioPath": "/audio/en-gb/red.mp3"
         },
         {
           "word": "Blue",
           "translation": "Azul",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/blue.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/blue.webp",
+          "audioPath": "/audio/en-gb/blue.mp3"
         },
         {
           "word": "Yellow",
           "translation": "Amarillo",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/yellow.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/yellow.webp",
+          "audioPath": "/audio/en-gb/yellow.mp3"
         },
         {
           "word": "Green",
           "translation": "Verde",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/green.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/green.webp",
+          "audioPath": "/audio/en-gb/green.mp3"
         },
         {
           "word": "Orange",
           "translation": "Naranja (color)",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/orange.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/orange.webp",
+          "audioPath": "/audio/en-gb/orange.mp3"
         },
         {
           "word": "Pink",
           "translation": "Rosa",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/pink.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/pink.webp",
+          "audioPath": "/audio/en-gb/pink.mp3"
         },
         {
           "word": "Purple",
           "translation": "Morado",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/purple.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/purple.webp",
+          "audioPath": "/audio/en-gb/purple.mp3"
         },
         {
           "word": "Brown",
           "translation": "Marrón",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/brown.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/brown.webp",
+          "audioPath": "/audio/en-gb/brown.mp3"
         },
         {
           "word": "Black",
           "translation": "Negro",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/black.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/black.webp",
+          "audioPath": "/audio/en-gb/black.mp3"
         },
         {
           "word": "White",
           "translation": "Blanco",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/white.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/white.webp",
+          "audioPath": "/audio/en-gb/white.mp3"
         },
         {
           "word": "Grey",
           "translation": "Gris",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/grey.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/grey.webp",
+          "audioPath": "/audio/en-gb/grey.mp3"
         },
         {
           "word": "Light blue",
           "translation": "Azul claro",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/light-blue.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/light-blue.webp",
+          "audioPath": "/audio/en-gb/light-blue.mp3"
         },
         {
           "word": "Dark blue",
           "translation": "Azul oscuro",
           "subsection": "Colors",
-          "image": "/vocabulary/english/english-2-b1-s00/colors/dark-blue.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/colors/dark-blue.webp",
+          "audioPath": "/audio/en-gb/dark-blue.mp3"
         },
         {
           "word": "One",
           "translation": "Uno",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/one.mp3"
         },
         {
           "word": "Two",
           "translation": "Dos",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/two.mp3"
         },
         {
           "word": "Three",
           "translation": "Tres",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/three.mp3"
         },
         {
           "word": "Four",
           "translation": "Cuatro",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/four.mp3"
         },
         {
           "word": "Five",
           "translation": "Cinco",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/five.mp3"
         },
         {
           "word": "Six",
           "translation": "Seis",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/six.mp3"
         },
         {
           "word": "Seven",
           "translation": "Siete",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/seven.mp3"
         },
         {
           "word": "Eight",
           "translation": "Ocho",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/eight.mp3"
         },
         {
           "word": "Nine",
           "translation": "Nueve",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/nine.mp3"
         },
         {
           "word": "Ten",
           "translation": "Diez",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/ten.mp3"
         },
         {
           "word": "Eleven",
           "translation": "Once",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/eleven.mp3"
         },
         {
           "word": "Twelve",
           "translation": "Doce",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/twelve.mp3"
         },
         {
           "word": "Thirteen",
           "translation": "Trece",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/thirteen.mp3"
         },
         {
           "word": "Fourteen",
           "translation": "Catorce",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fourteen.mp3"
         },
         {
           "word": "Fifteen",
           "translation": "Quince",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fifteen.mp3"
         },
         {
           "word": "Sixteen",
           "translation": "Dieciséis",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sixteen.mp3"
         },
         {
           "word": "Seventeen",
           "translation": "Diecisiete",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/seventeen.mp3"
         },
         {
           "word": "Eighteen",
           "translation": "Dieciocho",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/eighteen.mp3"
         },
         {
           "word": "Nineteen",
           "translation": "Diecinueve",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/nineteen.mp3"
         },
         {
           "word": "Twenty",
           "translation": "Veinte",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/twenty.mp3"
         },
         {
           "word": "Thirty",
           "translation": "Treinta",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/thirty.mp3"
         },
         {
           "word": "Forty",
           "translation": "Cuarenta",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/forty.mp3"
         },
         {
           "word": "Fifty",
           "translation": "Cincuenta",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fifty.mp3"
         },
         {
           "word": "Sixty",
           "translation": "Sesenta",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sixty.mp3"
         },
         {
           "word": "Seventy",
           "translation": "Setenta",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/seventy.mp3"
         },
         {
           "word": "Eighty",
           "translation": "Ochenta",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/eighty.mp3"
         },
         {
           "word": "Ninety",
           "translation": "Noventa",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/ninety.mp3"
         },
         {
           "word": "One hundred",
           "translation": "Cien",
           "subsection": "Numbers",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/one-hundred.mp3"
         },
         {
           "word": "Monday",
           "translation": "Lunes",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/monday.mp3"
         },
         {
           "word": "Tuesday",
           "translation": "Martes",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tuesday.mp3"
         },
         {
           "word": "Wednesday",
           "translation": "Miércoles",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wednesday.mp3"
         },
         {
           "word": "Thursday",
           "translation": "Jueves",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/thursday.mp3"
         },
         {
           "word": "Friday",
           "translation": "Viernes",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/friday.mp3"
         },
         {
           "word": "Saturday",
           "translation": "Sábado",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/saturday.mp3"
         },
         {
           "word": "Sunday",
           "translation": "Domingo",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sunday.mp3"
         },
         {
           "word": "Today",
           "translation": "Hoy",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/today.mp3"
         },
         {
           "word": "Tomorrow",
           "translation": "Mañana",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tomorrow.mp3"
         },
         {
           "word": "Yesterday",
           "translation": "Ayer",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/yesterday.mp3"
         },
         {
           "word": "Weekend",
           "translation": "Fin de semana",
           "subsection": "Days of the week",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/weekend.mp3"
         },
         {
           "word": "Mother / Mum",
           "translation": "Madre / Mamá",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mother-mum.mp3"
         },
         {
           "word": "Father / Dad",
           "translation": "Padre / Papá",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/father-dad.mp3"
         },
         {
           "word": "Parents",
           "translation": "Padres",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/parents.mp3"
         },
         {
           "word": "Brother",
           "translation": "Hermano",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/brother.mp3"
         },
         {
           "word": "Sister",
           "translation": "Hermana",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sister.mp3"
         },
         {
           "word": "Baby",
           "translation": "Bebé",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/baby.mp3"
         },
         {
           "word": "Grandmother / Grandma",
           "translation": "Abuela",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grandmother-grandma.mp3"
         },
         {
           "word": "Grandfather / Grandpa",
           "translation": "Abuelo",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grandfather-grandpa.mp3"
         },
         {
           "word": "Grandparents",
           "translation": "Abuelos",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grandparents.mp3"
         },
         {
           "word": "Aunt",
           "translation": "Tía",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/aunt.mp3"
         },
         {
           "word": "Uncle",
           "translation": "Tío",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/uncle.mp3"
         },
         {
           "word": "Cousin",
           "translation": "Primo / Prima",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cousin.mp3"
         },
         {
           "word": "Son",
           "translation": "Hijo",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/son.mp3"
         },
         {
           "word": "Daughter",
           "translation": "Hija",
           "subsection": "Family",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/daughter.mp3"
         },
         {
           "word": "Dog",
           "translation": "Perro",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/dog.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/dog.webp",
+          "audioPath": "/audio/en-gb/dog.mp3"
         },
         {
           "word": "Cat",
           "translation": "Gato",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/cat.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/cat.webp",
+          "audioPath": "/audio/en-gb/cat.mp3"
         },
         {
           "word": "Rabbit",
           "translation": "Conejo",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/rabbit.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/rabbit.webp",
+          "audioPath": "/audio/en-gb/rabbit.mp3"
         },
         {
           "word": "Hamster",
           "translation": "Hámster",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/hamster.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/hamster.webp",
+          "audioPath": "/audio/en-gb/hamster.mp3"
         },
         {
           "word": "Guinea pig",
           "translation": "Cobaya",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/guinea-pig.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/guinea-pig.webp",
+          "audioPath": "/audio/en-gb/guinea-pig.mp3"
         },
         {
           "word": "Fish",
           "translation": "Pez",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/fish.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/fish.webp",
+          "audioPath": "/audio/en-gb/fish.mp3"
         },
         {
           "word": "Bird",
           "translation": "Pájaro",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/bird.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/bird.webp",
+          "audioPath": "/audio/en-gb/bird.mp3"
         },
         {
           "word": "Parrot",
           "translation": "Loro",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/parrot.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/parrot.webp",
+          "audioPath": "/audio/en-gb/parrot.mp3"
         },
         {
           "word": "Turtle",
           "translation": "Tortuga",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/turtle.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/turtle.webp",
+          "audioPath": "/audio/en-gb/turtle.mp3"
         },
         {
           "word": "Tortoise",
           "translation": "Tortuga terrestre",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/tortoise.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/tortoise.webp",
+          "audioPath": "/audio/en-gb/tortoise.mp3"
         },
         {
           "word": "Mouse",
           "translation": "Ratón",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/mouse.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/mouse.webp",
+          "audioPath": "/audio/en-gb/mouse.mp3"
         },
         {
           "word": "Snake",
           "translation": "Serpiente",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp",
+          "audioPath": "/audio/en-gb/snake.mp3"
         },
         {
           "word": "Lizard",
           "translation": "Lagarto",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/lizard.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/lizard.webp",
+          "audioPath": "/audio/en-gb/lizard.mp3"
         },
         {
           "word": "Puppy",
           "translation": "Cachorro de perro",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/puppy.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/puppy.webp",
+          "audioPath": "/audio/en-gb/puppy.mp3"
         },
         {
           "word": "Kitten",
           "translation": "Gatito",
           "subsection": "Animals",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/kitten.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/kitten.webp",
+          "audioPath": "/audio/en-gb/kitten.mp3"
         },
         {
           "word": "Happy",
           "translation": "Feliz",
           "subsection": "Emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy-supplied.webp",
+          "audioPath": "/audio/en-gb/happy.mp3"
         },
         {
           "word": "Sad",
           "translation": "Triste",
           "subsection": "Emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad-supplied.webp",
+          "audioPath": "/audio/en-gb/sad.mp3"
         },
         {
           "word": "Angry",
           "translation": "Enfadado",
           "subsection": "Emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry-supplied.webp",
+          "audioPath": "/audio/en-gb/angry.mp3"
         },
         {
           "word": "Scared",
           "translation": "Asustado",
           "subsection": "Emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared-supplied.webp",
+          "audioPath": "/audio/en-gb/scared.mp3"
         },
         {
           "word": "Tired",
           "translation": "Cansado",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tired.mp3"
         },
         {
           "word": "Excited",
           "translation": "Emocionado",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/excited.mp3"
         },
         {
           "word": "Bored",
           "translation": "Aburrido",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/bored.mp3"
         },
         {
           "word": "Hungry",
           "translation": "Hambriento",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/hungry.mp3"
         },
         {
           "word": "Thirsty",
           "translation": "Sediento",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/thirsty.mp3"
         },
         {
           "word": "Sleepy",
           "translation": "Soñoliento",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sleepy.mp3"
         },
         {
           "word": "Surprised",
           "translation": "Sorprendido",
           "subsection": "Emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised-supplied.webp",
+          "audioPath": "/audio/en-gb/surprised.mp3"
         },
         {
           "word": "Worried",
           "translation": "Preocupado",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/worried.mp3"
         },
         {
           "word": "Hot",
           "translation": "Tener calor",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/hot.mp3"
         },
         {
           "word": "Cold",
           "translation": "Tener frío",
           "subsection": "Emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cold.mp3"
         }
       ],
       "number": 0,
@@ -670,97 +765,113 @@
           "word": "Hockey",
           "translation": "Hockey",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/hockey.mp3"
         },
         {
           "word": "Football",
           "translation": "Fútbol",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/football.mp3"
         },
         {
           "word": "Basketball",
           "translation": "Baloncesto",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/basketball.mp3"
         },
         {
           "word": "Tennis",
           "translation": "Tenis",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tennis.mp3"
         },
         {
           "word": "Table tennis",
           "translation": "Tenis de mesa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/table-tennis.mp3"
         },
         {
           "word": "Badminton",
           "translation": "Bádminton",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/badminton.mp3"
         },
         {
           "word": "Baseball",
           "translation": "Béisbol",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/baseball.mp3"
         },
         {
           "word": "Swimming",
           "translation": "Natación",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/swimming.mp3"
         },
         {
           "word": "Cycling",
           "translation": "Ciclismo",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cycling.mp3"
         },
         {
           "word": "Skateboarding",
           "translation": "Monopatín",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/skateboarding.mp3"
         },
         {
           "word": "Bat",
           "translation": "Bate",
           "subsection": "",
-          "image": "/vocabulary/english/english-2-b1-s01/general/bat.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/bat.webp",
+          "audioPath": "/audio/en-gb/bat.mp3"
         },
         {
           "word": "Racket",
           "translation": "Raqueta",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/racket.mp3"
         },
         {
           "word": "Helmet",
           "translation": "Casco",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp",
+          "audioPath": "/audio/en-gb/helmet.mp3"
         },
         {
           "word": "Gloves",
           "translation": "Guantes",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/gloves.mp3"
         },
         {
           "word": "Knee pads",
           "translation": "Rodilleras",
           "subsection": "",
-          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp",
+          "audioPath": "/audio/en-gb/knee-pads.mp3"
         },
         {
           "word": "Elbow pads",
           "translation": "Coderas",
           "subsection": "",
-          "image": "/vocabulary/english/english-2-b1-s01/general/elbow-pads.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/elbow-pads.webp",
+          "audioPath": "/audio/en-gb/elbow-pads.mp3"
         }
       ],
       "number": 1,
@@ -789,133 +900,155 @@
           "word": "Sunny",
           "translation": "Soleado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sunny.mp3"
         },
         {
           "word": "Rainy",
           "translation": "Lluvioso",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/rainy.mp3"
         },
         {
           "word": "Cloudy",
           "translation": "Nublado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cloudy.mp3"
         },
         {
           "word": "Windy",
           "translation": "Ventoso",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/windy.mp3"
         },
         {
           "word": "Stormy",
           "translation": "Tormentoso",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/stormy.mp3"
         },
         {
           "word": "Snowy",
           "translation": "Nevado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/snowy.mp3"
         },
         {
           "word": "Foggy",
           "translation": "Con niebla",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/foggy.mp3"
         },
         {
           "word": "Icy",
           "translation": "Helado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/icy.mp3"
         },
         {
           "word": "Wet",
           "translation": "Mojado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wet.mp3"
         },
         {
           "word": "Dry",
           "translation": "Seco",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/dry.mp3"
         },
         {
           "word": "Spring",
           "translation": "Primavera",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/spring.mp3"
         },
         {
           "word": "Summer",
           "translation": "Verano",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/summer.mp3"
         },
         {
           "word": "Autumn",
           "translation": "Otoño",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/autumn.mp3"
         },
         {
           "word": "Winter",
           "translation": "Invierno",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/winter.mp3"
         },
         {
           "word": "Have a picnic",
           "translation": "Hacer un picnic",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/have-a-picnic.mp3"
         },
         {
           "word": "Plant flowers",
           "translation": "Plantar flores",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/plant-flowers.mp3"
         },
         {
           "word": "Ride a bike",
           "translation": "Montar en bicicleta",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/ride-a-bike.mp3"
         },
         {
           "word": "Go swimming",
           "translation": "Ir a nadar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/go-swimming.mp3"
         },
         {
           "word": "Fly a kite",
           "translation": "Volar una cometa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fly-a-kite.mp3"
         },
         {
           "word": "Read a book",
           "translation": "Leer un libro",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/read-a-book.mp3"
         },
         {
           "word": "Draw a picture",
           "translation": "Hacer un dibujo",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/draw-a-picture.mp3"
         },
         {
           "word": "Paint pictures",
           "translation": "Pintar cuadros",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/paint-pictures.mp3"
         }
       ],
       "number": 2,
@@ -935,109 +1068,127 @@
           "word": "Bear",
           "translation": "Oso",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/bear.mp3"
         },
         {
           "word": "Donkey",
           "translation": "Burro",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/donkey.mp3"
         },
         {
           "word": "Eagle",
           "translation": "Águila",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/eagle.mp3"
         },
         {
           "word": "Fox",
           "translation": "Zorro",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fox.mp3"
         },
         {
           "word": "Swan",
           "translation": "Cisne",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/swan.mp3"
         },
         {
           "word": "Crocodile",
           "translation": "Cocodrilo",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/crocodile.mp3"
         },
         {
           "word": "Elephant",
           "translation": "Elefante",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/elephant.mp3"
         },
         {
           "word": "Giraffe",
           "translation": "Jirafa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/giraffe.mp3"
         },
         {
           "word": "Monkey",
           "translation": "Mono",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/monkey.mp3"
         },
         {
           "word": "Snake",
           "translation": "Serpiente",
           "subsection": "",
-          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp"
+          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp",
+          "audioPath": "/audio/en-gb/snake.mp3"
         },
         {
           "word": "Zebra",
           "translation": "Cebra",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/zebra.mp3"
         },
         {
           "word": "Beak",
           "translation": "Pico",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/beak.mp3"
         },
         {
           "word": "Fur",
           "translation": "Pelaje",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fur.mp3"
         },
         {
           "word": "Neck",
           "translation": "Cuello",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/neck.mp3"
         },
         {
           "word": "Tail",
           "translation": "Cola",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tail.mp3"
         },
         {
           "word": "Wings",
           "translation": "Alas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wings.mp3"
         },
         {
           "word": "Mouth",
           "translation": "Boca",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/mouth.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/mouth.webp",
+          "audioPath": "/audio/en-gb/mouth.mp3"
         },
         {
           "word": "Ears",
           "translation": "Orejas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/ears.mp3"
         }
       ],
       "number": 3,
@@ -1057,103 +1208,120 @@
           "word": "Brazil",
           "translation": "Brasil",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/brazil.mp3"
         },
         {
           "word": "Canada",
           "translation": "Canadá",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/canada.mp3"
         },
         {
           "word": "China",
           "translation": "China",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/china.mp3"
         },
         {
           "word": "Mexico",
           "translation": "México",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mexico.mp3"
         },
         {
           "word": "Spain",
           "translation": "España",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/spain.mp3"
         },
         {
           "word": "Poland",
           "translation": "Polonia",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/poland.mp3"
         },
         {
           "word": "United Kingdom",
           "translation": "Reino Unido",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/united-kingdom.mp3"
         },
         {
           "word": "USA",
           "translation": "Estados Unidos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/usa.mp3"
         },
         {
           "word": "New Zealand",
           "translation": "Nueva Zelanda",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/new-zealand.mp3"
         },
         {
           "word": "Coconut",
           "translation": "Coco",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/coconut.mp3"
         },
         {
           "word": "Kiwi",
           "translation": "Kiwi",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/kiwi.mp3"
         },
         {
           "word": "Lime",
           "translation": "Lima",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/lime.mp3"
         },
         {
           "word": "Mango",
           "translation": "Mango",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mango.mp3"
         },
         {
           "word": "Pineapple",
           "translation": "Piña",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/pineapple.mp3"
         },
         {
           "word": "Watermelon",
           "translation": "Sandía",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon-supplied.webp",
+          "audioPath": "/audio/en-gb/watermelon.mp3"
         },
         {
           "word": "Rugby",
           "translation": "Rugby",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/rugby.mp3"
         },
         {
           "word": "Dancing",
           "translation": "Bailar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/dancing.mp3"
         }
       ],
       "number": 4,
@@ -1173,127 +1341,148 @@
           "word": "Mountain",
           "translation": "Montaña",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mountain.mp3"
         },
         {
           "word": "Sports centre",
           "translation": "Polideportivo",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sports-centre.mp3"
         },
         {
           "word": "Forest",
           "translation": "Bosque",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/forest.mp3"
         },
         {
           "word": "River",
           "translation": "Río",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/river.mp3"
         },
         {
           "word": "Swimming pool",
           "translation": "Piscina",
           "subsection": "",
-          "image": "/vocabulary/english/english-2-b1-s05/general/swimming-pool.webp"
+          "image": "/vocabulary/english/english-2-b1-s05/general/swimming-pool.webp",
+          "audioPath": "/audio/en-gb/swimming-pool.mp3"
         },
         {
           "word": "Cinema",
           "translation": "Cine",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cinema.mp3"
         },
         {
           "word": "Countryside",
           "translation": "Campo",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/countryside.mp3"
         },
         {
           "word": "Restaurant",
           "translation": "Restaurante",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/restaurant.mp3"
         },
         {
           "word": "Lake",
           "translation": "Lago",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/lake.mp3"
         },
         {
           "word": "Café",
           "translation": "Cafetería",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cafe.mp3"
         },
         {
           "word": "Go cycling",
           "translation": "Montar en bicicleta",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/go-cycling.mp3"
         },
         {
           "word": "Climb",
           "translation": "Escalar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/climb.mp3"
         },
         {
           "word": "Run",
           "translation": "Correr",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/run.mp3"
         },
         {
           "word": "Play basketball",
           "translation": "Jugar al baloncesto",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/play-basketball.mp3"
         },
         {
           "word": "Go swimming",
           "translation": "Ir a nadar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/go-swimming.mp3"
         },
         {
           "word": "Go to the cinema",
           "translation": "Ir al cine",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/go-to-the-cinema.mp3"
         },
         {
           "word": "Walk the dog",
           "translation": "Pasear al perro",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/walk-the-dog.mp3"
         },
         {
           "word": "Read comics",
           "translation": "Leer cómics",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/read-comics.mp3"
         },
         {
           "word": "Sing",
           "translation": "Cantar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sing.mp3"
         },
         {
           "word": "Dance",
           "translation": "Bailar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/dance.mp3"
         },
         {
           "word": "Play board games",
           "translation": "Jugar a juegos de mesa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/play-board-games.mp3"
         }
       ],
       "number": 5,
@@ -1313,91 +1502,106 @@
           "word": "Beach",
           "translation": "Playa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/beach.mp3"
         },
         {
           "word": "Sand",
           "translation": "Arena",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sand.mp3"
         },
         {
           "word": "Sea",
           "translation": "Mar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sea.mp3"
         },
         {
           "word": "Waves",
           "translation": "Olas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/waves.mp3"
         },
         {
           "word": "Shells",
           "translation": "Conchas",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/shells.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/shells.webp",
+          "audioPath": "/audio/en-gb/shells.mp3"
         },
         {
           "word": "Sandcastle",
           "translation": "Castillo de arena",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sandcastle.mp3"
         },
         {
           "word": "Sandals",
           "translation": "Sandalias",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sandals.mp3"
         },
         {
           "word": "Towels",
           "translation": "Toallas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/towels.mp3"
         },
         {
           "word": "Ice lollies",
           "translation": "Polos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/ice-lollies.mp3"
         },
         {
           "word": "Collect shells",
           "translation": "Recoger conchas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/collect-shells.mp3"
         },
         {
           "word": "Look for fish",
           "translation": "Buscar peces",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/look-for-fish.mp3"
         },
         {
           "word": "Swim in the sea",
           "translation": "Nadar en el mar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/swim-in-the-sea.mp3"
         },
         {
           "word": "Play volleyball",
           "translation": "Jugar al voleibol",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/play-volleyball.mp3"
         },
         {
           "word": "Draw in the sand",
           "translation": "Dibujar en la arena",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/draw-in-the-sand.mp3"
         },
         {
           "word": "Make a sandcastle",
           "translation": "Hacer un castillo de arena",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/make-a-sandcastle.mp3"
         }
       ],
       "number": 6,
@@ -1417,103 +1621,120 @@
           "word": "Car",
           "translation": "Coche",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/car.mp3"
         },
         {
           "word": "Bus",
           "translation": "Autobús",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/bus.mp3"
         },
         {
           "word": "Train",
           "translation": "Tren",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/train.mp3"
         },
         {
           "word": "Lorry",
           "translation": "Camión",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/lorry.mp3"
         },
         {
           "word": "Motorbike",
           "translation": "Motocicleta",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/motorbike.mp3"
         },
         {
           "word": "Helicopter",
           "translation": "Helicóptero",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/helicopter.mp3"
         },
         {
           "word": "Plane",
           "translation": "Avión",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/plane.mp3"
         },
         {
           "word": "Traffic",
           "translation": "Tráfico",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/traffic.mp3"
         },
         {
           "word": "Traffic lights",
           "translation": "Semáforos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/traffic-lights.mp3"
         },
         {
           "word": "Crossing",
           "translation": "Paso de peatones",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/crossing.mp3"
         },
         {
           "word": "Road sign",
           "translation": "Señal de tráfico",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/road-sign.mp3"
         },
         {
           "word": "Seat belt",
           "translation": "Cinturón de seguridad",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/seat-belt.mp3"
         },
         {
           "word": "Stop",
           "translation": "Parar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/stop.mp3"
         },
         {
           "word": "Look",
           "translation": "Mirar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/look.mp3"
         },
         {
           "word": "Walk",
           "translation": "Caminar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/walk.mp3"
         },
         {
           "word": "Run",
           "translation": "Correr",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/run.mp3"
         },
         {
           "word": "Cross",
           "translation": "Cruzar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cross.mp3"
         }
       ],
       "number": 7,
@@ -1533,139 +1754,162 @@
           "word": "House",
           "translation": "Casa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/house.mp3"
         },
         {
           "word": "Roof",
           "translation": "Tejado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/roof.mp3"
         },
         {
           "word": "Garden",
           "translation": "Jardín",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/garden.mp3"
         },
         {
           "word": "Balcony",
           "translation": "Balcón",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/balcony.mp3"
         },
         {
           "word": "Windows",
           "translation": "Ventanas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/windows.mp3"
         },
         {
           "word": "Door",
           "translation": "Puerta",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/door.mp3"
         },
         {
           "word": "Stairs",
           "translation": "Escaleras",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs-supplied.webp",
+          "audioPath": "/audio/en-gb/stairs.mp3"
         },
         {
           "word": "Lift",
           "translation": "Ascensor",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/lift.mp3"
         },
         {
           "word": "Mobile phone",
           "translation": "Teléfono móvil",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mobile-phone.mp3"
         },
         {
           "word": "Camera",
           "translation": "Cámara",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/camera.mp3"
         },
         {
           "word": "Tablet",
           "translation": "Tableta",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tablet.mp3"
         },
         {
           "word": "Headphones",
           "translation": "Auriculares",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/headphones.mp3"
         },
         {
           "word": "Watch",
           "translation": "Reloj",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/watch.mp3"
         },
         {
           "word": "Glasses",
           "translation": "Gafas",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/glasses.mp3"
         },
         {
           "word": "Bag",
           "translation": "Bolsa / mochila",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/bag.mp3"
         },
         {
           "word": "Mat",
           "translation": "Esterilla / alfombrilla",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mat.mp3"
         },
         {
           "word": "Picture",
           "translation": "Dibujo / fotografía",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/picture.mp3"
         },
         {
           "word": "Mine",
           "translation": "Mío / mía",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mine.mp3"
         },
         {
           "word": "Yours",
           "translation": "Tuyo / tuya",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/yours.mp3"
         },
         {
           "word": "His",
           "translation": "Suyo (de él)",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/his.mp3"
         },
         {
           "word": "Hers",
           "translation": "Suyo (de ella)",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/hers.mp3"
         },
         {
           "word": "Ours",
           "translation": "Nuestro / nuestra",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/ours.mp3"
         },
         {
           "word": "Theirs",
           "translation": "Suyo (de ellos)",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/theirs.mp3"
         }
       ],
       "number": 8,
@@ -1685,121 +1929,141 @@
           "word": "Mother",
           "translation": "Madre",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/mother.mp3"
         },
         {
           "word": "Father",
           "translation": "Padre",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/father.mp3"
         },
         {
           "word": "Aunt",
           "translation": "Tía",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/aunt.mp3"
         },
         {
           "word": "Uncle",
           "translation": "Tío",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/uncle.mp3"
         },
         {
           "word": "Cousin",
           "translation": "Primo / prima",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cousin.mp3"
         },
         {
           "word": "Grandma",
           "translation": "Abuela",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grandma.mp3"
         },
         {
           "word": "Grandpa",
           "translation": "Abuelo",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grandpa.mp3"
         },
         {
           "word": "Grandparents",
           "translation": "Abuelos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grandparents.mp3"
         },
         {
           "word": "Cinema",
           "translation": "Cine",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cinema.mp3"
         },
         {
           "word": "Beach",
           "translation": "Playa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/beach.mp3"
         },
         {
           "word": "Shopping centre",
           "translation": "Centro comercial",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/shopping-centre.mp3"
         },
         {
           "word": "Train station",
           "translation": "Estación de tren",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/train-station.mp3"
         },
         {
           "word": "Supermarket",
           "translation": "Supermercado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/supermarket.mp3"
         },
         {
           "word": "Home",
           "translation": "Casa",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/home.mp3"
         },
         {
           "word": "Went swimming",
           "translation": "Fui a nadar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/went-swimming.mp3"
         },
         {
           "word": "Went to the cinema",
           "translation": "Fui al cine",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/went-to-the-cinema.mp3"
         },
         {
           "word": "Visited grandparents",
           "translation": "Visité a los abuelos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/visited-grandparents.mp3"
         },
         {
           "word": "Yesterday",
           "translation": "Ayer",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/yesterday.mp3"
         },
         {
           "word": "Last night",
           "translation": "Anoche",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/last-night.mp3"
         },
         {
           "word": "Last weekend",
           "translation": "El fin de semana pasado",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/last-weekend.mp3"
         }
       ],
       "number": 9,
@@ -1821,325 +2085,379 @@
           "word": "Life Processes",
           "translation": "Procesos vitales",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/life-processes.mp3"
         },
         {
           "word": "Sensitivity",
           "translation": "Sensibilidad",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sensitivity.mp3"
         },
         {
           "word": "Body",
           "translation": "Cuerpo",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/body.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/body.webp",
+          "audioPath": "/audio/en-gb/body.mp3"
         },
         {
           "word": "Senses",
           "translation": "Sentidos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/senses.mp3"
         },
         {
           "word": "Sight",
           "translation": "Vista",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sight.mp3"
         },
         {
           "word": "Smell",
           "translation": "Olfato",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/smell.mp3"
         },
         {
           "word": "Hearing",
           "translation": "Oído",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/hearing.mp3"
         },
         {
           "word": "Taste",
           "translation": "Gusto",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/taste.mp3"
         },
         {
           "word": "Touch",
           "translation": "Tacto",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/touch.mp3"
         },
         {
           "word": "Nutrition",
           "translation": "Nutrición",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/nutrition.mp3"
         },
         {
           "word": "Breathe in air",
           "translation": "Inspirar aire",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/breathe-in-air.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/breathe-in-air.webp",
+          "audioPath": "/audio/en-gb/breathe-in-air.mp3"
         },
         {
           "word": "Take in food",
           "translation": "Ingerir alimentos",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/take-in-food.mp3"
         },
         {
           "word": "Reproduction",
           "translation": "Reproducción",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/reproduction.mp3"
         },
         {
           "word": "Children",
           "translation": "Crías",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/children.mp3"
         },
         {
           "word": "Bones",
           "translation": "Huesos",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/bones.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/bones.webp",
+          "audioPath": "/audio/en-gb/bones.mp3"
         },
         {
           "word": "Joints",
           "translation": "Articulaciones",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/joints.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/joints.webp",
+          "audioPath": "/audio/en-gb/joints.mp3"
         },
         {
           "word": "Muscles",
           "translation": "Músculos",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/muscles.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/muscles.webp",
+          "audioPath": "/audio/en-gb/muscles.mp3"
         },
         {
           "word": "Skeleton",
           "translation": "Esqueleto",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/skeleton.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/skeleton.webp",
+          "audioPath": "/audio/en-gb/skeleton.mp3"
         },
         {
           "word": "Bend",
           "translation": "Doblar / Flexionar",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/bend.mp3"
         },
         {
           "word": "Skull",
           "translation": "Cráneo",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/skull.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/skull.webp",
+          "audioPath": "/audio/en-gb/skull.mp3"
         },
         {
           "word": "Ribs",
           "translation": "Costillas",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/ribs.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/ribs.webp",
+          "audioPath": "/audio/en-gb/ribs.mp3"
         },
         {
           "word": "Elbow",
           "translation": "Codo",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/elbow.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/elbow.webp",
+          "audioPath": "/audio/en-gb/elbow.mp3"
         },
         {
           "word": "Backbone",
           "translation": "Columna vertebral",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/backbone.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/backbone.webp",
+          "audioPath": "/audio/en-gb/backbone.mp3"
         },
         {
           "word": "Knee",
           "translation": "Rodilla",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/knee.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/knee.webp",
+          "audioPath": "/audio/en-gb/knee.mp3"
         },
         {
           "word": "Femur",
           "translation": "Fémur",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/femur.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/femur.webp",
+          "audioPath": "/audio/en-gb/femur.mp3"
         },
         {
           "word": "Ankle",
           "translation": "Tobillo",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/ankle.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/ankle.webp",
+          "audioPath": "/audio/en-gb/ankle.mp3"
         },
         {
           "word": "Tibia",
           "translation": "Tibia",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/tibia.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/tibia.webp",
+          "audioPath": "/audio/en-gb/tibia.mp3"
         },
         {
           "word": "Biceps",
           "translation": "Bíceps",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/biceps.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/biceps.webp",
+          "audioPath": "/audio/en-gb/biceps.mp3"
         },
         {
           "word": "Pectoral",
           "translation": "Pectoral",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/pectoral.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/pectoral.webp",
+          "audioPath": "/audio/en-gb/pectoral.mp3"
         },
         {
           "word": "Gluteus",
           "translation": "Glúteo",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/gluteus.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/gluteus.webp",
+          "audioPath": "/audio/en-gb/gluteus.mp3"
         },
         {
           "word": "Abdominals",
           "translation": "Abdominales",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/abdominals.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/abdominals.webp",
+          "audioPath": "/audio/en-gb/abdominals.mp3"
         },
         {
           "word": "Calf muscle",
           "translation": "Gemelo",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/calf-muscle.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/calf-muscle.webp",
+          "audioPath": "/audio/en-gb/calf-muscle.mp3"
         },
         {
           "word": "Elastic",
           "translation": "Elástico",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/elastic.mp3"
         },
         {
           "word": "Rigid",
           "translation": "Rígido",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/rigid.mp3"
         },
         {
           "word": "Nose",
           "translation": "Nariz",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/nose.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/nose.webp",
+          "audioPath": "/audio/en-gb/nose.mp3"
         },
         {
           "word": "Mouth",
           "translation": "Boca",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/mouth.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/mouth.webp",
+          "audioPath": "/audio/en-gb/mouth.mp3"
         },
         {
           "word": "Trachea",
           "translation": "Tráquea",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/trachea.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/trachea.webp",
+          "audioPath": "/audio/en-gb/trachea.mp3"
         },
         {
           "word": "Lungs",
           "translation": "Pulmones",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/lungs.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/lungs.webp",
+          "audioPath": "/audio/en-gb/lungs.mp3"
         },
         {
           "word": "Breathe out",
           "translation": "Espirar aire",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/breathe-out.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/breathe-out.webp",
+          "audioPath": "/audio/en-gb/breathe-out.mp3"
         },
         {
           "word": "Breathe in air",
           "translation": "Inspirar aire",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/breathe-in-air.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/breathe-in-air.webp",
+          "audioPath": "/audio/en-gb/breathe-in-air.mp3"
         },
         {
           "word": "Food",
           "translation": "Alimentos / Comida",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/food.mp3"
         },
         {
           "word": "Nutrients",
           "translation": "Nutrientes",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/nutrients.mp3"
         },
         {
           "word": "Substances",
           "translation": "Sustancias",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/substances.mp3"
         },
         {
           "word": "Energy",
           "translation": "Energía",
           "subsection": "",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/energy.mp3"
         },
         {
           "word": "Teeth",
           "translation": "Dientes",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/teeth.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/teeth.webp",
+          "audioPath": "/audio/en-gb/teeth.mp3"
         },
         {
           "word": "Oesophagus",
           "translation": "Esófago",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/oesophagus.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/oesophagus.webp",
+          "audioPath": "/audio/en-gb/oesophagus.mp3"
         },
         {
           "word": "Stomach",
           "translation": "Estómago",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/stomach.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/stomach.webp",
+          "audioPath": "/audio/en-gb/stomach.mp3"
         },
         {
           "word": "Intestines",
           "translation": "Intestinos",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/intestines.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/intestines.webp",
+          "audioPath": "/audio/en-gb/intestines.mp3"
         },
         {
           "word": "Anus",
           "translation": "Ano",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/anus.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/anus.webp",
+          "audioPath": "/audio/en-gb/anus.mp3"
         },
         {
           "word": "Stone",
           "translation": "Piedra",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/stone.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/stone.webp",
+          "audioPath": "/audio/en-gb/stone.mp3"
         },
         {
           "word": "Shells",
           "translation": "Conchas",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/shells.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/shells.webp",
+          "audioPath": "/audio/en-gb/shells.mp3"
         },
         {
           "word": "Walnut",
           "translation": "Nuez",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/walnut.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/walnut.webp",
+          "audioPath": "/audio/en-gb/walnut.mp3"
         },
         {
           "word": "Apple",
           "translation": "Manzana",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/apple.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/apple.webp",
+          "audioPath": "/audio/en-gb/apple.mp3"
         },
         {
           "word": "Peg",
           "translation": "Pinza / Clavija",
           "subsection": "",
-          "image": "/vocabulary/science/science-2-b2-s01/general/peg.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/peg.webp",
+          "audioPath": "/audio/en-gb/peg.mp3"
         }
       ],
       "number": 1,
@@ -2297,1135 +2615,1324 @@
           "word": "Body",
           "translation": "Cuerpo",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s01/general/body.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/body.webp",
+          "audioPath": "/audio/en-gb/body.mp3"
         },
         {
           "word": "Healthy",
           "translation": "Sano/a",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/healthy.mp3"
         },
         {
           "word": "Health",
           "translation": "Salud",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/health.mp3"
         },
         {
           "word": "Health centre",
           "translation": "Centro de salud",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/health-centre.mp3"
         },
         {
           "word": "Health centres",
           "translation": "Centros de salud",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/health-centres.mp3"
         },
         {
           "word": "Look after our body",
           "translation": "Cuidar nuestro cuerpo",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/look-after-our-body.mp3"
         },
         {
           "word": "Keep healthy",
           "translation": "Mantenerse sano/a",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/keep-healthy.mp3"
         },
         {
           "word": "Sick person",
           "translation": "Enfermo/a",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/sick-person-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/sick-person-supplied.webp",
+          "audioPath": "/audio/en-gb/sick-person.mp3"
         },
         {
           "word": "Illness",
           "translation": "Enfermedad",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/illness.mp3"
         },
         {
           "word": "Illnesses",
           "translation": "Enfermedades",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/illnesses.mp3"
         },
         {
           "word": "Physically",
           "translation": "Físicamente",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/physically.mp3"
         },
         {
           "word": "Emotionally",
           "translation": "Emocionalmente",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/emotionally.mp3"
         },
         {
           "word": "Emotional problems",
           "translation": "Problemas emocionales",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/emotional-problems.mp3"
         },
         {
           "word": "Powerful mind",
           "translation": "Mente poderosa",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/powerful-mind.mp3"
         },
         {
           "word": "Muscles",
           "translation": "Músculos",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s01/general/muscles.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/muscles.webp",
+          "audioPath": "/audio/en-gb/muscles.mp3"
         },
         {
           "word": "Strong muscles",
           "translation": "Músculos fuertes",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/strong-muscles.mp3"
         },
         {
           "word": "Bones",
           "translation": "Huesos",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s01/general/bones.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/bones.webp",
+          "audioPath": "/audio/en-gb/bones.mp3"
         },
         {
           "word": "Joint",
           "translation": "Articulación",
           "subsection": "Health and the body",
-          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/joint.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/health-and-the-body/joint.webp",
+          "audioPath": "/audio/en-gb/joint.mp3"
         },
         {
           "word": "Sense organ",
           "translation": "Órgano de los sentidos",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sense-organ.mp3"
         },
         {
           "word": "Digestive system",
           "translation": "Aparato digestivo",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/digestive-system.mp3"
         },
         {
           "word": "Life processes",
           "translation": "Procesos vitales",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/life-processes.mp3"
         },
         {
           "word": "Stage of life",
           "translation": "Etapa de la vida",
           "subsection": "Health and the body",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/stage-of-life.mp3"
         },
         {
           "word": "Doctor",
           "translation": "Médico/a",
           "subsection": "Healthcare and illnesses",
-          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/doctor-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/doctor-supplied.webp",
+          "audioPath": "/audio/en-gb/doctor.mp3"
         },
         {
           "word": "Nurse",
           "translation": "Enfermero/a",
           "subsection": "Healthcare and illnesses",
-          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/nurse-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/nurse-supplied.webp",
+          "audioPath": "/audio/en-gb/nurse.mp3"
         },
         {
           "word": "Psychologist",
           "translation": "Psicólogo/a",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/psychologist.mp3"
         },
         {
           "word": "Healthcare workers",
           "translation": "Personal sanitario",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/healthcare-workers.mp3"
         },
         {
           "word": "Check-up",
           "translation": "Revisión médica",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/check-up.mp3"
         },
         {
           "word": "Prescribes",
           "translation": "Receta",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/prescribes.mp3"
         },
         {
           "word": "Medicine",
           "translation": "Medicina",
           "subsection": "Healthcare and illnesses",
-          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/medicine-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/medicine-supplied.webp",
+          "audioPath": "/audio/en-gb/medicine.mp3"
         },
         {
           "word": "Medicines",
           "translation": "Medicamentos",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/medicines.mp3"
         },
         {
           "word": "Vaccination",
           "translation": "Vacunación",
           "subsection": "Healthcare and illnesses",
-          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/vaccination-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthcare-and-illnesses/vaccination-supplied.webp",
+          "audioPath": "/audio/en-gb/vaccination.mp3"
         },
         {
           "word": "Vaccinations",
           "translation": "Vacunaciones",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/vaccinations.mp3"
         },
         {
           "word": "Vaccines",
           "translation": "Vacunas",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/vaccines.mp3"
         },
         {
           "word": "Cold",
           "translation": "Resfriado",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cold.mp3"
         },
         {
           "word": "Flu",
           "translation": "Gripe",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/flu.mp3"
         },
         {
           "word": "Chickenpox",
           "translation": "Varicela",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/chickenpox.mp3"
         },
         {
           "word": "COVID-19",
           "translation": "COVID-19",
           "subsection": "Healthcare and illnesses",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/covid-19.mp3"
         },
         {
           "word": "Healthy habits",
           "translation": "Hábitos saludables",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/healthy-habits.mp3"
         },
         {
           "word": "Hygiene",
           "translation": "Higiene",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/hygiene.mp3"
         },
         {
           "word": "Germs",
           "translation": "Gérmenes",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/germs.mp3"
         },
         {
           "word": "Exercise and sport",
           "translation": "Ejercicio y deporte",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/exercise-and-sport.mp3"
         },
         {
           "word": "Exercise",
           "translation": "Ejercicio",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/exercise.mp3"
         },
         {
           "word": "Sport",
           "translation": "Deporte",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sport.mp3"
         },
         {
           "word": "Sleep",
           "translation": "Dormir",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/sleep-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/sleep-supplied.webp",
+          "audioPath": "/audio/en-gb/sleep.mp3"
         },
         {
           "word": "Rest",
           "translation": "Descansar",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/rest.mp3"
         },
         {
           "word": "Posture",
           "translation": "Postura",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/posture.mp3"
         },
         {
           "word": "Good posture",
           "translation": "Buena postura",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/good-posture.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/good-posture.webp",
+          "audioPath": "/audio/en-gb/good-posture.mp3"
         },
         {
           "word": "Back pain",
           "translation": "Dolor de espalda",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/back-pain-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/back-pain-supplied.webp",
+          "audioPath": "/audio/en-gb/back-pain.mp3"
         },
         {
           "word": "Straight back",
           "translation": "Espalda recta",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/straight-back.mp3"
         },
         {
           "word": "Towel",
           "translation": "Toalla",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/towel.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/towel.webp",
+          "audioPath": "/audio/en-gb/towel.mp3"
         },
         {
           "word": "Toothbrush",
           "translation": "Cepillo de dientes",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/toothbrush-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/toothbrush-supplied.webp",
+          "audioPath": "/audio/en-gb/toothbrush.mp3"
         },
         {
           "word": "Soap",
           "translation": "Jabón",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/soap-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/soap-supplied.webp",
+          "audioPath": "/audio/en-gb/soap.mp3"
         },
         {
           "word": "Hairbrush",
           "translation": "Cepillo para el pelo",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/hairbrush.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/hairbrush.webp",
+          "audioPath": "/audio/en-gb/hairbrush.mp3"
         },
         {
           "word": "Shampoo",
           "translation": "Champú",
           "subsection": "Healthy habits and hygiene",
-          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/shampoo.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/shampoo.webp",
+          "audioPath": "/audio/en-gb/shampoo.mp3"
         },
         {
           "word": "Wash our hands",
           "translation": "Lavarnos las manos",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wash-our-hands.mp3"
         },
         {
           "word": "Have regular showers",
           "translation": "Ducharnos regularmente",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/have-regular-showers.mp3"
         },
         {
           "word": "Brush our teeth",
           "translation": "Cepillarnos los dientes",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/brush-our-teeth.mp3"
         },
         {
           "word": "After every meal",
           "translation": "Después de cada comida",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/after-every-meal.mp3"
         },
         {
           "word": "Sleep 10 hours",
           "translation": "Dormir 10 horas",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sleep-10-hours.mp3"
         },
         {
           "word": "Every night",
           "translation": "Todas las noches",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/every-night.mp3"
         },
         {
           "word": "Strong muscles and bones",
           "translation": "Músculos y huesos fuertes",
           "subsection": "Healthy habits and hygiene",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/strong-muscles-and-bones.mp3"
         },
         {
           "word": "Food",
           "translation": "Alimentos",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/food.mp3"
         },
         {
           "word": "Healthy diet",
           "translation": "Dieta saludable",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/healthy-diet.mp3"
         },
         {
           "word": "Healthy meal",
           "translation": "Comida saludable",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/healthy-meal.mp3"
         },
         {
           "word": "Healthy breakfast",
           "translation": "Desayuno saludable",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/healthy-breakfast.mp3"
         },
         {
           "word": "Favourite food",
           "translation": "Comida favorita",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/favourite-food.mp3"
         },
         {
           "word": "Water",
           "translation": "Agua",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/water.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/water.webp",
+          "audioPath": "/audio/en-gb/water.mp3"
         },
         {
           "word": "Milk",
           "translation": "Leche",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/milk-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/milk-supplied.webp",
+          "audioPath": "/audio/en-gb/milk.mp3"
         },
         {
           "word": "Milkshake",
           "translation": "Batido",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/milkshake.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/milkshake.webp",
+          "audioPath": "/audio/en-gb/milkshake.mp3"
         },
         {
           "word": "Fizzy drink",
           "translation": "Refresco",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fizzy-drink.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fizzy-drink.webp",
+          "audioPath": "/audio/en-gb/fizzy-drink.mp3"
         },
         {
           "word": "Fizzy drinks",
           "translation": "Refrescos",
           "subsection": "Food and drinks",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fizzy-drinks.mp3"
         },
         {
           "word": "Lettuce",
           "translation": "Lechuga",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/lettuce-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/lettuce-supplied.webp",
+          "audioPath": "/audio/en-gb/lettuce.mp3"
         },
         {
           "word": "Bread",
           "translation": "Pan",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/bread-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/bread-supplied.webp",
+          "audioPath": "/audio/en-gb/bread.mp3"
         },
         {
           "word": "Potatoes",
           "translation": "Patatas",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/potatoes-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/potatoes-supplied.webp",
+          "audioPath": "/audio/en-gb/potatoes.mp3"
         },
         {
           "word": "Watermelon",
           "translation": "Sandía",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/watermelon-supplied.webp",
+          "audioPath": "/audio/en-gb/watermelon.mp3"
         },
         {
           "word": "Tomato",
           "translation": "Tomate",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/tomato-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/tomato-supplied.webp",
+          "audioPath": "/audio/en-gb/tomato.mp3"
         },
         {
           "word": "Olive oil",
           "translation": "Aceite de oliva",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/olive-oil.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/olive-oil.webp",
+          "audioPath": "/audio/en-gb/olive-oil.mp3"
         },
         {
           "word": "Rice",
           "translation": "Arroz",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/rice-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/rice-supplied.webp",
+          "audioPath": "/audio/en-gb/rice.mp3"
         },
         {
           "word": "Orange",
           "translation": "Naranja",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/orange-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/orange-supplied.webp",
+          "audioPath": "/audio/en-gb/orange.mp3"
         },
         {
           "word": "Broccoli",
           "translation": "Brócoli",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/broccoli-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/broccoli-supplied.webp",
+          "audioPath": "/audio/en-gb/broccoli.mp3"
         },
         {
           "word": "Pasta",
           "translation": "Pasta",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pasta-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pasta-supplied.webp",
+          "audioPath": "/audio/en-gb/pasta.mp3"
         },
         {
           "word": "Eggs",
           "translation": "Huevos",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/eggs-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/eggs-supplied.webp",
+          "audioPath": "/audio/en-gb/eggs.mp3"
         },
         {
           "word": "Lentils",
           "translation": "Lentejas",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/lentils.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/lentils.webp",
+          "audioPath": "/audio/en-gb/lentils.mp3"
         },
         {
           "word": "Fish",
           "translation": "Pescado",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fish-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fish-supplied.webp",
+          "audioPath": "/audio/en-gb/fish.mp3"
         },
         {
           "word": "Pepper",
           "translation": "Pimiento",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pepper-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pepper-supplied.webp",
+          "audioPath": "/audio/en-gb/pepper.mp3"
         },
         {
           "word": "Apple",
           "translation": "Manzana",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s01/general/apple.webp"
+          "image": "/vocabulary/science/science-2-b2-s01/general/apple.webp",
+          "audioPath": "/audio/en-gb/apple.mp3"
         },
         {
           "word": "Meat",
           "translation": "Carne",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/meat-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/meat-supplied.webp",
+          "audioPath": "/audio/en-gb/meat.mp3"
         },
         {
           "word": "Banana",
           "translation": "Plátano",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/banana-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/banana-supplied.webp",
+          "audioPath": "/audio/en-gb/banana.mp3"
         },
         {
           "word": "Cheese",
           "translation": "Queso",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cheese-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cheese-supplied.webp",
+          "audioPath": "/audio/en-gb/cheese.mp3"
         },
         {
           "word": "Fruits",
           "translation": "Frutas",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fruits.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/fruits.webp",
+          "audioPath": "/audio/en-gb/fruits.mp3"
         },
         {
           "word": "Vegetables",
           "translation": "Verduras",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/vegetables.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/vegetables.webp",
+          "audioPath": "/audio/en-gb/vegetables.mp3"
         },
         {
           "word": "Cereals",
           "translation": "Cereales",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cereals.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cereals.webp",
+          "audioPath": "/audio/en-gb/cereals.mp3"
         },
         {
           "word": "Cake",
           "translation": "Pastel",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cake-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/cake-supplied.webp",
+          "audioPath": "/audio/en-gb/cake.mp3"
         },
         {
           "word": "Chips",
           "translation": "Patatas fritas",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/chips-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/chips-supplied.webp",
+          "audioPath": "/audio/en-gb/chips.mp3"
         },
         {
           "word": "Pear",
           "translation": "Pera",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pear-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/pear-supplied.webp",
+          "audioPath": "/audio/en-gb/pear.mp3"
         },
         {
           "word": "Ham",
           "translation": "Jamón",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/ham.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/ham.webp",
+          "audioPath": "/audio/en-gb/ham.mp3"
         },
         {
           "word": "Sandwich",
           "translation": "Bocadillo",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/sandwich-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/sandwich-supplied.webp",
+          "audioPath": "/audio/en-gb/sandwich.mp3"
         },
         {
           "word": "Yogurt",
           "translation": "Yogur",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/yogurt.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/yogurt.webp",
+          "audioPath": "/audio/en-gb/yogurt.mp3"
         },
         {
           "word": "Soup",
           "translation": "Sopa",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/soup-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/soup-supplied.webp",
+          "audioPath": "/audio/en-gb/soup.mp3"
         },
         {
           "word": "Omelette",
           "translation": "Tortilla",
           "subsection": "Food and drinks",
-          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/omelette.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/omelette.webp",
+          "audioPath": "/audio/en-gb/omelette.mp3"
         },
         {
           "word": "Food groups",
           "translation": "Grupos de alimentos",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/food-groups.mp3"
         },
         {
           "word": "Variety of foods",
           "translation": "Variedad de alimentos",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/variety-of-foods.mp3"
         },
         {
           "word": "Adequate quantities",
           "translation": "Cantidades adecuadas",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/adequate-quantities.mp3"
         },
         {
           "word": "Food portions",
           "translation": "Porciones de alimentos",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/food-portions.mp3"
         },
         {
           "word": "Energy",
           "translation": "Energía",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/energy.mp3"
         },
         {
           "word": "Fibre",
           "translation": "Fibra",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fibre.mp3"
         },
         {
           "word": "Vitamin",
           "translation": "Vitamina",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/vitamin.mp3"
         },
         {
           "word": "Vitamins",
           "translation": "Vitaminas",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/vitamins.mp3"
         },
         {
           "word": "Grow",
           "translation": "Crecer",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/grow.mp3"
         },
         {
           "word": "Provide energy",
           "translation": "Proporcionar energía",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/provide-energy.mp3"
         },
         {
           "word": "Help us to grow",
           "translation": "Ayudarnos a crecer",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/help-us-to-grow.mp3"
         },
         {
           "word": "Provide vitamins and fibre",
           "translation": "Proporcionar vitaminas y fibra",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/provide-vitamins-and-fibre.mp3"
         },
         {
           "word": "Fruits and vegetables",
           "translation": "Frutas y verduras",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fruits-and-vegetables.mp3"
         },
         {
           "word": "Cereals, pasta and potatoes",
           "translation": "Cereales, pasta y patatas",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/cereals-pasta-and-potatoes.mp3"
         },
         {
           "word": "Meat, fish, eggs, dairy products and pulses",
           "translation": "Carne, pescado, huevos, productos lácteos y legumbres",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/meat-fish-eggs-dairy-products-and-pulses.mp3"
         },
         {
           "word": "Dairy products",
           "translation": "Productos lácteos",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/dairy-products.mp3"
         },
         {
           "word": "Pulses",
           "translation": "Legumbres",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/pulses.mp3"
         },
         {
           "word": "Wholegrain foods",
           "translation": "Alimentos integrales",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wholegrain-foods.mp3"
         },
         {
           "word": "Wholegrains",
           "translation": "Cereales integrales",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wholegrains.mp3"
         },
         {
           "word": "Fresh foods",
           "translation": "Alimentos frescos",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fresh-foods.mp3"
         },
         {
           "word": "Sugary foods",
           "translation": "Alimentos azucarados",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sugary-foods.mp3"
         },
         {
           "word": "Balanced diet",
           "translation": "Dieta equilibrada",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/balanced-diet.mp3"
         },
         {
           "word": "Eat five meals a day",
           "translation": "Comer cinco veces al día",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/eat-five-meals-a-day.mp3"
         },
         {
           "word": "Drink plenty of water",
           "translation": "Beber mucha agua",
           "subsection": "Food groups and nutrition",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/drink-plenty-of-water.mp3"
         },
         {
           "word": "Breakfast",
           "translation": "Desayuno",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/breakfast.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/breakfast.webp",
+          "audioPath": "/audio/en-gb/breakfast.mp3"
         },
         {
           "word": "Lunch",
           "translation": "Comida",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/lunch.mp3"
         },
         {
           "word": "Dinner",
           "translation": "Cena",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/dinner.mp3"
         },
         {
           "word": "Snack",
           "translation": "Tentempié",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/snack.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/snack.webp",
+          "audioPath": "/audio/en-gb/snack.mp3"
         },
         {
           "word": "Main meals",
           "translation": "Comidas principales",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/main-meals.mp3"
         },
         {
           "word": "Daily menu",
           "translation": "Menú diario",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/daily-menu.mp3"
         },
         {
           "word": "Weekly menu",
           "translation": "Menú semanal",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/weekly-menu.mp3"
         },
         {
           "word": "Wholegrain toast",
           "translation": "Tostada integral",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wholegrain-toast.mp3"
         },
         {
           "word": "Glass of milk",
           "translation": "Vaso de leche",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/glass-of-milk.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/glass-of-milk.webp",
+          "audioPath": "/audio/en-gb/glass-of-milk.mp3"
         },
         {
           "word": "Ham and cheese sandwich",
           "translation": "Bocadillo de jamón y queso",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/ham-and-cheese-sandwich.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/ham-and-cheese-sandwich.webp",
+          "audioPath": "/audio/en-gb/ham-and-cheese-sandwich.mp3"
         },
         {
           "word": "Hamburger",
           "translation": "Hamburguesa",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/hamburger-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/hamburger-supplied.webp",
+          "audioPath": "/audio/en-gb/hamburger.mp3"
         },
         {
           "word": "Natural yogurt",
           "translation": "Yogur natural",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/natural-yogurt.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/natural-yogurt.webp",
+          "audioPath": "/audio/en-gb/natural-yogurt.mp3"
         },
         {
           "word": "An omelette",
           "translation": "Una tortilla",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/an-omelette.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/an-omelette.webp",
+          "audioPath": "/audio/en-gb/an-omelette.mp3"
         },
         {
           "word": "A piece of cake",
           "translation": "Un trozo de pastel",
           "subsection": "Meals and menus",
-          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/a-piece-of-cake-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/meals-and-menus/a-piece-of-cake-supplied.webp",
+          "audioPath": "/audio/en-gb/a-piece-of-cake.mp3"
         },
         {
           "word": "Five meals a day",
           "translation": "Cinco comidas al día",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/five-meals-a-day.mp3"
         },
         {
           "word": "Three meals a day",
           "translation": "Tres comidas al día",
           "subsection": "Meals and menus",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/three-meals-a-day.mp3"
         },
         {
           "word": "Accident",
           "translation": "Accidente",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/accident.mp3"
         },
         {
           "word": "Accidents",
           "translation": "Accidentes",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/accidents.mp3"
         },
         {
           "word": "Accident prevention",
           "translation": "Prevención de accidentes",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/accident-prevention.mp3"
         },
         {
           "word": "Fall",
           "translation": "Caída",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/fall.mp3"
         },
         {
           "word": "Protection",
           "translation": "Protección",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/protection.mp3"
         },
         {
           "word": "Protective equipment",
           "translation": "Equipo de protección",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/protective-equipment.mp3"
         },
         {
           "word": "Safety rules",
           "translation": "Normas de seguridad",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/safety-rules.mp3"
         },
         {
           "word": "At home",
           "translation": "En casa",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/at-home.mp3"
         },
         {
           "word": "Outdoors",
           "translation": "Al aire libre",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/outdoors.mp3"
         },
         {
           "word": "Objects",
           "translation": "Objetos",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/objects.mp3"
         },
         {
           "word": "Floor",
           "translation": "Suelo",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/floor.mp3"
         },
         {
           "word": "Electric cables",
           "translation": "Cables eléctricos",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/electric-cables-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/electric-cables-supplied.webp",
+          "audioPath": "/audio/en-gb/electric-cables.mp3"
         },
         {
           "word": "Sockets",
           "translation": "Enchufes",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/sockets.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/sockets.webp",
+          "audioPath": "/audio/en-gb/sockets.mp3"
         },
         {
           "word": "Shower",
           "translation": "Ducha",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/shower-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/shower-supplied.webp",
+          "audioPath": "/audio/en-gb/shower.mp3"
         },
         {
           "word": "Slip",
           "translation": "Resbalar",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/slip.mp3"
         },
         {
           "word": "Tidy up",
           "translation": "Recoger",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/tidy-up.mp3"
         },
         {
           "word": "Be careful",
           "translation": "Tener cuidado",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/be-careful.mp3"
         },
         {
           "word": "Road safety rules",
           "translation": "Normas de seguridad vial",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/road-safety-rules.mp3"
         },
         {
           "word": "Stairs",
           "translation": "Escaleras",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/stairs-supplied.webp",
+          "audioPath": "/audio/en-gb/stairs.mp3"
         },
         {
           "word": "Knee pads",
           "translation": "Rodilleras",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp"
+          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp",
+          "audioPath": "/audio/en-gb/knee-pads.mp3"
         },
         {
           "word": "Goggles",
           "translation": "Gafas protectoras",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/goggles-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/goggles-supplied.webp",
+          "audioPath": "/audio/en-gb/goggles.mp3"
         },
         {
           "word": "Helmet",
           "translation": "Casco",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp",
+          "audioPath": "/audio/en-gb/helmet.mp3"
         },
         {
           "word": "Swimming pool",
           "translation": "Piscina",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/english/english-2-b1-s05/general/swimming-pool.webp"
+          "image": "/vocabulary/english/english-2-b1-s05/general/swimming-pool.webp",
+          "audioPath": "/audio/en-gb/swimming-pool.mp3"
         },
         {
           "word": "Bike",
           "translation": "Bicicleta",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/bike-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/bike-supplied.webp",
+          "audioPath": "/audio/en-gb/bike.mp3"
         },
         {
           "word": "Skating",
           "translation": "Patinaje",
           "subsection": "Accidents and safety",
-          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/skating-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/skating-supplied.webp",
+          "audioPath": "/audio/en-gb/skating.mp3"
         },
         {
           "word": "Wear protection",
           "translation": "Llevar protección",
           "subsection": "Accidents and safety",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/wear-protection.mp3"
         },
         {
           "word": "Feelings",
           "translation": "Sentimientos",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/feelings.mp3"
         },
         {
           "word": "Sad",
           "translation": "Triste",
           "subsection": "Feelings and emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/sad-supplied.webp",
+          "audioPath": "/audio/en-gb/sad.mp3"
         },
         {
           "word": "Happy",
           "translation": "Feliz",
           "subsection": "Feelings and emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/happy-supplied.webp",
+          "audioPath": "/audio/en-gb/happy.mp3"
         },
         {
           "word": "Scared",
           "translation": "Asustado/a",
           "subsection": "Feelings and emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/scared-supplied.webp",
+          "audioPath": "/audio/en-gb/scared.mp3"
         },
         {
           "word": "Angry",
           "translation": "Enfadado/a",
           "subsection": "Feelings and emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/angry-supplied.webp",
+          "audioPath": "/audio/en-gb/angry.mp3"
         },
         {
           "word": "Surprised",
           "translation": "Sorprendido/a",
           "subsection": "Feelings and emotions",
-          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised-supplied.webp"
+          "image": "/vocabulary/science/science-2-b2-s02/feelings-and-emotions/surprised-supplied.webp",
+          "audioPath": "/audio/en-gb/surprised.mp3"
         },
         {
           "word": "Different feelings",
           "translation": "Diferentes sentimientos",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/different-feelings.mp3"
         },
         {
           "word": "Control them",
           "translation": "Controlarlos",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/control-them.mp3"
         },
         {
           "word": "Calm down",
           "translation": "Calmarse",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/calm-down.mp3"
         },
         {
           "word": "Understand",
           "translation": "Entender",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/understand.mp3"
         },
         {
           "word": "Feel better",
           "translation": "Sentirse mejor",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/feel-better.mp3"
         },
         {
           "word": "Feel good",
           "translation": "Sentirse bien",
           "subsection": "Feelings and emotions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/feel-good.mp3"
         },
         {
           "word": "Every day",
           "translation": "Todos los días",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/every-day.mp3"
         },
         {
           "word": "Every night",
           "translation": "Todas las noches",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/every-night.mp3"
         },
         {
           "word": "Three times a day",
           "translation": "Tres veces al día",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/three-times-a-day.mp3"
         },
         {
           "word": "Twice a day",
           "translation": "Dos veces al día",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/twice-a-day.mp3"
         },
         {
           "word": "Twice a week",
           "translation": "Dos veces a la semana",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/twice-a-week.mp3"
         },
         {
           "word": "Four times a week",
           "translation": "Cuatro veces a la semana",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/four-times-a-week.mp3"
         },
         {
           "word": "Almost never",
           "translation": "Casi nunca",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/almost-never.mp3"
         },
         {
           "word": "Sometimes",
           "translation": "A veces",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/sometimes.mp3"
         },
         {
           "word": "Never",
           "translation": "Nunca",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/never.mp3"
         },
         {
           "word": "All the time",
           "translation": "Todo el tiempo",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/all-the-time.mp3"
         },
         {
           "word": "Occasionally",
           "translation": "Ocasionalmente",
           "subsection": "Time and frequency expressions",
-          "image": ""
+          "image": "",
+          "audioPath": "/audio/en-gb/occasionally.mp3"
         }
       ],
       "number": 2,

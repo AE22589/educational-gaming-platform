@@ -2,8 +2,9 @@
 
 The pronunciation library includes 473 British English MP3s under
 `public/audio/en-gb/`. All 507 workbook rows with an English term have an
-`AudioPath`. Repeated terms share clips. The clips are static assets, and
-games still use their existing playback behavior.
+`AudioPath`. Repeated terms share clips. Picture Match plays the word on a
+correct answer, and Mystery Word plays it when the correct letter is selected.
+All shared game panels show their running star count as “Stars.”
 
 The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.
