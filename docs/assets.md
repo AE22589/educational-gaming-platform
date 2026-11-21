@@ -409,3 +409,30 @@ The following lossless WebP crops use the owner-supplied My Avatar reference. Th
 | `public/myfriend/dog.webp` | Dog |
 | `public/myfriend/griffin.webp` | Griffin |
 | `public/myfriend/dino.webp` | Dino |
+
+## British English vocabulary audio pilot
+
+Generated with Piper and the [Cori high voice model](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/cori/high/MODEL_CARD) at a slightly faster pace. The model card identifies [LibriVox](https://librivox.org/) public-domain recordings as the voice source. Speaker credit: Cori Samuel.
+
+| Public file | Vocabulary |
+| --- | --- |
+| `public/audio/en-gb/autumn.mp3` | autumn |
+| `public/audio/en-gb/water.mp3` | water |
+| `public/audio/en-gb/helmet.mp3` | helmet |
+| `public/audio/en-gb/knee-pads.mp3` | knee pads |
+| `public/audio/en-gb/ride-a-bike.mp3` | ride a bike |
+| `public/audio/en-gb/read-a-book.mp3` | read a book |
+| `public/audio/en-gb/doctor.mp3` | doctor |
+| `public/audio/en-gb/nurse.mp3` | nurse |
+| `public/audio/en-gb/apple.mp3` | apple |
+| `public/audio/en-gb/banana.mp3` | banana |
+| `public/audio/en-gb/orange.mp3` | orange |
+| `public/audio/en-gb/football.mp3` | football |
+| `public/audio/en-gb/swimming.mp3` | swimming |
+| `public/audio/en-gb/scared.mp3` | scared |
+| `public/audio/en-gb/happy.mp3` | happy |
+| `public/audio/en-gb/rainy.mp3` | rainy |
+| `public/audio/en-gb/sunny.mp3` | sunny |
+| `public/audio/en-gb/windy.mp3` | windy |
+| `public/audio/en-gb/broccoli.mp3` | broccoli |
+| `public/audio/en-gb/vaccination.mp3` | vaccination |

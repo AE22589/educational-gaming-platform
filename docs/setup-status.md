@@ -1,5 +1,10 @@
 # Current setup status — 2026-11-05
 
+The pronunciation pilot includes 20 British English MP3s under
+`public/audio/en-gb/`. The workbook has 26 populated vocabulary `AudioPath`
+cells because six terms occur twice. The clips are static assets. Games still
+use their existing playback behavior while the pilot voice is evaluated.
+
 The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.
 The first mapped PDF is under Science, Primary 2, Book 2, Healthy Habits,

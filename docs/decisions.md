@@ -581,3 +581,10 @@ there are multiple PDFs.
 Food and Drinks adds Food Group Sort and Find the Food. Both use the shared practice interface and the subsection's illustrated vocabulary. The groups are Energy, Vitamins & Fibre, and Growth.
 
 Both games use the 18 foods in the three groups from the supplied curriculum chart. Water is shown separately in the chart and is outside the three sorting groups.
+
+## British English vocabulary audio pilot — 2026-11-21
+
+Start with 20 vocabulary clips in a female British English voice. Store the
+MP3s under `public/audio/en-gb/` and link them from `vocabulary_list.AudioPath`.
+Use the same clip for repeated vocabulary with the same pronunciation. Review
+the pilot before expanding the library or changing game playback.
