@@ -5,6 +5,8 @@ The pronunciation library includes 473 British English MP3s under
 `AudioPath`. Repeated terms share clips. Picture Match plays the word on a
 correct answer, and Mystery Word plays it when the correct letter is selected.
 All shared game panels show their running star count as “Stars.”
+Spelling plays the saved recording through “Listen.” Build a Phrase and
+Letter Scramble play their recording after a correct “Check.”
 
 The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.

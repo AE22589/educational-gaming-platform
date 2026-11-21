@@ -889,3 +889,48 @@ Generated with Piper and the [Cori high voice model](https://huggingface.co/rhas
 | `public/audio/en-gb/yogurt.mp3` | yogurt |
 | `public/audio/en-gb/yours.mp3` | yours |
 | `public/audio/en-gb/zebra.mp3` | zebra |
+
+### Sports and Seasons sentence recordings
+
+Full sentences used in Build a Phrase, generated with the same Piper Cori voice and pace.
+
+| Public file | Sentence |
+| --- | --- |
+| `public/audio/en-gb/phrases/i-have-a-bat.mp3` | I have a bat |
+| `public/audio/en-gb/phrases/i-have-a-racket.mp3` | I have a racket |
+| `public/audio/en-gb/phrases/i-like-cycling.mp3` | I like cycling |
+| `public/audio/en-gb/phrases/i-like-skateboarding.mp3` | I like skateboarding |
+| `public/audio/en-gb/phrases/i-like-swimming.mp3` | I like swimming |
+| `public/audio/en-gb/phrases/i-like-to-draw-a-picture.mp3` | I like to draw a picture |
+| `public/audio/en-gb/phrases/i-like-to-fly-a-kite.mp3` | I like to fly a kite |
+| `public/audio/en-gb/phrases/i-like-to-go-swimming.mp3` | I like to go swimming |
+| `public/audio/en-gb/phrases/i-like-to-have-a-picnic.mp3` | I like to have a picnic |
+| `public/audio/en-gb/phrases/i-like-to-paint-pictures.mp3` | I like to paint pictures |
+| `public/audio/en-gb/phrases/i-like-to-plant-flowers.mp3` | I like to plant flowers |
+| `public/audio/en-gb/phrases/i-like-to-read-a-book.mp3` | I like to read a book |
+| `public/audio/en-gb/phrases/i-like-to-ride-a-bike.mp3` | I like to ride a bike |
+| `public/audio/en-gb/phrases/i-play-badminton.mp3` | I play badminton |
+| `public/audio/en-gb/phrases/i-play-baseball.mp3` | I play baseball |
+| `public/audio/en-gb/phrases/i-play-basketball.mp3` | I play basketball |
+| `public/audio/en-gb/phrases/i-play-football.mp3` | I play football |
+| `public/audio/en-gb/phrases/i-play-hockey.mp3` | I play hockey |
+| `public/audio/en-gb/phrases/i-play-table-tennis.mp3` | I play table tennis |
+| `public/audio/en-gb/phrases/i-play-tennis.mp3` | I play tennis |
+| `public/audio/en-gb/phrases/i-wear-a-helmet.mp3` | I wear a helmet |
+| `public/audio/en-gb/phrases/i-wear-elbow-pads.mp3` | I wear elbow pads |
+| `public/audio/en-gb/phrases/i-wear-gloves.mp3` | I wear gloves |
+| `public/audio/en-gb/phrases/i-wear-knee-pads.mp3` | I wear knee pads |
+| `public/audio/en-gb/phrases/it-is-autumn.mp3` | It is autumn |
+| `public/audio/en-gb/phrases/it-is-cloudy.mp3` | It is cloudy |
+| `public/audio/en-gb/phrases/it-is-dry.mp3` | It is dry |
+| `public/audio/en-gb/phrases/it-is-foggy.mp3` | It is foggy |
+| `public/audio/en-gb/phrases/it-is-icy.mp3` | It is icy |
+| `public/audio/en-gb/phrases/it-is-rainy.mp3` | It is rainy |
+| `public/audio/en-gb/phrases/it-is-snowy.mp3` | It is snowy |
+| `public/audio/en-gb/phrases/it-is-spring.mp3` | It is spring |
+| `public/audio/en-gb/phrases/it-is-stormy.mp3` | It is stormy |
+| `public/audio/en-gb/phrases/it-is-summer.mp3` | It is summer |
+| `public/audio/en-gb/phrases/it-is-sunny.mp3` | It is sunny |
+| `public/audio/en-gb/phrases/it-is-wet.mp3` | It is wet |
+| `public/audio/en-gb/phrases/it-is-windy.mp3` | It is windy |
+| `public/audio/en-gb/phrases/it-is-winter.mp3` | It is winter |

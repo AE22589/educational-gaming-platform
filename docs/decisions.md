@@ -597,3 +597,7 @@ Picture Match replaces the correct-answer tone with the pronunciation and
 keeps the retry tone. Mystery Word plays the pronunciation on a correct letter
 selection. Both use the workbook's audio paths. Shared games
 in English and Science show “Stars” and award one per first-try correct answer.
+
+Spelling uses the workbook recording for “Listen.” Build a Phrase and Letter
+Scramble play the recording after a correct “Check.” Sports and Seasons use
+separate recordings of the full sentences shown in Build a Phrase.

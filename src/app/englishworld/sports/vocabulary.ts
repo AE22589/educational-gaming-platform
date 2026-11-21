@@ -3,6 +3,7 @@ export type VocabularyItem = {
   translation: string;
   picture: string | undefined;
   audioPath?: string;
+  phraseAudioPath?: string;
   phrase: string;
   group: string;
   sortPhrase?: string;

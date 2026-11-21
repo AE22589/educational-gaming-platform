@@ -94,7 +94,7 @@ test("Picture Match pronounces only a correct answer", async ({ page }) => {
   const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/water.mp3"));
   await game.getByRole("button", { name: "water", exact: true }).click();
   expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
-  await expect(game.getByRole("button", { name: "Escuchar" })).toHaveCount(0);
+  await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   await game.screenshot({ path: "test-results/picture-match-pronunciation.png" });
 });
 
@@ -113,7 +113,7 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
   const picture = game.getByRole("img", { name: "Leche", exact: true });
   const word = game.getByLabel("m i l blank", { exact: true });
   await expect(game.getByText("Stars 6")).toBeVisible();
-  await expect(game.getByRole("button", { name: "Escuchar" })).toHaveCount(0);
+  await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   expect(await game.locator("audio").evaluate((audio) => (audio as HTMLAudioElement).paused)).toBe(true);
   for (const width of [1280, 360]) {
     await page.setViewportSize({ width, height: 900 });
@@ -131,8 +131,32 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
   await game.getByRole("button", { name: "k", exact: true }).click();
   expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
   await expect(game.getByText("Stars 7")).toBeVisible();
-  await expect(game.getByRole("button", { name: "Escuchar" })).toHaveCount(0);
+  await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   await game.screenshot({ path: "test-results/mystery-word-pronunciation-mobile.png" });
+});
+
+test("spelling, phrase and scramble games play the matching recording", async ({ page }) => {
+  await page.goto(`${base}/unit/english-2-b1-s01/`);
+  for (const { name, label, audio, tiles } of [
+    { name: "See It, Hear It, Spell It", label: "Listen", audio: "hockey", tiles: [] },
+    { name: "Build a Phrase", label: "Check", audio: "phrases/i-play-hockey", tiles: ["I", "play", "hockey"] },
+    { name: "Letter Scramble", label: "Check", audio: "hockey", tiles: Array.from("hockey") },
+  ]) {
+    await page.getByRole("button", { name }).click();
+    const game = page.getByRole("region", { name, exact: true });
+    for (const tile of tiles) {
+      const group = name === "Build a Phrase" ? "Palabras disponibles" : "Letras disponibles";
+      await game.getByRole("group", { name: group }).getByRole("button", { name: tile, exact: true }).click();
+    }
+    await expect(game.getByRole("button", { name: "Check", exact: true })).toBeVisible();
+    const path = `${base}/audio/en-gb/${audio}.mp3`;
+    await expect(game.locator("audio")).toHaveAttribute("src", path);
+    await game.getByRole("button", { name: label, exact: true }).click();
+    await expect.poll(() => game.locator("audio").evaluate((audio) =>
+      (audio as HTMLAudioElement).played.length)).toBeGreaterThan(0);
+    if (label === "Check") await expect(game.getByText("¡Muy bien!")).toBeVisible();
+  }
+  await page.screenshot({ path: "test-results/letter-scramble-audio.png" });
 });
 
 test("Healthy Habits opens from Science World and runs the shared practice games", async ({ page }) => {

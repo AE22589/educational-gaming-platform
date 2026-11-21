@@ -32,6 +32,11 @@ const seasonPictures: Record<string, string> = {
   "draw a picture": "✏️", "paint pictures": "🎨",
 };
 
+function phraseAudioPath(phrase: string) {
+  const filename = phrase.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return `/audio/en-gb/phrases/${filename}.mp3`;
+}
+
 export function getPracticeVocabulary(unit: CurriculumUnit, slug: PracticeUnit) {
   const seen = new Set<string>();
   return unit.vocabulary.flatMap((item): VocabularyItem[] => {
@@ -44,16 +49,19 @@ export function getPracticeVocabulary(unit: CurriculumUnit, slug: PracticeUnit) 
     if (slug === "sports") {
       const [group, phrase, sortPhrase] =
         sportPhrases[word] ?? ["Play", `I play ${word}`];
-      return [{ ...item, word, picture: item.image || sportPictures[word], group, phrase, sortPhrase: sortPhrase ?? phrase.replace(/^I /, "") }];
+      return [{ ...item, word, picture: item.image || sportPictures[word], group, phrase,
+        phraseAudioPath: phraseAudioPath(phrase), sortPhrase: sortPhrase ?? phrase.replace(/^I /, "") }];
     }
 
     const group = seasons.has(word) ? "Season" : word.includes(" ") ? "Activity" : "Weather";
+    const phrase = group === "Activity" ? `I like to ${word}` : `It is ${word}`;
     return [{
       ...item,
       word,
       picture: item.image || seasonPictures[word],
       group,
-      phrase: group === "Activity" ? `I like to ${word}` : `It is ${word}`,
+      phrase,
+      phraseAudioPath: phraseAudioPath(phrase),
     }];
   });
 }

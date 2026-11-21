@@ -239,7 +239,7 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
   const [answer, setAnswer] = useState("");
   const [audioMessage, setAudioMessage] = useState("");
   const pronunciation = useRef<HTMLAudioElement>(null);
-  const audioPath = id === "match" || id === "mystery" ? item.audioPath : undefined;
+  const audioPath = id === "phrase" && item.phrase !== item.word ? item.phraseAudioPath : item.audioPath;
   const clue = spanishControls && !item.picture ? "la pista en español" : "el dibujo";
   const correct = feedback === "correct";
   const letters = Array.from(item.word);
@@ -251,15 +251,17 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
   const matchDistractors = scramble(vocabulary.filter((entry) => entry !== item), round + 5).slice(0, 3);
   const matchOptions = scramble([item, ...matchDistractors], round + 11);
 
-  useEffect(() => {
-    if (id === "spell") return () => window.speechSynthesis?.cancel();
-  }, [id]);
-
   function playPronunciation() {
     const clip = pronunciation.current;
-    if (!clip) return;
+    if (!clip) {
+      if (id === "spell") setAudioMessage(`Puedes usar ${clue}.`);
+      return;
+    }
+    if (id === "spell") setAudioMessage("");
     clip.currentTime = 0;
-    void clip.play().catch(() => {});
+    void clip.play().catch(() => {
+      if (id === "spell" && clip.isConnected) setAudioMessage(`No se pudo reproducir el audio. Usa ${clue}.`);
+    });
   }
 
   useEffect(() => {
@@ -271,31 +273,9 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
     if (answered.current) return;
     const matches = normalizeWord(value) === normalizeWord(expected);
     answered.current = matches;
-    if (matches && audioPath) playPronunciation();
+    if (matches && id !== "spell") playPronunciation();
     setFeedback(matches ? "correct" : "retry");
     onAnswer(matches);
-  }
-
-  function speak() {
-    if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
-      setAudioMessage(`Puedes usar ${clue}.`);
-      return;
-    }
-    window.speechSynthesis.cancel();
-    setAudioMessage("");
-    const speech = new SpeechSynthesisUtterance(item.word);
-    const voices = window.speechSynthesis.getVoices();
-    const englishVoice = voices.find((voice) => voice.lang === "en-GB" && voice.localService)
-      ?? voices.find((voice) => voice.lang.startsWith("en") && voice.localService);
-    if (!englishVoice) {
-      setAudioMessage(`No hay una voz en inglés disponible. Usa ${clue}.`);
-      return;
-    }
-    speech.voice = englishVoice;
-    speech.lang = englishVoice.lang;
-    speech.rate = 0.8;
-    speech.onerror = () => setAudioMessage(`No se pudo reproducir el audio. Usa ${clue}.`);
-    window.speechSynthesis.speak(speech);
   }
 
   return (
@@ -303,7 +283,7 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
       <p className={styles.prompt}>{{
         match: `¿Qué palabra va con ${clue}?`,
         mystery: "Elige la letra que falta.",
-        phrase: spanishControls ? "Arrastra o toca las palabras y pulsa Comprobar." : "Arrastra o toca las palabras y pulsa Check.",
+        phrase: "Arrastra o toca las palabras y pulsa Check.",
         spell: `Mira ${clue} o escucha la palabra. Escríbela en inglés.`,
         scramble: "Toca las letras en el orden correcto. Junta las palabras si hay más de una.",
       }[id]}</p>
@@ -335,7 +315,9 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
       )}
       {id === "spell" && (
         <>
-          <button className={styles.tile} onClick={speak}>🔊 Escuchar</button>
+          <button className={styles.tile} lang="en" onClick={playPronunciation}>
+            <span aria-hidden="true">🔊</span> Listen
+          </button>
           <p role="status" className={styles.audioMessage}>{audioMessage}</p>
           <form className={styles.choices} onSubmit={(event) => {
             event.preventDefault();
@@ -347,14 +329,13 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
                 setAnswer(event.target.value);
                 setFeedback(null);
               }} />
-            <button className={styles.primary} disabled={correct || !answer.trim()}>Comprobar</button>
+            <button className={styles.primary} lang="en" disabled={correct || !answer.trim()}>Check</button>
           </form>
         </>
       )}
       {(id === "phrase" || id === "scramble") && (
         <OrderTiles tokens={id === "phrase" ? item.phrase.split(" ") : item.word.replaceAll(" ", "").split("")}
           isPhrase={id === "phrase"} seed={round + 2} correct={correct}
-          spanishControls={spanishControls}
           onEdit={() => setFeedback(null)} onCheck={check} />
       )}
       <p className={styles.feedback} role="status">
@@ -366,12 +347,11 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
   );
 }
 
-function OrderTiles({ tokens, isPhrase, seed, correct, spanishControls, onEdit, onCheck }: {
+function OrderTiles({ tokens, isPhrase, seed, correct, onEdit, onCheck }: {
   tokens: string[];
   isPhrase: boolean;
   seed: number;
   correct: boolean;
-  spanishControls: boolean;
   onEdit: () => void;
   onCheck: (value: string, expected: string) => void;
 }) {
@@ -379,7 +359,6 @@ function OrderTiles({ tokens, isPhrase, seed, correct, spanishControls, onEdit, 
   const dragged = useRef<number | null>(null);
   const tileButtons = useRef<(HTMLButtonElement | null)[]>([]);
   const separator = isPhrase ? " " : "";
-  const englishCheck = isPhrase && !spanishControls;
   const available = scramble(tokens.map((_, index) => index), seed)
     .filter((index) => !ordered.includes(index));
 
@@ -444,10 +423,10 @@ function OrderTiles({ tokens, isPhrase, seed, correct, spanishControls, onEdit, 
           setOrdered([]);
           onEdit();
         }}>{isPhrase ? <span className={styles.eraserIcon} aria-hidden="true" /> : "Borrar"}</button>
-        <button className={styles.primary} lang={englishCheck ? "en" : undefined}
+        <button className={styles.primary} lang="en"
           disabled={correct || ordered.length !== tokens.length}
           onClick={() => onCheck(ordered.map((index) => tokens[index]).join(separator), tokens.join(separator))}>
-          {englishCheck ? "Check" : "Comprobar"}
+          Check
         </button>
       </div>
     </>
