@@ -412,6 +412,8 @@ The following lossless WebP crops use the owner-supplied My Avatar reference. Th
 
 ## British English vocabulary audio
 
+The bread and eggs clips were regenerated with the [Cori medium model](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/cori/medium/MODEL_CARD), using Cori Samuel's recordings from the [Hi-Fi Multi-Speaker English TTS Dataset](https://www.openslr.org/109/) by Bakhturina, Lavrukhin, Ginsburg and Zhang at NVIDIA, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
 Generated with Piper and the [Cori high voice model](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/cori/high/MODEL_CARD) at a slightly faster pace. The model card identifies [LibriVox](https://librivox.org/) public-domain recordings as the voice source. Speaker credit: Cori Samuel.
 
 | Public file | Vocabulary |
