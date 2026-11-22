@@ -49,12 +49,13 @@ In `vocabulary_list`, use `Section ID`, `Sub Section ID`,
 the subsection fields blank for general section vocabulary.
 
 Use public WebP paths such as `/vocabulary/<subject>/<Section ID>/<topic-or-general>/<word>.webp`.
-Blank, `No image` and `Find` provide no image of their own. Picture Match uses
-entries with images. Other practice games can use the Spanish clue. See the
+Blank, `No image`, `Find` and `missing` provide no image of their own. Picture Match uses
+entries with images and is available on section and topic pages with illustrated vocabulary. Other practice games can use the Spanish clue. See the
 [OpenMoji image mapping](vocabulary-image-map.md) for earlier sourced artwork.
 Keep duplicate vocabulary rows. Reuse the same image path for the same word
-and meaning. The importer shares the first available image across rows with
-the same English term and Spanish translation, ignoring case and alternatives
+and meaning when the same artwork fits. The importer fills empty image paths
+using the first available image for the same English term and Spanish translation.
+It keeps explicit paths and matches missing images ignoring case and alternatives
 such as `Enfadado/a` versus `Enfadado`. Distinct senses use distinct translations,
 for example `Naranja (color)` and `Naranja`.
 

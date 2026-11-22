@@ -609,3 +609,11 @@ between the game list and the active panel.
 On the mobile homepage, prioritize the four main activity cards with more
 height. Use a compact illustrated row for the three quick links underneath
 and left-align the brand when the header stacks.
+
+## Vocabulary images in Picture Match — 2026-11-22
+
+Offer Picture Match on section and topic pages whenever workbook vocabulary
+has a public image. Use the section or topic's illustrated entries and retain
+distinct illustrations of the same spelling. Keep the existing workbook game
+assignments and the body-parts mission. Treat `missing` as a workbook image
+placeholder.

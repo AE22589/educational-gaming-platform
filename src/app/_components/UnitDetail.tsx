@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBook, getSectionTone, practiceIds, units } from "@/features/curriculum/catalog";
+import { getBook, getSectionTone, units } from "@/features/curriculum/catalog";
 import { getSectionTranslation } from "@/features/curriculum/section-translations";
 import { UnitGames } from "../englishworld/sports/UnitGames";
-import { getPracticeVocabulary } from "../englishworld/sports/unit-content";
+import { getPictureMatchVocabulary, getPracticeVocabulary } from "../englishworld/sports/unit-content";
 import practiceStyles from "../englishworld/sports/sports.module.css";
 import styles from "../englishworld/english-world.module.css";
 import { PrintWorksheetsLink } from "./PrintWorksheetsLink";
-import { bodyGame, getUnitActivity } from "./unit-activity";
+import { bodyGame, getUnitActivity, getVocabularyGames } from "./unit-activity";
 import topicStyles from "./subsections.module.css";
 
 const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -24,9 +24,10 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
   const printWorksheets = <PrintWorksheetsLink sectionId={unit.id} subsectionId={subsection?.stableId ?? subsection?.id} />;
   if (subsection) {
     const spanishTitle = subsection.spanishTitle || translation?.topics[subsection.id];
-    const games = unitId === practiceIds.healthyHabits ? subsection.games ?? [] : [];
     const vocabulary = unit.vocabulary.filter(({ subsection: topic }) =>
       topic.toLowerCase() === subsection.title.toLowerCase() || topic.toLowerCase() === subsection.id);
+    const games = getVocabularyGames(subsection.games ?? [], vocabulary);
+    const practice = world === "scienceworld" ? "healthy-habits" : "vocabulary";
 
     return (
       <section className={topicStyles.page} aria-labelledby="curriculum-unit-title">
@@ -46,7 +47,8 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
         <Link href={sectionHref} className={topicStyles.back}><span aria-hidden="true">←</span> Volver a las subsecciones</Link>
         {games.length > 0 && vocabulary.length > 0 ? (
           <div className={practiceStyles.page}>
-            <UnitGames unit="healthy-habits" vocabulary={getPracticeVocabulary({ ...unit, vocabulary }, "healthy-habits")} availableGames={games} />
+            <UnitGames unit={practice} vocabulary={getPracticeVocabulary({ ...unit, vocabulary }, practice)}
+              pictureMatchVocabulary={getPictureMatchVocabulary(vocabulary)} availableGames={games} />
           </div>
         ) : (
           <section className={topicStyles.empty} aria-labelledby="subsection-games-title">
@@ -92,6 +94,8 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
   }
 
   const activity = getUnitActivity(unit);
+  const practice = activity === "body" ? "healthy-habits" : activity;
+  const games = getVocabularyGames(unit.games, unit.vocabulary);
   const tone = getSectionTone(unit);
 
   return (
@@ -106,9 +110,11 @@ export function UnitDetail({ unitId, subsectionId }: { unitId: string; subsectio
         {unit.description && <p>{unit.description}</p>}
         {printWorksheets}
       </header>
-      {activity === "body" ? <Link className={`home-tile-button ${styles.button}`} href="/scienceworld/body/">{bodyGame}</Link>
-        : activity ? <UnitGames unit={activity} vocabulary={getPracticeVocabulary(unit, activity)} availableGames={unit.games} />
-        : <p>¡Las actividades estarán disponibles pronto!</p>}
+      {activity === "body" && <Link className={`home-tile-button ${styles.button}`} href="/scienceworld/body/">{bodyGame}</Link>}
+      {practice && (activity !== "body" || unit.vocabulary.some(({ image }) => image)) &&
+        <UnitGames unit={practice} vocabulary={getPracticeVocabulary(unit, practice)}
+          pictureMatchVocabulary={getPictureMatchVocabulary(unit.vocabulary)} availableGames={games} />}
+      {!activity && <p>¡Las actividades estarán disponibles pronto!</p>}
     </section>
   );
 }

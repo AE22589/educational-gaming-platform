@@ -241,3 +241,13 @@ Eighty-two listed vocabulary terms have supplied artwork prepared; 83 workbook i
 ### My Little Friend
 
 The homepage friend card opens /myfriend/. Choose one of ten characters, save a name, and edit either later. The profile displays its first-save birthday, three starting care indicators, and links to Star Shop and, for the dragon, the existing cave.
+
+## Workbook artwork and Picture Match
+
+The final Science and English vocabulary update adds 142 supplied lossless WebP
+files and reuses three existing illustrations. The workbook records missing
+images, and the generated curriculum validates each public image path.
+
+Sections and topics with illustrated vocabulary offer Picture Match. Sports,
+Seasons, and the Healthy Habits topics continue to offer their assigned games.
+The Body section also retains its body-parts mission.

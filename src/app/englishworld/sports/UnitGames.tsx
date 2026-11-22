@@ -20,9 +20,6 @@ const gymnastics: VocabularyItem = {
 
 function scienceVocabulary(vocabulary: VocabularyItem[], game: Game["id"]) {
   if (game === "food-sort" || game === "food-find") return getGroupedFoods(vocabulary);
-  if (game === "match") {
-    return vocabulary.filter(({ picture }) => picture?.startsWith("/"));
-  }
   if (game === "phrase") {
     return vocabulary.filter(({ phrase }) => phrase.includes(" ") && phrase.split(" ").length <= 6);
   }
@@ -32,8 +29,9 @@ function scienceVocabulary(vocabulary: VocabularyItem[], game: Game["id"]) {
   return vocabulary;
 }
 
-export function UnitGames({ vocabulary, unit, availableGames }: {
+export function UnitGames({ vocabulary, pictureMatchVocabulary, unit, availableGames }: {
   vocabulary: VocabularyItem[];
+  pictureMatchVocabulary: VocabularyItem[];
   availableGames: string[];
   unit: PracticeUnit;
 }) {
@@ -41,8 +39,7 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
   const [selection, setSelection] = useState(0);
   const [stars, setStars] = useState(0);
   const [bestScores, setBestScores] = useState<Partial<Record<Game["id"], number>>>({});
-  const [matchOrder, setMatchOrder] = useState<VocabularyItem[]>(() =>
-    vocabulary.filter(({ picture }) => picture?.startsWith("/")));
+  const [matchOrder, setMatchOrder] = useState(pictureMatchVocabulary);
   const audio = useRef<AudioContext | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
 
@@ -78,9 +75,8 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
   }
 
   const science = unit === "healthy-habits";
-  const imageVocabulary = vocabulary.filter(({ picture }) => picture?.startsWith("/"));
   const menu = getPracticeGames(availableGames, unit).filter(({ id }) =>
-    id === "match" ? imageVocabulary.length > 0 : !science || scienceVocabulary(vocabulary, id).length > 0);
+    id === "match" ? pictureMatchVocabulary.length > 0 : !science || scienceVocabulary(vocabulary, id).length > 0);
   const useSpanishClues = science && vocabulary.some(({ picture }) => !picture);
   const sorting = unit === "sports" && !vocabulary.some(({ word }) => word === gymnastics.word)
     ? [...vocabulary, gymnastics] : vocabulary;
@@ -92,7 +88,7 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
         {menu.map((entry) => {
           const best = bestScores[entry.id];
           const questions = entry.id === "sort" ? sorting.length
-            : entry.id === "match" ? imageVocabulary.length : vocabulary.length;
+            : entry.id === "match" ? pictureMatchVocabulary.length : vocabulary.length;
           const seasonalSort = unit === "seasons" && entry.id === "sort";
           const name = gameName(entry, unit);
           const description = seasonalSort ? "Clasifica el tiempo, las estaciones y las actividades."
@@ -133,7 +129,7 @@ export function UnitGames({ vocabulary, unit, availableGames }: {
           <>
             <h2 id="unit-game-title" ref={heading} tabIndex={-1} lang="en">{game.name}</h2>
             <Activity key={selection} game={game} matchOrder={matchOrder}
-              vocabulary={game.id === "match" ? imageVocabulary
+              vocabulary={game.id === "match" ? pictureMatchVocabulary
                 : science ? scienceVocabulary(vocabulary, game.id) : game.id === "sort" ? sorting : vocabulary} unit={unit}
               onComplete={(score) => complete(game.id, score)} onMatchRetry={playMatchRetry}
               onStar={() => setStars((count) => count + 1)} />
@@ -212,9 +208,9 @@ function Activity({ game, matchOrder, vocabulary, unit, onComplete, onMatchRetry
       ) : game.id === "hunt" ? (
         <WordHunt key={round} vocabulary={vocabulary} {...roundProps} />
       ) : game.id === "spot" ? (
-        unit !== "healthy-habits" && <SpellAndSpot key={round} vocabulary={vocabulary} unit={unit} {...roundProps} />
+        (unit === "sports" || unit === "seasons") && <SpellAndSpot key={round} vocabulary={vocabulary} unit={unit} {...roundProps} />
       ) : game.id === "sort" ? (
-        unit !== "healthy-habits" && <SortWords key={round} item={vocabulary[round]!} unit={unit} {...roundProps} />
+        (unit === "sports" || unit === "seasons") && <SortWords key={round} item={vocabulary[round]!} unit={unit} {...roundProps} />
       ) : game.id === "food-sort" || game.id === "food-find" ? (
         <FoodGroupRound key={round} mode={game.id} vocabulary={vocabulary} {...roundProps} />
       ) : (
@@ -253,7 +249,8 @@ function VocabularyRound({ id, round, item, vocabulary, spanishControls, onAnswe
   const letter = letters[missing]!;
   const options = scramble([letter, ...Array.from("aeiotrsl").filter((option) => option !== letter)
     .slice(round % 4, round % 4 + 2)], round + 9);
-  const matchDistractors = scramble(vocabulary.filter((entry) => entry !== item), round + 5).slice(0, 3);
+  const matchDistractors = scramble([...new Map(vocabulary.map((entry) => [normalizeWord(entry.word), entry])).values()]
+    .filter((entry) => entry.picture !== item.picture && normalizeWord(entry.word) !== normalizeWord(item.word)), round + 5).slice(0, 3);
   const matchOptions = scramble([item, ...matchDistractors], round + 11);
 
   function playPronunciation() {

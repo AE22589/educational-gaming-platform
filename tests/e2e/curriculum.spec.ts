@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+import data from "../../src/features/curriculum/curriculum.generated.json" with { type: "json" };
+
 const base = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
 
 test("English and Science catalogs use their own book and export unit links", async ({ page }) => {
@@ -93,33 +95,42 @@ test("Picture Match pronounces only a correct answer", async ({ page }) => {
   await expect(page.getByText("Stars 0")).toBeVisible();
   await expect(game.getByText("Stars 0")).toHaveCount(0);
   await expect(page.locator("section[aria-label='Juegos de ciencias'] + [role='status'] + #unit-game")).toBeVisible();
-  await expect(clip).toHaveAttribute("src", `${base}/audio/en-gb/water.mp3`);
-  await game.getByRole("button").filter({ hasNotText: /^water$/ }).first().click();
+  await expect(clip).toHaveAttribute("src", `${base}/audio/en-gb/apple.mp3`);
+  await game.getByRole("button").filter({ hasNotText: /^apple$/ }).first().click();
   await expect(game.getByText("Casi. ¡Inténtalo otra vez!")).toBeVisible();
   expect(await clip.evaluate((audio) => (audio as HTMLAudioElement).paused)).toBe(true);
 
-  const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/water.mp3"));
-  await game.getByRole("button", { name: "water", exact: true }).click();
+  const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/apple.mp3"));
+  await game.getByRole("button", { name: "apple", exact: true }).click();
   expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
   await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   await game.screenshot({ path: "test-results/picture-match-pronunciation.png" });
 });
 
 test("Mystery Word pronounces a correct answer and keeps the tall picture above the word", async ({ page }) => {
+  test.setTimeout(90000);
   await page.goto(`${base}/unit/science-2-b2-s02/subsection/food-and-drinks/`);
   await page.getByRole("button", { name: "Mystery Word" }).click();
   const game = page.getByRole("region", { name: "Mystery Word" });
   await expect(page.getByText("Stars 0")).toBeVisible();
-  for (const [round, word] of ["food", "healthy diet", "healthy meal", "healthy breakfast", "favourite food", "water"].entries()) {
-    const letters = word.replaceAll(" ", "");
-    const missing = letters[(round + 1) % letters.length]!;
-    await game.getByRole("button", { name: missing, exact: true }).click();
+  const vocabulary = data.units.find(({ id }) => id === "science-2-b2-s02")!.vocabulary;
+  const words = [...new Set(vocabulary.filter(({ subsection }) => subsection === "Food and drinks")
+    .map(({ word }) => word.toLowerCase()))];
+  const milkRound = words.indexOf("milk");
+  const missingLetter = (word: string, round: number) => {
+    const positions = Array.from(word.matchAll(/\p{L}/gu), ({ index }) => index);
+    return positions[(round + 1) % positions.length]!;
+  };
+  for (const [round, word] of words.slice(0, milkRound).entries()) {
+    await game.getByRole("button", { name: word[missingLetter(word, round)]!, exact: true }).click();
     await game.getByRole("button", { name: "Continuar" }).click();
   }
 
+  const milkBlank = missingLetter("milk", milkRound);
   const picture = game.getByRole("img", { name: "Leche", exact: true });
-  const word = game.getByLabel("m i l blank", { exact: true });
-  await expect(page.getByText("Stars 6")).toBeVisible();
+  const word = game.getByLabel(Array.from("milk", (letter, index) =>
+    index === milkBlank ? "blank" : letter).join(" "), { exact: true });
+  await expect(page.locator("[role=status]:has(+ #unit-game) strong")).toHaveText(String(milkRound));
   await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   expect(await game.locator("audio").evaluate((audio) => (audio as HTMLAudioElement).paused)).toBe(true);
   for (const width of [1280, 360]) {
@@ -135,9 +146,9 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
     expect(frameBox!.y + frameBox!.height).toBeLessThan(wordBox!.y);
   }
   const playback = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/milk.mp3"));
-  await game.getByRole("button", { name: "k", exact: true }).click();
+  await game.getByRole("button", { name: "milk"[milkBlank]!, exact: true }).click();
   expect((await playback).headers()["content-type"]).toBe("audio/mpeg");
-  await expect(page.getByText("Stars 7")).toBeVisible();
+  await expect(page.locator("[role=status]:has(+ #unit-game) strong")).toHaveText(String(milkRound + 1));
   await expect(game.getByRole("button", { name: "Listen" })).toHaveCount(0);
   await game.screenshot({ path: "test-results/mystery-word-pronunciation-mobile.png" });
 });
@@ -145,9 +156,9 @@ test("Mystery Word pronounces a correct answer and keeps the tall picture above 
 test("spelling, phrase and scramble games play the matching recording", async ({ page }) => {
   await page.goto(`${base}/unit/english-2-b1-s01/`);
   for (const { name, label, audio, tiles } of [
-    { name: "See It, Hear It, Spell It", label: "Listen", audio: "hockey", tiles: [] },
-    { name: "Build a Phrase", label: "Check", audio: "phrases/i-play-hockey", tiles: ["I", "play", "hockey"] },
-    { name: "Letter Scramble", label: "Check", audio: "hockey", tiles: Array.from("hockey") },
+    { name: "See It, Hear It, Spell It", label: "Listen", audio: "bat", tiles: [] },
+    { name: "Build a Phrase", label: "Check", audio: "phrases/i-have-a-bat", tiles: ["I", "have", "a", "bat"] },
+    { name: "Letter Scramble", label: "Check", audio: "bat", tiles: Array.from("bat") },
   ]) {
     await page.getByRole("button", { name }).click();
     const game = page.getByRole("region", { name, exact: true });
@@ -164,7 +175,7 @@ test("spelling, phrase and scramble games play the matching recording", async ({
     if (label === "Check") await expect(game.getByText("¡Muy bien!")).toBeVisible();
     else {
       await game.locator("audio").evaluate((audio) => (audio as HTMLAudioElement).pause());
-      await game.getByRole("textbox").fill("hockey");
+      await game.getByRole("textbox").fill("bat");
       await game.getByRole("button", { name: "Check", exact: true }).click();
       await expect.poll(() => game.locator("audio").evaluate((audio) =>
         (audio as HTMLAudioElement).paused)).toBe(false);
@@ -180,22 +191,22 @@ test("Word Hunt, Look & Find and sports sorting pronounce correct selections", a
 
   await page.getByRole("button", { name: "Word Hunt" }).click();
   const hunt = page.getByRole("region", { name: "Word Hunt" });
-  const huntedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/hockey.mp3"));
-  await hunt.getByRole("button", { name: "H, 3, 1", exact: true }).click();
-  await hunt.getByRole("button", { name: "Y, 8, 1", exact: true }).click();
+  const huntedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/bat.mp3"));
+  await hunt.getByRole("button", { name: "B, 3, 1", exact: true }).click();
+  await hunt.getByRole("button", { name: "T, 5, 1", exact: true }).click();
   expect((await huntedAudio).ok()).toBe(true);
 
   await page.getByRole("button", { name: "Look & Find" }).click();
   const spot = page.getByRole("region", { name: "Look & Find" });
-  await spot.getByRole("textbox").fill("oe");
+  await spot.getByRole("textbox").fill("a");
   await spot.getByRole("button", { name: "Check", exact: true }).click();
-  const spottedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/hockey.mp3"));
-  await spot.getByRole("button", { name: "Hockey", exact: true }).click();
+  const spottedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/bat.mp3"));
+  await spot.getByRole("button", { name: "Bate", exact: true }).click();
   expect((await spottedAudio).ok()).toBe(true);
 
   await page.getByRole("button", { name: "Play, Go, Do, Wear?" }).click();
   const sort = page.getByRole("region", { name: "Play, Go, Do, Wear?" });
-  const sortedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/hockey.mp3"));
+  const sortedAudio = page.waitForResponse((response) => response.url().endsWith("/audio/en-gb/bat.mp3"));
   await sort.getByRole("button", { name: "Play", exact: true }).click();
   expect((await sortedAudio).ok()).toBe(true);
   await page.screenshot({ path: "test-results/stars-between-games-and-activity.png" });
@@ -223,7 +234,7 @@ test("Healthy Habits opens from Science World and runs the shared practice games
   await expect(page.getByRole("group", { name: "Cuadrícula de letras" })).toBeVisible();
   await menu.getByRole("button", { name: "Picture Match" }).click();
   const healthMatch = page.getByRole("region", { name: "Picture Match" });
-  await expect(healthMatch.getByText("Ronda 1 de 5")).toBeVisible();
+  await expect(healthMatch.getByText("Ronda 1 de 7")).toBeVisible();
   await expect(healthMatch.locator("img")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/healthy-habits-mobile.png", fullPage: true });
@@ -239,7 +250,7 @@ test("Healthy Habits opens from Science World and runs the shared practice games
 
 for (const unit of [
   { slug: "sports", last: "Play, Go, Do, Wear?", imageMatch: true },
-  { slug: "seasons", last: "Weather, Season or Activity?", imageMatch: false },
+  { slug: "seasons", last: "Weather, Season or Activity?", imageMatch: true },
 ]) {
   test(`${unit.slug} legacy link opens eligible games`, async ({ page }) => {
     await page.goto(`${base}/englishworld/${unit.slug}/`);
@@ -284,9 +295,12 @@ for (const section of [
       await menu.getByRole("button", { name: "Picture Match" }).click();
       const match = page.getByRole("region", { name: "Picture Match" });
       await expect(match.locator("img")).toBeVisible();
-      await expect(match.getByText("Ronda 1 de 33")).toBeVisible();
+      await expect(match.getByText("Ronda 1 de 34")).toBeVisible();
     } else {
-      await expect(page.getByText("¡Las actividades estarán disponibles pronto!")).toBeVisible();
+      await page.getByRole("button", { name: "Picture Match" }).click();
+      const match = page.getByRole("region", { name: "Picture Match" });
+      await expect(match.getByText("Ronda 1 de 13")).toBeVisible();
+      await expect(match.locator("img")).toBeVisible();
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
     await breadcrumb.getByRole("link", { name: section.title }).click();

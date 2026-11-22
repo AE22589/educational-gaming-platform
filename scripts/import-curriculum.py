@@ -62,7 +62,7 @@ def records(rows, sheet, required, optional, allow_empty=()):
 
 
 def image_path(value, location):
-    if not value or value.strip().casefold() in {"no image", "find"}:
+    if not value or value.strip().casefold() in {"no image", "find", "missing"}:
         return ""
     value = value.removeprefix("/")
     if not re.fullmatch(r"[a-z0-9_-]+(?:/[a-z0-9_-]+)*\.webp", value):
@@ -267,7 +267,8 @@ def reuse_vocabulary_images(units):
         if row["image"]:
             images.setdefault(image_key(row), row["image"])
     for row in rows:
-        row["image"] = images.get(image_key(row), "")
+        if not row["image"]:
+            row["image"] = images.get(image_key(row), "")
 
 
 def export(workbook):

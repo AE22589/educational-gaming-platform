@@ -37,13 +37,24 @@ function phraseAudioPath(phrase: string) {
   return `/audio/en-gb/phrases/${filename}.mp3`;
 }
 
+export function getPictureMatchVocabulary(vocabulary: CurriculumUnit["vocabulary"]): VocabularyItem[] {
+  const seen = new Set<string>();
+  return vocabulary.flatMap((item) => {
+    const word = item.word.toLowerCase();
+    const key = JSON.stringify([word, item.image]);
+    if (!item.image.startsWith("/") || seen.has(key)) return [];
+    seen.add(key);
+    return [{ ...item, word, picture: item.image, group: "", phrase: word }];
+  });
+}
+
 export function getPracticeVocabulary(unit: CurriculumUnit, slug: PracticeUnit) {
   const seen = new Set<string>();
   return unit.vocabulary.flatMap((item): VocabularyItem[] => {
     const word = item.word.toLowerCase();
     if (seen.has(word)) return [];
     seen.add(word);
-    if (slug === "healthy-habits") {
+    if (slug === "healthy-habits" || slug === "vocabulary") {
       return [{ ...item, word, picture: item.image, group: "", phrase: word }];
     }
     if (slug === "sports") {

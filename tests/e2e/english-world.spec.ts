@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("English World has two rows of five desktop cards and keeps upcoming units inactive", async ({ page }) => {
+test("English World has two rows of five desktop cards and links illustrated units", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/englishworld/");
   const cards = page.locator(".english-unit-grid article");
@@ -31,8 +31,7 @@ test("English World has two rows of five desktop cards and keeps upcoming units 
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/english-world-mobile.png", fullPage: true });
   const animals = cards.filter({ hasText: "Amazing Animal World!" });
-  await expect(animals.getByText("Próximamente")).toBeVisible();
-  await expect(animals.getByRole("link")).toHaveCount(0);
+  await expect(animals.getByRole("link")).toHaveAttribute("href", /\/unit\/english-2-b1-s03\/$/);
 });
 
 test("Sports sorting covers 16 workbook terms plus gymnastics", async ({ page }) => {
@@ -40,8 +39,8 @@ test("Sports sorting covers 16 workbook terms plus gymnastics", async ({ page })
   await page.getByRole("button", { name: /Play, Go, Do, Wear/ }).click();
   const play = page.locator("#unit-game");
   const expectedGroups = [
-    ...Array<string>(7).fill("Play"), "Go", "Go", "Go", "Play", "Play",
-    ...Array<string>(4).fill("Wear"), "Do",
+    "Play", "Wear", "Wear", ...Array<string>(7).fill("Play"),
+    "Go", "Go", "Go", "Play", "Wear", "Wear", "Do",
   ];
   for (const [round, group] of expectedGroups.entries()) {
     await expect(play.getByText(`Ronda ${round + 1} de 17`)).toBeVisible();
@@ -52,12 +51,12 @@ test("Sports sorting covers 16 workbook terms plus gymnastics", async ({ page })
   await expect(page.getByRole("img", { name: /Best score: 17 of 17/ })).toBeVisible();
 });
 
-test("Seasons opens seven eligible games and uses its own workbook vocabulary", async ({ page }) => {
+test("Seasons opens eight eligible games and uses its own workbook vocabulary", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/englishworld/seasons/");
   const menu = page.getByRole("region", { name: "Juegos de inglés" });
-  await expect(menu.getByRole("button")).toHaveCount(7);
-  await expect(menu.getByRole("button", { name: "Picture Match" })).toHaveCount(0);
+  await expect(menu.getByRole("button")).toHaveCount(8);
+  await expect(menu.getByRole("button", { name: "Picture Match" })).toBeVisible();
   await page.screenshot({ path: "test-results/seasons-mobile.png", fullPage: true });
 
   const play = page.locator("#unit-game");

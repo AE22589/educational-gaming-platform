@@ -45,13 +45,14 @@ for (const width of [320, 390, 1280]) {
       .filter(({ subsection }) => subsection === "Food groups and nutrition");
     for (let round = 0; round < vocabulary.length; round++) {
       const item = vocabulary[round]!;
-      const clue = game.getByText(item.translation, { exact: true });
+      const clue = item.image ? game.getByRole("img", { name: item.translation, exact: true })
+        : game.getByText(item.translation, { exact: true });
       await expect(clue).toBeVisible();
       const box = await clue.boundingBox();
       const answer = game.locator('p[aria-label*="blank"]');
       const answerBox = await answer.boundingBox();
       expect(box!.y + box!.height).toBeLessThanOrEqual(answerBox!.y);
-      expect(await clue.evaluate((el) => parseFloat(getComputedStyle(el).fontSize))).toBeLessThanOrEqual(20);
+      if (!item.image) expect(await clue.evaluate((el) => parseFloat(getComputedStyle(el).fontSize))).toBeLessThanOrEqual(20);
       if (item.translation.length > 45) await page.screenshot({ path: `test-results/spanish-long-clue-${width}.png`, fullPage: true });
       const letters = Array.from(item.word.toLowerCase());
       const missing = (await answer.getAttribute("aria-label"))!.split(" ").indexOf("blank");

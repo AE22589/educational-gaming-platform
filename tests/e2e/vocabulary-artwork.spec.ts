@@ -3,33 +3,36 @@ import data from "../../src/features/curriculum/curriculum.generated.json" with 
 
 const base = process.env.GITHUB_ACTIONS === "true" ? "/educational-gaming-platform" : "";
 const unit = data.units.find(({ id }) => id === "science-2-b2-s02")!;
-const supplied = new Set(unit.vocabulary.filter(({ image }) => image).map(({ word }) => word));
+for (const section of data.units) {
+  const pages = section.subsections.length
+    ? section.subsections.map(({ id, title }) => ({
+      path: `subsection/${id}/`,
+      vocabulary: section.vocabulary.filter(({ subsection }) => subsection === title || subsection === id),
+    }))
+    : [{ path: "", vocabulary: section.vocabulary }];
+  for (const { path, vocabulary } of pages) {
+    const illustrated = new Map(vocabulary.filter(({ image }) => image).map((entry) =>
+      [JSON.stringify([entry.word.toLowerCase(), entry.image]), entry]));
+    if (!illustrated.size) continue;
 
-test("all supplied Science illustrations load during Picture Match", async ({ page }) => {
-  test.setTimeout(180000);
-  const seen = new Set<string>();
-  for (const topic of unit.subsections) {
-    const words = unit.vocabulary.filter(({ subsection, image }) => subsection === topic.title && image);
-    if (!words.some(({ word }) => supplied.has(word))) continue;
-    await page.goto(`${base}/unit/${unit.id}/subsection/${topic.id}/`);
-    await page.getByRole("button", { name: "Picture Match" }).click();
-    const game = page.getByRole("region", { name: "Picture Match" });
-    for (let round = 0; round < words.length; round++) {
-      const image = game.locator("img");
-      await expect(image).toBeVisible();
-      await expect(image).toHaveJSProperty("complete", true);
-      expect(await image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
-      const src = await image.getAttribute("src");
-      const entry = words.find(({ image }) => src === `${base}${image}`)!;
-      expect(entry).toBeDefined();
-      if (supplied.has(entry.word)) seen.add(entry.word);
-      await game.getByRole("button", { name: entry.word.toLowerCase(), exact: true }).click();
-      await game.getByRole("button", { name: "Continuar →", exact: true }).click();
-    }
-    await expect(game.getByText("Juego completado", { exact: true })).toBeVisible();
+    test(`Picture Match loads every illustration in ${section.id}/${path}`, async ({ page }) => {
+      test.setTimeout(90000);
+      await page.goto(`${base}/unit/${section.id}/${path}`);
+      await page.getByRole("button", { name: "Picture Match" }).click();
+      const game = page.getByRole("region", { name: "Picture Match" });
+      for (const [round, { image, word }] of [...illustrated.values()].entries()) {
+        await expect(game.getByText(`Ronda ${round + 1} de ${illustrated.size}`)).toBeVisible();
+        const picture = game.locator("img");
+        await expect(picture).toHaveAttribute("src", `${base}${image}`);
+        await expect(picture).toHaveJSProperty("complete", true);
+        expect(await picture.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+        await game.getByRole("button", { name: word.toLowerCase(), exact: true }).click();
+        await game.getByRole("button", { name: /^(Continuar|Next) →$/ }).click();
+      }
+      await expect(game.getByText("Juego completado", { exact: true })).toBeVisible();
+    });
   }
-  expect([...seen].sort()).toEqual([...supplied].sort());
-});
+}
 
 test("color and pet image paths serve WebP while preserving word meanings", async ({ request }) => {
   const basics = data.units.find(({ id }) => id === "english-2-b1-s00")!;

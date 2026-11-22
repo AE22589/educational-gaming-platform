@@ -1,5 +1,7 @@
+export const pictureMatch = "Picture Match";
+
 const games = [
-  { id: "match", name: "Picture Match", description: "Une cada dibujo con su palabra.", art: "🖼️ ⚽", color: "blue" },
+  { id: "match", name: pictureMatch, description: "Une cada dibujo con su palabra.", art: "🖼️ ⚽", color: "blue" },
   { id: "mystery", name: "Mystery Word", description: "Adivina la letra que falta.", art: "🔤 ✏️", color: "green" },
   { id: "phrase", name: "Build a Phrase", description: "Ordena las palabras de la frase.", art: "💬 🧩", color: "pink" },
   { id: "spell", name: "See It, Hear It, Spell It", description: "Mira o escucha y escribe.", art: "🎧 ⌨️", color: "sky" },
@@ -13,7 +15,7 @@ const games = [
 
 export type Game = Omit<(typeof games)[number], "name"> & { name: string };
 
-export type PracticeUnit = "sports" | "seasons" | "healthy-habits";
+export type PracticeUnit = "sports" | "seasons" | "healthy-habits" | "vocabulary";
 
 export function gameName(game: (typeof games)[number], unit: PracticeUnit) {
   return unit === "seasons" && game.id === "sort" ? "Weather, Season or Activity?" : game.name;
@@ -21,7 +23,7 @@ export function gameName(game: (typeof games)[number], unit: PracticeUnit) {
 
 export function getPracticeGames(availableGames: readonly string[], unit: PracticeUnit) {
   return availableGames.flatMap((name) => games.filter((entry) => {
-    if (unit === "healthy-habits" && (entry.id === "spot" || entry.id === "sort")) return false;
+    if (unit !== "sports" && unit !== "seasons" && (entry.id === "spot" || entry.id === "sort")) return false;
     if (unit !== "healthy-habits" && (entry.id === "food-sort" || entry.id === "food-find")) return false;
     return gameName(entry, unit) === name;
   }));
