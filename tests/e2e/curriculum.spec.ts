@@ -307,3 +307,24 @@ for (const section of [
     await expect(page).toHaveURL(unitUrl);
   });
 }
+
+test("Science Section 3 opens seven bilingual Animal Kingdom topics", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${base}/scienceworld/`);
+  await page.getByRole("article").filter({ hasText: "Discover the Animal Kingdom!" }).getByRole("link").click();
+  const section = `${base}/unit/science-2-b2-s03/`;
+  await expect(page).toHaveURL(section);
+  const topics = page.getByRole("region", { name: "Subsecciones" }).getByRole("link");
+  await expect(topics).toHaveCount(7);
+  await expect(topics.locator('[lang="es"]')).toHaveCount(7);
+  const first = topics.getByText("Discovering the Animal World", { exact: true });
+  await first.click();
+  await expect(page).toHaveURL(`${section}subsection/discovering-the-animal-world/`);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Discovering the Animal World");
+  await expect(page.getByText("Descubriendo el mundo animal", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Picture Match" }).click();
+  await expect(page.getByRole("region", { name: "Picture Match" }).locator("img")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.getByRole("link", { name: "Volver a las subsecciones" }).click();
+  await expect(page).toHaveURL(section);
+});

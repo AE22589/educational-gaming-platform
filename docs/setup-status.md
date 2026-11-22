@@ -258,3 +258,7 @@ and checks that GitHub can read the uploaded artifact before deployment.
 Added 13 supplied vocabulary illustrations for Seasons, Animals, and Places
 and Activities. The workbook assigns them to their vocabulary entries, and
 the shared Picture Match game includes them automatically.
+
+Science Book 2 Section 3, Discover the Animal Kingdom!, uses the shared
+subsection list and detail pages for seven bilingual topics. Section 3
+vocabulary reuses existing image paths for matching meanings.

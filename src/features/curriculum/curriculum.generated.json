@@ -3916,10 +3916,1405 @@
       "title": "Discover the Animal Kingdom!",
       "language": "en",
       "description": "Conoce diferentes animales y descubre dónde viven.",
-      "image": "/scienceworld/animal-kingdom.webp",
+      "image": "",
       "games": [],
-      "subsections": [],
-      "vocabulary": [],
+      "subsections": [
+        {
+          "id": "discovering-the-animal-world",
+          "title": "Discovering the Animal World",
+          "stableId": "science-2-b2-s03-01",
+          "spanishTitle": "Descubriendo el mundo animal",
+          "image": "",
+          "games": []
+        },
+        {
+          "id": "understanding-animal-groups",
+          "title": "Understanding Animal Groups",
+          "stableId": "science-2-b2-s03-02",
+          "spanishTitle": "Conociendo los grupos de animales",
+          "image": "",
+          "games": []
+        },
+        {
+          "id": "exploring-mammals-and-birds",
+          "title": "Exploring Mammals and Birds",
+          "stableId": "science-2-b2-s03-03",
+          "spanishTitle": "Explorando los mamíferos y las aves",
+          "image": "",
+          "games": []
+        },
+        {
+          "id": "learning-about-aquatic-and-land-vertebrates",
+          "title": "Learning About Aquatic and Land Vertebrates",
+          "stableId": "science-2-b2-s03-04",
+          "spanishTitle": "Conociendo los vertebrados acuáticos y terrestres",
+          "image": "",
+          "games": []
+        },
+        {
+          "id": "discovering-invertebrate-animals",
+          "title": "Discovering Invertebrate Animals",
+          "stableId": "science-2-b2-s03-05",
+          "spanishTitle": "Descubriendo los animales invertebrados",
+          "image": "",
+          "games": []
+        },
+        {
+          "id": "exploring-animal-homes-and-environments",
+          "title": "Exploring Animal Homes and Environments",
+          "stableId": "science-2-b2-s03-06",
+          "spanishTitle": "Explorando los hogares y hábitats de los animales",
+          "image": "",
+          "games": []
+        },
+        {
+          "id": "caring-for-animals-and-supporting-people",
+          "title": "Caring for Animals and Supporting People",
+          "stableId": "science-2-b2-s03-07",
+          "spanishTitle": "Cuidando a los animales y ayudando a las personas",
+          "image": "/scienceworld/animal-kingdom.webp",
+          "games": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "Animals",
+          "translation": "Animales",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Horse",
+          "translation": "Caballo",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Jellyfish",
+          "translation": "Medusa",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Parrot",
+          "translation": "Loro",
+          "subsection": "Discovering the Animal World",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/parrot.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Bees",
+          "translation": "Abejas",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Helpful animals",
+          "translation": "Animales útiles",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Animal groups",
+          "translation": "Grupos de animales",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Mammals",
+          "translation": "Mamíferos",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Birds",
+          "translation": "Aves",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fish",
+          "translation": "Peces",
+          "subsection": "Discovering the Animal World",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/fish.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Reptiles",
+          "translation": "Reptiles",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Amphibians",
+          "translation": "Anfibios",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Invertebrates",
+          "translation": "Invertebrados",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Vertebrates",
+          "translation": "Vertebrados",
+          "subsection": "Discovering the Animal World",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Vertebrate",
+          "translation": "Vertebrado",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Invertebrate",
+          "translation": "Invertebrado",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Skeleton",
+          "translation": "Esqueleto",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/science/science-2-b2-s01/general/skeleton.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Internal skeleton",
+          "translation": "Esqueleto interno",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Head",
+          "translation": "Cabeza",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Trunk",
+          "translation": "Tronco",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Limbs",
+          "translation": "Extremidades",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Legs",
+          "translation": "Patas",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Tail",
+          "translation": "Cola",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s03/general/tail.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Wing",
+          "translation": "Ala",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Wings",
+          "translation": "Alas",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s03/general/wings.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Fin",
+          "translation": "Aleta",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fins",
+          "translation": "Aletas",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Foot",
+          "translation": "Pie",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Feet",
+          "translation": "Pies",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Beak",
+          "translation": "Pico",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s03/general/beak.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Teeth",
+          "translation": "Dientes",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/science/science-2-b2-s01/general/teeth.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Fur",
+          "translation": "Pelaje",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s03/general/fur.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Feathers",
+          "translation": "Plumas",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Scales",
+          "translation": "Escamas",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Gills",
+          "translation": "Branquias",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Shell",
+          "translation": "Caparazón",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Hard shell",
+          "translation": "Caparazón duro",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Tentacles",
+          "translation": "Tentáculos",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Claws",
+          "translation": "Garras",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Antenna",
+          "translation": "Antena",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Antennae",
+          "translation": "Antenas",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Cow",
+          "translation": "Vaca",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Dog",
+          "translation": "Perro",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/dog.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Wolf",
+          "translation": "Lobo",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Spider",
+          "translation": "Araña",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Butterfly",
+          "translation": "Mariposa",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Snail",
+          "translation": "Caracol",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Bee",
+          "translation": "Abeja",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Pigeon",
+          "translation": "Paloma",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Lizard",
+          "translation": "Lagarto",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/lizard.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Lion",
+          "translation": "León",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Frog",
+          "translation": "Rana",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Goldfish",
+          "translation": "Pez dorado",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Duck",
+          "translation": "Pato",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Snake",
+          "translation": "Serpiente",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Toad",
+          "translation": "Sapo",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Clownfish",
+          "translation": "Pez payaso",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Tortoise",
+          "translation": "Tortuga terrestre",
+          "subsection": "Understanding Animal Groups",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/tortoise.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Salamander",
+          "translation": "Salamandra",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Salmon",
+          "translation": "Salmón",
+          "subsection": "Understanding Animal Groups",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Mammal",
+          "translation": "Mamífero",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Bird",
+          "translation": "Ave",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/bird.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Viviparous",
+          "translation": "Vivíparo",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Oviparous",
+          "translation": "Ovíparo",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Womb",
+          "translation": "Útero",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Mother's milk",
+          "translation": "Leche materna",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Egg",
+          "translation": "Huevo",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Four legs",
+          "translation": "Cuatro patas",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Two wings",
+          "translation": "Dos alas",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Two feet",
+          "translation": "Dos patas",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Swim",
+          "translation": "Nadar",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fly",
+          "translation": "Volar",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Slither",
+          "translation": "Reptar",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Owl",
+          "translation": "Búho",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Dolphin",
+          "translation": "Delfín",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Bat",
+          "translation": "Murciélago",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Hen",
+          "translation": "Gallina",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Chick",
+          "translation": "Pollito",
+          "subsection": "Exploring Mammals and Birds",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fish",
+          "translation": "Pez",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/fish.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Reptile",
+          "translation": "Reptil",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Amphibian",
+          "translation": "Anfibio",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Gills",
+          "translation": "Branquias",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fins",
+          "translation": "Aletas",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Scales",
+          "translation": "Escamas",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Tail",
+          "translation": "Cola",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "/vocabulary/english/english-2-b1-s03/general/tail.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Shell",
+          "translation": "Caparazón",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Hard shell",
+          "translation": "Caparazón duro",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Bare skin",
+          "translation": "Piel desnuda",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Land",
+          "translation": "Tierra",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Water",
+          "translation": "Agua",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/water.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Tadpole",
+          "translation": "Renacuajo",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Tadpoles",
+          "translation": "Renacuajos",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Life cycle",
+          "translation": "Ciclo de vida",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Frog eggs",
+          "translation": "Huevos de rana",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Salmon",
+          "translation": "Salmón",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Lizard",
+          "translation": "Lagarto",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/lizard.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Tortoise",
+          "translation": "Tortuga terrestre",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/tortoise.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Salamander",
+          "translation": "Salamandra",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Snake",
+          "translation": "Serpiente",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/snake.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Toad",
+          "translation": "Sapo",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Clownfish",
+          "translation": "Pez payaso",
+          "subsection": "Learning About Aquatic and Land Vertebrates",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Invertebrate",
+          "translation": "Invertebrado",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Insect",
+          "translation": "Insecto",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Insects",
+          "translation": "Insectos",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Internal skeleton",
+          "translation": "Esqueleto interno",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Oviparous",
+          "translation": "Ovíparo",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Viviparous",
+          "translation": "Vivíparo",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Smallest",
+          "translation": "Más pequeño",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Largest",
+          "translation": "Más grande",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Six legs",
+          "translation": "Seis patas",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Two antennae",
+          "translation": "Dos antenas",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Wings",
+          "translation": "Alas",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "/vocabulary/english/english-2-b1-s03/general/wings.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Legs",
+          "translation": "Patas",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Head",
+          "translation": "Cabeza",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Antenna",
+          "translation": "Antena",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Eggs",
+          "translation": "Huevos",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "/vocabulary/science/science-2-b2-s02/food-and-drinks/eggs-supplied.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Caterpillar",
+          "translation": "Oruga",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Chrysalis",
+          "translation": "Crisálida",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Butterfly",
+          "translation": "Mariposa",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Jellyfish",
+          "translation": "Medusa",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Snail",
+          "translation": "Caracol",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Crab",
+          "translation": "Cangrejo",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Spider",
+          "translation": "Araña",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Wasp",
+          "translation": "Avispa",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Cricket",
+          "translation": "Grillo",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Tentacles",
+          "translation": "Tentáculos",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Hard shell",
+          "translation": "Caparazón duro",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Soft body",
+          "translation": "Cuerpo blando",
+          "subsection": "Discovering Invertebrate Animals",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Habitat",
+          "translation": "Hábitat",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Aquatic",
+          "translation": "Acuático",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Terrestrial",
+          "translation": "Terrestre",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Aquatic habitat",
+          "translation": "Hábitat acuático",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Terrestrial habitat",
+          "translation": "Hábitat terrestre",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Grassland",
+          "translation": "Pradera",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Deserts",
+          "translation": "Desiertos",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "The poles",
+          "translation": "Los polos",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Forests",
+          "translation": "Bosques",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Mountains",
+          "translation": "Montañas",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Rainforests",
+          "translation": "Selvas tropicales",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Seas and oceans",
+          "translation": "Mares y océanos",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Rivers",
+          "translation": "Ríos",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Lakes",
+          "translation": "Lagos",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Ponds",
+          "translation": "Estanques",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Ocean",
+          "translation": "Océano",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Forest",
+          "translation": "Bosque",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "/vocabulary/english/english-2-b1-s05/general/forest.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Food",
+          "translation": "Comida",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Shelter",
+          "translation": "Refugio",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Reproduce",
+          "translation": "Reproducirse",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Skin",
+          "translation": "Piel",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Thick layer of fur",
+          "translation": "Capa gruesa de pelaje",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fat",
+          "translation": "Grasa",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Hydrated",
+          "translation": "Hidratado",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Herbivore",
+          "translation": "Herbívoro",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Carnivore",
+          "translation": "Carnívoro",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Omnivore",
+          "translation": "Omnívoro",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Grass",
+          "translation": "Hierba",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Beetle",
+          "translation": "Escarabajo",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Mouse",
+          "translation": "Ratón",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/mouse.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Camel",
+          "translation": "Camello",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Seal",
+          "translation": "Foca",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Salmon",
+          "translation": "Salmón",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Frog",
+          "translation": "Rana",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Owl",
+          "translation": "Búho",
+          "subsection": "Exploring Animal Homes and Environments",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Animal habitats",
+          "translation": "Hábitats de los animales",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Habitat",
+          "translation": "Hábitat",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Ocean",
+          "translation": "Océano",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Forest",
+          "translation": "Bosque",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "/vocabulary/english/english-2-b1-s05/general/forest.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "The poles",
+          "translation": "Los polos",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Melting of the ice",
+          "translation": "Derretimiento del hielo",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Plastic waste",
+          "translation": "Residuos plásticos",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Trees cut down",
+          "translation": "Árboles talados",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Accident",
+          "translation": "Accidente",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Fall",
+          "translation": "Caída",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Protection",
+          "translation": "Protección",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Make campfires",
+          "translation": "Hacer fogatas",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Take your litter home",
+          "translation": "Llevarse la basura a casa",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Recycle",
+          "translation": "Reciclar",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Throw away plastic",
+          "translation": "Tirar el plástico",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Helmet",
+          "translation": "Casco",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/helmet-supplied.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Goggles",
+          "translation": "Gafas protectoras",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "/vocabulary/science/science-2-b2-s02/accidents-and-safety/goggles-supplied.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Knee pads",
+          "translation": "Rodilleras",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "/vocabulary/english/english-2-b1-s01/general/knee-pads.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Squirrel",
+          "translation": "Ardilla",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Polar bear",
+          "translation": "Oso polar",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Turtle",
+          "translation": "Tortuga",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "/vocabulary/english/english-2-b1-s00/animals/turtle.webp",
+          "audioPath": ""
+        },
+        {
+          "word": "Pets",
+          "translation": "Mascotas",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Guide dogs",
+          "translation": "Perros guía",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Company",
+          "translation": "Compañía",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Blind",
+          "translation": "Ciego",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Impaired vision",
+          "translation": "Discapacidad visual",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Rescue",
+          "translation": "Rescatar",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        },
+        {
+          "word": "Natural disasters",
+          "translation": "Desastres naturales",
+          "subsection": "Caring for Animals and Supporting People",
+          "image": "",
+          "audioPath": ""
+        }
+      ],
       "number": 3,
       "spanishTitle": "¡Descubre el reino animal!"
     },

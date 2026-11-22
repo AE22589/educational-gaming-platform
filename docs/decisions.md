@@ -623,3 +623,9 @@ placeholder.
 Use the 13 supplied lossless WebP illustrations for the previously missing
 Seasons, Animals, and Places and Activities vocabulary. Keep Stop marked
 missing until artwork is available.
+
+## Science Section 3 subsections
+
+Use the seven workbook topics for Discover the Animal Kingdom! and the existing
+bilingual subsection layout. Reuse existing vocabulary artwork for the same
+meaning, keeping different senses such as a sports bat and an animal separate.
