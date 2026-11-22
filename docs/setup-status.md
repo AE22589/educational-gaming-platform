@@ -251,3 +251,6 @@ images, and the generated curriculum validates each public image path.
 Sections and topics with illustrated vocabulary offer Picture Match. Sports,
 Seasons, and the Healthy Habits topics continue to offer their assigned games.
 The Body section also retains its body-parts mission.
+
+The Pages deployment uses a separate artifact name for each workflow attempt
+and checks that GitHub can read the uploaded artifact before deployment.
