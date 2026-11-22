@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chispitas · Curriculum admin</title>
+<style>
+  :root{font-family:system-ui,sans-serif;color:#183a32;background:#f3f7f3;line-height:1.5}
+  *{box-sizing:border-box}body{margin:0}header{background:#143c32;color:#fff}
+  .wrap{max-width:1120px;margin:auto;padding:0 24px}.bar{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{font-size:21px;font-weight:800}.brand span{color:#ffcf69;margin-right:8px}.file{font-size:13px;color:#c8e0d4}
+  main.wrap{padding-top:29px;padding-bottom:48px}h1{font-size:clamp(26px,5vw,39px);letter-spacing:-.05em;line-height:1.1;margin:0}h2{font-size:20px;letter-spacing:-.03em;margin:0}
+  .headline,.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.status{min-height:25px;margin:7px 0 12px;color:#4c6a61;font-size:14px}.status.error{color:#9e3433}
+  .card{min-width:0;background:#fff;border:1px solid #d9e4dc;border-radius:16px;padding:19px;box-shadow:0 2px 4px #123a2710}
+  .filters{display:grid;grid-template-columns:1fr 1.4fr 1.4fr;gap:12px;margin-bottom:18px}.grid{display:grid;grid-template-columns:minmax(215px,1fr) minmax(0,2.15fr);gap:18px;align-items:start}
+  label{display:grid;gap:6px;font-size:13px;font-weight:700;color:#345b50;min-width:0}button,select,input{font:inherit;border-radius:8px}select,input{color:#183a32;border:1px solid #c8dbcf;padding:9px 10px;min-width:0;width:100%;background:#fbfdfb}button{cursor:pointer;border:1px solid #cfe1d5;background:#e9f5ee;color:#184f3c;font-weight:700;padding:8px 12px;white-space:nowrap}button.primary{background:#136747;color:white;border-color:#136747}button:disabled{cursor:default;opacity:.58}button.remove{color:#94423a;background:transparent;border-color:transparent;font-size:13px;padding:5px 7px}button.remove:hover{background:#fbeeea}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #e6a637;outline-offset:2px}
+  .count{background:#e9f5ee;color:#325b4a;padding:2px 8px;border-radius:30px;font-size:13px;white-space:nowrap}.game-list{list-style:none;padding:0;margin:13px 0}.game-list li{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 0;border-bottom:1px solid #edf1ee;font-size:14px}.game-form{display:grid;gap:7px}.empty{color:#58736a;font-size:14px}.word-form{display:grid;grid-template-columns:1fr 1fr auto;align-items:end;gap:8px;margin-top:14px}.table-wrap{margin-top:15px;max-height:480px;overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid #edf1ee;overflow-wrap:anywhere}th{position:sticky;top:0;background:#f4f8f4;color:#3a6053;font-size:12px}th:nth-child(3),td:nth-child(3){text-align:center}td:last-child{text-align:right}.tick{font-weight:800;color:#126240}.new{background:#fbfcf0}
+  @media(max-width:740px){.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters label:last-child{grid-column:1/-1}}
+  @media(max-width:440px){.wrap{padding-inline:12px}.card{padding:12px}.filters{grid-template-columns:1fr}.word-form{grid-template-columns:1fr 1fr}.word-form button{grid-column:1/-1}.file{display:none}th,td{padding:6px 4px}}
+</style>
+<style>
+.layout{display:grid;grid-template-columns:minmax(210px,1fr) minmax(0,2.8fr);gap:16px;align-items:start}.workspace{display:grid;gap:16px;min-width:0}.workspace .grid{grid-template-columns:1fr 1fr}.sidebar{display:grid;gap:16px}.navigation{display:grid;gap:4px;max-height:65vh;overflow:auto}.navigation button{text-align:left;white-space:normal;background:transparent;border-color:transparent}.navigation button:hover,.navigation button[aria-current=true]{background:#e4f3e9}.navigation .topic{margin-left:12px;font-size:13px;font-weight:600}.actions{display:flex;gap:8px}.game-catalog{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.game-catalog button{white-space:normal;text-align:left;font-size:13px}.selection-title{font-size:24px}.word-actions{display:flex;align-items:center;gap:12px}.word-actions label{display:flex;align-items:center}.word-actions input{width:auto}.section-col{display:none}.all-words .section-col{display:table-cell}@media(max-width:800px){.layout{grid-template-columns:1fr}.navigation{max-height:220px}}@media(max-width:530px){.workspace .grid{grid-template-columns:1fr}.headline{align-items:flex-start;flex-direction:column}}
+</style>
+<style>
+@media(min-width:550px) and (max-width:800px){.layout{grid-template-columns:minmax(145px,1fr) minmax(0,2.4fr)}.navigation{max-height:65vh}.workspace .grid{grid-template-columns:1fr}.word-form{grid-template-columns:1fr 1fr}.word-form button{grid-column:1/-1}}
+.bulk-paste{margin-top:14px;border:1px solid #d9e4dc;border-radius:8px;padding:9px 11px}.bulk-paste summary{cursor:pointer;font-size:14px;font-weight:700;color:#184f3c}.bulk-paste form{display:grid;gap:8px;margin-top:8px}.bulk-paste p{margin:0;color:#4c6a61;font-size:13px}.bulk-paste textarea{width:100%;min-height:90px;resize:vertical;border:1px solid #c8dbcf;border-radius:8px;padding:8px;font:inherit;color:#183a32;background:#fbfdfb}.bulk-paste button{justify-self:start}.bulk-paste .error{color:#9e3433}
+</style>
+<header><div class="wrap bar"><div class="brand"><span aria-hidden="true">✦</span>Chispitas</div><div class="file" id="source">SectionList.xlsx</div></div></header>
+<main class="wrap">
+  <div class="headline"><h1>Curriculum admin</h1><div class="actions"><button id="save" disabled>Save</button><button id="publish" class="primary" disabled>Publish</button></div></div>
+  <p id="status" class="status" role="status">Loading workbook…</p>
+  <div class="layout">
+  <aside class="card sidebar"><label>Subject and book<select id="book"></select></label><h2>Sections</h2><nav class="navigation" id="navigation" aria-label="Sections and subsections"></nav></aside>
+  <div class="workspace"><h2 class="selection-title" id="selection-title"></h2>
+  <div class="grid">
+    <section class="card" aria-labelledby="games-title">
+      <div class="card-head"><h2 id="games-title">Assigned games</h2><span class="count" id="game-count"></span></div>
+      <ul class="game-list" id="games"></ul>
+    </section>
+    <section class="card"><h2>Game library</h2><div class="game-catalog" id="game-catalog"></div></section>
+  </div>
+    <section class="card" aria-labelledby="words-title">
+      <div class="card-head"><h2 id="words-title">Vocabulary</h2><div class="word-actions"><label><input type="checkbox" id="all-words"> Whole section</label><span class="count" id="word-count"></span></div></div>
+      <form class="word-form" id="word-form">
+        <label>English word<input id="english" required maxlength="200" autocomplete="off"></label>
+        <label>Spanish translation<input id="spanish" required maxlength="200" autocomplete="off"></label>
+        <button type="submit">Add word</button>
+      </form>
+      <details class="bulk-paste"><summary>Paste a vocabulary table</summary>
+        <form id="bulk-form">
+          <p id="bulk-help">Copy two columns from Excel or Sheets, with English on the left and Spanish on the right. Rows will be added to the selected section or subsection.</p>
+          <label>Vocabulary table<textarea id="bulk-words" required spellcheck="false" aria-describedby="bulk-help bulk-status"></textarea></label>
+          <button type="submit">Add pasted words</button>
+          <p id="bulk-status" role="status"></p>
+        </form>
+      </details>
+      <div class="table-wrap"><table id="word-table"><thead><tr><th scope="col">English</th><th scope="col">Spanish</th><th scope="col" title="Image exists in the last locally available published checkout">Image</th><th scope="col" class="section-col">Subsection</th><th scope="col">Action</th></tr></thead><tbody id="words"></tbody></table></div>
+    </section>
+  </div></div>
+</main>
+<script>
+  const $ = id => document.getElementById(id);
+  const state = { data: null, games: {}, added: [], removed: new Set(), busy: false };
+  const bookKey = location => `${location.subject} · ${location.book.replace('Book', 'Book ')}`;
+  const gameLabel = game => game === 'Misión: partes del cuerpo' ? 'Body Parts Mission' : game;
+  const sameLocation = (word, location) => word.section === location.section && word.topic === location.topic;
+  const dirty = () => Object.keys(state.games).length || state.added.length || state.removed.size;
+  const imageKey = word => JSON.stringify([word.english.trim().replace(/\s+/g, ' ').toLowerCase(), word.spanish.toLowerCase().replace(/([oa])\/[oa]\b/g, '$1')]);
+
+  function options(select, entries, preferred = select.value) {
+    select.replaceChildren(...entries.map(([value, label]) => new Option(label, value)));
+    if ([...select.options].some(option => option.value === preferred)) select.value = preferred;
+    select.disabled = entries.length <= 1;
+  }
+
+  function selectSection() {
+    const sections = state.data.locations.filter(location => !location.topic && bookKey(location) === $('book').value);
+    state.visible = sections.flatMap(section => [section, ...state.data.locations.filter(location => location.section === section.section && location.topic)]);
+    state.selected = sections[0]?.id;
+    $('all-words').checked = true;
+    render();
+  }
+
+  function message(text, error = false) {
+    $('status').textContent = text;
+    $('status').classList.toggle('error', error);
+  }
+
+  function updateStatus() {
+    $('save').disabled = state.busy || !dirty();
+    $('publish').disabled = state.busy || !!dirty() || !state.data.publishReady;
+    $('publish').title = state.data.publishReady ? 'Publish all saved changes in one commit' : 'Set CHISPITAS_GITHUB_TOKEN on the local server to enable publishing';
+    message(dirty() ? 'Unsaved changes' : state.data.publishReady
+      ? 'Save updates the local workbook. Publish sends all saved changes to GitHub.'
+      : 'Save updates the local workbook. Publishing requires GitHub setup.');
+  }
+
+  function removeButton(label, remove) {
+    const button = document.createElement('button');
+    button.className = 'remove';
+    button.textContent = 'Remove';
+    button.setAttribute('aria-label', `Remove ${label}`);
+    button.addEventListener('click', remove);
+    return button;
+  }
+
+  const current = () => state.data.locations.find(location => location.id === state.selected);
+  const currentGames = location => state.games[location.id] ?? location.games;
+
+  function setGames(location, games) {
+    if (JSON.stringify(location.games) === JSON.stringify(games)) delete state.games[location.id];
+    else state.games[location.id] = games;
+    render();
+  }
+
+  function render() {
+    const location = current();
+    $('selection-title').textContent = location.title;
+    $('navigation').replaceChildren(...state.visible.map(item => {
+      const button = document.createElement('button');
+      button.textContent = item.title;
+      button.className = item.topic ? 'topic' : '';
+      button.setAttribute('aria-current', String(item.id === location.id));
+      button.addEventListener('click', () => {
+        state.selected = item.id;
+        $('all-words').checked = !item.topic;
+        render();
+        $('navigation').querySelector('[aria-current=true]').focus();
+      });
+      return button;
+    }));
+    const games = currentGames(location);
+    $('game-count').textContent = games.length;
+    const gameItems = games.map(game => {
+      const item = document.createElement('li');
+      item.append(gameLabel(game), removeButton(gameLabel(game), () => setGames(location, games.filter(name => name !== game))));
+      return item;
+    });
+    if (!games.length) {
+      const item = document.createElement('li');
+      item.className = 'empty';
+      item.textContent = 'No games assigned';
+      gameItems.push(item);
+    }
+    $('games').replaceChildren(...gameItems);
+    $('game-catalog').replaceChildren(...state.data.gameNames.map(game => {
+      const button = document.createElement('button');
+      const assigned = games.includes(game);
+      const compatible = location.available.includes(game);
+      button.textContent = assigned ? `✓ ${gameLabel(game)}` : compatible ? `+ ${gameLabel(game)}` : gameLabel(game);
+      button.disabled = assigned || !compatible;
+      button.title = assigned ? 'Already assigned' : compatible ? 'Add game' : 'Unavailable for this location';
+      button.addEventListener('click', () => setGames(location, [...games, game]));
+      return button;
+    }));
+
+    const originals = state.data.words.filter(word => !state.removed.has(word.id));
+    const sourceRows = new Set(state.data.imageRows);
+    const images = new Set(originals.filter(word => sourceRows.has(word.id)).map(imageKey));
+    const all = $('all-words').checked;
+    $('word-table').classList.toggle('all-words', all);
+    const words = [...originals.filter(word => all ? word.section === location.section : sameLocation(word, location)),
+      ...state.added.filter(word => {
+        const target = state.data.locations.find(item => item.id === word.location);
+        return all ? target.section === location.section : target.id === location.id;
+      })];
+    $('word-count').textContent = words.length;
+    $('words').replaceChildren(...words.map(word => {
+      const row = document.createElement('tr');
+      row.insertCell().textContent = word.english;
+      row.insertCell().textContent = word.spanish;
+      const image = row.insertCell();
+      if (images.has(imageKey(word))) {
+        image.className = 'tick';
+        image.textContent = '✓';
+        image.setAttribute('aria-label', 'Image in the published checkout');
+        image.title = 'Image in the GitHub checkout';
+      }
+      if (!word.id) row.className = 'new';
+      const source = state.data.locations.find(item => word.id ? sameLocation(word, item) : item.id === word.location);
+      const subsection = row.insertCell();
+      subsection.className = 'section-col';
+      subsection.textContent = source?.topic ? source.title : 'General';
+      row.insertCell().append(removeButton(word.english, () => {
+        if (word.id) state.removed.add(word.id);
+        else state.added = state.added.filter(entry => entry !== word);
+        render();
+      }));
+      return row;
+    }));
+    if (!words.length) {
+      const cell = $('words').insertRow().insertCell();
+      cell.colSpan = all ? 5 : 4;
+      cell.className = 'empty';
+      cell.textContent = 'No words in this view.';
+    }
+    updateStatus();
+  }
+
+  async function request(settings, endpoint = '/api/workbook') {
+    const response = await fetch(endpoint, settings);
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error ?? 'Could not open the workbook.');
+    return data;
+  }
+
+  $('book').addEventListener('change', selectSection);
+  $('all-words').addEventListener('change', render);
+  $('bulk-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const feedback = $('bulk-status');
+    const lines = $('bulk-words').value.split(/\r\n|\r|\n/);
+    const additions = [];
+    let firstRow = true;
+    for (const [index, line] of lines.entries()) {
+      if (!line.trim()) continue;
+      const columns = line.split('\t').map(value => value.trim());
+      const [english, spanish] = columns;
+      if (firstRow && columns.length === 2 && /^(english|english word)$/i.test(english)
+          && /^(spanish|spanish translation)$/i.test(spanish)) {
+        firstRow = false;
+        continue;
+      }
+      firstRow = false;
+      if (columns.length !== 2 || !english || !spanish || Math.max(english.length, spanish.length) > 200) {
+        feedback.textContent = `Row ${index + 1} needs two cells, both filled in and up to 200 characters each.`;
+        feedback.classList.add('error');
+        return;
+      }
+      additions.push({ location: current().id, english, spanish });
+    }
+    feedback.classList.toggle('error', !additions.length);
+    if (!additions.length) {
+      feedback.textContent = 'Paste at least one vocabulary row.';
+      return;
+    }
+    for (const word of additions) state.added.push(word);
+    event.target.reset();
+    render();
+    feedback.textContent = `${additions.length} ${additions.length === 1 ? 'word' : 'words'} added to the draft. Click Save to update the workbook.`;
+  });
+  $('word-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const english = $('english').value.trim();
+    const spanish = $('spanish').value.trim();
+    if (!english || !spanish) return message('Enter a word and its translation.', true);
+    state.added.push({ location: current().id, english, spanish });
+    event.target.reset();
+    render();
+    $('english').focus();
+  });
+  $('save').addEventListener('click', async () => {
+    state.busy = true;
+    $('save').disabled = true;
+    $('publish').disabled = true;
+    const panels = document.querySelectorAll('.sidebar, .workspace');
+    panels.forEach(panel => { panel.inert = true; });
+    message('Saving…');
+    try {
+      state.data = await request({ method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ revision: state.data.revision, games: state.games, added: state.added, removed: [...state.removed] }) });
+      state.games = {};
+      state.added = [];
+      state.removed.clear();
+      render();
+      message('Saved to the local workbook.');
+    } catch (error) {
+      message(`Save failed. ${error.message}`, true);
+    } finally {
+      state.busy = false;
+      $('save').disabled = !dirty();
+      $('publish').disabled = !!dirty() || !state.data.publishReady;
+      panels.forEach(panel => { panel.inert = false; });
+    }
+  });
+  $('publish').addEventListener('click', async () => {
+    if (!window.confirm('Publish all saved workbook changes to GitHub in one commit?')) return;
+    state.busy = true;
+    $('publish').disabled = true;
+    const panels = document.querySelectorAll('.sidebar, .workspace');
+    panels.forEach(panel => { panel.inert = true; });
+    message('Publishing…');
+    try {
+      const result = await request({ method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ revision: state.data.revision }) }, '/api/publish');
+      message(result.message);
+      if (result.url) {
+        const link = document.createElement('a');
+        link.href = result.url;
+        link.textContent = 'View commit';
+        $('status').append(' ', link);
+      }
+    } catch (error) {
+      message(`Publish failed. ${error.message}`, true);
+    } finally {
+      state.busy = false;
+      $('publish').disabled = false;
+      panels.forEach(panel => { panel.inert = false; });
+    }
+  });
+  window.addEventListener('beforeunload', event => { if (dirty()) event.preventDefault(); });
+  document.querySelector('.workspace').inert = true;
+  request().then(data => {
+    state.data = data;
+    $('source').title = `GitHub checkout ${data.sourceCommit}`;
+    options($('book'), [...new Set(data.locations.map(bookKey))].map(book => [book, book]));
+    selectSection();
+    document.querySelector('.workspace').inert = false;
+  }).catch(error => message(error.message, true));
+</script>
+</html>
