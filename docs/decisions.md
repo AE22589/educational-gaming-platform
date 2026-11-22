@@ -1,29 +1,38 @@
 # Project decisions
 
-## Printable worksheets — 2026-11-18
+## Printable worksheets - 2026-11-18
 
 The homepage activity card links to `/worksheets` with the Spanish label
-“Descargar fichas.” The worksheets page uses the curriculum workbook for
+"Descargar fichas." The worksheets page uses the curriculum workbook for
 section and topic order. The `Books_main_sub_sections` tab supplies bilingual
 names, section numbers, stable subsection IDs, game menus and worksheet paths.
 Repeated vocabulary rows share the first available image for their meaning.
 
 
-## Compact homepage — 2026-11-17
+## Compact homepage - 2026-11-17
 
 The homepage keeps the standard navigation and positions the valley
 artwork behind the compact welcome panel. The star balance is in the welcome
 panel. The grade picker appears on entry and gives way to the four world
 cards and secondary activities after the available grade is selected.
 
+## Homepage transparency and grade picker layout - 2026-11-22
+
+The homepage header, welcome panel, grade picker panel, navigation tiles, and
+grade cards use 50% transparent backgrounds with a subtle backdrop blur so the
+valley artwork remains visible while the text stays legible. The grade picker
+places Primaria 1-3 in the first row and Primaria 4-6 in the second row. On
+desktop, the picker is centered and capped at 560 px; on narrow screens it uses
+the available width.
+
 ## Scrolling homepage illustration - 2026-11-11
 
-Superseded by “Compact homepage.” The taller valley illustration was a
+Superseded by "Compact homepage." The taller valley illustration was a
 scrolling background with the welcome panel near the bottom of the hero.
 
-## Adventure Map prototype — 2026-11-08
+## Adventure Map prototype - 2026-11-08
 
-Superseded by "Shared Adventure Map preview — 2026-11-09". The earlier
+Superseded by "Shared Adventure Map preview - 2026-11-09". The earlier
 prototype had separate English and Science trails with selectable stops.
 
 The future progression model allows variable game counts per unit and up to
@@ -32,13 +41,13 @@ independently of other units. A separate star balance can later be
 spent without affecting unit or game completion. The prototype uses sample data
 and does not record game completions or award stars.
 
-## Homepage hero copy — 2026-11-06
+## Homepage hero copy - 2026-11-06
 
 Status: requested by the owner and implemented.
 
 The home-page hero heading is "You See" and its supporting line is "I did it!".
 
-## Top navigation order and conditional Home link — 2026-11-07
+## Top navigation order and conditional Home link - 2026-11-07
 
 Status: requested by the owner and implemented locally; visual and production-build
 verification passed. Playwright browser automation could not be completed locally.
@@ -52,7 +61,7 @@ page, the Home link is hidden.
 This supersedes the older top navigation shape described in "Home navigation
 adopted from Feduta" and "CHISPITAS home page"; their unrelated decisions remain.
 
-## Login/register screen — 2026-11-07
+## Login/register screen - 2026-11-07
 
 Status: requested by the owner and implemented locally; visual, build, lint,
 typecheck and unit-test verification passed. Playwright browser automation could
@@ -65,7 +74,7 @@ UI-only because authentication and accounts are outside the approved product sco
 English labels and actions include Spanish translations beside them for the bilingual
 child-facing interface.
 
-## Fast lane for small changes — 2026-11-05
+## Fast lane for small changes - 2026-11-05
 
 Status: decided by the owner; implemented in AGENTS.md.
 
@@ -76,33 +85,33 @@ image or icon, documentation) now take a fast lane: commit and push directly to
 CI still runs after the push and a failing run stops the deployment. Larger changes keep
 the full lane with a pull request and all checks. The rule is in AGENTS.md.
 
-## Placeholder pages behind Contact Us and About Chispitas — 2026-11-05
+## Placeholder pages behind Contact Us and About Chispitas - 2026-11-05
 
 Status: decided by the owner; implemented in the pull request that introduces it.
 
 The owner wanted a placeholder page behind the two new navigation tiles, not only text on
 the tile. "Contact Us" opens `/contact` and "About Chispitas" opens `/about`. Each page
-shows a friendly Spanish message that something is coming very soon ("¡Muy pronto!"),
+shows a friendly Spanish message that something is coming very soon ("�Muy pronto!"),
 an illustration (the contact dragon, the star mascot) and a "Volver al inicio" button.
 The shared component is `ComingSoon`. The pages do not collect or store anything; no
-contact form, accounts or analytics exist. The tiles keep the "¡Muy pronto!" subtitle
+contact form, accounts or analytics exist. The tiles keep the "�Muy pronto!" subtitle
 and the navigation again has no link to the learning page or the shop (home page tiles
 and cards still do).
 
-## Friendly coming-soon items in the navigation — 2026-11-05
+## Friendly coming-soon items in the navigation - 2026-11-05
 
 Status: decided by the owner; implemented in the pull request that introduces it.
 
 "Contact Us" and "About Chispitas" no longer link to the learning page and the shop.
-They are non-interactive coming-soon items with the friendly Spanish text "¡Muy
-pronto!" and a longer tooltip ("¡Muy pronto podrás escribirnos!"). This supersedes the
+They are non-interactive coming-soon items with the friendly Spanish text "�Muy
+pronto!" and a longer tooltip ("�Muy pronto podr�s escribirnos!"). This supersedes the
 placeholder links in "Home navigation adopted from Feduta". (Superseded the same day by
 "Placeholder pages behind Contact Us and About Chispitas": the tiles link to pages again.) Consequence: the global
 navigation has no link to the learning page or the shop; they are reached from the home
 page tiles and cards (the brand link leads home from every page). The contact icon was
 downscaled to 256 px (885 KB to 64 KB) with the owner's approval.
 
-## Quick start for assistants and draft pull requests for side branches — 2026-11-05
+## Quick start for assistants and draft pull requests for side branches - 2026-11-05
 
 Status: decided by the owner; implemented, the repository setting is on and tested
 (a test branch produced a draft pull request).
@@ -116,7 +125,7 @@ minutes, so unmerged work cannot go unnoticed again. It needs the repository set
 "Allow GitHub Actions to create and approve pull requests", which the owner switched
 on on 2026-11-05.
 
-## Home navigation adopted from Feduta; no work on side branches — 2026-11-05
+## Home navigation adopted from Feduta; no work on side branches - 2026-11-05
 
 Status: implemented in the pull request that introduced it; its top navigation
 shape was superseded by "Top navigation order and conditional Home link" on 2026-11-07.
@@ -142,7 +151,7 @@ Working rule: do not leave finished work only on a side branch such as `codex/*`
 check `git branch -r --no-merged origin/main` at the start of each session (AGENTS.md).
 A workflow that makes stranded branch work visible is in `docs/backlog.md`.
 
-## Dependabot updates handled — 2026-11-05
+## Dependabot updates handled - 2026-11-05
 
 Status: implemented and deployed.
 
@@ -155,7 +164,7 @@ Node 24 runtime pinned in `.nvmrc`; `.github/dependabot.yml` now ignores major
 updates of `@types/node`. Weekly Dependabot updates continue for npm and GitHub
 Actions.
 
-## Quality and documentation checks also run on push — 2026-11-05
+## Quality and documentation checks also run on push - 2026-11-05
 
 Status: decided by the owner; implemented in the pull request that introduces it.
 
@@ -167,7 +176,7 @@ a squash-merged pull request can lose its opt-out line and must not block a rele
 The commit messages of the change may carry the opt-out line. A later step, an
 automated self-merging pull-request flow, is recorded in `docs/backlog.md`.
 
-## Repository access and light branch protection — 2026-11-05
+## Repository access and light branch protection - 2026-11-05
 
 Status: decided by the owner; applied through the GitHub API and verified.
 
@@ -185,7 +194,7 @@ depends on the author. Secret scanning, a licence, and the Dependabot updates ar
 still open. This supersedes "effective branch protection has not been verified" in
 the earlier entries.
 
-## Lossless WebP for all images, and the approval process — 2026-11-05
+## Lossless WebP for all images, and the approval process - 2026-11-05
 
 Status: requested by the owner; implemented in the pull request that introduces it.
 
@@ -205,7 +214,7 @@ The owner approves artwork in the development chat before merging, so artwork on
 assessment of third-party rights before a child pilot or wider publication; it is
 no longer tracked per image.
 
-## Documentation synchronization — 2026-11-05
+## Documentation synchronization - 2026-11-05
 
 Status: requested by the owner; implemented in the pull request that introduces it.
 
@@ -216,23 +225,23 @@ and CI runs `scripts/check-docs-impact.mjs` on pull requests: a change to produc
 files (`src/` outside tests, `public/`, `package.json`, `scripts/`, workflows,
 `next.config.ts`) must also change `docs/setup-status.md` or `docs/decisions.md`,
 and changes under `public/` must also change `docs/assets.md`. A pull request may
-opt out with a line `Docs-Impact: none — <reason>`. The check is a minimum, not proof
+opt out with a line `Docs-Impact: none - <reason>`. The check is a minimum, not proof
 that the documentation is correct. It runs on pull requests only; direct pushes to
 `main` skip it because no branch protection requires it (see "Repository access and
 light branch protection", 2026-11-05).
 
-## Body mission start controls and home mission card — 2026-11-05
+## Body mission start controls and home mission card - 2026-11-05
 
 Status: implemented and deployed (PR #42).
 
 The persistent `Comenzar` button is removed; it only reopened the explanation and
 looked like a start control. The `?` button remains the way to replay the
 explanation. The explanation has one `Empezar` button instead of two identical
-ones. The home card "Tu próxima misión" now links to `/scienceworld/body/` instead of
+ones. The home card "Tu pr�xima misi�n" now links to `/scienceworld/body/` instead of
 the "in preparation" text. This supersedes the `Comenzar` sentence in the
 2026-11-04 body-parts entry.
 
-## Brand name in the UI — 2026-11-05
+## Brand name in the UI - 2026-11-05
 
 Status: observed; formal naming still open.
 
@@ -242,7 +251,7 @@ the UI no longer shows that name. The owner should confirm which name is the
 formal Spanish product name. Browser storage keys keep their original
 `tier-abenteuer` identifiers for profile compatibility.
 
-## Body-parts matching mission — 2026-11-04
+## Body-parts matching mission - 2026-11-04
 
 The `/learn` entry offers a silent body-parts matching mission for nine English
 words in two rounds. The player may drag a word card or select it and a target.
@@ -266,7 +275,7 @@ the normal full reward. Errors, hints and demonstration steps never grant or
 deduct stars. The mission practices vocabulary without recording mastery.
 Review Spanish copy and asset suitability before a child pilot.
 
-## Visual review in Codex browser — 2026-11-03
+## Visual review in Codex browser - 2026-11-03
 
 Every GUI implementation or change receives a visual review by Codex in a
 browser available in this environment. Do not ask the owner to provide or
@@ -274,7 +283,7 @@ operate their personal laptop browser. Review relevant viewport sizes and
 interactions for the change, and include the result of this review when
 reporting verification. This applies throughout the project.
 
-## Efficient implementation and verification — 2026-11-02
+## Efficient implementation and verification - 2026-11-02
 
 Keep routine implementation focused and deliver a useful local result promptly.
 Scale local checks to the risk of the change: use a focused review and narrow
@@ -286,7 +295,7 @@ meaningful progress and avoid repeated unchanged status polling. Timebox failed
 tool operations and do not retry the same unsuccessful approach without a reason.
 For longer work, provide a useful intermediate result and communicate blockers.
 
-## Star shop launch — 2026-11-02
+## Star shop launch - 2026-11-02
 
 The `/shop` page follows the CHISPITAS site layout and does not feature a
 specific avatar. Every profile starts with 100 spendable stars. A one-time
@@ -298,7 +307,7 @@ transition. The visible filters are `Todo`, `Comida y bebida` and `Cueva`.
 Apple is the only purchasable item at launch; water, cave bed and cave plant are
 visible as upcoming items. The shop displays the star balance and apple count.
 
-## Water purchase and dragon animation — 2026-11-04
+## Water purchase and dragon animation - 2026-11-04
 
 Water becomes a purchasable consumable for one star. Buying water deducts one
 star and increments the current profile's water inventory in one saved
@@ -309,7 +318,7 @@ the owner's transparent water-drinking GIF; the sleeping GIF returns after the
 three-second animation. Failed saves do not consume inventory or start the
 animation. Water and apple inventory are shown separately in the shop pantry.
 
-## Local Next.js bundler — 2026-11-02
+## Local Next.js bundler - 2026-11-02
 
 The `dev` and `build` scripts use Next.js's supported Webpack mode. In this
 restricted environment, Turbopack's PostCSS child process repeatedly exited
@@ -318,7 +327,7 @@ disabled by the installed Next.js version on Node 24.21.0 because of a known
 Node worker teardown risk. Webpack production builds and Playwright browser
 checks pass. This keeps local preview and static export builds reproducible.
 
-## MVP scope is advisory — 2026-11-02
+## MVP scope is advisory - 2026-11-02
 
 The MVP in `docs/mvp.md` and `docs/mvp-development-plan-1.1.md` is the
 recommended starting scope, not a mandatory product boundary or approval gate.
@@ -328,7 +337,7 @@ baseline and update them when an approved scope choice changes their requirement
 Other recorded product, privacy, quality and architecture decisions remain in
 effect unless the owner changes them explicitly.
 
-## Solo development model — 2026-11-02
+## Solo development model - 2026-11-02
 
 The owner is the sole maintainer. Work proceeds sequentially, one task at a time.
 There is no second-developer role split, separate account/clone/chat, handover
@@ -340,12 +349,12 @@ Keep existing CI checks and GitHub protections. Do not configure a second-person
 approval requirement for this solo project. Effective repository settings have
 not been verified; check them before relying on them or changing them.
 
-## Local Playwright instructions — 2026-11-02
+## Local Playwright instructions - 2026-11-02
 
 The owner removed the local instruction to run Playwright E2E tests for routine
 implementation work. The E2E tests and CI checks remain unchanged.
 
-## Dependency security and updates — 2026-11-02
+## Dependency security and updates - 2026-11-02
 
 GitHub's dependency graph, Dependabot alerts and Dependabot security updates are
 enabled. `.github/dependabot.yml` schedules weekly version updates for npm and
@@ -353,9 +362,9 @@ GitHub Actions, with at most five open update pull requests per ecosystem.
 Review update pull requests and require the repository's normal checks before
 merging them.
 
-## Companion cave — 2026-11-02
+## Companion cave - 2026-11-02
 
-Implemented and deployed. The "Mi pequeño amigo" tile opens `/avatar`, which
+Implemented and deployed. The "Mi peque�o amigo" tile opens `/avatar`, which
 initially showed an empty framed cave. The browser's local time selects day from
 06:00 to 17:59 and night from 18:00 to 05:59. The cave backgrounds remain
 separate from character, furniture and decor overlays. The original release had
@@ -364,7 +373,7 @@ Playwright checks; workflow #39 deployed the tested static artifact. The cave
 view must fit the browser viewport without page scrolling; responsive behavior
 has been checked locally in desktop, portrait and landscape browser sizes.
 
-## Sleeping dragon in the companion cave — 2026-11-02
+## Sleeping dragon in the companion cave - 2026-11-02
 
 The owner commissioned one sleeping-dragon GIF overlay in `/avatar`, placed at
 the red mark in the supplied cave screenshot. Its position is fixed relative to
@@ -374,7 +383,7 @@ was generated locally from the owner's character reference. Responsive visual
 review is required before this implementation is considered verified; media
 rights and owner review remain prerequisites before a child pilot.
 
-## Apple display in the companion cave — 2026-11-03
+## Apple display in the companion cave - 2026-11-03
 
 The companion cave displays the locally bundled shop apple to the right of the
 cave artwork, inside the cave scene. Its appearance follows the active profile's
@@ -386,7 +395,7 @@ saved; the eating GIF temporarily replaces the sleeping GIF, then the sleeping
 GIF returns. Feeding does not start when no apple is available or the profile
 cannot save.
 
-## Pages release workflow — 2026-11-01
+## Pages release workflow - 2026-11-01
 
 Build and browser-test the static export on each pull request. After merge, reuse
 that artifact only when its successful PR run, PR number and source-tree hash
@@ -395,7 +404,7 @@ match, run the full build and browser checks on `main`. Manual dispatch from
 `main` always runs the full checks. Publish the validated artifact and keep
 Pages write and OIDC permissions scoped to the deploy job.
 
-## CHISPITAS home page — 2026-11-01
+## CHISPITAS home page - 2026-11-01
 
 Use the approved bright illustrated storybook style, rounded pastel tiles and
 five icon-led navigation items. (Navigation labels and tile titles later became
@@ -405,21 +414,21 @@ tile preview was superseded by "Adventure Map prototype". Use the
 real profile star balance; do not invent progress, daily limits or reward state.
 This decision adds no new game, account, curriculum or economy behavior.
 
-## World map direction — 2026-10-29
+## World map direction - 2026-10-29
 
 The home-page mission entry leads to a small animal world map before a mission.
 The map concept remains exploratory; locations, labels and interactions are
 not final. This direction does not expand the current MVP's game or content
 count. Verify asset rights before product use.
 
-## Product name — 2026-10-29
+## Product name - 2026-10-29
 
 The Spanish product name is **Aventura Animal**. (Partly superseded in the UI by the
 CHISPITAS brand, see 2026-11-05; formal naming is open.) English project
 documentation and package metadata use **Animal Adventure**. Existing browser storage keys
 remain unchanged for compatibility.
 
-## Repository and child-pilot requirements — 2026-10-31
+## Repository and child-pilot requirements - 2026-10-31
 
 The repository is public and GitHub Pages publishes from `main` at
 https://ae22589.github.io/educational-gaming-platform/. Use only local media;
@@ -434,7 +443,7 @@ vocabulary/audio remains English. Record confirmed decisions and unresolved
 prerequisites here and update affected specifications. Keep proposed, accepted,
 implemented and verified states distinct. Chat history is not the project
 source of truth.
-## Shared Adventure Map preview — 2026-11-09
+## Shared Adventure Map preview - 2026-11-09
 
 The Adventure Map presents one illustrated world for all subjects. Every completed
 unit contributes one step to a shared progression count, independent of its
@@ -447,15 +456,15 @@ placeholder values of two English units, one Science unit and twelve stars.
 Stars remain independent of unit completion. Real curriculum and game data
 remain pending.
 
-## English World unit catalog — 2026-11-09
+## English World unit catalog - 2026-11-09
 
-The catalog uses the ten owner-provided English titles with short Spanish descriptions. Unit URLs are exported as static preview pages. Each card uses a separate text-free generated WebP illustration. Cards follow the rainbow color order. Buttons use the English label “Explore this topic.”
+The catalog uses the ten owner-provided English titles with short Spanish descriptions. Unit URLs are exported as static preview pages. Each card uses a separate text-free generated WebP illustration. Cards follow the rainbow color order. Buttons use the English label "Explore this topic."
 
 ## Science World unit catalog - 2026-11-10
 
 Science World opens from the homepage and shares the English World catalog component, card styles and responsive grid. The six owner-provided titles link to unit pages. My Amazing Body! opens the existing body-parts mission at `/scienceworld/body/`, replacing its Science World preview and the former mission URL. The homepage and missions index link to the new route. The mission returns to the Science World catalog and retains its existing mission ID for saved progress. The five other units keep their static previews. Each unit uses its corresponding owner-provided illustration, cropped from a single sticker sheet and encoded as lossless WebP.
 
-## English World Sports activities — 2026-11-11
+## English World Sports activities - 2026-11-11
 
 The Sports unit offers Picture Match, Mystery Word, Build a Phrase, See It,
 Hear It, Spell It, Letter Scramble, Word Hunt, Look & Find, and Play, Go, Do,
@@ -490,7 +499,7 @@ Sports and Seasons game menus and the body-parts mission retain their routes.
 Document the import and release prerequisites in [Workbook curriculum](curriculum-import.md).
 
 The homepage welcome panel is the only place students see grade selection.
-Primaria 2 is selected and available, and Primaria 1 and 3–6 are disabled.
+Primaria 2 is selected and available, and Primaria 1 and 3-6 are disabled.
 Each world opens the single book for its subject and the available grade.
 
 ## Grade card artwork - 2026-11-15
@@ -542,19 +551,19 @@ The Sports fallback pictures are emoji or a CSS drawing, not downloaded workbook
 
 The owner explicitly authorized uploading the complete Excel workbook, including any private columns, to the public GitHub repository. Track `docs/SectionList.xlsx` and allow the importer to read it directly. The public generated JSON still exports only the fixed curriculum fields.
 
-## Supplied vocabulary artwork — 2026-11-17
+## Supplied vocabulary artwork - 2026-11-17
 
 Use the ten owner-supplied illustrations for An omelette, Breakfast, Cereals, Fizzy drink, Fruits, Good posture, Hairbrush, Ham, Joint and Lentils. Store transparent lossless WebP under the existing curriculum subsection folders, update the source workbook ImagePath cells, and regenerate curriculum data. Existing game image rendering uses these paths.
 
-## Supplied vocabulary batch 2 — 2026-11-17
+## Supplied vocabulary batch 2 - 2026-11-17
 
 Add 39 supplied illustrations for 11 food/hygiene/safety terms, 13 colors and 15 pets. Update 41 source workbook image cells, including the additional English Snake and Swimming pool entries. Match the word meaning and subsection: color Orange and pet Fish must not overwrite food illustrations. English Colors and Animals remain upcoming activity topics; this asset update does not assign new games. Existing Science games use the new workbook paths. Preserve workbook metadata, filters and formatting.
 
-## Science artwork protection and Spanish clues — 2026-11-17
+## Science artwork protection and Spanish clues - 2026-11-17
 
 Use new supplied vocabulary illustrations to replace sourced icons, retaining existing developer-created artwork and all body-game assets. Add new vocabulary files rather than overwriting or deleting any pre-existing public asset. Keep current custom Apple, Water and Knee pads references, saving new variants separately. Update 83 source workbook cells and regenerate curriculum data. Spanish fallback clues use a dedicated responsive text style, with wrapping and content-driven height instead of the fixed icon font and height. This applies to all shared practice games; body mission artwork and game logic remain unchanged.
 
-## My Little Friend — 2026-11-20
+## My Little Friend - 2026-11-20
 
 Save one chosen avatar, name, and first-save local calendar date per browser. Editing the name or avatar preserves the birthday. Happiness and cleanliness start full and hunger starts empty. The indicators display starting values. Reuse existing artwork and link the Little Dragon profile to the existing cave.
 
@@ -568,9 +577,9 @@ All routes share the same responsive primary header dimensions and colors. The h
 
 Use the previous homepage's navigation tile height, artwork size and corner radius at each breakpoint across the site. Four equal columns keep tile widths consistent across routes and retain the interior-page Home link.
 
-## Worksheet shortcuts — 2026-11-20
+## Worksheet shortcuts - 2026-11-20
 
-Use the workbook's worksheet registry for “Imprimir fichas” on section and topic
+Use the workbook's worksheet registry for "Imprimir fichas" on section and topic
 pages. A section includes all PDFs in its topics. A topic uses its stable
 workbook ID to select its own PDFs. Hide the action when there are zero PDFs,
 open a single PDF in a new tab, and open the prefiltered Worksheets list when
@@ -582,7 +591,7 @@ Food and Drinks adds Food Group Sort and Find the Food. Both use the shared prac
 
 Both games use the 18 foods in the three groups from the supplied curriculum chart. Water is shown separately in the chart and is outside the three sorting groups.
 
-## British English vocabulary audio pilot — 2026-11-21
+## British English vocabulary audio pilot - 2026-11-21
 
 Start with 20 vocabulary clips in a female British English voice. Store the
 MP3s under `public/audio/en-gb/` and link them from `vocabulary_list.AudioPath`.
@@ -596,21 +605,21 @@ paths are reused. Playback integration is a separate change.
 Picture Match replaces the correct-answer tone with the pronunciation and
 keeps the retry tone. Mystery Word plays the pronunciation on a correct letter
 selection. Both use the workbook's audio paths. Shared games
-in English and Science show “Stars” and award one per first-try correct answer.
+in English and Science show "Stars" and award one per first-try correct answer.
 
-Spelling uses the workbook recording for “Listen.” Build a Phrase and Letter
-Scramble play the recording after a correct “Check.” Sports and Seasons use
+Spelling uses the workbook recording for "Listen." Build a Phrase and Letter
+Scramble play the recording after a correct "Check." Sports and Seasons use
 separate recordings of the full sentences shown in Build a Phrase.
 
 Pronounce the associated term on correct answers in the remaining shared
-games and on correct placement in the body-parts mission. Keep “Stars”
+games and on correct placement in the body-parts mission. Keep "Stars"
 between the game list and the active panel.
 
 On the mobile homepage, prioritize the four main activity cards with more
 height. Use a compact illustrated row for the three quick links underneath
 and left-align the brand when the header stacks.
 
-## Vocabulary images in Picture Match — 2026-11-22
+## Vocabulary images in Picture Match - 2026-11-22
 
 Offer Picture Match on section and topic pages whenever workbook vocabulary
 has a public image. Use the section or topic's illustrated entries and retain
@@ -618,7 +627,7 @@ distinct illustrations of the same spelling. Keep the existing workbook game
 assignments and the body-parts mission. Treat `missing` as a workbook image
 placeholder.
 
-## Additional English vocabulary illustrations — 2026-11-22
+## Additional English vocabulary illustrations - 2026-11-22
 
 Use the 13 supplied lossless WebP illustrations for the previously missing
 Seasons, Animals, and Places and Activities vocabulary. Keep Stop marked
@@ -629,3 +638,4 @@ missing until artwork is available.
 Use the seven workbook topics for Discover the Animal Kingdom! and the existing
 bilingual subsection layout. Reuse existing vocabulary artwork for the same
 meaning, keeping different senses such as a sports bat and an animal separate.
+
