@@ -262,3 +262,6 @@ the shared Picture Match game includes them automatically.
 Science Book 2 Section 3, Discover the Animal Kingdom!, uses the shared
 subsection list and detail pages for seven bilingual topics. Section 3
 vocabulary reuses existing image paths for matching meanings.
+
+The Animal Kingdom unit has 19 additional supplied WebP illustrations
+assigned to 21 vocabulary rows across its seven topics.

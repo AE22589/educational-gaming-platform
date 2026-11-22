@@ -639,3 +639,9 @@ Use the seven workbook topics for Discover the Animal Kingdom! and the existing
 bilingual subsection layout. Reuse existing vocabulary artwork for the same
 meaning, keeping different senses such as a sports bat and an animal separate.
 
+
+## Animal Kingdom vocabulary illustrations
+
+Use the 19 supplied illustrations across the Animal Kingdom topics. Share
+Antenna and Butterfly artwork across their repeated rows. Preserve the
+English sports Bat illustration and use the animal artwork for Murciélago.

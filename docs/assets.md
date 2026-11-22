@@ -1114,3 +1114,25 @@ Owner-supplied artwork stored as lossless WebP.
 - `public/vocabulary/english/english-2-b1-s05/general/read-comics.webp`
 - `public/vocabulary/english/english-2-b1-s05/general/sing.webp`
 - `public/vocabulary/english/english-2-b1-s05/general/walk-the-dog.webp`
+
+## Science Animal Kingdom vocabulary illustrations
+
+- `public/vocabulary/science/science-2-b2-s03/caring-for-animals-and-supporting-people/animal-habitats.webp`
+- `public/vocabulary/science/science-2-b2-s03/caring-for-animals-and-supporting-people/blind.webp`
+- `public/vocabulary/science/science-2-b2-s03/discovering-invertebrate-animals/caterpillar.webp`
+- `public/vocabulary/science/science-2-b2-s03/discovering-invertebrate-animals/chrysalis.webp`
+- `public/vocabulary/science/science-2-b2-s03/discovering-the-animal-world/bees.webp`
+- `public/vocabulary/science/science-2-b2-s03/discovering-the-animal-world/birds.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-animal-homes-and-environments/aquatic-habitat.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-animal-homes-and-environments/aquatic.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-animal-homes-and-environments/beetle.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-animal-homes-and-environments/camel.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-animal-homes-and-environments/carnivore.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-mammals-and-birds/bat.webp`
+- `public/vocabulary/science/science-2-b2-s03/exploring-mammals-and-birds/chick.webp`
+- `public/vocabulary/science/science-2-b2-s03/learning-about-aquatic-and-land-vertebrates/amphibian.webp`
+- `public/vocabulary/science/science-2-b2-s03/understanding-animal-groups/antenna.webp`
+- `public/vocabulary/science/science-2-b2-s03/understanding-animal-groups/antennae.webp`
+- `public/vocabulary/science/science-2-b2-s03/understanding-animal-groups/bee.webp`
+- `public/vocabulary/science/science-2-b2-s03/understanding-animal-groups/butterfly.webp`
+- `public/vocabulary/science/science-2-b2-s03/understanding-animal-groups/claws.webp`
