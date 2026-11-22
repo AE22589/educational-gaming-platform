@@ -623,3 +623,11 @@ placeholder.
 Use the 13 supplied lossless WebP illustrations for the previously missing
 Seasons, Animals, and Places and Activities vocabulary. Keep Stop marked
 missing until artwork is available.
+
+## Local curriculum admin
+
+Keep the workbook as the source of managed games and vocabulary. Use an
+English-language editor that runs locally, saves a workbook draft, and can
+publish the saved batch as a single GitHub workbook commit. Keep GitHub
+credentials in the editor process environment and leave the public Pages
+site as a static export.

@@ -258,3 +258,10 @@ and checks that GitHub can read the uploaded artifact before deployment.
 Added 13 supplied vocabulary illustrations for Seasons, Animals, and Places
 and Activities. The workbook assigns them to their vocabulary entries, and
 the shared Picture Match game includes them automatically.
+
+## Local curriculum administration
+
+The local editor supports workbook game assignments and vocabulary, including
+two-column paste. It validates local drafts with the curriculum importer and can
+publish a saved draft in one workbook commit after GitHub credentials are set
+up. See [local curriculum admin](../tools/curriculum-admin/README.md).
