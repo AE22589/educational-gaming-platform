@@ -50,11 +50,12 @@ test("English and Science catalogs use their own book and export unit links", as
   await expect(page.getByRole("heading", { name: "2 Healthy Habits, Happy Life!" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.screenshot({ path: "test-results/curriculum-mobile.png" });
-  const upcoming = page.getByRole("article").filter({ hasText: "Discover the Animal Kingdom!" });
-  await expect(upcoming.getByText("Próximamente")).toBeVisible();
-  await expect(upcoming.getByRole("link")).toHaveCount(0);
-  await upcoming.click();
-  await expect(page).toHaveURL(`${base}/scienceworld/`);
+  const animalKingdom = page.getByRole("article").filter({ hasText: "Discover the Animal Kingdom!" });
+  await expect(animalKingdom.getByText("Próximamente")).toHaveCount(0);
+  const animalKingdomLink = animalKingdom.getByRole("link");
+  await expect(animalKingdomLink).toHaveAttribute("href", `${base}/unit/science-2-b2-s03/`);
+  await animalKingdomLink.click();
+  await expect(page).toHaveURL(`${base}/unit/science-2-b2-s03/`);
   await page.goto(`${base}/unit/science-2-b2-s01/`);
   await expect(page.getByText("Vocabulario", { exact: true })).toHaveCount(0);
   await page.getByRole("link", { name: "Misión: partes del cuerpo" }).click();
