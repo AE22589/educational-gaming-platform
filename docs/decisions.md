@@ -617,3 +617,9 @@ has a public image. Use the section or topic's illustrated entries and retain
 distinct illustrations of the same spelling. Keep the existing workbook game
 assignments and the body-parts mission. Treat `missing` as a workbook image
 placeholder.
+
+## Additional English vocabulary illustrations — 2026-11-22
+
+Use the 13 supplied lossless WebP illustrations for the previously missing
+Seasons, Animals, and Places and Activities vocabulary. Keep Stop marked
+missing until artwork is available.

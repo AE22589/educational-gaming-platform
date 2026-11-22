@@ -1098,3 +1098,19 @@ Owner-supplied artwork stored as lossless WebP.
 - `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/germs.webp`
 - `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/have-regular-showers.webp`
 - `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/wash-our-hands.webp`
+
+### Additional supplied English vocabulary illustrations
+
+- `public/vocabulary/english/english-2-b1-s02/general/draw-a-picture.webp`
+- `public/vocabulary/english/english-2-b1-s02/general/fly-a-kite.webp`
+- `public/vocabulary/english/english-2-b1-s02/general/paint-pictures.webp`
+- `public/vocabulary/english/english-2-b1-s02/general/read-a-book.webp`
+- `public/vocabulary/english/english-2-b1-s03/general/ears.webp`
+- `public/vocabulary/english/english-2-b1-s03/general/neck.webp`
+- `public/vocabulary/english/english-2-b1-s03/general/tail.webp`
+- `public/vocabulary/english/english-2-b1-s03/general/wings.webp`
+- `public/vocabulary/english/english-2-b1-s05/general/forest.webp`
+- `public/vocabulary/english/english-2-b1-s05/general/play-board-games.webp`
+- `public/vocabulary/english/english-2-b1-s05/general/read-comics.webp`
+- `public/vocabulary/english/english-2-b1-s05/general/sing.webp`
+- `public/vocabulary/english/english-2-b1-s05/general/walk-the-dog.webp`

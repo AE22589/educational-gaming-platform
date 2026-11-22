@@ -254,3 +254,7 @@ The Body section also retains its body-parts mission.
 
 The Pages deployment uses a separate artifact name for each workflow attempt
 and checks that GitHub can read the uploaded artifact before deployment.
+
+Added 13 supplied vocabulary illustrations for Seasons, Animals, and Places
+and Activities. The workbook assigns them to their vocabulary entries, and
+the shared Picture Match game includes them automatically.
