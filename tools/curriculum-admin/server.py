@@ -48,7 +48,8 @@ class WorkbookEditor:
         game_names = [str(row[0]).strip() for row in self.book["list_of_games"].values if row[0]]
         self.sections = {}
         for number, row in rows(self.catalog).items():
-            if not row["Section ID"]:
+            flag = row["Sub Section Yes/No"].casefold()
+            if not row["Section ID"] or flag not in {"yes", "no"}:
                 continue
             section, topic = row["Section ID"], row["Sub Section ID"]
             if topic:
