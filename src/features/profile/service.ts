@@ -33,6 +33,7 @@ import { createSession } from "./sessions";
 import { decodeSnapshot } from "./snapshot";
 import { APPLE_ITEM_ID, APPLE_PRICE_STARS, WATER_ITEM_ID, WATER_PRICE_STARS } from "@/features/shop/catalog";
 import { roundWords } from "@/features/learning/body-parts-mission";
+import { AVAILABLE_COMPANION_IDS } from "@/features/avatar/catalog";
 
 export function createEmptyProfile(): ProfileState {
   return {
@@ -50,6 +51,9 @@ export function createEmptyProfile(): ProfileState {
     processedRewardKeys: [],
     rewardLedger: [],
     bodyMissionProgress: null,
+    selectedCompanionId: null,
+    legacyCompanion: null,
+    companions: {},
   };
 }
 
@@ -334,6 +338,32 @@ export class ProfileService implements ProfilePort, RecoveryPort {
       if (!progress || progress.round !== 1 || progress.status !== "active" || !roundWords(1).every(({ id }) => progress.placedWordIds.includes(id))) return false;
       const saved = await this.persist(profileStateSchema.parse({ ...current, revision: current.revision + 1, bodyMissionProgress: { ...progress, round: 2 } }));
       return saved.status === "saved";
+    });
+  }
+
+  async importLegacyCompanion(friend: { avatarId: string; name: string; birthday: string }): Promise<boolean> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready" || this.state.ownership !== "exclusive" || !this.lease()) return false;
+      const current = this.state.snapshot as ProfileState;
+      if (current.legacyCompanion || current.selectedCompanionId) return true;
+      const parsed = profileStateSchema.safeParse({ ...current, revision: current.revision + 1, legacyCompanion: friend, companions: { ...current.companions, [friend.avatarId]: { name: friend.name, birthday: friend.birthday } }, selectedCompanionId: friend.avatarId === "dragon" ? "dragon" : null });
+      if (!parsed.success) return false;
+      return (await this.persist(parsed.data)).status === "saved";
+    });
+  }
+
+  async selectCompanion(id: string, name?: string, birthday?: string): Promise<boolean> {
+    return this.serial(async () => {
+      if (this.state.status !== "ready" || this.state.ownership !== "exclusive" || !this.lease()) return false;
+      if (!AVAILABLE_COMPANION_IDS.includes(id)) return false;
+      const current = this.state.snapshot as ProfileState;
+      const previous = current.companions[id];
+      const nextName = name?.trim() || previous?.name;
+      const nextBirthday = previous?.birthday ?? birthday;
+      if (!nextName || !nextBirthday) return false;
+      const parsed = profileStateSchema.safeParse({ ...current, revision: current.revision + 1, selectedCompanionId: id, companions: { ...current.companions, [id]: { name: nextName, birthday: nextBirthday } } });
+      if (!parsed.success) return false;
+      return (await this.persist(parsed.data)).status === "saved";
     });
   }
 

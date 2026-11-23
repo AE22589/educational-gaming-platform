@@ -196,6 +196,9 @@ for (const viewport of [
   test(`companion cave fits ${viewport.width}×${viewport.height} without scrolling`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto("/avatar");
+    await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+    await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+    await page.getByRole("button", { name: "Guardar y continuar" }).click();
 
     const caveImage = page.locator(".cave-art");
     const dragonImage = page.getByRole("img", { name: /Chispitas duerme enroscado/ });

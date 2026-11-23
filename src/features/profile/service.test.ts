@@ -84,6 +84,74 @@ function createService(store: SnapshotStore): ProfileService {
 }
 
 describe("shop profile transactions", () => {
+  it("preserves a legacy companion name and birthday with existing profile data", async () => {
+    const initial = { ...createEmptyProfile(), stars: 17, inventory: { apple: 3 } };
+    const store = new MemorySnapshotStore(initial);
+    const service = createService(store);
+    await service.initialize();
+    const friend = { avatarId: "dragon", name: "Draco", birthday: "2026-01-01" };
+    expect(await service.importLegacyCompanion(friend)).toBe(true);
+    expect(store.value).toMatchObject({ selectedCompanionId: "dragon", legacyCompanion: friend, stars: 17, inventory: { apple: 3 } });
+    service.dispose();
+  });
+
+  it("retains a companion's birthday and inventory when renaming", async () => {
+    const store = new MemorySnapshotStore({ ...createEmptyProfile(), stars: 15, inventory: { apple: 2 } });
+    const service = createService(store);
+    await service.initialize();
+    expect(await service.selectCompanion("dragon", "Draco", "2025-01-02")).toBe(true);
+    expect(await service.selectCompanion("dragon", "Luna", "2026-03-04")).toBe(true);
+    expect(store.value).toMatchObject({ stars: 15, inventory: { apple: 2 }, companions: { dragon: { name: "Luna", birthday: "2025-01-02" } } });
+    service.dispose();
+  });
+
+  it("retains an unavailable legacy friend's information without selecting it", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    const friend = { avatarId: "kitten", name: "Luna", birthday: "2025-06-01" };
+    expect(await service.importLegacyCompanion(friend)).toBe(true);
+    expect(await service.selectCompanion("dragon", "Draco", "2026-01-01")).toBe(true);
+    expect(store.value).toMatchObject({ legacyCompanion: friend, selectedCompanionId: "dragon", companions: { kitten: { name: "Luna", birthday: "2025-06-01" } } });
+    service.dispose();
+  });
+
+  it("does not report a failed legacy save as successful", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    store.failNextSave = true;
+    expect(await service.importLegacyCompanion({ avatarId: "dragon", name: "Draco", birthday: "2025-01-01" })).toBe(false);
+    expect(store.value).toMatchObject({ legacyCompanion: null, selectedCompanionId: null });
+    service.dispose();
+  });
+  it("persists only available companion selections without changing progress or inventory", async () => {
+    const initial = { ...createEmptyProfile(), stars: 17, inventory: { apple: 3 } };
+    const store = new MemorySnapshotStore(initial);
+    const service = createService(store);
+    await service.initialize();
+    for (const id of ["water-creature", "kitten", "fairy", "fox", "panda", "unicorn", "dog", "griffin", "dino"]) {
+      expect(await service.selectCompanion(id)).toBe(false);
+    }
+    expect(store.value).toEqual(initial);
+    expect(await service.selectCompanion("dragon", "Draco", "2026-01-01")).toBe(true);
+    expect(store.value).toEqual({ ...initial, selectedCompanionId: "dragon", companions: { dragon: { name: "Draco", birthday: "2026-01-01" } }, revision: 1 });
+    service.dispose();
+    const reloaded = createService(store);
+    await reloaded.initialize();
+    expect(reloaded.getState()).toMatchObject({ status: "ready", snapshot: { selectedCompanionId: "dragon", stars: 17, inventory: { apple: 3 } } });
+    reloaded.dispose();
+  });
+
+  it("does not report a failed companion save as successful", async () => {
+    const store = new MemorySnapshotStore();
+    const service = createService(store);
+    await service.initialize();
+    store.failNextSave = true;
+    expect(await service.selectCompanion("dragon", "Draco", "2026-01-01")).toBe(false);
+    expect(store.value?.selectedCompanionId).toBeNull();
+    service.dispose();
+  });
   it("gives a new profile 100 stars and saves repeat apple purchases atomically", async () => {
     const store = new MemorySnapshotStore();
     const service = createService(store);

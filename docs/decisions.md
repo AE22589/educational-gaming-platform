@@ -1,5 +1,21 @@
 # Project decisions
 
+## Companion selection and profile - 2026-11-23
+
+The existing companion selection leads to a naming step for the available dragon.
+Other companions remain visible in color with a coming-soon label. The profile
+stores the selected companion and a name and birthday per companion, retaining
+all stars, inventory and learning progress. A cave control opens the selector;
+a separate control edits the name while preserving its birthday. The original
+friend information card and its existing static indicators remain accessible
+from the cave, with the original shop link. A legacy non-dragon friend remains
+viewable from the selection screen. On first load,
+legacy friend data is copied to the profile without deleting the original. A
+previously selected dragon opens directly; other legacy selections remain stored
+until their companion becomes available. Additional companions require an area
+and an availability update before selection. Browser and release verification
+remain required.
+
 ## Printable worksheets - 2026-11-18
 
 The homepage activity card links to `/worksheets` with the Spanish label

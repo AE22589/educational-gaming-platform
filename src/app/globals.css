@@ -847,3 +847,72 @@ body:has(.chispitas-home) .icon-credit { display: inline; margin: 0; }
   .chispitas-hero .home-star-pill[role="status"] { grid-column: 1 / -1; }
 }
 
+/* Companion selection */
+.friend-picker { max-width: 1050px; margin: 0 auto; padding: 32px 24px 48px; text-align: center; color: #513b49; }
+.friend-picker-heading h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 4px 0 10px; color: #55355e; }
+.friend-picker-heading p { margin: 8px 0; }
+.friend-eyebrow { color: #a36336; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
+.friend-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 24px auto; }
+.friend-card { min-width: 0; display: flex; flex-direction: column; align-items: stretch; padding: 12px; border: 3px solid #f5d7a7; border-radius: 24px; background: #fffaf0; box-shadow: 0 9px 22px #75543c20; }
+.friend-card h2 { margin: 10px 0 12px; color: #513b49; font-size: 1.12rem; line-height: 1.2; overflow-wrap: anywhere; }
+.friend-art { position: relative; width: 100%; height: 130px; flex: none; overflow: hidden; border-radius: 20px; background: #ffedce; }
+.friend-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.friend-card button { min-height: 44px; margin-top: auto; border: 0; border-radius: 999px; padding: 10px 12px; background: #267641; color: white; font-weight: 800; cursor: pointer; }
+.friend-card button:disabled { opacity: .55; cursor: not-allowed; }
+.friend-soon { display: block; margin-top: auto; border-radius: 18px; background: #f6e9ff; color: #513169; padding: 10px 6px; font-weight: 800; line-height: 1.3; }
+.friend-links { display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap; }
+.friend-links button, .friend-links a { color: #674a70; font-weight: 700; background: transparent; border: 0; text-decoration: underline; cursor: pointer; }
+.friend-message { text-align: center; padding: 3rem; }
+@media (max-width: 800px) { .friend-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 500px) { .friend-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .friend-card { padding: 8px; } .friend-art { height: 105px; } .friend-card h2 { font-size: 1.1rem; } }
+.friend-name-form { display: flex; flex-direction: column; gap: 12px; max-width: 420px; margin: 24px auto; padding: 24px; border: 3px solid #f5d7a7; border-radius: 24px; background: #fffaf0; text-align: left; }
+.friend-name-form label { font-weight: 800; }
+.friend-name-form input { min-height: 48px; padding: 10px; border: 2px solid #755080; border-radius: 12px; font: inherit; }
+.friend-name-form button { min-height: 44px; border: 0; border-radius: 999px; background: #267641; color: white; font: inherit; font-weight: 800; cursor: pointer; }
+.friend-name-form button:disabled { opacity: .55; cursor: not-allowed; }
+.friend-name-form button[type="button"] { color: #513169; background: #f6e9ff; }
+
+/* Keep the cave artwork proportional when companion controls are present. */
+.cave-actions { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 8px; }
+.cave-name-edit { margin-left: 6px; color: #24477e; font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+@media (min-width: 901px) {
+  .cave-stage { --cave-frame-width: min(42vw, calc(100dvh - 330px)); }
+  body:has(.cave-page) .cave-frame { aspect-ratio: 1; }
+  body:has(.cave-page) .cave-art-window { height: auto; aspect-ratio: 1; }
+}
+@media (max-width: 900px) {
+  body:has(.cave-page) { height: auto; min-height: 100dvh; overflow: auto; }
+  body:has(.cave-page) .chispitas-main { flex: 1 0 auto; overflow: visible; }
+  body:has(.cave-page) .cave-page { height: auto; grid-template-rows: auto auto; }
+  body:has(.cave-page) .cave-heading-row { gap: 8px; }
+  .cave-actions { width: 100%; justify-content: flex-start; gap: 6px; }
+  body:has(.cave-page) .cave-actions .cave-back-link { min-height: 40px; padding: 6px 10px; font-size: clamp(.72rem, 2.7vw, .9rem); }
+  body:has(.cave-page) .cave-stage { grid-template-rows: auto auto; }
+  body:has(.cave-page) .cave-frame { width: min(100%, 400px, max(160px, calc(100dvh - 400px))); height: auto; max-height: none; aspect-ratio: 1; }
+  body:has(.cave-page) .cave-art-window { height: auto; max-height: none; aspect-ratio: 1; }
+}
+@media (min-width: 681px) and (max-width: 900px) {
+  body:has(.cave-page) .cave-stage { --cave-frame-width: min(42vw, 300px); }
+  body:has(.cave-page) .cave-frame { width: min(100%, 300px); }
+}
+@media (min-width: 681px) and (max-width: 900px) and (max-height: 500px) {
+  body:has(.cave-page) { height: 100dvh; min-height: 0; overflow: hidden; }
+  body:has(.cave-page) .chispitas-main { flex: 1 1 0; min-height: 0; overflow: hidden; }
+  body:has(.cave-page) .cave-page { height: 100%; min-height: 0; grid-template-rows: auto minmax(0, 1fr); padding: 3px 10px; }
+  body:has(.cave-page) .cave-heading-row { flex-direction: row; align-items: center; gap: 8px; margin-bottom: 3px; }
+  body:has(.cave-page) .cave-heading-row > div:first-child { flex: 1 1 auto; min-width: 0; }
+  body:has(.cave-page) .cave-eyebrow, body:has(.cave-page) .cave-heading-row > div:first-child > .cave-intro:nth-of-type(2) { display: none; }
+  body:has(.cave-page) .cave-heading-row h1 { font-size: 1.05rem; }
+  body:has(.cave-page) .cave-intro { margin-top: 2px; font-size: .72rem; }
+  body:has(.cave-page) .cave-actions { width: auto; flex: 0 0 auto; flex-wrap: nowrap; }
+  body:has(.cave-page) .cave-actions .cave-back-link { min-height: 32px; padding: 4px 8px; font-size: .68rem; }
+  body:has(.cave-page) .cave-stage { --cave-frame-width: min(230px, calc(100dvh - 185px)); --cave-inventory-width: 200px; grid-template-rows: minmax(0, 1fr); }
+  body:has(.cave-page) .cave-frame { width: var(--cave-frame-width); max-height: 100%; }
+  body:has(.cave-page) .cave-inventory { padding: 6px 8px; }
+  body:has(.cave-page) .cave-inventory h2 { font-size: .9rem; }
+  body:has(.cave-page) .cave-inventory > p { margin: 1px 0 3px; font-size: .7rem; }
+  body:has(.cave-page) .cave-consumables { gap: 3px; }
+  body:has(.cave-page) .cave-consumable { min-height: 45px; padding: 3px 8px; grid-template-columns: 36px minmax(0, 1fr); }
+  body:has(.cave-page) .cave-consumable img { width: 32px; height: 32px; }
+  body:has(.cave-page) .chispitas-footer { padding-block: 2px; font-size: .65rem; }
+}

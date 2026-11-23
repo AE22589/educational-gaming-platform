@@ -20,7 +20,7 @@ describe("versioned shared contracts", () => {
       "number",
     );
     expect(
-      profileStateSchema.parse({ ...profile, schemaVersion: 4, inventory: {}, bodyMissionProgress: null })
+      profileStateSchema.parse({ ...profile, schemaVersion: 5, selectedCompanionId: null, legacyCompanion: null, companions: {}, inventory: {}, bodyMissionProgress: null })
         .stars,
     ).toBe(0);
   });

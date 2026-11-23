@@ -21,7 +21,7 @@ together. A missing contract is reported, never independently redefined.
 
 `src/types/contracts.ts` is the single runtime authority. All exported domain
 TypeScript types are inferred from strict Zod schemas. Content bundle
-`contractVersion: 1`, profile `schemaVersion: 3`, mission/content versions,
+`contractVersion: 1`, profile `schemaVersion: 5`, mission/content versions,
 `stars-v1` and `mastery-v1` are distinct version axes. A schema change requires
 updating dependent consumers and, for persisted data, an explicit migration decision.
 
