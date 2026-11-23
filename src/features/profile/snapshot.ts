@@ -36,7 +36,7 @@ export function decodeSnapshot(raw: string): LoadResult {
     const profile = value as { stars?: unknown };
     value = {
       ...value,
-      schemaVersion: PROFILE_SCHEMA_VERSION,
+      schemaVersion: 4,
       bodyMissionProgress: null,
       ...(typeof profile.stars === "number" &&
       Number.isSafeInteger(profile.stars) &&
@@ -51,7 +51,10 @@ export function decodeSnapshot(raw: string): LoadResult {
     "schemaVersion" in value &&
     value.schemaVersion === 3
   ) {
-    value = { ...value, schemaVersion: PROFILE_SCHEMA_VERSION, bodyMissionProgress: null };
+    value = { ...value, schemaVersion: 4, bodyMissionProgress: null };
+  }
+  if (typeof value === "object" && value !== null && "schemaVersion" in value && value.schemaVersion === 4) {
+    value = { ...value, schemaVersion: PROFILE_SCHEMA_VERSION, selectedCompanionId: null, legacyCompanion: null, companions: {} };
   }
   const parsed = profileStateSchema.safeParse(value);
   return parsed.success

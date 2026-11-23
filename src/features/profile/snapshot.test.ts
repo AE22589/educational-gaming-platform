@@ -5,26 +5,30 @@ describe("snapshot decoder", () => {
   it("migrates v1 profiles and tops their starting balance up to 100 once", () => {
     expect(decodeSnapshot(JSON.stringify(profile))).toEqual({
       status: "ready",
-      snapshot: { ...profile, schemaVersion: 4, stars: 100, inventory: {}, bodyMissionProgress: null },
+      snapshot: { ...profile, schemaVersion: 5, selectedCompanionId: null, legacyCompanion: null, companions: {}, stars: 100, inventory: {}, bodyMissionProgress: null },
     });
   });
   it("tops up existing v2 profiles below 100 and preserves higher balances", () => {
     const oldProfile = { ...profile, schemaVersion: 2, inventory: {}, stars: 42 };
     expect(decodeSnapshot(JSON.stringify(oldProfile))).toMatchObject({
       status: "ready",
-      snapshot: { schemaVersion: 4, stars: 100, inventory: {}, bodyMissionProgress: null },
+      snapshot: { schemaVersion: 5, selectedCompanionId: null, legacyCompanion: null, companions: {}, stars: 100, inventory: {}, bodyMissionProgress: null },
     });
     expect(decodeSnapshot(JSON.stringify({ ...oldProfile, stars: 125 }))).toMatchObject({
       status: "ready",
-      snapshot: { schemaVersion: 4, stars: 125, bodyMissionProgress: null },
+      snapshot: { schemaVersion: 5, selectedCompanionId: null, legacyCompanion: null, companions: {}, stars: 125, bodyMissionProgress: null },
     });
   });
   it("migrates v3 profiles without reapplying the starting balance", () => {
     const currentProfile = { ...profile, schemaVersion: 3, inventory: { apple: 1 }, stars: 99 };
     expect(decodeSnapshot(JSON.stringify(currentProfile))).toMatchObject({
       status: "ready",
-      snapshot: { schemaVersion: 4, stars: 99, inventory: { apple: 1 }, bodyMissionProgress: null },
+      snapshot: { schemaVersion: 5, selectedCompanionId: null, legacyCompanion: null, companions: {}, stars: 99, inventory: { apple: 1 }, bodyMissionProgress: null },
     });
+  });
+  it("preserves v4 progress and inventory when adding companion selection", () => {
+    const old = { ...profile, schemaVersion: 4, inventory: { apple: 3 }, stars: 23, bodyMissionProgress: null };
+    expect(decodeSnapshot(JSON.stringify(old))).toEqual({ status: "ready", snapshot: { ...old, schemaVersion: 5, selectedCompanionId: null, legacyCompanion: null, companions: {} } });
   });
   it.each([
     ["{bad", "invalid-json"],

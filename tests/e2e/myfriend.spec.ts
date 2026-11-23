@@ -1,45 +1,57 @@
 import { expect, test } from "@playwright/test";
 
-test("saves and edits a friend while keeping its birthday", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 568 });
+test("chooses, names and edits a companion without losing its birthday", async ({ page }) => {
   await page.goto("/myfriend/");
-  const save = page.getByRole("button", { name: "Save" });
-  const name = page.getByLabel("¿Cómo se llamará tu amigo?");
-  await expect(page.getByRole("radio")).toHaveCount(10);
-  await expect(save).toBeDisabled();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth && document.documentElement.scrollHeight <= innerHeight)).toBe(true);
-
-  await name.fill("Draco");
-  await save.click();
-  await expect(page.getByRole("heading", { name: "Draco" })).toBeVisible();
-  await expect(page.getByRole("img", { name: "El Dragoncito" })).toBeVisible();
-  for (const label of ["Happiness", "Hunger", "Cleanliness"]) {
-    await expect(page.getByRole("meter", { name: label })).toBeVisible();
-  }
-  await expect(page.getByText("Birthday", { exact: true })).toBeVisible();
+  await expect(page.locator(".friend-card")).toHaveCount(10);
+  await expect(page.getByText("¡Próximamente!", { exact: true })).toHaveCount(9);
+  await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
+  await expect(page.getByRole("heading", { name: "La cueva de Chispitas" })).toBeVisible();
+  await expect(page.locator(".cave-intro").filter({ hasText: "Draco" })).toBeVisible();
+  await page.getByRole("button", { name: "Mi amigo" }).click();
   const birthday = await page.locator("time").getAttribute("datetime");
-  expect(birthday).toBe(await page.evaluate(() => new Date().toLocaleDateString("sv-SE")));
-
-  expect(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight)).toBe(true);
-  await page.getByRole("button", { name: "Editar amigo" }).click();
-  await expect(page.getByRole("button", { name: "Cancel", exact: true })).toBeVisible();
-  expect(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight)).toBe(true);
-  await name.fill("Draft");
-  await page.getByRole("button", { name: "Cancel", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Draco" })).toBeVisible();
-  await page.getByRole("button", { name: "Editar amigo" }).click();
-  await page.getByText("Kitten", { exact: true }).click();
-  await name.fill("Luna");
-  await save.click();
-  await page.reload();
-
-  await expect(page.getByRole("heading", { name: "Luna" })).toBeVisible();
-  await expect(page.getByRole("img", { name: "El Gatito" })).toBeVisible();
+  for (const label of ["Happiness", "Hunger", "Cleanliness"]) await expect(page.getByRole("meter", { name: label })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Star Shop/ })).toBeVisible();
+  await page.getByRole("button", { name: "Volver", exact: true }).click();
+  await page.getByRole("button", { name: "Cambiar nombre" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Luna");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
+  await expect(page.locator(".cave-intro").filter({ hasText: "Luna" })).toBeVisible();
+  await page.getByRole("button", { name: "Mi amigo" }).click();
   await expect(page.locator("time")).toHaveAttribute("datetime", birthday!);
-  await page.getByRole("link", { name: "Star Shop" }).click();
-  await expect(page).toHaveURL(/\/shop\/$/);
+  await page.getByRole("button", { name: "Volver", exact: true }).click();
+  await page.reload();
+  await expect(page.locator(".cave-intro").filter({ hasText: "Luna" })).toBeVisible();
+  await page.getByRole("button", { name: "Cambiar de amigo" }).click();
+  await expect(page.getByText("¡Próximamente!", { exact: true })).toHaveCount(9);
+  await page.getByRole("button", { name: "Volver con Chispitas" }).click();
+  await expect(page.locator(".cave-intro").filter({ hasText: "Luna" })).toBeVisible();
 });
 
+test("keeps an earlier unavailable friend accessible after choosing the dragon", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("chispitas.myfriend.v1", JSON.stringify({ avatarId: "kitten", name: "Luna", birthday: "2025-06-01" })));
+  await page.goto("/myfriend/");
+  await page.getByRole("button", { name: "Ver a Luna" }).click();
+  await expect(page.getByRole("heading", { name: "Luna" })).toBeVisible();
+  await expect(page.locator("time")).toHaveAttribute("datetime", "2025-06-01");
+  await page.getByRole("button", { name: "Volver", exact: true }).click();
+  await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
+  await page.getByRole("button", { name: "Cambiar de amigo" }).click();
+  await page.getByRole("button", { name: "Ver a Luna" }).click();
+  await expect(page.getByRole("heading", { name: "Luna" })).toBeVisible();
+});
+
+test("migrates a previously named dragon and preserves its birthday", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("chispitas.myfriend.v1", JSON.stringify({ avatarId: "dragon", name: "Draco", birthday: "2025-06-01" })));
+  await page.goto("/myfriend/");
+  await expect(page.locator(".cave-intro").filter({ hasText: "Draco" })).toBeVisible();
+  await page.getByRole("button", { name: "Mi amigo" }).click();
+  await expect(page.locator("time")).toHaveAttribute("datetime", "2025-06-01");
+});
 
 for (const viewport of [{ width: 390, height: 568 }, { width: 1280, height: 720 }]) {
   test(`primary header stays consistent across pages at ${viewport.width}px`, async ({ page }) => {
@@ -68,7 +80,7 @@ for (const viewport of [{ width: 390, height: 568 }, { width: 1280, height: 720 
     }
 
     await page.goto("/myfriend/");
-    const panel = page.getByRole("region", { name: /My Little Friend/ });
+    const panel = page.getByRole("region", { name: "Elige a tu pequeño amigo" });
     const [headerBox, panelBox] = await Promise.all([header.boundingBox(), panel.boundingBox()]);
     expect(panelBox!.y - (headerBox!.y + headerBox!.height)).toBeGreaterThanOrEqual(5);
   });

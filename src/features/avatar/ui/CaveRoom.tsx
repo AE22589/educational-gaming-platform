@@ -16,11 +16,12 @@ function getTimeOfDay(): TimeOfDay {
   return hour >= 6 && hour < 18 ? "day" : "night";
 }
 
-export function CaveRoom({ basePath }: { basePath: string }) {
+export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { basePath: string; onChooseFriend: () => void; onEditName: () => void; onDetails: () => void }) {
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay | null>(null);
   const [drag, setDrag] = useState<DragState | null>(null);
   const [dragonAnimation, setDragonAnimation] = useState<DragonAnimation>(null);
   const { service, state } = useProfile();
+  const dragon = state.status === "ready" ? state.snapshot.companions.dragon : undefined;
   const dragonRef = useRef<HTMLImageElement>(null);
   const dragRef = useRef<DragState | null>(null);
   const animationTimerRef = useRef<number | null>(null);
@@ -175,10 +176,13 @@ export function CaveRoom({ basePath }: { basePath: string }) {
           <p className="cave-eyebrow">Un rincón mágico</p>
           <h1 id="cave-title">La cueva de Chispitas</h1>
           <p className="cave-intro">Su pequeño lugar para descansar y soñar.</p>
+          {dragon && <p className="cave-intro">{dragon.name} <button type="button" className="cave-name-edit" onClick={onEditName}>Cambiar nombre</button></p>}
         </div>
-        <Link className="cave-back-link" href="/">
-          Volver al mundo
-        </Link>
+        <div className="cave-actions">
+          <button className="cave-back-link" type="button" onClick={onDetails}>Mi amigo</button>
+          <button className="cave-back-link" type="button" onClick={onChooseFriend}>Cambiar de amigo</button>
+          <Link className="cave-back-link" href="/">Volver al mundo</Link>
+        </div>
       </div>
 
       <div className="cave-stage">

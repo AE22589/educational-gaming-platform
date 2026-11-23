@@ -168,9 +168,9 @@ for (const width of [360, 768, 1280]) {
     await page
       .getByRole("link", { name: "My Little Friend: Ver amigo", exact: true })
       .click();
-    await page.getByLabel("¿Cómo se llamará tu amigo?").fill("Draco");
-    await page.getByRole("button", { name: "Save" }).click();
-    await page.getByRole("link", { name: "Visitar la cueva" }).click();
+    await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+    await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+    await page.getByRole("button", { name: "Guardar y continuar" }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "La cueva de Chispitas",
     );
@@ -196,6 +196,9 @@ for (const viewport of [
   test(`companion cave fits ${viewport.width}×${viewport.height} without scrolling`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto("/avatar");
+    await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+    await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+    await page.getByRole("button", { name: "Guardar y continuar" }).click();
 
     const caveImage = page.locator(".cave-art");
     const dragonImage = page.getByRole("img", { name: /Chispitas duerme enroscado/ });
@@ -229,6 +232,9 @@ for (const viewport of [
 test("the companion cave follows the 06:00 and 18:00 local-time changes", async ({ page }) => {
   await page.clock.install({ time: new Date(2026, 0, 1, 5, 59, 0) });
   await page.goto("/avatar");
+  await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
   const caveImage = page.locator(".cave-art");
   await expect(page.getByRole("img", { name: /luna.*estrellas/i })).toBeVisible();
   await expect.poll(() => caveImage.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
@@ -304,6 +310,9 @@ test("feeding the dragon plays the lossless WebP animations and returns to sleep
   const requested: string[] = [];
   page.on("request", (request) => requested.push(request.url()));
   await page.goto("/avatar/");
+  await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
   const dragon = page.locator(".cave-dragon");
   await expect(dragon).toHaveAttribute("src", /dragon-sleep.webp$/);
   // The feeding animations are fetched in the background before they are needed.
