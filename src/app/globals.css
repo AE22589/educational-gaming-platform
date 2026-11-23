@@ -848,7 +848,7 @@ body:has(.chispitas-home) .icon-credit { display: inline; margin: 0; }
 }
 
 /* Companion selection */
-.friend-picker { max-width: 1050px; margin: 0 auto; padding: 32px 24px 48px; text-align: center; color: #513b49; }
+.friend-picker { max-width: 1050px; margin: 8px auto 0; padding: 32px 24px 48px; text-align: center; color: #513b49; }
 .friend-picker-heading h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 4px 0 10px; color: #55355e; }
 .friend-picker-heading p { margin: 8px 0; }
 .friend-eyebrow { color: #a36336; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
