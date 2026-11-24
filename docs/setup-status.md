@@ -1,26 +1,26 @@
-# Current setup status — 2026-11-05
+# Current setup status - 2026-11-05
 
 ## Framework dependency maintenance - 2026-11-24
 
 Next.js and `eslint-config-next` are pinned to 16.4.6. A production build in the
 original checkout generated all 69 static pages at normal concurrency. The clean
-dependency-only worktree still encounters Windows `EPERM` errors while creating
-Next.js segment directories, including with single-worker settings; CI
-verification is pending. Twenty-four targeted Chromium cases in the original
-checkout reported success for the homepage, cave layout and companion switching.
-A single homepage case in the clean worktree also passed; Playwright then timed
-out after 90 seconds while tearing down its plugin setup. Screenshots of the
-mobile homepage, cave and companion selector were reviewed. The TypeScript ESLint
-update below resolved the remaining `minimatch` finding; `npm audit` reports
-zero vulnerabilities.
+dependency-only worktree encountered Windows `EPERM` errors while creating
+Next.js segment directories, including with single-worker settings. The CI
+production build and browser tests both passed on the pull request. Twenty-four
+targeted Chromium cases in the original checkout also reported success for the
+homepage, cave layout and companion switching. A single homepage case in the
+clean worktree passed before Playwright timed out after 90 seconds while tearing
+down its plugin setup. Screenshots of the mobile homepage, cave and companion
+selector were reviewed. The TypeScript ESLint update below resolved the remaining
+`minimatch` finding; `npm audit` reports zero vulnerabilities.
 
 ## TypeScript ESLint dependency maintenance - 2026-11-24
 
 The non-forced `npm audit fix` updated the TypeScript ESLint dependency tree to
 8.74.0 and `minimatch` to 11.0.9 within the existing version ranges. `npm audit`
 reports zero vulnerabilities. Lint, typecheck, documentation validation, all 53
-unit tests pass in the clean dependency-only worktree. Production build and
-browser-runner cleanup remain pending CI confirmation as described above.
+unit tests pass in the clean dependency-only worktree. The production build and
+browser tests also passed in CI.
 
 ## Dependency maintenance - 2026-11-24
 
@@ -34,16 +34,16 @@ The pronunciation library includes 473 British English MP3s under
 `public/audio/en-gb/`. All 507 workbook rows with an English term have an
 `AudioPath`. Repeated terms share clips. Picture Match plays the word on a
 correct answer, and Mystery Word plays it when the correct letter is selected.
-The shared games show their running “Stars” count between the game list and the
+The shared games show their running "Stars" count between the game list and the
 active game panel. Correct answers play the associated vocabulary recording.
-Spelling also offers “Listen,” and Build a Phrase plays the full phrase.
+Spelling also offers "Listen," and Build a Phrase plays the full phrase.
 The separate body-parts mission pronounces a word on correct placement.
 
 The homepage links to `/worksheets` from the printable activities card.
 Parents can browse worksheet files by subject, grade, book, section and topic.
 The first mapped PDF is under Science, Primary 2, Book 2, Healthy Habits,
 Healthcare and illnesses. The build imports the workbook before the static export.
-Section and topic pages show an “Imprimir fichas” action when matching PDFs exist.
+Section and topic pages show an "Imprimir fichas" action when matching PDFs exist.
 One PDF opens in a new tab. Multiple PDFs open the Worksheets page with the
 section and, when applicable, the topic already selected.
 English World and Science World show the workbook's section numbers in circular
@@ -56,7 +56,7 @@ verification: `main` at `f7a616a` on 2026-11-05 passed `npm run check:docs`,
 `npm run lint`, `npm run typecheck`, `npm test` (42 tests), `npm run build` and
 `npm run test:e2e` (8 tests).
 
-## Compact homepage — 2026-11-17
+## Compact homepage - 2026-11-17
 
 On phones, the four main activity cards are taller. The three quick links
 below use a compact layout with visible illustrations. The Chispitas brand
@@ -70,7 +70,7 @@ short, narrow screens the welcome subtitle and star balance share a row.
 
 ## Adventure Map prototype
 
-The home screen's Adventure Map tile opens `/adventuremap` via “Explorar el mapa.”
+The home screen's Adventure Map tile opens `/adventuremap` via "Explorar el mapa."
 The shared map and its Bosque Encantado detail are described in the 2026-11-09
 entry below. Real units, games, scores and saved progress are pending.
 
@@ -119,7 +119,7 @@ application check (build and browser tests) and the quality check (lint, typeche
 unit tests). A failure in any of them stops the deployment, but the change is
 already on `main`. The documentation impact check also runs on every push, but
 only as a warning (it never stops the deployment). An opt-out line
-`Docs-Impact: none — <reason>` in a commit message silences it. Planned
+`Docs-Impact: none - <reason>` in a commit message silences it. Planned
 improvements are listed in `docs/backlog.md`.
 
 ## Product status (what `main` serves)
@@ -130,7 +130,7 @@ improvements are listed in `docs/backlog.md`.
   shows "About Chispitas", "Contact Us" and "Log in/Register" on the home page;
   other pages prepend a "Home" link. "My Profile" and
   the "Science" preview are no longer in the top navigation. "Contact Us"
-  opens `/contact` and "About Chispitas" opens `/about`, friendly "¡Muy pronto!"
+  opens `/contact` and "About Chispitas" opens `/about`, friendly "�Muy pronto!"
   placeholder pages. "Log in/Register" opens `/login-register`, a UI-only sign-in
   and registration screen with English and Spanish labels; there is no authentication
   or account creation service.
@@ -172,7 +172,7 @@ use `.\start-dev.cmd` to launch the local preview without changing the
 PowerShell execution policy. The launcher finds a free port and gives each
 development server its own Next.js output directory. To request a specific
 port, run `.\start-dev.cmd --port 3001`.
-## Shared Adventure Map preview — 2026-11-09
+## Shared Adventure Map preview - 2026-11-09
 
 `/adventuremap` now displays one owner-supplied world map for all subjects.
 The owner-supplied Bosque Encantado detail image appears in the same map area
@@ -202,7 +202,7 @@ The homepage Science World tile opens the six-unit catalog at "/scienceworld". T
 ## Workbook curriculum - local review, 2026-11-14
 
 Both world catalogs read the generated public curriculum. The current export
-contains 16 units across two Primaria 2 books. Six illustrated homepage cards offer grades 1–6 with only Primaria 2 enabled.
+contains 16 units across two Primaria 2 books. Six illustrated homepage cards offer grades 1-6 with only Primaria 2 enabled.
 After selection, the cards hide and the navigation displays the grade.
 Each world opens the book for that subject and grade automatically. The shared unit page uses the workbook
 ID. Sports and Seasons use workbook vocabulary and game menus. My Amazing Body!
@@ -256,15 +256,15 @@ milk in Mystery Word. Captions and answer text stay outside the picture frame.
 
 The public curriculum now assigns seven existing pictures plus 46 lossless OpenMoji icons to vocabulary image paths. A separate row-by-row mapping in `docs/vocabulary-image-map.md` records the new paths. Twenty-two `Find` rows still lack confident pictures. Picture Match uses only words with WebP paths; other games retain Spanish clues. The complete owner-approved source workbook is now tracked at `docs/SectionList.xlsx`.
 
-## Vocabulary artwork — 2026-11-17
+## Vocabulary artwork - 2026-11-17
 
 Ten supplied illustrations are cropped to transparent lossless WebP and connected through docs/SectionList.xlsx and the public curriculum export. Existing image-based games display these pictures; missing vocabulary images retain translation clues.
 
-## Vocabulary batch 2 — 2026-11-17
+## Vocabulary batch 2 - 2026-11-17
 
 Thirty-nine supplied illustrations are stored as transparent lossless WebP at 41 curriculum-specific paths. The source workbook and generated curriculum include all mappings. Colors and Animals images are ready in curriculum data; their English activities remain upcoming. Existing Healthy Habits games display the new Science artwork.
 
-## Science batch 3 and clue layout — 2026-11-17
+## Science batch 3 and clue layout - 2026-11-17
 
 Eighty-two listed vocabulary terms have supplied artwork prepared; 83 workbook image cells are updated across relevant Science sections. Three new alternatives preserve current custom Apple, Water and Knee pads references. Every pre-existing public file is retained unchanged. Shared Spanish translation clues now wrap at readable text size and grow vertically, keeping subsequent controls below the text.
 
@@ -303,3 +303,4 @@ transparent day, night, sleep, eating and drinking artwork. The profile keeps
 companion-specific names and birthdays while preserving shared stars, inventory
 and learning progress when companions are switched. The bed remains future shop
 content. Review artwork rights before any child pilot.
+
