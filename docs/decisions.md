@@ -1,4 +1,27 @@
 # Project decisions
+
+## Next.js security maintenance - 2026-11-24
+
+Next.js and `eslint-config-next` are pinned together at 16.4.6. Keep the
+framework and its paired ESLint configuration aligned by release. The targeted
+update removes the Next.js advisories from `npm audit`; the remaining reported
+`minimatch` issue was in the separate TypeScript ESLint dependency tree and was
+resolved by the tooling update documented below. No game behavior changed.
+
+## TypeScript ESLint security maintenance - 2026-11-24
+
+The non-forced `npm audit fix` update moved the TypeScript ESLint dependency tree
+to 8.74.0 and `minimatch` to 11.0.9 within the existing version ranges. The npm
+audit then reported zero vulnerabilities. This is a development-tooling and lockfile
+update only; no game behavior or runtime dependency changed.
+
+## ESLint security maintenance - 2026-11-24
+
+ESLint is pinned to version 10.15.0 as a targeted tooling update. The initial
+audit reported `minimatch` through TypeScript ESLint and advisories in Next.js
+16.4.4. The framework and TypeScript ESLint updates documented above resolved
+those findings. Game behavior and runtime dependencies are unchanged.
+
 ## Water companion - 2026-11-23
 
 The water creature is a second selectable companion with its own name and

@@ -1,5 +1,35 @@
 # Current setup status — 2026-11-05
 
+## Framework dependency maintenance - 2026-11-24
+
+Next.js and `eslint-config-next` are pinned to 16.4.6. A production build in the
+original checkout generated all 69 static pages at normal concurrency. The clean
+dependency-only worktree still encounters Windows `EPERM` errors while creating
+Next.js segment directories, including with single-worker settings; CI
+verification is pending. Twenty-four targeted Chromium cases in the original
+checkout reported success for the homepage, cave layout and companion switching.
+A single homepage case in the clean worktree also passed; Playwright then timed
+out after 90 seconds while tearing down its plugin setup. Screenshots of the
+mobile homepage, cave and companion selector were reviewed. The TypeScript ESLint
+update below resolved the remaining `minimatch` finding; `npm audit` reports
+zero vulnerabilities.
+
+## TypeScript ESLint dependency maintenance - 2026-11-24
+
+The non-forced `npm audit fix` updated the TypeScript ESLint dependency tree to
+8.74.0 and `minimatch` to 11.0.9 within the existing version ranges. `npm audit`
+reports zero vulnerabilities. Lint, typecheck, documentation validation, all 53
+unit tests pass in the clean dependency-only worktree. Production build and
+browser-runner cleanup remain pending CI confirmation as described above.
+
+## Dependency maintenance - 2026-11-24
+
+ESLint is pinned to 10.15.0 and `npm run lint` passed after that update. The
+initial audit reported 8 moderate vulnerabilities, including `minimatch` through
+TypeScript ESLint and Next.js 16.4.4 advisories. The framework and TypeScript
+ESLint updates above resolved those findings. Game behavior and runtime
+dependencies are unchanged.
+
 The pronunciation library includes 473 British English MP3s under
 `public/audio/en-gb/`. All 507 workbook rows with an English term have an
 `AudioPath`. Repeated terms share clips. Picture Match plays the word on a
