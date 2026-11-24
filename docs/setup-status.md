@@ -265,3 +265,11 @@ vocabulary reuses existing image paths for matching meanings.
 
 The Animal Kingdom unit has 19 additional supplied WebP illustrations
 assigned to 21 vocabulary rows across its seven topics.
+
+## Water companion
+
+The water creature is available alongside the dragon. Its underwater cave uses
+transparent day, night, sleep, eating and drinking artwork. The profile keeps
+companion-specific names and birthdays while preserving shared stars, inventory
+and learning progress when companions are switched. The bed remains future shop
+content. Review artwork rights before any child pilot.

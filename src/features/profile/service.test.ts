@@ -130,7 +130,7 @@ describe("shop profile transactions", () => {
     const store = new MemorySnapshotStore(initial);
     const service = createService(store);
     await service.initialize();
-    for (const id of ["water-creature", "kitten", "fairy", "fox", "panda", "unicorn", "dog", "griffin", "dino"]) {
+    for (const id of ["kitten", "fairy", "fox", "panda", "unicorn", "dog", "griffin", "dino"]) {
       expect(await service.selectCompanion(id)).toBe(false);
     }
     expect(store.value).toEqual(initial);
@@ -141,6 +141,18 @@ describe("shop profile transactions", () => {
     await reloaded.initialize();
     expect(reloaded.getState()).toMatchObject({ status: "ready", snapshot: { selectedCompanionId: "dragon", stars: 17, inventory: { apple: 3 } } });
     reloaded.dispose();
+  });
+
+  it("preserves both companions and inventory when switching back and forth", async () => {
+    const store = new MemorySnapshotStore({ ...createEmptyProfile(), stars: 17, inventory: { apple: 3 } });
+    const service = createService(store);
+    await service.initialize();
+    expect(await service.selectCompanion("dragon", "Draco", "2025-01-01")).toBe(true);
+    expect(await service.selectCompanion("water-creature", "Nami", "2026-01-01")).toBe(true);
+    expect(await service.selectCompanion("dragon")).toBe(true);
+    expect(await service.selectCompanion("water-creature")).toBe(true);
+    expect(store.value).toMatchObject({ selectedCompanionId: "water-creature", stars: 17, inventory: { apple: 3 }, companions: { dragon: { name: "Draco", birthday: "2025-01-01" }, "water-creature": { name: "Nami", birthday: "2026-01-01" } } });
+    service.dispose();
   });
 
   it("does not report a failed companion save as successful", async () => {

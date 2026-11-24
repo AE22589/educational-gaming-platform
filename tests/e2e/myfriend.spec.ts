@@ -1,9 +1,56 @@
 import { expect, test } from "@playwright/test";
 
+for (const [hour, time] of [[10, "day"], [21, "night"]] as const) {
+  test(`water cave shows ${time} artwork on a phone`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.clock.install({ time: new Date(2026, 0, 1, hour, 0, 0) });
+    await page.goto("/myfriend/");
+    await page.getByRole("button", { name: "Elegir a La Criatura del Agua" }).click();
+    await page.getByLabel("Elige un nombre para tu amigo").fill("Nami");
+    await page.getByRole("button", { name: "Guardar y continuar" }).click();
+    await expect(page.locator(".cave-art")).toHaveAttribute("src", new RegExp(`/water-cave/${time}\\.webp`));
+    await expect.poll(() => page.locator(".cave-art").evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.getByRole("img", { name: "La criatura del agua duerme en la arena." })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `water-mobile-${time}.png` });
+  });
+}
+
+test("switches companions while keeping names, birthdays, stars and inventory", async ({ page }) => {
+  await page.goto("/myfriend/");
+  await page.getByRole("button", { name: "Elegir a La Criatura del Agua" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Nami");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
+  await expect(page.getByRole("heading", { name: "La cueva submarina" })).toBeVisible();
+  await page.getByRole("button", { name: "Mi amigo" }).click();
+  const birthday = await page.locator("time").getAttribute("datetime");
+  await page.getByRole("link", { name: /Star Shop/ }).click();
+  await page.locator(".product-apple").getByRole("button", { name: "Comprar" }).click();
+  await expect(page.locator(".shop-star-balance strong")).toHaveText("99");
+  await page.goto("/myfriend/");
+  await page.getByRole("button", { name: "Cambiar de amigo" }).click();
+  await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
+  await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
+  await page.getByRole("button", { name: "Guardar y continuar" }).click();
+  await expect(page.getByRole("heading", { name: "La cueva de Chispitas" })).toBeVisible();
+  await page.getByRole("button", { name: "Cambiar de amigo" }).click();
+  await page.getByRole("button", { name: "Elegir a La Criatura del Agua" }).click();
+  await expect(page.locator(".cave-intro").filter({ hasText: "Nami" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Arrastra manzana.*1 disponible/ })).toBeVisible();
+  await page.getByRole("button", { name: "Mi amigo" }).click();
+  await expect(page.locator("time")).toHaveAttribute("datetime", birthday!);
+  await page.getByRole("button", { name: "Volver", exact: true }).click();
+  await page.reload();
+  await expect(page.locator(".cave-intro").filter({ hasText: "Nami" })).toBeVisible();
+  await page.getByRole("button", { name: /Arrastra manzana/ }).press("Enter");
+  await expect(page.getByRole("img", { name: "La criatura del agua está comiendo una manzana." })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Manzana agotada" })).toBeVisible();
+});
+
 test("chooses, names and edits a companion without losing its birthday", async ({ page }) => {
   await page.goto("/myfriend/");
   await expect(page.locator(".friend-card")).toHaveCount(10);
-  await expect(page.getByText("¡Próximamente!", { exact: true })).toHaveCount(9);
+  await expect(page.getByText("¡Próximamente!", { exact: true })).toHaveCount(8);
   await page.getByRole("button", { name: "Elegir a Chispitas" }).click();
   await page.getByLabel("Elige un nombre para tu amigo").fill("Draco");
   await page.getByRole("button", { name: "Guardar y continuar" }).click();
@@ -25,7 +72,7 @@ test("chooses, names and edits a companion without losing its birthday", async (
   await page.reload();
   await expect(page.locator(".cave-intro").filter({ hasText: "Luna" })).toBeVisible();
   await page.getByRole("button", { name: "Cambiar de amigo" }).click();
-  await expect(page.getByText("¡Próximamente!", { exact: true })).toHaveCount(9);
+  await expect(page.getByText("¡Próximamente!", { exact: true })).toHaveCount(8);
   await page.getByRole("button", { name: "Volver con Chispitas" }).click();
   await expect(page.locator(".cave-intro").filter({ hasText: "Luna" })).toBeVisible();
 });

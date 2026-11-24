@@ -1,6 +1,6 @@
 export const companions = [
   { id: "dragon", name: "Chispitas", description: "Un dragón lleno de magia", image: "/homepage/my-little-friend-dragon.webp", available: true },
-  { id: "water-creature", name: "La Criatura del Agua", description: "Water Creature", image: "/myfriend/water-creature.webp", available: false },
+  { id: "water-creature", name: "La Criatura del Agua", description: "Water Creature", image: "/myfriend/water-creature-updated.webp", available: true },
   { id: "kitten", name: "El Gatito", description: "Kitten", image: "/myfriend/kitten.webp", available: false },
   { id: "fairy", name: "El Hada", description: "Fairy", image: "/myfriend/fairy.webp", available: false },
   { id: "fox", name: "El Zorrito", description: "Fox", image: "/myfriend/fox.webp", available: false },

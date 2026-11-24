@@ -1099,6 +1099,19 @@ Owner-supplied artwork stored as lossless WebP.
 - `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/have-regular-showers.webp`
 - `public/vocabulary/science/science-2-b2-s02/healthy-habits-and-hygiene/wash-our-hands.webp`
 
+### Water companion artwork
+
+The water companion artwork was created for the underwater cave. The animated
+WebP files preserve transparency and provide day, night, sleep, eating and
+drinking states. The portrait and animations were approved for the companion
+preview; asset rights must still be reviewed before a child pilot.
+
+- `public/myfriend/water-creature-updated.webp`
+- `public/water-cave/day.webp`
+- `public/water-cave/night.webp`
+- `public/water-cave/sleep.webp`
+- `public/water-cave/eat.webp`
+- `public/water-cave/drink.webp`
 ### Additional supplied English vocabulary illustrations
 
 - `public/vocabulary/english/english-2-b1-s02/general/draw-a-picture.webp`
