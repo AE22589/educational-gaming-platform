@@ -16,12 +16,14 @@ function getTimeOfDay(): TimeOfDay {
   return hour >= 6 && hour < 18 ? "day" : "night";
 }
 
-export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { basePath: string; onChooseFriend: () => void; onEditName: () => void; onDetails: () => void }) {
+export function CaveRoom({ basePath, companionId = "dragon", onChooseFriend, onEditName, onDetails }: { basePath: string; companionId?: "dragon" | "water-creature"; onChooseFriend: () => void; onEditName: () => void; onDetails: () => void }) {
+  const isWater = companionId === "water-creature";
+  const companionLabel = isWater ? "tu criatura del agua" : "Chispitas";
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay | null>(null);
   const [drag, setDrag] = useState<DragState | null>(null);
   const [dragonAnimation, setDragonAnimation] = useState<DragonAnimation>(null);
   const { service, state } = useProfile();
-  const dragon = state.status === "ready" ? state.snapshot.companions.dragon : undefined;
+  const dragon = state.status === "ready" ? state.snapshot.companions[companionId] : undefined;
   const dragonRef = useRef<HTMLImageElement>(null);
   const dragRef = useRef<DragState | null>(null);
   const animationTimerRef = useRef<number | null>(null);
@@ -49,15 +51,15 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
   // Fetch the feeding animations in the background so they start instantly on slow connections.
   useEffect(() => {
     const urls = [
-      `${basePath}/dragon-cave/dragon-eats-shop-apple.webp`,
-      `${basePath}/dragon-cave/dragon-drinks-shop-water.webp`,
+      isWater ? `${basePath}/water-cave/eat.webp` : `${basePath}/dragon-cave/dragon-eats-shop-apple.webp`,
+      isWater ? `${basePath}/water-cave/drink.webp` : `${basePath}/dragon-cave/dragon-drinks-shop-water.webp`,
     ];
     const preload = () => {
       for (const url of urls) new window.Image().src = url;
     };
     const timer = window.setTimeout(preload, 1500);
     return () => window.clearTimeout(timer);
-  }, [basePath]);
+  }, [basePath, isWater]);
 
   const feedDragon = async (item: Consumable) => {
     const itemCount = item === "apple" ? appleCount : waterCount;
@@ -73,7 +75,7 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
       setDragonAnimation(null);
       feedingRef.current = false;
       animationTimerRef.current = null;
-    }, item === "water" ? 3000 : 4010);
+    }, isWater ? 3420 : item === "water" ? 3000 : 4010);
   };
 
   const handlePointerDown = (item: Consumable, itemCount: number, event: PointerEvent<HTMLDivElement>) => {
@@ -107,10 +109,10 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
   };
 
   const imagePath = timeOfDay
-    ? `${basePath}/dragon-cave/cave-${timeOfDay}.webp`
+    ? isWater ? `${basePath}/water-cave/${timeOfDay}.webp` : `${basePath}/dragon-cave/cave-${timeOfDay}.webp`
     : undefined;
   const dragonPath = `${basePath}/dragon-cave/dragon-sleep.webp`;
-  const dragonImage = dragonAnimation === "apple"
+  const dragonImage = isWater ? `${basePath}/water-cave/${dragonAnimation === "apple" ? "eat" : dragonAnimation === "water" ? "drink" : "sleep"}.webp` : dragonAnimation === "apple"
     ? `${basePath}/dragon-cave/dragon-eats-shop-apple.webp`
     : dragonAnimation === "water"
       ? `${basePath}/dragon-cave/dragon-drinks-shop-water.webp`
@@ -126,7 +128,7 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
         tabIndex={count > 0 ? 0 : -1}
         aria-disabled={count < 1 || dragonAnimation !== null}
         aria-label={count > 0
-          ? `Arrastra ${itemLabel} hasta Chispitas. ${count} ${count === 1 ? "disponible" : "disponibles"}.`
+          ? `Arrastra ${itemLabel} hasta ${companionLabel}. ${count} ${count === 1 ? "disponible" : "disponibles"}.`
           : `${item === "apple" ? "Manzana" : "Agua fresca"} agotada`}
         aria-live="polite"
         onPointerDown={(event) => handlePointerDown(item, count, event)}
@@ -174,7 +176,7 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
       <div className="cave-heading-row">
         <div>
           <p className="cave-eyebrow">Un rincón mágico</p>
-          <h1 id="cave-title">La cueva de Chispitas</h1>
+          <h1 id="cave-title">{isWater ? "La cueva submarina" : "La cueva de Chispitas"}</h1>
           <p className="cave-intro">Su pequeño lugar para descansar y soñar.</p>
           {dragon && <p className="cave-intro">{dragon.name} <button type="button" className="cave-name-edit" onClick={onEditName}>Cambiar nombre</button></p>}
         </div>
@@ -197,7 +199,7 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
                 className="cave-art"
                 src={imagePath}
                 alt={
-                  timeOfDay === "night"
+                  isWater ? (timeOfDay === "night" ? "Una cueva submarina iluminada por la luna." : "Una cueva submarina iluminada por el sol.") : timeOfDay === "night"
                     ? "Interior de la cueva iluminado por la luna, con estrellas visibles en el cielo nocturno."
                     : "Interior de la cueva bañado por la luz del día y con cielo azul visible."
                 }
@@ -214,7 +216,7 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
               ref={dragonRef}
               className="cave-dragon"
               src={dragonImage}
-              alt={dragonAnimation === "apple" ? "Chispitas está comiendo una manzana." : dragonAnimation === "water" ? "Chispitas está bebiendo agua fresca." : "Chispitas duerme enroscado sobre el suelo de la cueva."}
+              alt={isWater ? (dragonAnimation === "apple" ? "La criatura del agua está comiendo una manzana." : dragonAnimation === "water" ? "La criatura del agua está bebiendo agua fresca." : "La criatura del agua duerme en la arena.") : dragonAnimation === "apple" ? "Chispitas está comiendo una manzana." : dragonAnimation === "water" ? "Chispitas está bebiendo agua fresca." : "Chispitas duerme enroscado sobre el suelo de la cueva."}
               width={512}
               height={512}
               unoptimized
@@ -225,7 +227,7 @@ export function CaveRoom({ basePath, onChooseFriend, onEditName, onDetails }: { 
         </div>
         <aside className="cave-inventory" aria-label="Inventario">
           <h2>Inventario</h2>
-          <p>Arrastra al dragón</p>
+          <p>{isWater ? "Arrastra a tu amigo" : "Arrastra al dragón"}</p>
           <div className="cave-consumables">
             {renderConsumable("water", waterCount)}
             {renderConsumable("apple", appleCount)}

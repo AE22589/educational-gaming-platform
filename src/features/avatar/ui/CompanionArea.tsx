@@ -24,7 +24,7 @@ export function CompanionArea({ basePath }: { basePath: string }) {
   const { service, state } = useProfile();
   const [legacyStatus, setLegacyStatus] = useState<"loading" | "ready" | "error">("loading");
   const [choosing, setChoosing] = useState(false);
-  const [naming, setNaming] = useState(false);
+  const [naming, setNaming] = useState<string | null>(null);
   const [detailsId, setDetailsId] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [saving, setSaving] = useState(false);
@@ -42,36 +42,37 @@ export function CompanionArea({ basePath }: { basePath: string }) {
   if (state.status === "loading" || (state.status === "ready" && legacyStatus === "loading")) return <p className="friend-message">Cargando a tus amigos…</p>;
   if (state.status !== "ready" || legacyStatus === "error") return <p className="friend-message" role="alert">No podemos leer o guardar tu amigo ahora. Tus datos anteriores se conservan.</p>;
   const selected = state.snapshot.selectedCompanionId;
-  const dragon = state.snapshot.companions.dragon;
   const save = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!name.trim() || !service) return;
     setSaving(true); setError(false);
-    const saved = await service.selectCompanion("dragon", name.trim(), localDate());
+    if (!naming) return;
+    const saved = await service.selectCompanion(naming, name.trim(), localDate());
     setSaving(false);
-    if (saved) { setNaming(false); setChoosing(false); } else setError(true);
+    if (saved) { setNaming(null); setChoosing(false); } else setError(true);
   };
   if (naming) return <section className="friend-picker" aria-labelledby="friend-name-title">
-    <h1 id="friend-name-title">¿Cómo se llamará tu dragón?</h1>
+    <h1 id="friend-name-title">{naming === "dragon" ? "¿Cómo se llamará tu dragón?" : "¿Cómo se llamará tu criatura del agua?"}</h1>
     <form className="friend-name-form" onSubmit={(event) => void save(event)}>
       <label htmlFor="friend-name-input">Elige un nombre para tu amigo</label>
       <input id="friend-name-input" value={name} onChange={(event) => setName(event.target.value)} maxLength={24} required autoComplete="off" />
       <button type="submit" disabled={saving || !name.trim() || state.ownership !== "exclusive"}>Guardar y continuar</button>
-      <button type="button" onClick={() => setNaming(false)}>Volver</button>
+      <button type="button" onClick={() => setNaming(null)}>Volver</button>
       {error && <p role="alert">No se pudo guardar. Inténtalo de nuevo.</p>}
     </form>
   </section>;
   const details = detailsId ? state.snapshot.companions[detailsId] : undefined;
-  if (details && detailsId) return <FriendDetails basePath={basePath} friend={{ avatarId: detailsId, ...details }} onBack={() => setDetailsId(null)} onEdit={detailsId === "dragon" ? () => { setDetailsId(null); setName(details.name); setNaming(true); } : undefined} />;
-  if (!choosing && selected === "dragon") return <CaveRoom basePath={basePath} onChooseFriend={() => setChoosing(true)} onDetails={() => setDetailsId("dragon")} onEditName={() => { setName(dragon?.name ?? ""); setNaming(true); }} />;
+  if (details && detailsId) return <FriendDetails basePath={basePath} friend={{ avatarId: detailsId, ...details }} onBack={() => setDetailsId(null)} onEdit={(detailsId === "dragon" || detailsId === "water-creature") ? () => { setDetailsId(null); setName(details.name); setNaming(detailsId); } : undefined} />;
+  if (!choosing && (selected === "dragon" || selected === "water-creature")) return <CaveRoom basePath={basePath} companionId={selected} onChooseFriend={() => setChoosing(true)} onDetails={() => setDetailsId(selected)} onEditName={() => { setName(state.snapshot.companions[selected]?.name ?? ""); setNaming(selected); }} />;
   return <section className="friend-picker" aria-labelledby="friend-title">
     <div className="friend-picker-heading"><p className="friend-eyebrow">Una aventura juntos</p><h1 id="friend-title">Elige a tu pequeño amigo</h1><p>¡Un amigo especial te espera para explorar y jugar!</p></div>
     <div className="friend-grid">{companions.map((friend) => <article className="friend-card" key={friend.id}>
       <div className="friend-art"><Image src={`${basePath}${friend.image}`} alt="" width={220} height={220} unoptimized /></div>
       <h2>{friend.name}</h2>
-      {friend.available ? <button type="button" disabled={state.ownership !== "exclusive"} onClick={() => { if (dragon && selected === friend.id) { setChoosing(false); } else { setName(dragon?.name ?? ""); setNaming(true); } }}>{selected === friend.id ? `Volver con ${friend.name}` : `Elegir a ${friend.name}`}</button> : <span className="friend-soon">¡Próximamente!</span>}
+      {friend.available ? <button type="button" disabled={state.ownership !== "exclusive" || saving} onClick={() => { const existing = state.snapshot.companions[friend.id]; if (selected === friend.id) { setChoosing(false); } else if (existing && service) { setSaving(true); void service.selectCompanion(friend.id).then((ok) => { setSaving(false); if (ok) setChoosing(false); else setError(true); }); } else { setName(""); setNaming(friend.id); } }}>{selected === friend.id ? `Volver con ${friend.name}` : `Elegir a ${friend.name}`}</button> : <span className="friend-soon">¡Próximamente!</span>}
     </article>)}</div>
     {state.ownership !== "exclusive" && <p role="alert">Abre esta aventura en una sola pestaña para elegir a tu amigo.</p>}
+    {error && <p role="alert">No se pudo guardar. Inténtalo de nuevo.</p>}
     <div className="friend-links">{selected && <button type="button" onClick={() => setChoosing(false)}>Volver con mi amigo</button>}{state.snapshot.legacyCompanion && state.snapshot.legacyCompanion.avatarId !== "dragon" && <button type="button" onClick={() => setDetailsId(state.snapshot.legacyCompanion!.avatarId)}>Ver a {state.snapshot.legacyCompanion.name}</button>}<Link href="/">Volver al mundo</Link></div>
   </section>;
 }

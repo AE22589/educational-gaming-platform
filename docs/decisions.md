@@ -1,4 +1,13 @@
 # Project decisions
+## Water companion - 2026-11-23
+
+The water creature is a second selectable companion with its own name and
+birthday. Switching companions retains the existing profile, stars, inventory,
+learning progress and the other companion's saved details. Its underwater cave
+uses day and night backgrounds and transparent sleep, eating and drinking
+animations. Food and water use the existing shared inventory; a bed is reserved
+for a later purchase. The other companions remain visible and unavailable.
+
 
 ## Companion selection and profile - 2026-11-23
 
